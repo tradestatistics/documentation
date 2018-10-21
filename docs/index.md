@@ -13,4 +13,4 @@ github-repo: tradestatistics/ts-documentation
 
 This documentation is an attempt to try to explain how to use the scripts that generate the data that powers [Open Trade Statistics](https://aaa/). 
 
-We made all the scripts available on my [GitHub profile](https://github.com/tradestatistics).
+We made all the scripts available under the [Trade Statistics Organization](https://github.com/tradestatistics).
