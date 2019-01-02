@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Open Trade Statistics Documentation</title>
   <meta name="description" content="Open Trade Statistics Documentation">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
   <meta property="og:title" content="Open Trade Statistics Documentation" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Pachá (Mauricio Vargas Sepúlveda)">
 
 
-<meta name="date" content="2018-10-21">
+<meta name="date" content="2019-01-02">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="data-sources.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -49,6 +50,69 @@
 
 
 
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -74,27 +138,14 @@
 <li class="chapter" data-level="3" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>3</b> Data Processing</a><ul>
 <li class="chapter" data-level="3.1" data-path="data-processing.html"><a href="data-processing.html#tidy-data"><i class="fa fa-check"></i><b>3.1</b> Tidy Data</a></li>
 <li class="chapter" data-level="3.2" data-path="data-processing.html"><a href="data-processing.html#filling-gaps-in-our-data"><i class="fa fa-check"></i><b>3.2</b> Filling gaps in our data</a></li>
-<li class="chapter" data-level="3.3" data-path="data-processing.html"><a href="data-processing.html#countries-not-included-in-rankings-and-indicators"><i class="fa fa-check"></i><b>3.3</b> Countries not included in rankings and indicators</a></li>
-<li class="chapter" data-level="3.4" data-path="data-processing.html"><a href="data-processing.html#github-repositories"><i class="fa fa-check"></i><b>3.4</b> GitHub repositories</a></li>
-<li class="chapter" data-level="3.5" data-path="data-processing.html"><a href="data-processing.html#software-information"><i class="fa fa-check"></i><b>3.5</b> Software information</a></li>
-<li class="chapter" data-level="3.6" data-path="data-processing.html"><a href="data-processing.html#hardware-information"><i class="fa fa-check"></i><b>3.6</b> Hardware information</a></li>
-<li class="chapter" data-level="3.7" data-path="data-processing.html"><a href="data-processing.html#reproducibility-notes"><i class="fa fa-check"></i><b>3.7</b> Reproducibility notes</a></li>
-<li class="chapter" data-level="3.8" data-path="data-processing.html"><a href="data-processing.html#coding-style-and-performant-code"><i class="fa fa-check"></i><b>3.8</b> Coding style and performant code</a></li>
-<li class="chapter" data-level="3.9" data-path="data-processing.html"><a href="data-processing.html#materials-of-interest"><i class="fa fa-check"></i><b>3.9</b> Materials of interest</a></li>
+<li class="chapter" data-level="3.3" data-path="data-processing.html"><a href="data-processing.html#github-repositories"><i class="fa fa-check"></i><b>3.3</b> GitHub repositories</a></li>
+<li class="chapter" data-level="3.4" data-path="data-processing.html"><a href="data-processing.html#software-information"><i class="fa fa-check"></i><b>3.4</b> Software information</a></li>
+<li class="chapter" data-level="3.5" data-path="data-processing.html"><a href="data-processing.html#hardware-information"><i class="fa fa-check"></i><b>3.5</b> Hardware information</a></li>
+<li class="chapter" data-level="3.6" data-path="data-processing.html"><a href="data-processing.html#reproducibility-notes"><i class="fa fa-check"></i><b>3.6</b> Reproducibility notes</a></li>
+<li class="chapter" data-level="3.7" data-path="data-processing.html"><a href="data-processing.html#coding-style-and-performant-code"><i class="fa fa-check"></i><b>3.7</b> Coding style and performant code</a></li>
+<li class="chapter" data-level="3.8" data-path="data-processing.html"><a href="data-processing.html#clean-datasets"><i class="fa fa-check"></i><b>3.8</b> Clean datasets</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html"><i class="fa fa-check"></i><b>4</b> The Mathematics of Economic Complexity</a><ul>
-<li class="chapter" data-level="4.1" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca"><i class="fa fa-check"></i><b>4.1</b> Revealed Comparative Advantage (RCA)</a></li>
-<li class="chapter" data-level="4.2" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#smooth-revealed-comparative-advantage-srca"><i class="fa fa-check"></i><b>4.2</b> Smooth Revealed Comparative Advantage (SRCA)</a></li>
-<li class="chapter" data-level="4.3" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#diversity-and-ubiquity"><i class="fa fa-check"></i><b>4.3</b> Diversity and Ubiquity</a></li>
-<li class="chapter" data-level="4.4" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#reflections-method"><i class="fa fa-check"></i><b>4.4</b> Reflections Method</a></li>
-<li class="chapter" data-level="4.5" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci"><i class="fa fa-check"></i><b>4.5</b> Economic Complexity Index (ECI)</a></li>
-<li class="chapter" data-level="4.6" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci"><i class="fa fa-check"></i><b>4.6</b> Product Complexity Index (PCI)</a></li>
-<li class="chapter" data-level="4.7" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-proximity"><i class="fa fa-check"></i><b>4.7</b> Product Proximity</a></li>
-<li class="chapter" data-level="4.8" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-proximity"><i class="fa fa-check"></i><b>4.8</b> Country Proximity</a></li>
-<li class="chapter" data-level="4.9" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-density"><i class="fa fa-check"></i><b>4.9</b> Product Density</a></li>
-<li class="chapter" data-level="4.10" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-density"><i class="fa fa-check"></i><b>4.10</b> Country Density</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>5</b> References</a></li>
+<li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -116,8 +167,8 @@
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">Open Trade Statistics Documentation</h1>
-<h4 class="author"><em>Pachá (Mauricio Vargas Sepúlveda)</em></h4>
-<h4 class="date"><em>2018-10-21</em></h4>
+<p class="author"><em>Pachá (Mauricio Vargas Sepúlveda)</em></p>
+<p class="date"><em>2019-01-02</em></p>
 </div>
 <div id="a-simple-documentation" class="section level1 unnumbered">
 <h1>A simple documentation</h1>
@@ -131,7 +182,7 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-65764144-13', 'auto');
+  ga('create', 'UA-65764144-21', 'auto');
   ga('send', 'pageview');
 </script>
             </section>
@@ -160,7 +211,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -173,6 +224,10 @@ gitbook.start({
 "link": null,
 "text": null
 },
+"history": {
+"link": null,
+"text": null
+},
 "download": null,
 "toc": {
 "collapse": "subsection"
@@ -181,6 +236,19 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
