@@ -25,7 +25,7 @@
 <meta name="author" content="Pachá (Mauricio Vargas Sepúlveda)">
 
 
-<meta name="date" content="2019-01-02">
+<meta name="date" content="2019-01-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="data-availability.html">
-<link rel="next" href="references.html">
+<link rel="next" href="the-mathematics-of-economic-complexity.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -143,9 +143,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5" data-path="data-processing.html"><a href="data-processing.html#hardware-information"><i class="fa fa-check"></i><b>3.5</b> Hardware information</a></li>
 <li class="chapter" data-level="3.6" data-path="data-processing.html"><a href="data-processing.html#reproducibility-notes"><i class="fa fa-check"></i><b>3.6</b> Reproducibility notes</a></li>
 <li class="chapter" data-level="3.7" data-path="data-processing.html"><a href="data-processing.html#coding-style-and-performant-code"><i class="fa fa-check"></i><b>3.7</b> Coding style and performant code</a></li>
-<li class="chapter" data-level="3.8" data-path="data-processing.html"><a href="data-processing.html#clean-datasets"><i class="fa fa-check"></i><b>3.8</b> Clean datasets</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>4</b> References</a></li>
+<li class="chapter" data-level="4" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html"><i class="fa fa-check"></i><b>4</b> The Mathematics of Economic Complexity</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca"><i class="fa fa-check"></i><b>4.1</b> Revealed Comparative Advantage (RCA)</a></li>
+<li class="chapter" data-level="4.2" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#smooth-revealed-comparative-advantage-srca"><i class="fa fa-check"></i><b>4.2</b> Smooth Revealed Comparative Advantage (SRCA)</a></li>
+<li class="chapter" data-level="4.3" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#diversity-and-ubiquity"><i class="fa fa-check"></i><b>4.3</b> Diversity and Ubiquity</a></li>
+<li class="chapter" data-level="4.4" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#reflections-method"><i class="fa fa-check"></i><b>4.4</b> Reflections Method</a></li>
+<li class="chapter" data-level="4.5" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci"><i class="fa fa-check"></i><b>4.5</b> Economic Complexity Index (ECI)</a></li>
+<li class="chapter" data-level="4.6" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci"><i class="fa fa-check"></i><b>4.6</b> Product Complexity Index (PCI)</a></li>
+<li class="chapter" data-level="4.7" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#countries-not-included-in-rankings-and-indicators"><i class="fa fa-check"></i><b>4.7</b> Countries not included in rankings and indicators</a></li>
+<li class="chapter" data-level="4.8" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-proximity"><i class="fa fa-check"></i><b>4.8</b> Product Proximity</a></li>
+<li class="chapter" data-level="4.9" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-proximity"><i class="fa fa-check"></i><b>4.9</b> Country Proximity</a></li>
+<li class="chapter" data-level="4.10" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-density"><i class="fa fa-check"></i><b>4.10</b> Product Density</a></li>
+<li class="chapter" data-level="4.11" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-density"><i class="fa fa-check"></i><b>4.11</b> Country Density</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="using-our-datasets.html"><a href="using-our-datasets.html"><i class="fa fa-check"></i><b>5</b> Using our datasets</a><ul>
+<li class="chapter" data-level="5.1" data-path="using-our-datasets.html"><a href="using-our-datasets.html#compressed-data"><i class="fa fa-check"></i><b>5.1</b> Compressed data</a></li>
+<li class="chapter" data-level="5.2" data-path="using-our-datasets.html"><a href="using-our-datasets.html#api"><i class="fa fa-check"></i><b>5.2</b> API</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="r-package.html"><a href="r-package.html"><i class="fa fa-check"></i><b>6</b> R package</a></li>
+<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -190,13 +207,10 @@ After symmetrization all observations are rounded to zero decimals.</p>
 <div id="github-repositories" class="section level2">
 <h2><span class="header-section-number">3.3</span> GitHub repositories</h2>
 <ul>
-<li><a href="https://github.com/tradestatistics/ts-yearly-datasets">Getting and cleaning data from UN COMTRADE (OTS Yearly Data)</a></li>
-<li><a href="https://github.com/tradestatistics/ts-atlas-data">Scraping data from The Atlas of Economic Complexity (OTS Atlas Data)</a>
-<!--
-* [Product and country codes (OTS Observatory Codes)](https://github.com/tradestatistics/ts-observatory-codes)
---></li>
-<li><a href="https://github.com/tradestatistics/ts-comtrade-codes">Product and country codes (OTS Comtrade Codes)</a></li>
-<li><a href="https://github.com/tradestatistics/ts-packrat-library/">R packages library for reproducibility (OTS Packrat Library)</a></li>
+<li><a href="https://github.com/tradestatistics/yearly-datasets">Getting and cleaning data from UN COMTRADE (OTS Yearly Data)</a></li>
+<li><a href="https://github.com/tradestatistics/atlas-data">Scraping data from The Atlas of Economic Complexity (OTS Atlas Data)</a></li>
+<li><a href="https://github.com/tradestatistics/comtrade-codes">Product and country codes (OTS Comtrade Codes)</a></li>
+<li><a href="https://github.com/tradestatistics/packrat-library/">R packages library for reproducibility (OTS Packrat Library)</a></li>
 </ul>
 </div>
 <div id="software-information" class="section level2">
@@ -216,97 +230,13 @@ After symmetrization all observations are rounded to zero decimals.</p>
 <h2><span class="header-section-number">3.6</span> Reproducibility notes</h2>
 <p>To guarantee reproducibility we provide <a href="https://rstudio.github.io/packrat/">Packrat</a> snapshot and bundles. This prevents changes in syntax, functions or dependencies.</p>
 <p>Our R installation is isolated from apt-get to avoid any accidental updates that can alter the data pipeline and/or the output.</p>
-<p>The projects are related to each other. In order to avoid multiple copies of files some projects read files from other projects. For example, <a href="https://github.com/tradestatistics/ts-yearly-datasets">OTS Yearly Datasets</a> input is the output of <a href="https://github.com/tradestatistics/ts-atlas-data">OTS Atlas Data</a>.</p>
+<p>The projects are related to each other. In order to avoid multiple copies of files some projects read files from other projects. For example, <a href="https://github.com/tradestatistics/yearly-datasets">OTS Yearly Datasets</a> input is the output of <a href="https://github.com/tradestatistics/atlas-data">OTS Atlas Data</a>.</p>
 <p>The only reproducibility flaw of this project lies in data downloading. Obtaining raw datasets from UN COMTRADE demands an API key that can only be obtained with institutional access that is limited to some universities and institutes.</p>
 </div>
 <div id="coding-style-and-performant-code" class="section level2">
 <h2><span class="header-section-number">3.7</span> Coding style and performant code</h2>
 <p>We used the <a href="http://style.tidyverse.org/">Tidyverse Style Guide</a>. As cornerstone references for performant code we followed <span class="citation">[<a href="#ref-advancedr2014">6</a>]</span> and <span class="citation">[<a href="#ref-masteringsoftware2017">7</a>]</span>.</p>
 <p>Some matrix operations are written in Rcpp to take advantage of C++ speed. To take full advantage of hardware and numerical libraries we am using sparse matrices as it is explained in <span class="citation">[<a href="#ref-rcpparmadillo2018">8</a>]</span>.</p>
-<!--
-## Materials of interest
-
-* [Product space layouts (Pacha's Product Space)](https://github.com/pachamaltese/oec-product-space)
--->
-</div>
-<div id="clean-datasets" class="section level2">
-<h2><span class="header-section-number">3.8</span> Clean datasets</h2>
-<p>There is a special consideration you should have with our datasets, and is that you should always read the trade values as a numeric column and the commodity codes as a character column.</p>
-<p>Different R packages, and statistical software in general, have includeded functions to autodetect column types. In our experience, that can read commodity codes as integers and that would ignore leading zeroes in commodity codes. The same applies to trade values that can be detected as integers after the program reads the first <span class="math inline">\(n\)</span> rows, and that would lead to read large values incorrectly due to integer class maximum value of 2,147,483,647.</p>
-<p>As an example, let’s read 1962 data:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># packages</span>
-
-<span class="kw">library</span>(data.table)
-<span class="kw">library</span>(dplyr)
-<span class="kw">library</span>(stringr)
-<span class="kw">library</span>(janitor)
-
-<span class="co"># custom functions</span>
-
-messageline &lt;-<span class="st"> </span><span class="cf">function</span>() {
-  <span class="kw">message</span>(<span class="kw">rep</span>(<span class="st">&quot;-&quot;</span>, <span class="dv">60</span>))
-}
-
-fread2 &lt;-<span class="st"> </span><span class="cf">function</span>(file, <span class="dt">select =</span> <span class="ot">NULL</span>, <span class="dt">character =</span> <span class="ot">NULL</span>, <span class="dt">numeric =</span> <span class="ot">NULL</span>) {
-  <span class="kw">messageline</span>()
-  <span class="kw">message</span>(<span class="st">&quot;function fread2&quot;</span>)
-  <span class="kw">message</span>(<span class="st">&quot;file: &quot;</span>, file)
-  
-  <span class="cf">if</span>(<span class="kw">str_sub</span>(file, <span class="dt">start =</span> <span class="dv">-2</span>) <span class="op">==</span><span class="st"> &quot;gz&quot;</span>) {
-    d &lt;-<span class="st"> </span><span class="kw">fread</span>(
-      <span class="dt">cmd =</span> <span class="kw">paste</span>(<span class="st">&quot;zcat&quot;</span>, file),
-      <span class="dt">select =</span> select,
-      <span class="dt">colClasses =</span> <span class="kw">list</span>(
-        <span class="dt">character =</span> character,
-        <span class="dt">numeric =</span> numeric
-      )
-    ) <span class="op">%&gt;%</span>
-<span class="st">      </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span>
-<span class="st">      </span><span class="kw">clean_names</span>()
-  } <span class="cf">else</span> {
-    d &lt;-<span class="st"> </span><span class="kw">fread</span>(
-      <span class="dt">input =</span> file,
-      <span class="dt">select =</span> select,
-      <span class="dt">colClasses =</span> <span class="kw">list</span>(
-        <span class="dt">character =</span> character,
-        <span class="dt">numeric =</span> numeric
-      )
-    ) <span class="op">%&gt;%</span>
-<span class="st">      </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span>
-<span class="st">      </span><span class="kw">clean_names</span>()
-  }
-  
-  <span class="kw">return</span>(d)
-}
-
-<span class="co"># download data</span>
-
-url_<span class="dv">1962</span> &lt;-<span class="st"> &quot;https://tradestatistics.io/data/04-unified-data/hs-rev2007/hs-rev2007-1962.csv.gz&quot;</span>
-gz_<span class="dv">1962</span> &lt;-<span class="st"> &quot;hs-rev2007-1962.csv.gz&quot;</span>
-
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(gz_<span class="dv">1962</span>)) {
-  <span class="kw">try</span>(<span class="kw">download.file</span>(url_<span class="dv">1962</span>, gz_<span class="dv">1962</span>))
-}
-
-<span class="co"># read data</span>
-
-data_<span class="dv">1962</span> &lt;-<span class="st"> </span><span class="kw">fread2</span>(gz_<span class="dv">1962</span>, <span class="dt">numeric =</span> <span class="st">&quot;trade_value_usd&quot;</span>, <span class="dt">character =</span> <span class="st">&quot;commodity_code&quot;</span>)
-
-data_<span class="dv">1962</span></code></pre>
-<pre><code>## # A tibble: 983,643 x 6
-##     year reporter_iso partner_iso commodity_code commodity_code_…
-##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                     &lt;int&gt;
-##  1  1962 afg          aus         5702                          4
-##  2  1962 afg          aus         570210                        6
-##  3  1962 afg          aut         0501                          4
-##  4  1962 afg          aut         0504                          4
-##  5  1962 afg          aut         050400                        6
-##  6  1962 afg          aut         5702                          4
-##  7  1962 afg          aut         570210                        6
-##  8  1962 afg          bel         0501                          4
-##  9  1962 afg          bel         0504                          4
-## 10  1962 afg          bel         050400                        6
-## # ... with 983,633 more rows, and 1 more variable: trade_value_usd &lt;dbl&gt;</code></pre>
 
 </div>
 </div>
@@ -352,7 +282,7 @@ data_<span class="dv">1962</span></code></pre>
         </div>
       </div>
 <a href="data-availability.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="the-mathematics-of-economic-complexity.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

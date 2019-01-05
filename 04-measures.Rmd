@@ -2,6 +2,8 @@
 
 This section is adapted from [@atlas2014] but it differs at some points. In particular [@mesuringcomplexity2015] and [@interpretationreflections2014] provide useful technical details.
 
+Our changes here consisted in expressing most of the original equations in terms of matrix and vectors. This is because if you use statistical software such as R, it's more efficient to use linear algebra instead of other operations.
+
 ## Revealed Comparative Advantage (RCA)
 
 When associating countries to products it is important to take into account the size of the export volume of countries and that of the world trade of products. This is because, even for the same product, we expect the volume of exports of a large country like China, to be larger than the volume of exports of a small country like Uruguay. By the same, we expect the export volume of products that represent a large fraction of world trade, such as cars or footwear, to represent a larger share of a country's exports than products that account for a small fraction of world trade, like cotton seed oil or potato flour.
@@ -148,6 +150,8 @@ We considered simultaneously:
 knitr::include_graphics("fig/countries.svg")
 ```
 
+The full list of included countries is available [here](https://github.com/tradestatistics/atlas-data/blob/master/2-scraped-tables/ranking-1-economic-complexity-index.csv).
+
 ## Product Proximity
 
 To make products you need chunks of embedded knowledge which [@atlas2014] calls capabilities. The capabilities needed to produce one good may or may not be useful in the production of other goods. Since we do not observe capabilities directly, we create a measure that infers the similarity between the capabilities required by a pair of goods by looking at the probability that they are coexported. To quantify this similarity we assume that if two goods share most of the requisite capabilities, the countries that export one will also export the other.
@@ -190,9 +194,7 @@ $$
 
 ## Product Density
 
-This concept appears in [@productspace2007], however the matricial formulation is not a part of the original article.
-
-Product Density is the weighted mean proximity of a new potential product $p$ to a country’s current productive capability. In formal terms this is the matrix $\Psi \in \mathbb{R}^{C\times P}$ defined by:
+Product Density, as introduced in [@productspace2007], is the weighted mean proximity of a new potential product $p$ to a country’s current productive capability. In formal terms this is the matrix $\Psi \in \mathbb{R}^{C\times P}$ defined by:
 
 $$
 \Psi = (S\Phi) \oslash (\tilde{S}\Phi)

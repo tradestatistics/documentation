@@ -2,5 +2,6 @@ book_filename: "oec-documentation"
 chapter_name: "Section "
 repo: https://github.com/observatory-economic-complexity/oec-documentation
 output_dir: docs
-rmd_files: ["index.Rmd", "01-sources.Rmd", "02-availability.Rmd", "03-processing.Rmd", "05-references.Rmd"]
+rmd_files: ["index.Rmd", "01-sources.Rmd", "02-availability.Rmd", 
+"03-processing.Rmd", "04-measures.Rmd", "05-datasets.Rmd", "06-references.Rmd"]
 new_session: yes

@@ -1,0 +1,112 @@
+# Using our datasets
+
+## Compressed data
+
+There is a special consideration you should have with our datasets, and is that you should always read the trade values as a numeric column and the commodity codes as a character column.
+
+Different R packages, and statistical software in general, have includeded functions to autodetect column types. In our experience, that can read commodity codes as integers and that would ignore leading zeroes in commodity codes. The same applies to trade values that can be detected as integers after the program reads the first $n$ rows, and that would lead to read large values incorrectly due to integer class maximum value of 2,147,483,647.
+
+As an example, let's read 1962 data:
+
+```{r, warning=FALSE, message=FALSE}
+# packages
+
+library(data.table)
+library(dplyr)
+library(stringr)
+library(janitor)
+
+# custom functions
+
+messageline <- function() {
+  message(rep("-", 60))
+}
+
+fread2 <- function(file, select = NULL, character = NULL, numeric = NULL) {
+  messageline()
+  message("function fread2")
+  message("file: ", file)
+  
+  if(str_sub(file, start = -2) == "gz") {
+    d <- fread(
+      cmd = paste("zcat", file),
+      select = select,
+      colClasses = list(
+        character = character,
+        numeric = numeric
+      )
+    ) %>%
+      as_tibble() %>%
+      clean_names()
+  } else {
+    d <- fread(
+      input = file,
+      select = select,
+      colClasses = list(
+        character = character,
+        numeric = numeric
+      )
+    ) %>%
+      as_tibble() %>%
+      clean_names()
+  }
+  
+  return(d)
+}
+
+# download data
+
+url_1962 <- "https://tradestatistics.io/data/06-tables/hs-rev2007/1-yrpc/yrpc-1962.csv.gz"
+gz_1962 <- "yrpc-2016.csv.gz"
+
+if (!file.exists(gz_1962)) {
+  try(download.file(url_1962, gz_1962))
+}
+
+# read data
+
+data_1962 <- fread2(
+      "yrpc-2016.csv.gz",
+      character = "commodity_code",
+      numeric = c(
+        "export_value_usd",
+        "import_value_usd",
+        "export_value_usd_change_1_year",
+        "export_value_usd_change_5_years",
+        "export_value_usd_percentage_change_1_year",
+        "export_value_usd_percentage_change_5_years",
+        "import_value_usd_change_1_year",
+        "import_value_usd_change_5_years",
+        "import_value_usd_percentage_change_1_year",
+        "import_value_usd_percentage_change_5_years"
+      )
+    )
+
+data_1962
+```
+
+## API
+
+By using the API you can obtain the same result as above, but in a simpler way. Because the API uses PostgreSQL queries that are converted to JSON, the columns are always read correctly with `jsonlite` R package.
+
+```{r, warning=FALSE, message=FALSE, cache = TRUE}
+library(jsonlite)
+
+data_1962 <- fromJSON(
+  "https://api.tradestatistics.io/yrpc?y=1962&r=all&p=all&l=4"
+)
+
+data_1962
+```
+
+# R package
+
+We also provide an R package that is fully documented [here](https://tradestatistics.github.io/r-package/). However, this is how to obtain the same data from the last two sections with our R package:
+
+```{r, warning=FALSE, message=FALSE, cache = TRUE}
+library(tradestatistics)
+
+data_1962 <- get_data(years = 1962, reporter = "all", partner = "all")
+
+data_1962
+```
