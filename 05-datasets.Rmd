@@ -87,21 +87,187 @@ data_1962
 
 ## API
 
-By using the API you can obtain the same result as above, but in a simpler way. Because the API uses PostgreSQL queries that are converted to JSON, the columns are always read correctly with `jsonlite` R package.
+By using the API you can obtain the same result as above, but in a simpler way: 
 
 ```{r, warning=FALSE, message=FALSE, cache = TRUE}
 library(jsonlite)
 
-data_1962 <- fromJSON(
+data_1962 <- as_tibble(fromJSON(
   "https://api.tradestatistics.io/yrpc?y=1962&r=all&p=all&l=4"
-)
+))
 
 data_1962
 ```
 
-# R package
+Because the API uses PostgreSQL queries that are converted to JSON, the columns are always read correctly with `jsonlite` R package.
 
-We also provide an R package that is fully documented [here](https://tradestatistics.github.io/r-package/). However, this is how to obtain the same data from the last two sections with our R package:
+The last API call makes sense with respect to `y`, `r` and `p`, but `l` is a requiered parameter that will be detailed in the forthcoming "Data" subsection.
+
+### Metadata
+
+The advantage of the API over https download is that you can filter what to obtain and also access some additional tables:
+
+```{r, warning=FALSE, message=FALSE, cache = TRUE}
+## Countries (no filter)
+countries <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/countries"
+))
+
+## Products (no filter)
+products <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/products"
+))
+```
+
+```{r}
+countries
+```
+
+```{r}
+products
+```
+
+### Data
+
+#### Available reporters
+
+The only applicable filter is by year.
+
+```{r, warning=FALSE, message=FALSE, cache = TRUE}
+# Available reporters (filter by year)
+reporters <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/reporters?y=2015"
+))
+```
+
+#### Country rankings
+
+The only applicable filter is by year.
+
+```{r, warning=FALSE, message=FALSE, cache = TRUE}
+# Country rankings (filter by year)
+country_rankings <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/country_rankings?y=2015"
+))
+```
+
+#### Product rankings
+
+The only applicable filter is by year.
+
+```{r, warning=FALSE, message=FALSE, cache = TRUE}
+# Product rankings (filter by year)
+product_rankings <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/product_rankings?y=2015"
+))
+```
+
+#### Year - Reporter - Partner - Commodity
+
+You can filter by year, reporter and partner but not by commodity. The length (`l`) parameter allows efficient queries provided our data contains both 4 and 6 digits long commodity codes. Because 4 digits code contain 6 digits codes, our approach is to allow the user to use `l=4`, `l=6` or `l=all` to provide just the requested data.
+
+```{r, warning=FALSE, message=FALSE, cache = TRUE}
+# Year - Reporter - Partner - Commodity (filter by year, reporter and partner)
+yrpc <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yrpc?y=2015&r=chl&p=arg&l=4"
+))
+
+yrpc
+```
+
+Some columns requiere an explanation:
+
+* `commodity_code`: HS07 product codes (e.g. according to the \code{products} table within this package, 0101 stands for "Horses, etc.")
+* `commodity_code_length`: How many digits does `commodity_code` contain, this can be useful to filter by depth when using HS codes (HS 6 digits is a more detailed version of HS 4 digits, and therefore you don't have to sum both or you'll be counting exports/imports twice)
+* `group_code`: International categorization of group products defined after product ID
+* `group_name`: English name corresponding to `group_id`
+* `export_value_usd`: Exports measured in nominal United States Dollars (USD)
+* `import_value_usd`: Imports measured in nominal United States Dollars (USD)
+* `export_value_usd_percentage_change_1_year`: Nominal increase/decrease in exports measured as percentage with respect to last year
+* `export_value_usd_percentage_change_5_years`: Nominal increase/decrease in exports measured as percentage with respect to five years ago
+* `export_value_usd_change_1_year`: Nominal increase/decrease in exports measured in USD with respect to last year
+* `export_value_usd_change_5_years`: Nominal increase/decrease in exports measured in USD with respect to five years ago
+
+#### Year - Reporter - Commodity
+
+The only applicable filter is by year and reporter, but not by commodity. Exactly as `yrpc` from the subsections above, the `l` parameter is required.
+
+```{r, warning=FALSE, message=FALSE, cache = TRUE}
+## Year - Reporter - Commodity (filter by year and reporter)
+yrc <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yrc?y=2015&r=chl&l=4"
+))
+```
+
+Let's explore the first rows of `yrc`:
+
+```{r}
+yrc
+```
+
+Here the `export_rca*` and `import_rca*` fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/).
+
+#### Year - Reporter - Partner
+
+The only applicable filter is by year, reporter and partner.
+
+```{r, warning=FALSE, message=FALSE, cache = TRUE}
+# Year - Reporter - Partner (filter by year, reporter and partner)
+yrp <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yrp?y=2015&r=chl&p=arg"
+))
+```
+
+#### Year - Commodity
+
+The only applicable filter is by year.
+
+```{r, warning=FALSE, message=FALSE, cache = TRUE}
+# Year - Commodity (filter by year)
+yc <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yc?y=2015"
+))
+```
+
+Let's explore the first rows of `yr`:
+
+```{r}
+yc
+```
+
+Here some fields deserve an explanation:
+
+* `pci_4_digits_commodity_code`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits commodity codes.
+* `pci_6_digits_commodity_code`: Similar to the previous field but built by using just six digits commodity codes.
+* `pci_rank_4_digits_commodity_code`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
+* `pci_rank_4_digits_commodity_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+
+#### Year - Reporter
+
+The only applicable filter is by year and reporter.
+
+```{r, warning=FALSE, message=FALSE, cache = TRUE}
+## Year - Reporter (filter by year and reporter)
+yr <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yr?y=2015&r=chl"
+))
+```
+
+Let's explore the first rows of `yr`:
+
+```{r}
+yr
+```
+
+Some fields here require more detail:
+
+* `eci_4_digits_commodity_code`: Economic Complexity Index (ECI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits commodity codes.
+* `eci_rank_4_digits_commodity_code`: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)
+* `eci_rank_4_digits_commodity_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+
+## R package
+
+We also provide an R package that is fully documented [here](https://tradestatistics.github.io/tradestatistics/). However, this is how to obtain some of the same data from the last two sections with our R package:
 
 ```{r, warning=FALSE, message=FALSE, cache = TRUE}
 library(tradestatistics)
