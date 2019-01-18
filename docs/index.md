@@ -1,12 +1,12 @@
 --- 
 title: "Open Trade Statistics Documentation"
 author: "Pachá (Mauricio Vargas Sepúlveda)"
-date: "2019-01-05"
+date: "2019-01-18"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [references.bib]
 link-citations: yes
-github-repo: tradestatistics/ts-documentation
+github-repo: tradestatistics/documentation
 ---
 
 # A simple documentation {-}

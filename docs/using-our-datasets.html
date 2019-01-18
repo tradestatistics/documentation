@@ -14,7 +14,7 @@
   
   
   
-  <meta name="github-repo" content="tradestatistics/ts-documentation" />
+  <meta name="github-repo" content="tradestatistics/documentation" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Section 5 Using our datasets | Open Trade Statistics Documentation" />
@@ -25,7 +25,7 @@
 <meta name="author" content="Pachá (Mauricio Vargas Sepúlveda)">
 
 
-<meta name="date" content="2019-01-05">
+<meta name="date" content="2019-01-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -163,7 +163,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="using-our-datasets.html"><a href="using-our-datasets.html#metadata"><i class="fa fa-check"></i><b>5.2.1</b> Metadata</a></li>
 <li class="chapter" data-level="5.2.2" data-path="using-our-datasets.html"><a href="using-our-datasets.html#data"><i class="fa fa-check"></i><b>5.2.2</b> Data</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="using-our-datasets.html"><a href="using-our-datasets.html#r-package"><i class="fa fa-check"></i><b>5.3</b> R package</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
 <li class="divider"></li>
@@ -279,7 +278,7 @@ data_<span class="dv">1962</span></code></pre>
 ##  8  1962 afg          bel         0501                          4
 ##  9  1962 afg          bel         0504                          4
 ## 10  1962 afg          bel         050400                        6
-## # ... with 1,709,024 more rows, and 10 more variables:
+## # … with 1,709,024 more rows, and 10 more variables:
 ## #   export_value_usd &lt;dbl&gt;, import_value_usd &lt;dbl&gt;,
 ## #   export_value_usd_change_1_year &lt;dbl&gt;,
 ## #   export_value_usd_change_5_years &lt;dbl&gt;,
@@ -292,7 +291,7 @@ data_<span class="dv">1962</span></code></pre>
 </div>
 <div id="api" class="section level2">
 <h2><span class="header-section-number">5.2</span> API</h2>
-<p>By using the API you can obtain the same result as above, but in a simpler way:</p>
+<p>By using the API you can obtain the same result as in section <a href="using-our-datasets.html#compressed-data">5.1</a>, but in a simpler way:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(jsonlite)
 
 data_<span class="dv">1962</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
@@ -302,7 +301,7 @@ data_<span class="dv">1962</span> &lt;-<span class="st"> </span><span class="kw"
 data_<span class="dv">1962</span></code></pre>
 <pre><code>## # A tibble: 911,002 x 7
 ##     year reporter_iso partner_iso commodity_code commodity_code_…
-##  * &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                     &lt;int&gt;
+##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                     &lt;int&gt;
 ##  1  1962 afg          aus         3215                          4
 ##  2  1962 afg          aus         4802                          4
 ##  3  1962 afg          aus         5702                          4
@@ -313,8 +312,8 @@ data_<span class="dv">1962</span></code></pre>
 ##  8  1962 afg          aus         9999                          4
 ##  9  1962 afg          aut         0501                          4
 ## 10  1962 afg          aut         0504                          4
-## # ... with 910,992 more rows, and 2 more variables:
-## #   import_value_usd &lt;int&gt;, export_value_usd &lt;int&gt;</code></pre>
+## # … with 910,992 more rows, and 2 more variables: import_value_usd &lt;int&gt;,
+## #   export_value_usd &lt;int&gt;</code></pre>
 <p>Because the API uses PostgreSQL queries that are converted to JSON, the columns are always read correctly with <code>jsonlite</code> R package.</p>
 <p>The last API call makes sense with respect to <code>y</code>, <code>r</code> and <code>p</code>, but <code>l</code> is a requiered parameter that will be detailed in the forthcoming “Data” subsection.</p>
 <div id="metadata" class="section level3">
@@ -330,9 +329,9 @@ products &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span c
   <span class="st">&quot;https://api.tradestatistics.io/products&quot;</span>
 ))</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">countries</code></pre>
-<pre><code>## # A tibble: 243 x 6
+<pre><code>## # A tibble: 249 x 6
 ##    country_iso country_name_en… country_fullnam… continent_id continent
-##  * &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;    
+##    &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;    
 ##  1 afg         Afghanistan      Afghanistan                 1 Asia     
 ##  2 alb         Albania          Albania                     2 Europe   
 ##  3 dza         Algeria          Algeria                     3 Africa   
@@ -343,27 +342,483 @@ products &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span c
 ##  8 atg         Antigua and Bar… Antigua and Bar…            5 Americas 
 ##  9 arg         Argentina        Argentina                   5 Americas 
 ## 10 arm         Armenia          Armenia                     1 Asia     
-## # ... with 233 more rows, and 1 more variable: eu28_member &lt;int&gt;</code></pre>
+## # … with 239 more rows, and 1 more variable: eu28_member &lt;int&gt;</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r">products</code></pre>
-<pre><code>## # A tibble: 6,275 x 4
-##    commodity_code product_fullname_english           group_code group_name
-##  * &lt;chr&gt;          &lt;chr&gt;                              &lt;chr&gt;      &lt;chr&gt;     
-##  1 0101           Horses, asses, mules and hinnies;… 01         Animals; …
-##  2 010110         Horses, asses, mules and hinnies;… 01         Animals; …
-##  3 010190         Horses, asses, mules and hinnies;… 01         Animals; …
-##  4 0102           Bovine animals; live               01         Animals; …
-##  5 010210         Bovine animals; live, pure-bred b… 01         Animals; …
-##  6 010290         Bovine animals; live, other than … 01         Animals; …
-##  7 0103           Swine; live                        01         Animals; …
-##  8 010310         Swine; live, pure-bred breeding a… 01         Animals; …
-##  9 010391         Swine; live, (other than pure-bre… 01         Animals; …
-## 10 010392         Swine; live, (other than pure-bre… 01         Animals; …
-## # ... with 6,265 more rows</code></pre>
+<pre><code>## # A tibble: 6,373 x 4
+##    commodity_code product_fullname_english            group_code group_name
+##    &lt;chr&gt;          &lt;chr&gt;                               &lt;chr&gt;      &lt;chr&gt;     
+##  1 0101           Horses, asses, mules and hinnies; … 01         Animals; …
+##  2 010110         Horses, asses, mules and hinnies; … 01         Animals; …
+##  3 010190         Horses, asses, mules and hinnies; … 01         Animals; …
+##  4 0102           Bovine animals; live                01         Animals; …
+##  5 010210         Bovine animals; live, pure-bred br… 01         Animals; …
+##  6 010290         Bovine animals; live, other than p… 01         Animals; …
+##  7 0103           Swine; live                         01         Animals; …
+##  8 010310         Swine; live, pure-bred breeding an… 01         Animals; …
+##  9 010391         Swine; live, (other than pure-bred… 01         Animals; …
+## 10 010392         Swine; live, (other than pure-bred… 01         Animals; …
+## # … with 6,363 more rows</code></pre>
+<p>Please notice that these tables include some aliases.</p>
+<p><code>countries</code> includes some meta-codes, <code>c-xx</code> where <code>xx</code> must the first two letters of a continent and <code>all</code>, this is:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">alias</th>
+<th align="left">meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">c-af</td>
+<td align="left">Alias for all valid ISO codes in Africa</td>
+</tr>
+<tr class="even">
+<td align="left">c-am</td>
+<td align="left">Alias for all valid ISO codes in the Americas</td>
+</tr>
+<tr class="odd">
+<td align="left">c-as</td>
+<td align="left">Alias for all valid ISO codes in Asia</td>
+</tr>
+<tr class="even">
+<td align="left">c-eu</td>
+<td align="left">Alias for all valid ISO codes in Europe</td>
+</tr>
+<tr class="odd">
+<td align="left">c-oc</td>
+<td align="left">Alias for all valid ISO codes in Oceania</td>
+</tr>
+<tr class="even">
+<td align="left">all</td>
+<td align="left">Alias for all valid ISO codes in the World</td>
+</tr>
+</tbody>
+</table>
+<p><code>products</code> also includes some meta-codes, <code>xx</code> for the first two digits of a code and those digits are the product group and <code>all</code>, this is:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">alias</th>
+<th align="left">meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">01</td>
+<td align="left">Alias for all codes in the group Animals; live</td>
+</tr>
+<tr class="even">
+<td align="left">02</td>
+<td align="left">Alias for all codes in the group Meat and edible meat offal</td>
+</tr>
+<tr class="odd">
+<td align="left">03</td>
+<td align="left">Alias for all codes in the group Fish and crustaceans, molluscs and other aquatic invertebrates</td>
+</tr>
+<tr class="even">
+<td align="left">04</td>
+<td align="left">Alias for all codes in the group Dairy produce; birds’ eggs; natural honey; edible products of animal origin, not elsewhere specified or included</td>
+</tr>
+<tr class="odd">
+<td align="left">06</td>
+<td align="left">Alias for all codes in the group Trees and other plants, live; bulbs, roots and the like; cut flowers and ornamental foliage</td>
+</tr>
+<tr class="even">
+<td align="left">05</td>
+<td align="left">Alias for all codes in the group Animal originated products; not elsewhere specified or included</td>
+</tr>
+<tr class="odd">
+<td align="left">07</td>
+<td align="left">Alias for all codes in the group Vegetables and certain roots and tubers; edible</td>
+</tr>
+<tr class="even">
+<td align="left">29</td>
+<td align="left">Alias for all codes in the group Organic chemicals</td>
+</tr>
+<tr class="odd">
+<td align="left">08</td>
+<td align="left">Alias for all codes in the group Fruit and nuts, edible; peel of citrus fruit or melons</td>
+</tr>
+<tr class="even">
+<td align="left">09</td>
+<td align="left">Alias for all codes in the group Coffee, tea, mate and spices</td>
+</tr>
+<tr class="odd">
+<td align="left">10</td>
+<td align="left">Alias for all codes in the group Cereals</td>
+</tr>
+<tr class="even">
+<td align="left">11</td>
+<td align="left">Alias for all codes in the group Products of the milling industry; malt, starches, inulin, wheat gluten</td>
+</tr>
+<tr class="odd">
+<td align="left">12</td>
+<td align="left">Alias for all codes in the group Oil seeds and oleaginous fruits; miscellaneous grains, seeds and fruit, industrial or medicinal plants; straw and fodder</td>
+</tr>
+<tr class="even">
+<td align="left">26</td>
+<td align="left">Alias for all codes in the group Ores, slag and ash</td>
+</tr>
+<tr class="odd">
+<td align="left">13</td>
+<td align="left">Alias for all codes in the group Lac; gums, resins and other vegetable saps and extracts</td>
+</tr>
+<tr class="even">
+<td align="left">14</td>
+<td align="left">Alias for all codes in the group Vegetable plaiting materials; vegetable products not elsewhere specified or included</td>
+</tr>
+<tr class="odd">
+<td align="left">15</td>
+<td align="left">Alias for all codes in the group Animal or vegetable fats and oils and their cleavage products; prepared animal fats; animal or vegetable waxes</td>
+</tr>
+<tr class="even">
+<td align="left">22</td>
+<td align="left">Alias for all codes in the group Beverages, spirits and vinegar</td>
+</tr>
+<tr class="odd">
+<td align="left">16</td>
+<td align="left">Alias for all codes in the group Meat, fish or crustaceans, molluscs or other aquatic invertebrates; preparations thereof</td>
+</tr>
+<tr class="even">
+<td align="left">17</td>
+<td align="left">Alias for all codes in the group Sugars and sugar confectionery</td>
+</tr>
+<tr class="odd">
+<td align="left">18</td>
+<td align="left">Alias for all codes in the group Cocoa and cocoa preparations</td>
+</tr>
+<tr class="even">
+<td align="left">19</td>
+<td align="left">Alias for all codes in the group Preparations of cereals, flour, starch or milk; pastrycooks’ products</td>
+</tr>
+<tr class="odd">
+<td align="left">20</td>
+<td align="left">Alias for all codes in the group Preparations of vegetables, fruit, nuts or other parts of plants</td>
+</tr>
+<tr class="even">
+<td align="left">21</td>
+<td align="left">Alias for all codes in the group Miscellaneous edible preparations</td>
+</tr>
+<tr class="odd">
+<td align="left">23</td>
+<td align="left">Alias for all codes in the group Food industries, residues and wastes thereof; prepared animal fodder</td>
+</tr>
+<tr class="even">
+<td align="left">24</td>
+<td align="left">Alias for all codes in the group Tobacco and manufactured tobacco substitutes</td>
+</tr>
+<tr class="odd">
+<td align="left">25</td>
+<td align="left">Alias for all codes in the group Salt; sulphur; earths, stone; plastering materials, lime and cement</td>
+</tr>
+<tr class="even">
+<td align="left">27</td>
+<td align="left">Alias for all codes in the group Mineral fuels, mineral oils and products of their distillation; bituminous substances; mineral waxes</td>
+</tr>
+<tr class="odd">
+<td align="left">28</td>
+<td align="left">Alias for all codes in the group Inorganic chemicals; organic and inorganic compounds of precious metals; of rare earth metals, of radio-active elements and of isotopes</td>
+</tr>
+<tr class="even">
+<td align="left">30</td>
+<td align="left">Alias for all codes in the group Pharmaceutical products</td>
+</tr>
+<tr class="odd">
+<td align="left">35</td>
+<td align="left">Alias for all codes in the group Albuminoidal substances; modified starches; glues; enzymes</td>
+</tr>
+<tr class="even">
+<td align="left">31</td>
+<td align="left">Alias for all codes in the group Fertilizers</td>
+</tr>
+<tr class="odd">
+<td align="left">32</td>
+<td align="left">Alias for all codes in the group Tanning or dyeing extracts; tannins and their derivatives; dyes, pigments and other colouring matter; paints, varnishes; putty, other mastics; inks</td>
+</tr>
+<tr class="even">
+<td align="left">39</td>
+<td align="left">Alias for all codes in the group Plastics and articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">33</td>
+<td align="left">Alias for all codes in the group Essential oils and resinoids; perfumery, cosmetic or toilet preparations</td>
+</tr>
+<tr class="even">
+<td align="left">34</td>
+<td align="left">Alias for all codes in the group Soap, organic surface-active agents; washing, lubricating, polishing or scouring preparations; artificial or prepared waxes, candles and similar articles, modelling pastes, dental waxes and dental preparations with a basis of plaster</td>
+</tr>
+<tr class="odd">
+<td align="left">36</td>
+<td align="left">Alias for all codes in the group Explosives; pyrotechnic products; matches; pyrophoric alloys; certain combustible preparations</td>
+</tr>
+<tr class="even">
+<td align="left">37</td>
+<td align="left">Alias for all codes in the group Photographic or cinematographic goods</td>
+</tr>
+<tr class="odd">
+<td align="left">38</td>
+<td align="left">Alias for all codes in the group Chemical products n.e.c.</td>
+</tr>
+<tr class="even">
+<td align="left">40</td>
+<td align="left">Alias for all codes in the group Rubber and articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">44</td>
+<td align="left">Alias for all codes in the group Wood and articles of wood; wood charcoal</td>
+</tr>
+<tr class="even">
+<td align="left">41</td>
+<td align="left">Alias for all codes in the group Raw hides and skins (other than furskins) and leather</td>
+</tr>
+<tr class="odd">
+<td align="left">70</td>
+<td align="left">Alias for all codes in the group Glass and glassware</td>
+</tr>
+<tr class="even">
+<td align="left">42</td>
+<td align="left">Alias for all codes in the group Articles of leather; saddlery and harness; travel goods, handbags and similar containers; articles of animal gut (other than silk-worm gut)</td>
+</tr>
+<tr class="odd">
+<td align="left">43</td>
+<td align="left">Alias for all codes in the group Furskins and artificial fur; manufactures thereof</td>
+</tr>
+<tr class="even">
+<td align="left">45</td>
+<td align="left">Alias for all codes in the group Cork and articles of cork</td>
+</tr>
+<tr class="odd">
+<td align="left">46</td>
+<td align="left">Alias for all codes in the group Manufactures of straw, esparto or other plaiting materials; basketware and wickerwork</td>
+</tr>
+<tr class="even">
+<td align="left">47</td>
+<td align="left">Alias for all codes in the group Pulp of wood or other fibrous cellulosic material; recovered (waste and scrap) paper or paperboard</td>
+</tr>
+<tr class="odd">
+<td align="left">52</td>
+<td align="left">Alias for all codes in the group Cotton</td>
+</tr>
+<tr class="even">
+<td align="left">48</td>
+<td align="left">Alias for all codes in the group Paper and paperboard; articles of paper pulp, of paper or paperboard</td>
+</tr>
+<tr class="odd">
+<td align="left">49</td>
+<td align="left">Alias for all codes in the group Printed books, newspapers, pictures and other products of the printing industry; manuscripts, typescripts and plans</td>
+</tr>
+<tr class="even">
+<td align="left">50</td>
+<td align="left">Alias for all codes in the group Silk</td>
+</tr>
+<tr class="odd">
+<td align="left">51</td>
+<td align="left">Alias for all codes in the group Wool, fine or coarse animal hair; horsehair yarn and woven fabric</td>
+</tr>
+<tr class="even">
+<td align="left">53</td>
+<td align="left">Alias for all codes in the group Vegetable textile fibres; paper yarn and woven fabrics of paper yarn</td>
+</tr>
+<tr class="odd">
+<td align="left">54</td>
+<td align="left">Alias for all codes in the group Man-made filaments; strip and the like of man-made textile materials</td>
+</tr>
+<tr class="even">
+<td align="left">55</td>
+<td align="left">Alias for all codes in the group Man-made staple fibres</td>
+</tr>
+<tr class="odd">
+<td align="left">62</td>
+<td align="left">Alias for all codes in the group Apparel and clothing accessories; not knitted or crocheted</td>
+</tr>
+<tr class="even">
+<td align="left">56</td>
+<td align="left">Alias for all codes in the group Wadding, felt and nonwovens, special yarns; twine, cordage, ropes and cables and articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">57</td>
+<td align="left">Alias for all codes in the group Carpets and other textile floor coverings</td>
+</tr>
+<tr class="even">
+<td align="left">58</td>
+<td align="left">Alias for all codes in the group Fabrics; special woven fabrics, tufted textile fabrics, lace, tapestries, trimmings, embroidery</td>
+</tr>
+<tr class="odd">
+<td align="left">59</td>
+<td align="left">Alias for all codes in the group Textile fabrics; impregnated, coated, covered or laminated; textile articles of a kind suitable for industrial use</td>
+</tr>
+<tr class="even">
+<td align="left">60</td>
+<td align="left">Alias for all codes in the group Fabrics; knitted or crocheted</td>
+</tr>
+<tr class="odd">
+<td align="left">61</td>
+<td align="left">Alias for all codes in the group Apparel and clothing accessories; knitted or crocheted</td>
+</tr>
+<tr class="even">
+<td align="left">95</td>
+<td align="left">Alias for all codes in the group Toys, games and sports requisites; parts and accessories thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">63</td>
+<td align="left">Alias for all codes in the group Textiles, made up articles; sets; worn clothing and worn textile articles; rags</td>
+</tr>
+<tr class="even">
+<td align="left">64</td>
+<td align="left">Alias for all codes in the group Footwear; gaiters and the like; parts of such articles</td>
+</tr>
+<tr class="odd">
+<td align="left">65</td>
+<td align="left">Alias for all codes in the group Headgear and parts thereof</td>
+</tr>
+<tr class="even">
+<td align="left">66</td>
+<td align="left">Alias for all codes in the group Umbrellas, sun umbrellas, walking-sticks, seat sticks, whips, riding crops; and parts thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">67</td>
+<td align="left">Alias for all codes in the group Feathers and down, prepared; and articles made of feather or of down; artificial flowers; articles of human hair</td>
+</tr>
+<tr class="even">
+<td align="left">68</td>
+<td align="left">Alias for all codes in the group Stone, plaster, cement, asbestos, mica or similar materials; articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">69</td>
+<td align="left">Alias for all codes in the group Ceramic products</td>
+</tr>
+<tr class="even">
+<td align="left">71</td>
+<td align="left">Alias for all codes in the group Natural, cultured pearls; precious, semi-precious stones; precious metals, metals clad with precious metal, and articles thereof; imitation jewellery; coin</td>
+</tr>
+<tr class="odd">
+<td align="left">72</td>
+<td align="left">Alias for all codes in the group Iron and steel</td>
+</tr>
+<tr class="even">
+<td align="left">73</td>
+<td align="left">Alias for all codes in the group Iron or steel articles</td>
+</tr>
+<tr class="odd">
+<td align="left">74</td>
+<td align="left">Alias for all codes in the group Copper and articles thereof</td>
+</tr>
+<tr class="even">
+<td align="left">75</td>
+<td align="left">Alias for all codes in the group Nickel and articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">76</td>
+<td align="left">Alias for all codes in the group Aluminium and articles thereof</td>
+</tr>
+<tr class="even">
+<td align="left">81</td>
+<td align="left">Alias for all codes in the group Metals; n.e.c., cermets and articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">78</td>
+<td align="left">Alias for all codes in the group Lead and articles thereof</td>
+</tr>
+<tr class="even">
+<td align="left">79</td>
+<td align="left">Alias for all codes in the group Zinc and articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">80</td>
+<td align="left">Alias for all codes in the group Tin; articles thereof</td>
+</tr>
+<tr class="even">
+<td align="left">82</td>
+<td align="left">Alias for all codes in the group Tools, implements, cutlery, spoons and forks, of base metal; parts thereof, of base metal</td>
+</tr>
+<tr class="odd">
+<td align="left">83</td>
+<td align="left">Alias for all codes in the group Metal; miscellaneous products of base metal</td>
+</tr>
+<tr class="even">
+<td align="left">84</td>
+<td align="left">Alias for all codes in the group Nuclear reactors, boilers, machinery and mechanical appliances; parts thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">85</td>
+<td align="left">Alias for all codes in the group Electrical machinery and equipment and parts thereof; sound recorders and reproducers; television image and sound recorders and reproducers, parts and accessories of such articles</td>
+</tr>
+<tr class="even">
+<td align="left">88</td>
+<td align="left">Alias for all codes in the group Aircraft, spacecraft and parts thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">91</td>
+<td align="left">Alias for all codes in the group Clocks and watches and parts thereof</td>
+</tr>
+<tr class="even">
+<td align="left">86</td>
+<td align="left">Alias for all codes in the group Railway, tramway locomotives, rolling-stock and parts thereof; railway or tramway track fixtures and fittings and parts thereof; mechanical (including electro-mechanical) traffic signalling equipment of all kinds</td>
+</tr>
+<tr class="odd">
+<td align="left">87</td>
+<td align="left">Alias for all codes in the group Vehicles; other than railway or tramway rolling stock, and parts and accessories thereof</td>
+</tr>
+<tr class="even">
+<td align="left">89</td>
+<td align="left">Alias for all codes in the group Ships, boats and floating structures</td>
+</tr>
+<tr class="odd">
+<td align="left">90</td>
+<td align="left">Alias for all codes in the group Optical, photographic, cinematographic, measuring, checking, medical or surgical instruments and apparatus; parts and accessories</td>
+</tr>
+<tr class="even">
+<td align="left">92</td>
+<td align="left">Alias for all codes in the group Musical instruments; parts and accessories of such articles</td>
+</tr>
+<tr class="odd">
+<td align="left">93</td>
+<td align="left">Alias for all codes in the group Arms and ammunition; parts and accessories thereof</td>
+</tr>
+<tr class="even">
+<td align="left">94</td>
+<td align="left">Alias for all codes in the group Furniture; bedding, mattresses, mattress supports, cushions and similar stuffed furnishings; lamps and lighting fittings, n.e.c.; illuminated signs, illuminated name-plates and the like; prefabricated buildings</td>
+</tr>
+<tr class="odd">
+<td align="left">96</td>
+<td align="left">Alias for all codes in the group Miscellaneous manufactured articles</td>
+</tr>
+<tr class="even">
+<td align="left">97</td>
+<td align="left">Alias for all codes in the group Works of art; collectors’ pieces and antiques</td>
+</tr>
+<tr class="odd">
+<td align="left">99</td>
+<td align="left">Alias for all codes in the group Commodities not specified according to kind</td>
+</tr>
+<tr class="even">
+<td align="left">all</td>
+<td align="left">Alias for all codes</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="data" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> Data</h3>
+<div id="general-parameters" class="section level4">
+<h4><span class="header-section-number">5.2.2.1</span> General parameters</h4>
+<p>The tables provided withing our API contain at least one of these fields:</p>
+<ul>
+<li>Year (<code>y</code>)</li>
+<li>Reporter ISO (<code>r</code>)</li>
+<li>Partner ISO (<code>p</code>)</li>
+<li>Commodity code (<code>c</code>)</li>
+</ul>
+<p>The most detailed table is <code>yrpc</code> that contains all bilateral flows at product level.</p>
+<p>With respect to <code>y</code> you can pass any integer in <span class="math inline">\([1962,2016]\)</span>.</p>
+<p>Both <code>r</code> and <code>p</code> accept any valid ISO code or alias contained in the <a href="https://api.tradestatistics.io/countries">countries</a> table. For example, both <code>chl</code> (valid ISO code) and <code>c-am</code> (continent Americas, an alias) are valid API filtering parameters.</p>
+<p><code>c</code> takes any valid commodity code or alias from the <a href="https://api.tradestatistics.io/products">products</a>. For example, both <code>0101</code> (valid HS product code) and <code>01</code> (valid HS group code) are valid API filtering parameters.</p>
+<p>In addition to <code>y, r, p, c</code> parameters, the length (<code>l</code>) parameter allows efficient queries provided our data contains both 4 and 6 digits long commodity codes. Because 4 digits code contain 6 digits codes, our approach is to allow the user to use <code>l=4</code>, <code>l=6</code> or <code>l=all</code> to provide just the requested data.</p>
+<p>By default the API takes <code>c = &quot;all&quot;</code> and <code>l = 4</code> as defaults.</p>
+<p>You can always skip <code>c</code> or <code>l</code>, but <code>y</code>, <code>r</code> and <code>p</code> are requiered to return data.</p>
+</div>
 <div id="available-reporters" class="section level4">
-<h4><span class="header-section-number">5.2.2.1</span> Available reporters</h4>
+<h4><span class="header-section-number">5.2.2.2</span> Available reporters</h4>
 <p>The only applicable filter is by year.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Available reporters (filter by year)</span>
 reporters &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
@@ -371,7 +826,7 @@ reporters &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span 
 ))</code></pre>
 </div>
 <div id="country-rankings" class="section level4">
-<h4><span class="header-section-number">5.2.2.2</span> Country rankings</h4>
+<h4><span class="header-section-number">5.2.2.3</span> Country rankings</h4>
 <p>The only applicable filter is by year.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Country rankings (filter by year)</span>
 country_rankings &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
@@ -379,7 +834,7 @@ country_rankings &lt;-<span class="st"> </span><span class="kw">as_tibble</span>
 ))</code></pre>
 </div>
 <div id="product-rankings" class="section level4">
-<h4><span class="header-section-number">5.2.2.3</span> Product rankings</h4>
+<h4><span class="header-section-number">5.2.2.4</span> Product rankings</h4>
 <p>The only applicable filter is by year.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Product rankings (filter by year)</span>
 product_rankings &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
@@ -387,17 +842,19 @@ product_rankings &lt;-<span class="st"> </span><span class="kw">as_tibble</span>
 ))</code></pre>
 </div>
 <div id="year---reporter---partner---commodity" class="section level4">
-<h4><span class="header-section-number">5.2.2.4</span> Year - Reporter - Partner - Commodity</h4>
-<p>You can filter by year, reporter and partner but not by commodity. The length (<code>l</code>) parameter allows efficient queries provided our data contains both 4 and 6 digits long commodity codes. Because 4 digits code contain 6 digits codes, our approach is to allow the user to use <code>l=4</code>, <code>l=6</code> or <code>l=all</code> to provide just the requested data.</p>
+<h4><span class="header-section-number">5.2.2.5</span> Year - Reporter - Partner - Commodity</h4>
+<p>You can filter by year, reporter and partner.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Partner - Commodity (filter by year, reporter and partner)</span>
-yrpc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+
+<span class="co">## filter by commodity length (parameter `l`)</span>
+yrpc_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
   <span class="st">&quot;https://api.tradestatistics.io/yrpc?y=2015&amp;r=chl&amp;p=arg&amp;l=4&quot;</span>
 ))
 
-yrpc</code></pre>
+yrpc_<span class="dv">1</span></code></pre>
 <pre><code>## # A tibble: 950 x 15
 ##     year reporter_iso partner_iso commodity_code commodity_code_…
-##  * &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                     &lt;int&gt;
+##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                     &lt;int&gt;
 ##  1  2015 chl          arg         0101                          4
 ##  2  2015 chl          arg         0106                          4
 ##  3  2015 chl          arg         0201                          4
@@ -408,7 +865,30 @@ yrpc</code></pre>
 ##  8  2015 chl          arg         0302                          4
 ##  9  2015 chl          arg         0303                          4
 ## 10  2015 chl          arg         0304                          4
-## # ... with 940 more rows, and 10 more variables: export_value_usd &lt;int&gt;,
+## # … with 940 more rows, and 10 more variables: export_value_usd &lt;int&gt;,
+## #   import_value_usd &lt;int&gt;, export_value_usd_change_1_year &lt;int&gt;,
+## #   export_value_usd_change_5_years &lt;int&gt;,
+## #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,
+## #   export_value_usd_percentage_change_5_years &lt;dbl&gt;,
+## #   import_value_usd_change_1_year &lt;int&gt;,
+## #   import_value_usd_change_5_years &lt;int&gt;,
+## #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,
+## #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## filter by commodity group (parameter `c`)</span>
+yrpc_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+  <span class="st">&quot;https://api.tradestatistics.io/yrpc?y=2015&amp;r=chl&amp;p=arg&amp;c=01&quot;</span>
+))
+
+yrpc_<span class="dv">2</span></code></pre>
+<pre><code>## # A tibble: 5 x 15
+##    year reporter_iso partner_iso commodity_code commodity_code_…
+##   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                     &lt;int&gt;
+## 1  2015 chl          arg         0101                          4
+## 2  2015 chl          arg         010110                        6
+## 3  2015 chl          arg         010190                        6
+## 4  2015 chl          arg         0106                          4
+## 5  2015 chl          arg         010619                        6
+## # … with 10 more variables: export_value_usd &lt;int&gt;,
 ## #   import_value_usd &lt;int&gt;, export_value_usd_change_1_year &lt;int&gt;,
 ## #   export_value_usd_change_5_years &lt;int&gt;,
 ## #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,
@@ -432,17 +912,19 @@ yrpc</code></pre>
 </ul>
 </div>
 <div id="year---reporter---commodity" class="section level4">
-<h4><span class="header-section-number">5.2.2.5</span> Year - Reporter - Commodity</h4>
-<p>The only applicable filter is by year and reporter, but not by commodity. Exactly as <code>yrpc</code> from the subsections above, the <code>l</code> parameter is required.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Year - Reporter - Commodity (filter by year and reporter)</span>
-yrc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+<h4><span class="header-section-number">5.2.2.6</span> Year - Reporter - Commodity</h4>
+<p>The only applicable filter is by year and reporter.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Commodity (filter by year and reporter)</span>
+
+<span class="co">## filter by reporter ISO (parameter `r`)</span>
+yrc_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
   <span class="st">&quot;https://api.tradestatistics.io/yrc?y=2015&amp;r=chl&amp;l=4&quot;</span>
-))</code></pre>
-<p>Let’s explore the first rows of <code>yrc</code>:</p>
-<pre class="sourceCode r"><code class="sourceCode r">yrc</code></pre>
+))
+
+yrc_<span class="dv">1</span></code></pre>
 <pre><code>## # A tibble: 1,214 x 16
 ##     year reporter_iso commodity_code commodity_code_… export_value_usd
-##  * &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                     &lt;int&gt;            &lt;dbl&gt;
+##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                     &lt;int&gt;            &lt;dbl&gt;
 ##  1  2015 chl          0101                          4          9958013
 ##  2  2015 chl          0102                          4         88938806
 ##  3  2015 chl          0103                          4           956016
@@ -453,7 +935,7 @@ yrc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class=
 ##  8  2015 chl          0202                          4         25146882
 ##  9  2015 chl          0203                          4        402815596
 ## 10  2015 chl          0204                          4         32743522
-## # ... with 1,204 more rows, and 11 more variables: import_value_usd &lt;dbl&gt;,
+## # … with 1,204 more rows, and 11 more variables: import_value_usd &lt;dbl&gt;,
 ## #   export_rca_4_digits_commodity_code &lt;dbl&gt;,
 ## #   import_rca_4_digits_commodity_code &lt;dbl&gt;,
 ## #   export_value_usd_change_1_year &lt;dbl&gt;,
@@ -464,10 +946,40 @@ yrc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class=
 ## #   import_value_usd_change_5_years &lt;dbl&gt;,
 ## #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,
 ## #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## filter by reporter alias (also parameter `r`)</span>
+yrc_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+  <span class="st">&quot;https://api.tradestatistics.io/yrc?y=2015&amp;r=c-am&amp;l=4&quot;</span>
+))
+
+yrc_<span class="dv">2</span></code></pre>
+<pre><code>## # A tibble: 47,807 x 16
+##     year reporter_iso commodity_code commodity_code_… import_value_usd
+##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                     &lt;int&gt;            &lt;dbl&gt;
+##  1  2015 aia          0101                          4            12000
+##  2  2015 aia          0104                          4             1481
+##  3  2015 aia          0105                          4            44859
+##  4  2015 aia          0106                          4              111
+##  5  2015 aia          0201                          4           216873
+##  6  2015 aia          0202                          4           514211
+##  7  2015 aia          0203                          4           166264
+##  8  2015 aia          0204                          4            57070
+##  9  2015 aia          0206                          4            33427
+## 10  2015 aia          0207                          4          1117503
+## # … with 47,797 more rows, and 11 more variables:
+## #   import_rca_4_digits_commodity_code &lt;dbl&gt;,
+## #   import_value_usd_change_1_year &lt;dbl&gt;,
+## #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,
+## #   import_value_usd_change_5_years &lt;dbl&gt;,
+## #   import_value_usd_percentage_change_5_years &lt;dbl&gt;,
+## #   export_value_usd &lt;dbl&gt;, export_rca_4_digits_commodity_code &lt;dbl&gt;,
+## #   export_value_usd_change_1_year &lt;dbl&gt;,
+## #   export_value_usd_change_5_years &lt;dbl&gt;,
+## #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,
+## #   export_value_usd_percentage_change_5_years &lt;dbl&gt;</code></pre>
 <p>Here the <code>export_rca*</code> and <code>import_rca*</code> fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>.</p>
 </div>
 <div id="year---reporter---partner" class="section level4">
-<h4><span class="header-section-number">5.2.2.6</span> Year - Reporter - Partner</h4>
+<h4><span class="header-section-number">5.2.2.7</span> Year - Reporter - Partner</h4>
 <p>The only applicable filter is by year, reporter and partner.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Partner (filter by year, reporter and partner)</span>
 yrp &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
@@ -475,40 +987,30 @@ yrp &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class=
 ))</code></pre>
 </div>
 <div id="year---commodity" class="section level4">
-<h4><span class="header-section-number">5.2.2.7</span> Year - Commodity</h4>
-<p>The only applicable filter is by year.</p>
+<h4><span class="header-section-number">5.2.2.8</span> Year - Commodity</h4>
+<p>The only applicable filter is by year and commodity.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Commodity (filter by year)</span>
 yc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
-  <span class="st">&quot;https://api.tradestatistics.io/yc?y=2015&quot;</span>
+  <span class="st">&quot;https://api.tradestatistics.io/yc?y=2015&amp;c=0101&quot;</span>
 ))</code></pre>
 <p>Let’s explore the first rows of <code>yr</code>:</p>
 <pre class="sourceCode r"><code class="sourceCode r">yc</code></pre>
-<pre><code>## # A tibble: 1,222 x 21
-##     year commodity_code commodity_code_… export_value_usd import_value_usd
-##  * &lt;int&gt; &lt;chr&gt;                     &lt;int&gt;            &lt;dbl&gt;            &lt;dbl&gt;
-##  1  2015 0101                          4       3464828975       3464828975
-##  2  2015 0102                          4       9358659854       9358659854
-##  3  2015 0103                          4       4044523653       4044523653
-##  4  2015 0104                          4       2091424321       2091424321
-##  5  2015 0105                          4       3061618119       3061618119
-##  6  2015 0106                          4       1502720547       1502720547
-##  7  2015 0201                          4      22382849228      22382849228
-##  8  2015 0202                          4      23538513354      23538513354
-##  9  2015 0203                          4      27268259243      27268259243
-## 10  2015 0204                          4       7038311887       7038311887
-## # ... with 1,212 more rows, and 16 more variables:
-## #   pci_4_digits_commodity_code &lt;dbl&gt;,
+<pre><code>## # A tibble: 1 x 21
+##    year commodity_code commodity_code_… export_value_usd import_value_usd
+##   &lt;int&gt; &lt;chr&gt;                     &lt;int&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1  2015 0101                          4       3464828975       3464828975
+## # … with 16 more variables: pci_4_digits_commodity_code &lt;dbl&gt;,
 ## #   pci_rank_4_digits_commodity_code &lt;int&gt;,
 ## #   pci_rank_4_digits_commodity_code_delta_1_year &lt;int&gt;,
 ## #   pci_rank_4_digits_commodity_code_delta_5_years &lt;int&gt;,
-## #   top_exporter_iso &lt;chr&gt;, top_exporter_trade_value_usd &lt;dbl&gt;,
-## #   top_importer_iso &lt;chr&gt;, top_importer_trade_value_usd &lt;dbl&gt;,
-## #   export_value_usd_change_1_year &lt;dbl&gt;,
-## #   export_value_usd_change_5_years &lt;dbl&gt;,
+## #   top_exporter_iso &lt;chr&gt;, top_exporter_trade_value_usd &lt;int&gt;,
+## #   top_importer_iso &lt;chr&gt;, top_importer_trade_value_usd &lt;int&gt;,
+## #   export_value_usd_change_1_year &lt;int&gt;,
+## #   export_value_usd_change_5_years &lt;int&gt;,
 ## #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,
 ## #   export_value_usd_percentage_change_5_years &lt;dbl&gt;,
-## #   import_value_usd_change_1_year &lt;dbl&gt;,
-## #   import_value_usd_change_5_years &lt;dbl&gt;,
+## #   import_value_usd_change_1_year &lt;int&gt;,
+## #   import_value_usd_change_5_years &lt;int&gt;,
 ## #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,
 ## #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</code></pre>
 <p>Here some fields deserve an explanation:</p>
@@ -520,7 +1022,7 @@ yc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="
 </ul>
 </div>
 <div id="year---reporter" class="section level4">
-<h4><span class="header-section-number">5.2.2.8</span> Year - Reporter</h4>
+<h4><span class="header-section-number">5.2.2.9</span> Year - Reporter</h4>
 <p>The only applicable filter is by year and reporter.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co">## Year - Reporter (filter by year and reporter)</span>
 yr &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
@@ -530,9 +1032,9 @@ yr &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="
 <pre class="sourceCode r"><code class="sourceCode r">yr</code></pre>
 <pre><code>## # A tibble: 1 x 20
 ##    year reporter_iso export_value_usd import_value_usd eci_4_digits_co…
-## * &lt;int&gt; &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+##   &lt;int&gt; &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
 ## 1  2015 chl               69696214027      73736894538           -0.221
-## # ... with 15 more variables: eci_rank_4_digits_commodity_code &lt;int&gt;,
+## # … with 15 more variables: eci_rank_4_digits_commodity_code &lt;int&gt;,
 ## #   eci_rank_4_digits_commodity_code_delta_1_year &lt;int&gt;,
 ## #   eci_rank_4_digits_commodity_code_delta_5_years &lt;int&gt;,
 ## #   top_export_commodity_code &lt;chr&gt;, top_export_trade_value_usd &lt;dbl&gt;,
@@ -551,35 +1053,9 @@ yr &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="
 <li><code>eci_rank_4_digits_commodity_code</code>: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)</li>
 <li><code>eci_rank_4_digits_commodity_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>
 </ul>
+
 </div>
 </div>
-</div>
-<div id="r-package" class="section level2">
-<h2><span class="header-section-number">5.3</span> R package</h2>
-<p>We also provide an R package that is fully documented <a href="https://tradestatistics.github.io/tradestatistics/">here</a>. However, this is how to obtain some of the same data from the last two sections with our R package:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tradestatistics)
-
-data_<span class="dv">1962</span> &lt;-<span class="st"> </span><span class="kw">get_data</span>(<span class="dt">years =</span> <span class="dv">1962</span>, <span class="dt">reporter =</span> <span class="st">&quot;all&quot;</span>, <span class="dt">partner =</span> <span class="st">&quot;all&quot;</span>)
-
-data_<span class="dv">1962</span></code></pre>
-<pre><code>## # A tibble: 911,002 x 12
-##     year reporter_iso partner_iso reporter_fullna… partner_fullnam…
-##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           
-##  1  1962 afg          aus         Afghanistan      Australia       
-##  2  1962 afg          aus         Afghanistan      Australia       
-##  3  1962 afg          aus         Afghanistan      Australia       
-##  4  1962 afg          aus         Afghanistan      Australia       
-##  5  1962 afg          aus         Afghanistan      Australia       
-##  6  1962 afg          aus         Afghanistan      Australia       
-##  7  1962 afg          aus         Afghanistan      Australia       
-##  8  1962 afg          aus         Afghanistan      Australia       
-##  9  1962 afg          aut         Afghanistan      Austria         
-## 10  1962 afg          aut         Afghanistan      Austria         
-## # ... with 910,992 more rows, and 7 more variables: commodity_code &lt;chr&gt;,
-## #   commodity_code_length &lt;int&gt;, product_fullname_english &lt;chr&gt;,
-## #   group_code &lt;chr&gt;, group_name &lt;chr&gt;, import_value_usd &lt;int&gt;,
-## #   export_value_usd &lt;int&gt;</code></pre>
-
 </div>
 </div>
 <script>
