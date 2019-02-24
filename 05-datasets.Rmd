@@ -149,10 +149,10 @@ countries %>%
 ```{r, echo = FALSE}
 products %>% 
   filter(str_length(commodity_code) %in% 2:3) %>% 
-  select(commodity_code, product_fullname_english) %>% 
+  select(commodity_code, commodity_fullname_english) %>% 
   rename(
     alias = commodity_code,
-    meaning = product_fullname_english
+    meaning = commodity_fullname_english
   ) %>% 
   kable()
 ```
@@ -170,7 +170,7 @@ The tables provided withing our API contain at least one of these fields:
 
 The most detailed table is `yrpc` that contains all bilateral flows at product level.
 
-With respect to `y` you can pass any integer in $[1962,2016]$.
+With respect to `y` you can pass any integer contained in $[1962,2017]$.
 
 Both `r` and `p` accept any valid ISO code or alias contained in the [countries](https://api.tradestatistics.io/countries) table. For example, both `chl` (valid ISO code) and `c-am` (continent Americas, an alias) are valid API filtering parameters.
 

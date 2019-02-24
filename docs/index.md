@@ -1,7 +1,7 @@
 --- 
 title: "Open Trade Statistics Documentation"
 author: "Pachá (Mauricio Vargas Sepúlveda)"
-date: "2019-01-18"
+date: "2019-02-24"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [references.bib]
@@ -9,8 +9,8 @@ link-citations: yes
 github-repo: tradestatistics/documentation
 ---
 
-# A simple documentation {-}
+# About
 
-This documentation is an attempt to try to explain how to use the scripts that generate the data that powers [Open Trade Statistics](https://aaa/). 
+This documentation is a hard attempt to try to explain how to use the scripts created to process the data available from [Open Trade Statistics](https://tradestatistics.io/) and how to use our API. 
 
 We made all the scripts available under the [Trade Statistics Organization](https://github.com/tradestatistics).

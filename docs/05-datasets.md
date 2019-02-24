@@ -195,7 +195,7 @@ products
 
 ```
 ## # A tibble: 6,373 x 4
-##    commodity_code product_fullname_english            group_code group_name
+##    commodity_code commodity_fullname_english          group_code group_name
 ##    <chr>          <chr>                               <chr>      <chr>     
 ##  1 0101           Horses, asses, mules and hinnies; … 01         Animals; …
 ##  2 010110         Horses, asses, mules and hinnies; … 01         Animals; …
@@ -341,7 +341,7 @@ The tables provided withing our API contain at least one of these fields:
 
 The most detailed table is `yrpc` that contains all bilateral flows at product level.
 
-With respect to `y` you can pass any integer in $[1962,2016]$.
+With respect to `y` you can pass any integer contained in $[1962,2017]$.
 
 Both `r` and `p` accept any valid ISO code or alias contained in the [countries](https://api.tradestatistics.io/countries) table. For example, both `chl` (valid ISO code) and `c-am` (continent Americas, an alias) are valid API filtering parameters.
 

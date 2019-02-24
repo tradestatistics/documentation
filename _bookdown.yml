@@ -1,4 +1,4 @@
-book_filename: "oec-documentation"
+book_filename: "ots-documentation"
 chapter_name: "Section "
 repo: https://github.com/observatory-economic-complexity/oec-documentation
 output_dir: docs
