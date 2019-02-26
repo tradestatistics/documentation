@@ -1,6 +1,4 @@
 bookdown::gitbook:
-  includes:
-    after_body: [google_analytics.html]
   css: style.css
   split_by: chapter
   pandoc_args: ["--csl", "ieee.csl"]

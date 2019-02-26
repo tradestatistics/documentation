@@ -1,7 +1,7 @@
 --- 
 title: "Open Trade Statistics Documentation"
 author: "Pachá (Mauricio Vargas Sepúlveda)"
-date: "2019-02-24"
+date: "2019-02-26"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [references.bib]
