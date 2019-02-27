@@ -111,7 +111,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>4</b> Data Processing</a><ul>
 <li class="chapter" data-level="4.1" data-path="data-processing.html"><a href="data-processing.html#tidy-data"><i class="fa fa-check"></i><b>4.1</b> Tidy Data</a></li>
-<li class="chapter" data-level="4.2" data-path="data-processing.html"><a href="data-processing.html#filling-gaps-in-our-data"><i class="fa fa-check"></i><b>4.2</b> Filling gaps in our data</a></li>
+<li class="chapter" data-level="4.2" data-path="data-processing.html"><a href="data-processing.html#filling-gaps-in-our-data"><i class="fa fa-check"></i><b>4.2</b> Filling gaps in our data</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="data-processing.html"><a href="data-processing.html#required-packages-and-objects"><i class="fa fa-check"></i><b>4.2.1</b> Required packages and objects</a></li>
+<li class="chapter" data-level="4.2.2" data-path="data-processing.html"><a href="data-processing.html#read-raw-data"><i class="fa fa-check"></i><b>4.2.2</b> Read raw data</a></li>
+<li class="chapter" data-level="4.2.3" data-path="data-processing.html"><a href="data-processing.html#clean-data"><i class="fa fa-check"></i><b>4.2.3</b> Clean data</a></li>
+<li class="chapter" data-level="4.2.4" data-path="data-processing.html"><a href="data-processing.html#symmetric-clean-data"><i class="fa fa-check"></i><b>4.2.4</b> Symmetric (clean) data</a></li>
+</ul></li>
 <li class="chapter" data-level="4.3" data-path="data-processing.html"><a href="data-processing.html#github-repositories"><i class="fa fa-check"></i><b>4.3</b> GitHub repositories</a></li>
 <li class="chapter" data-level="4.4" data-path="data-processing.html"><a href="data-processing.html#software-information"><i class="fa fa-check"></i><b>4.4</b> Software information</a></li>
 <li class="chapter" data-level="4.5" data-path="data-processing.html"><a href="data-processing.html#hardware-information"><i class="fa fa-check"></i><b>4.5</b> Hardware information</a></li>
@@ -177,6 +182,226 @@ Figure 4.1: Data pipeline
 <p>There are some noble and remarkable approaches such as gravitational models. As, to our knowledge at the moment, there is no literature reporting the estimation of a gravity equation for this purpose that returns a satisfactory fitting.</p>
 <p>Let <span class="math inline">\(x_{c,c&#39;,p}\)</span> represent the exports of country <span class="math inline">\(c\)</span> to country <span class="math inline">\(c&#39;\)</span> in product <span class="math inline">\(p\)</span> and <span class="math inline">\(m_{c&#39;,c,p}\)</span> the imports of country <span class="math inline">\(c&#39;\)</span> from country <span class="math inline">\(c\)</span>. Under this notation we defined corrected flows as:</p>
 <p><span class="math display">\[\hat{x}_{c,c&#39;,p} = \max\left\{x_{c,c&#39;,p}, \frac{m_{c&#39;,c,p}}{1.08}\right\}\]</span> <span class="math display">\[\hat{m}_{c,c&#39;,p} = \max\left\{x_{c&#39;,c,p}, \frac{m_{c,c&#39;,p}}{1.08}\right\}\]</span> After symmetrization all observations are rounded to zero decimals.</p>
+<div id="required-packages-and-objects" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Required packages and objects</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Packages ----------------------------------------------------------------</span>
+
+<span class="kw">library</span>(data.table)
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(stringr)
+<span class="kw">library</span>(purrr)
+<span class="kw">library</span>(janitor)
+
+<span class="co"># Custom functions to read data -------------------------------------------</span>
+
+fread2 &lt;-<span class="st"> </span><span class="cf">function</span>(file, <span class="dt">select =</span> <span class="ot">NULL</span>, <span class="dt">character =</span> <span class="ot">NULL</span>, <span class="dt">numeric =</span> <span class="ot">NULL</span>) {
+  <span class="cf">if</span>(<span class="kw">str_sub</span>(file, <span class="dt">start =</span> <span class="op">-</span><span class="dv">2</span>) <span class="op">==</span><span class="st"> &quot;gz&quot;</span>) {
+    d &lt;-<span class="st"> </span><span class="kw">fread</span>(
+      <span class="dt">cmd =</span> <span class="kw">paste</span>(<span class="st">&quot;zcat&quot;</span>, file),
+      <span class="dt">select =</span> select,
+      <span class="dt">colClasses =</span> <span class="kw">list</span>(
+        <span class="dt">character =</span> character,
+        <span class="dt">numeric =</span> numeric
+      )
+    ) <span class="op">%&gt;%</span>
+<span class="st">      </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span>
+<span class="st">      </span><span class="kw">clean_names</span>()
+  } <span class="cf">else</span> {
+    d &lt;-<span class="st"> </span><span class="kw">fread</span>(
+      <span class="dt">input =</span> file,
+      <span class="dt">select =</span> select,
+      <span class="dt">colClasses =</span> <span class="kw">list</span>(
+        <span class="dt">character =</span> character,
+        <span class="dt">numeric =</span> numeric
+      )
+    ) <span class="op">%&gt;%</span>
+<span class="st">      </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span>
+<span class="st">      </span><span class="kw">clean_names</span>()
+  }
+  
+  <span class="kw">return</span>(d)
+}
+
+<span class="co"># CIF-FOB rate ------------------------------------------------------------</span>
+    
+<span class="co"># See Anderson &amp; van Wincoop, 2004, Hummels, 2006 and Gaulier &amp; Zignago, 2010 about 8% rate consistency</span>
+cif_fob_rate &lt;-<span class="st"> </span><span class="fl">1.08</span>
+
+<span class="co"># Commodity codes length --------------------------------------------------</span>
+
+J &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">6</span>)
+
+<span class="co"># ISO-3 codes -------------------------------------------------------------</span>
+    
+<span class="kw">load</span>(<span class="st">&quot;../comtrade-codes/01-2-tidy-country-data/country-codes.RData&quot;</span>)
+    
+country_codes &lt;-<span class="st"> </span>country_codes <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(iso3_digit_alpha) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">iso3_digit_alpha =</span> <span class="kw">str_to_lower</span>(iso3_digit_alpha)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span>iso3_digit_alpha <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;wld&quot;</span>,<span class="st">&quot;null&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">as_vector</span>()
+
+<span class="co"># Five reporters rda file  ------------------------------------------------</span>
+rda_file &lt;-<span class="st"> &quot;five_reporters_data.rda&quot;</span></code></pre></div>
+</div>
+<div id="read-raw-data" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Read raw data</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data ---------------------------------------------------------------</span>
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(rda_file)) {
+  raw_data &lt;-<span class="st"> </span><span class="kw">fread2</span>(
+    <span class="st">&quot;../yearly-datasets/01-raw-data/hs-rev2007/gz/type-C_r-ALL_ps-2016_freq-A_px-H3_pub-20180612_fmt-csv_ex-20180705.csv.gz&quot;</span>,
+    <span class="dt">select =</span> <span class="kw">c</span>(<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Aggregate Level&quot;</span>, <span class="st">&quot;Trade Flow&quot;</span>, <span class="st">&quot;Reporter ISO&quot;</span>, <span class="st">&quot;Partner ISO&quot;</span>, <span class="st">&quot;Commodity Code&quot;</span>, <span class="st">&quot;Trade Value (US$)&quot;</span>),
+    <span class="dt">character =</span> <span class="st">&quot;Commodity Code&quot;</span>,
+    <span class="dt">numeric =</span> <span class="st">&quot;Trade Value (US$)&quot;</span>
+  )
+  
+  raw_data
+}</code></pre></div>
+<pre><code>## # A tibble: 25,790,743 x 7
+##     year aggregate_level trade_flow reporter_iso partner_iso commodity_code
+##    &lt;int&gt;           &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;         
+##  1  2016               2 Import     ALB          WLD         01            
+##  2  2016               2 Export     ALB          WLD         01            
+##  3  2016               2 Import     ALB          AUT         01            
+##  4  2016               2 Import     ALB          BGR         01            
+##  5  2016               2 Import     ALB          GRC         01            
+##  6  2016               2 Import     ALB          HUN         01            
+##  7  2016               2 Import     ALB          ITA         01            
+##  8  2016               2 Export     ALB          ITA         01            
+##  9  2016               2 Import     ALB          ROU         01            
+## 10  2016               2 Export     ALB          SRB         01            
+## # … with 25,790,733 more rows, and 1 more variable: trade_value_us &lt;dbl&gt;</code></pre>
+</div>
+<div id="clean-data" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Clean data</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Clean data --------------------------------------------------------------</span>
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(rda_file)) {
+  clean_data &lt;-<span class="st"> </span>raw_data <span class="op">%&gt;%</span>
+<span class="st">    </span>
+<span class="st">    </span><span class="kw">rename</span>(<span class="dt">trade_value_usd =</span> trade_value_us) <span class="op">%&gt;%</span>
+<span class="st">    </span>
+<span class="st">    </span><span class="kw">filter</span>(aggregate_level <span class="op">%in%</span><span class="st"> </span>J) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">filter</span>(trade_flow <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Export&quot;</span>,<span class="st">&quot;Import&quot;</span>)) <span class="op">%&gt;%</span>
+<span class="st">    </span>
+<span class="st">    </span><span class="kw">filter</span>(
+      <span class="op">!</span><span class="kw">is.na</span>(commodity_code),
+      commodity_code <span class="op">!=</span><span class="st"> &quot;&quot;</span>,
+      commodity_code <span class="op">!=</span><span class="st"> &quot; &quot;</span>
+    ) <span class="op">%&gt;%</span>
+<span class="st">    </span>
+<span class="st">    </span><span class="kw">mutate</span>(
+      <span class="dt">reporter_iso =</span> <span class="kw">str_to_lower</span>(reporter_iso),
+      <span class="dt">partner_iso =</span> <span class="kw">str_to_lower</span>(partner_iso)
+    ) <span class="op">%&gt;%</span>
+<span class="st">    </span>
+<span class="st">    </span><span class="kw">filter</span>(
+      reporter_iso <span class="op">%in%</span><span class="st"> </span>country_codes,
+      partner_iso <span class="op">%in%</span><span class="st"> </span>country_codes
+    ) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>
+<span class="st">    </span><span class="co"># Provided Comtrade data cannot be redistributed, I&#39;ll limit the</span>
+<span class="st">    </span><span class="co"># example to five reporters</span>
+<span class="st">    </span>
+<span class="st">    </span><span class="kw">filter</span>(
+      reporter_iso <span class="op">==</span><span class="st"> &quot;chl&quot;</span>,
+      partner_iso <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;arg&quot;</span>, <span class="st">&quot;bra&quot;</span>, <span class="st">&quot;per&quot;</span>, <span class="st">&quot;usa&quot;</span>)
+    )
+  
+  <span class="kw">save</span>(clean_data, <span class="dt">file =</span> rda_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)
+  
+  clean_data
+} <span class="cf">else</span> {
+  <span class="kw">load</span>(rda_file)
+  
+  clean_data
+}</code></pre></div>
+<pre><code>## # A tibble: 22,517 x 7
+##     year aggregate_level trade_flow reporter_iso partner_iso commodity_code
+##    &lt;int&gt;           &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;         
+##  1  2016               4 Import     chl          arg         0101          
+##  2  2016               4 Export     chl          arg         0101          
+##  3  2016               4 Import     chl          bra         0101          
+##  4  2016               4 Export     chl          per         0101          
+##  5  2016               4 Import     chl          usa         0101          
+##  6  2016               4 Export     chl          usa         0101          
+##  7  2016               6 Import     chl          arg         010110        
+##  8  2016               6 Export     chl          arg         010110        
+##  9  2016               6 Import     chl          bra         010110        
+## 10  2016               6 Export     chl          per         010110        
+## # … with 22,507 more rows, and 1 more variable: trade_value_usd &lt;dbl&gt;</code></pre>
+</div>
+<div id="symmetric-clean-data" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> Symmetric (clean) data</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Exports data ------------------------------------------------------------</span>
+
+exports &lt;-<span class="st"> </span>clean_data <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(trade_flow <span class="op">==</span><span class="st"> &quot;Export&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(reporter_iso, partner_iso, commodity_code, trade_value_usd) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trade_value_usd =</span> <span class="kw">ceiling</span>(trade_value_usd))
+
+exports_mirrored &lt;-<span class="st"> </span>clean_data <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(trade_flow <span class="op">==</span><span class="st"> &quot;Import&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(reporter_iso, partner_iso, commodity_code, trade_value_usd) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trade_value_usd =</span> <span class="kw">ceiling</span>(trade_value_usd <span class="op">/</span><span class="st"> </span>cif_fob_rate))
+
+<span class="co"># Reporter and Partner must be inverted</span>
+<span class="kw">colnames</span>(exports_mirrored) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;partner_iso&quot;</span>, <span class="st">&quot;reporter_iso&quot;</span>, <span class="st">&quot;commodity_code&quot;</span>, <span class="st">&quot;trade_value_usd&quot;</span>)
+
+exports_model &lt;-<span class="st"> </span>exports <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">full_join</span>(exports_mirrored, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;reporter_iso&quot;</span>, <span class="st">&quot;partner_iso&quot;</span>, <span class="st">&quot;commodity_code&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trade_value_usd =</span> <span class="kw">max</span>(trade_value_usd.x, trade_value_usd.y, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">commodity_code_parent =</span> <span class="kw">str_sub</span>(commodity_code, <span class="dv">1</span>, <span class="dv">4</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(reporter_iso, partner_iso, commodity_code_parent) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">parent_count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(reporter_iso, partner_iso, commodity_code, commodity_code_parent, parent_count, trade_value_usd)
+
+exports_model_unrepeated_parent &lt;-<span class="st"> </span>exports_model <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(parent_count <span class="op">==</span><span class="st"> </span><span class="dv">1</span>)
+
+exports_model_repeated_parent &lt;-<span class="st"> </span>exports_model <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(
+    parent_count <span class="op">&gt;</span><span class="st"> </span><span class="dv">1</span>,
+    <span class="kw">str_length</span>(commodity_code) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>)
+  )
+
+exports_model_repeated_parent_summary &lt;-<span class="st"> </span>exports_model_repeated_parent <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">group_by</span>(reporter_iso, partner_iso, commodity_code_parent) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">trade_value_usd =</span> <span class="kw">sum</span>(trade_value_usd, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">commodity_code =</span> commodity_code_parent)
+
+exports_model &lt;-<span class="st"> </span>exports_model_unrepeated_parent <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">bind_rows</span>(exports_model_repeated_parent) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">bind_rows</span>(exports_model_repeated_parent_summary) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">arrange</span>(reporter_iso, partner_iso, commodity_code) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(
+    <span class="dt">year =</span> <span class="dv">2016</span>,
+    <span class="dt">commodity_code_length =</span> <span class="kw">str_length</span>(commodity_code)
+  ) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(year, reporter_iso, partner_iso, commodity_code, commodity_code_length, trade_value_usd) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(trade_value_usd <span class="op">&gt;</span><span class="st"> </span><span class="dv">0</span>)
+
+exports_model</code></pre></div>
+<pre><code>## # A tibble: 22,484 x 6
+##     year reporter_iso partner_iso commodity_code commodity_code_…
+##    &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                     &lt;int&gt;
+##  1  2016 arg          chl         0101                          4
+##  2  2016 arg          chl         010110                        6
+##  3  2016 arg          chl         010190                        6
+##  4  2016 arg          chl         0106                          4
+##  5  2016 arg          chl         010619                        6
+##  6  2016 arg          chl         0201                          4
+##  7  2016 arg          chl         020130                        6
+##  8  2016 arg          chl         0202                          4
+##  9  2016 arg          chl         020230                        6
+## 10  2016 arg          chl         0206                          4
+## # … with 22,474 more rows, and 1 more variable: trade_value_usd &lt;dbl&gt;</code></pre>
+</div>
 </div>
 <div id="github-repositories" class="section level2">
 <h2><span class="header-section-number">4.3</span> GitHub repositories</h2>
