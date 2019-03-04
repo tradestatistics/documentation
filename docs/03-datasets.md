@@ -192,7 +192,7 @@ Please check the [md5sums](https://data.tradestatistics.io/06-tables/hs-rev2007/
 
 The advantage of the API over https download is that you can filter what to obtain and also access some additional tables.
 
-To obtain exactly the same data as with compressed files, please refer to \@ref(yrpc).
+To obtain exactly the same data as with compressed files, please refer to \@ref(yrpc-year-reporter-partner-and-commodity).
 
 If you use R you'll need `jsonlite` package.
 
@@ -473,9 +473,7 @@ as_tibble(fromJSON(
 ## # … with 214 more rows
 ```
 
-### YRPC
-
-**Year - Reporter - Partner - Commodity**
+### YRPC (Year, Reporter, Partner and Commodity)
 
 By using the API you can obtain the same result as in section \@ref(compressed-data), but in a simpler way:
 
@@ -559,9 +557,7 @@ Some columns requiere an explanation:
 * `export_value_usd_change_1_year`: Nominal increase/decrease in exports measured in USD with respect to last year
 * `export_value_usd_change_5_years`: Nominal increase/decrease in exports measured in USD with respect to five years ago
 
-### YRC
-
-**Year - Reporter - Commodity**
+### YRC (Year, Reporter and Commodity)
 
 The only applicable filter is by year and reporter.
 
@@ -642,9 +638,7 @@ yrc_2
 
 Here the `export_rca*` and `import_rca*` fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/).
 
-### YRP
-
-**Year - Reporter - Partner**
+### YRP (Year, Reporter and Partner)
 
 The only applicable filter is by year, reporter and partner.
 
@@ -656,9 +650,7 @@ yrp <- as_tibble(fromJSON(
 ))
 ```
 
-### YC
-
-**Year - Commodity**
+### YC (Year and Commodity)
 
 The only applicable filter is by year and commodity.
 
@@ -705,9 +697,7 @@ Here some fields deserve an explanation:
 * `pci_rank_4_digits_commodity_code`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
 * `pci_rank_4_digits_commodity_code_delta_1_year`: How many places a country increased or decreased with respect to last year
 
-#### YR
-
-**Year - Reporter**
+#### YR (Year and Reporter)
 
 The only applicable filter is by year and reporter.
 

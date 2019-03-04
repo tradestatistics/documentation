@@ -23,7 +23,7 @@ $$\hat{x}_{c,c',p} = \max\left\{x_{c,c',p}, \frac{m_{c',c,p}}{1.08}\right\}$$
 $$\hat{m}_{c,c',p} = \max\left\{x_{c',c,p}, \frac{m_{c,c',p}}{1.08}\right\}$$
 After symmetrization all observations are rounded to zero decimals.
 
-## How do we clean data?
+## Data cleaning
 
 You can check the GitHub repository, but here we provide a simplified and commented example that reproduces the exact steps we performed to clean the data.
 

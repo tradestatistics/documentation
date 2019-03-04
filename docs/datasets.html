@@ -25,7 +25,7 @@
 <meta name="author" content="Pachá (Mauricio Vargas Sepúlveda)">
 
 
-<meta name="date" content="2019-03-03">
+<meta name="date" content="2019-03-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -88,7 +88,6 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -115,7 +114,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data processing</a><ul>
 <li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#tidy-data"><i class="fa fa-check"></i><b>2.1</b> Tidy Data</a></li>
 <li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#filling-gaps-in-our-data"><i class="fa fa-check"></i><b>2.2</b> Filling gaps in our data</a></li>
-<li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#how-do-we-clean-data"><i class="fa fa-check"></i><b>2.3</b> How do we clean data?</a><ul>
+<li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#data-cleaning"><i class="fa fa-check"></i><b>2.3</b> Data cleaning</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="data-processing.html"><a href="data-processing.html#required-packages"><i class="fa fa-check"></i><b>2.3.1</b> Required packages</a></li>
 <li class="chapter" data-level="2.3.2" data-path="data-processing.html"><a href="data-processing.html#custom-function-to-read-data"><i class="fa fa-check"></i><b>2.3.2</b> Custom function to read data</a></li>
 <li class="chapter" data-level="2.3.3" data-path="data-processing.html"><a href="data-processing.html#cif-fob-rate-commodity-codes-length-and-iso-codes"><i class="fa fa-check"></i><b>2.3.3</b> CIF-FOB rate, commodity codes length and ISO codes</a></li>
@@ -153,10 +152,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.3.2" data-path="datasets.html"><a href="datasets.html#metadata"><i class="fa fa-check"></i><b>4.3.2</b> Metadata</a></li>
 <li class="chapter" data-level="4.3.3" data-path="datasets.html"><a href="datasets.html#api-parameters"><i class="fa fa-check"></i><b>4.3.3</b> API parameters</a></li>
 <li class="chapter" data-level="4.3.4" data-path="datasets.html"><a href="datasets.html#available-reporters"><i class="fa fa-check"></i><b>4.3.4</b> Available reporters</a></li>
-<li class="chapter" data-level="4.3.5" data-path="datasets.html"><a href="datasets.html#yrpc"><i class="fa fa-check"></i><b>4.3.5</b> YRPC</a></li>
-<li class="chapter" data-level="4.3.6" data-path="datasets.html"><a href="datasets.html#yrc"><i class="fa fa-check"></i><b>4.3.6</b> YRC</a></li>
-<li class="chapter" data-level="4.3.7" data-path="datasets.html"><a href="datasets.html#yrp"><i class="fa fa-check"></i><b>4.3.7</b> YRP</a></li>
-<li class="chapter" data-level="4.3.8" data-path="datasets.html"><a href="datasets.html#yc"><i class="fa fa-check"></i><b>4.3.8</b> YC</a></li>
+<li class="chapter" data-level="4.3.5" data-path="datasets.html"><a href="datasets.html#yrpc-year-reporter-partner-and-commodity"><i class="fa fa-check"></i><b>4.3.5</b> YRPC (Year, Reporter, Partner and Commodity)</a></li>
+<li class="chapter" data-level="4.3.6" data-path="datasets.html"><a href="datasets.html#yrc-year-reporter-and-commodity"><i class="fa fa-check"></i><b>4.3.6</b> YRC (Year, Reporter and Commodity)</a></li>
+<li class="chapter" data-level="4.3.7" data-path="datasets.html"><a href="datasets.html#yrp-year-reporter-and-partner"><i class="fa fa-check"></i><b>4.3.7</b> YRP (Year, Reporter and Partner)</a></li>
+<li class="chapter" data-level="4.3.8" data-path="datasets.html"><a href="datasets.html#yc-year-and-commodity"><i class="fa fa-check"></i><b>4.3.8</b> YC (Year and Commodity)</a></li>
 <li class="chapter" data-level="4.3.9" data-path="datasets.html"><a href="datasets.html#country-rankings"><i class="fa fa-check"></i><b>4.3.9</b> Country rankings</a></li>
 <li class="chapter" data-level="4.3.10" data-path="datasets.html"><a href="datasets.html#product-rankings"><i class="fa fa-check"></i><b>4.3.10</b> Product rankings</a></li>
 </ul></li>
@@ -164,6 +163,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>5</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
 </ul>
 
       </nav>
@@ -651,7 +651,7 @@ data_<span class="dv">1962</span></code></pre></div>
 <div id="api" class="section level2">
 <h2><span class="header-section-number">4.3</span> API</h2>
 <p>The advantage of the API over https download is that you can filter what to obtain and also access some additional tables.</p>
-<p>To obtain exactly the same data as with compressed files, please refer to <a href="datasets.html#yrpc">4.3.5</a>.</p>
+<p>To obtain exactly the same data as with compressed files, please refer to <a href="datasets.html#yrpc-year-reporter-partner-and-commodity">4.3.5</a>.</p>
 <p>If you use R you’ll need <code>jsonlite</code> package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(jsonlite)</code></pre></div>
 <div id="available-tables" class="section level3">
@@ -1216,9 +1216,8 @@ rda_products &lt;-<span class="st"> &quot;products.rda&quot;</span>
 ## 10 atf         
 ## # … with 214 more rows</code></pre>
 </div>
-<div id="yrpc" class="section level3">
-<h3><span class="header-section-number">4.3.5</span> YRPC</h3>
-<p><strong>Year - Reporter - Partner - Commodity</strong></p>
+<div id="yrpc-year-reporter-partner-and-commodity" class="section level3">
+<h3><span class="header-section-number">4.3.5</span> YRPC (Year, Reporter, Partner and Commodity)</h3>
 <p>By using the API you can obtain the same result as in section <a href="datasets.html#compressed-data">4.2</a>, but in a simpler way:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Partner - Commodity (filter by year, reporter and partner)</span>
 
@@ -1288,9 +1287,8 @@ yrpc_<span class="dv">2</span></code></pre></div>
 <li><code>export_value_usd_change_5_years</code>: Nominal increase/decrease in exports measured in USD with respect to five years ago</li>
 </ul>
 </div>
-<div id="yrc" class="section level3">
-<h3><span class="header-section-number">4.3.6</span> YRC</h3>
-<p><strong>Year - Reporter - Commodity</strong></p>
+<div id="yrc-year-reporter-and-commodity" class="section level3">
+<h3><span class="header-section-number">4.3.6</span> YRC (Year, Reporter and Commodity)</h3>
 <p>The only applicable filter is by year and reporter.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Commodity (filter by year and reporter)</span>
 
@@ -1356,18 +1354,16 @@ yrc_<span class="dv">2</span></code></pre></div>
 ## #   export_value_usd_percentage_change_5_years &lt;dbl&gt;</code></pre>
 <p>Here the <code>export_rca*</code> and <code>import_rca*</code> fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>.</p>
 </div>
-<div id="yrp" class="section level3">
-<h3><span class="header-section-number">4.3.7</span> YRP</h3>
-<p><strong>Year - Reporter - Partner</strong></p>
+<div id="yrp-year-reporter-and-partner" class="section level3">
+<h3><span class="header-section-number">4.3.7</span> YRP (Year, Reporter and Partner)</h3>
 <p>The only applicable filter is by year, reporter and partner.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Partner (filter by year, reporter and partner)</span>
 yrp &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
   <span class="st">&quot;https://api.tradestatistics.io/yrp?y=2015&amp;r=chl&amp;p=arg&quot;</span>
 ))</code></pre></div>
 </div>
-<div id="yc" class="section level3">
-<h3><span class="header-section-number">4.3.8</span> YC</h3>
-<p><strong>Year - Commodity</strong></p>
+<div id="yc-year-and-commodity" class="section level3">
+<h3><span class="header-section-number">4.3.8</span> YC (Year and Commodity)</h3>
 <p>The only applicable filter is by year and commodity.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Commodity (filter by year)</span>
 yc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
@@ -1400,9 +1396,8 @@ yc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="
 <li><code>pci_rank_4_digits_commodity_code</code>: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)</li>
 <li><code>pci_rank_4_digits_commodity_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>
 </ul>
-<div id="yr" class="section level4">
-<h4><span class="header-section-number">4.3.8.1</span> YR</h4>
-<p><strong>Year - Reporter</strong></p>
+<div id="yr-year-and-reporter" class="section level4">
+<h4><span class="header-section-number">4.3.8.1</span> YR (Year and Reporter)</h4>
 <p>The only applicable filter is by year and reporter.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Year - Reporter (filter by year and reporter)
 yr &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(

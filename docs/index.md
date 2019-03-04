@@ -1,7 +1,7 @@
 --- 
 title: "Open Trade Statistics Documentation"
 author: "Pachá (Mauricio Vargas Sepúlveda)"
-date: "2019-03-03"
+date: "2019-03-04"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [references.bib]
@@ -46,7 +46,7 @@ All of the product data shown on the OTS site is classified using either SITC (S
 
 ## Code
 
-We made all the scripts available under the [Trade Statistics Organization](https://github.com/tradestatistics). Pull requests and new ideas are always welcome!
+We made all the scripts available on [GitHub](https://github.com/tradestatistics). Pull requests and new ideas are always welcome!
 
 ## Contact
 
