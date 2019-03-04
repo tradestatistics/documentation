@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Section 6 Using our datasets | Open Trade Statistics Documentation</title>
-  <meta name="description" content="Section 6 Using our datasets | Open Trade Statistics Documentation">
+  <title>Section 4 Datasets | Open Trade Statistics Documentation</title>
+  <meta name="description" content="Section 4 Datasets | Open Trade Statistics Documentation">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Section 6 Using our datasets | Open Trade Statistics Documentation" />
+  <meta property="og:title" content="Section 4 Datasets | Open Trade Statistics Documentation" />
   <meta property="og:type" content="book" />
   
   
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="tradestatistics/documentation" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Section 6 Using our datasets | Open Trade Statistics Documentation" />
+  <meta name="twitter:title" content="Section 4 Datasets | Open Trade Statistics Documentation" />
   
   
   
@@ -25,7 +25,7 @@
 <meta name="author" content="Pachá (Mauricio Vargas Sepúlveda)">
 
 
-<meta name="date" content="2019-02-26">
+<meta name="date" content="2019-03-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -104,46 +104,64 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">Table of Contents</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
-<li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data Sources</a></li>
-<li class="chapter" data-level="3" data-path="data-availability.html"><a href="data-availability.html"><i class="fa fa-check"></i><b>3</b> Data Availability</a><ul>
-<li class="chapter" data-level="3.1" data-path="data-availability.html"><a href="data-availability.html#yearly-data"><i class="fa fa-check"></i><b>3.1</b> Yearly data</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#project-goals"><i class="fa fa-check"></i><b>1.1</b> Project goals</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i><b>1.2</b> Data availability</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#sources"><i class="fa fa-check"></i><b>1.3</b> Sources</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#code"><i class="fa fa-check"></i><b>1.4</b> Code</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.5</b> Contact</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#donate"><i class="fa fa-check"></i><b>1.6</b> Donate</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>4</b> Data Processing</a><ul>
-<li class="chapter" data-level="4.1" data-path="data-processing.html"><a href="data-processing.html#tidy-data"><i class="fa fa-check"></i><b>4.1</b> Tidy Data</a></li>
-<li class="chapter" data-level="4.2" data-path="data-processing.html"><a href="data-processing.html#filling-gaps-in-our-data"><i class="fa fa-check"></i><b>4.2</b> Filling gaps in our data</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="data-processing.html"><a href="data-processing.html#required-packages-and-objects"><i class="fa fa-check"></i><b>4.2.1</b> Required packages and objects</a></li>
-<li class="chapter" data-level="4.2.2" data-path="data-processing.html"><a href="data-processing.html#read-raw-data"><i class="fa fa-check"></i><b>4.2.2</b> Read raw data</a></li>
-<li class="chapter" data-level="4.2.3" data-path="data-processing.html"><a href="data-processing.html#clean-data"><i class="fa fa-check"></i><b>4.2.3</b> Clean data</a></li>
-<li class="chapter" data-level="4.2.4" data-path="data-processing.html"><a href="data-processing.html#symmetric-clean-data"><i class="fa fa-check"></i><b>4.2.4</b> Symmetric (clean) data</a></li>
+<li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data processing</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#tidy-data"><i class="fa fa-check"></i><b>2.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#filling-gaps-in-our-data"><i class="fa fa-check"></i><b>2.2</b> Filling gaps in our data</a></li>
+<li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#how-do-we-clean-data"><i class="fa fa-check"></i><b>2.3</b> How do we clean data?</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data-processing.html"><a href="data-processing.html#required-packages"><i class="fa fa-check"></i><b>2.3.1</b> Required packages</a></li>
+<li class="chapter" data-level="2.3.2" data-path="data-processing.html"><a href="data-processing.html#custom-function-to-read-data"><i class="fa fa-check"></i><b>2.3.2</b> Custom function to read data</a></li>
+<li class="chapter" data-level="2.3.3" data-path="data-processing.html"><a href="data-processing.html#cif-fob-rate-commodity-codes-length-and-iso-codes"><i class="fa fa-check"></i><b>2.3.3</b> CIF-FOB rate, commodity codes length and ISO codes</a></li>
+<li class="chapter" data-level="2.3.4" data-path="data-processing.html"><a href="data-processing.html#read-raw-data"><i class="fa fa-check"></i><b>2.3.4</b> Read raw data</a></li>
+<li class="chapter" data-level="2.3.5" data-path="data-processing.html"><a href="data-processing.html#clean-data"><i class="fa fa-check"></i><b>2.3.5</b> Clean data</a></li>
+<li class="chapter" data-level="2.3.6" data-path="data-processing.html"><a href="data-processing.html#symmetric-clean-data"><i class="fa fa-check"></i><b>2.3.6</b> Symmetric (clean) data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="data-processing.html"><a href="data-processing.html#github-repositories"><i class="fa fa-check"></i><b>4.3</b> GitHub repositories</a></li>
-<li class="chapter" data-level="4.4" data-path="data-processing.html"><a href="data-processing.html#software-information"><i class="fa fa-check"></i><b>4.4</b> Software information</a></li>
-<li class="chapter" data-level="4.5" data-path="data-processing.html"><a href="data-processing.html#hardware-information"><i class="fa fa-check"></i><b>4.5</b> Hardware information</a></li>
-<li class="chapter" data-level="4.6" data-path="data-processing.html"><a href="data-processing.html#reproducibility-notes"><i class="fa fa-check"></i><b>4.6</b> Reproducibility notes</a></li>
-<li class="chapter" data-level="4.7" data-path="data-processing.html"><a href="data-processing.html#coding-style-and-performant-code"><i class="fa fa-check"></i><b>4.7</b> Coding style and performant code</a></li>
+<li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#github-repositories"><i class="fa fa-check"></i><b>2.4</b> GitHub repositories</a></li>
+<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#software-information"><i class="fa fa-check"></i><b>2.5</b> Software information</a></li>
+<li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#hardware-information"><i class="fa fa-check"></i><b>2.6</b> Hardware information</a></li>
+<li class="chapter" data-level="2.7" data-path="data-processing.html"><a href="data-processing.html#reproducibility-notes"><i class="fa fa-check"></i><b>2.7</b> Reproducibility notes</a></li>
+<li class="chapter" data-level="2.8" data-path="data-processing.html"><a href="data-processing.html#coding-style-and-performant-code"><i class="fa fa-check"></i><b>2.8</b> Coding style and performant code</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html"><i class="fa fa-check"></i><b>5</b> The Mathematics of Economic Complexity</a><ul>
-<li class="chapter" data-level="5.1" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca"><i class="fa fa-check"></i><b>5.1</b> Revealed Comparative Advantage (RCA)</a></li>
-<li class="chapter" data-level="5.2" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#smooth-revealed-comparative-advantage-srca"><i class="fa fa-check"></i><b>5.2</b> Smooth Revealed Comparative Advantage (SRCA)</a></li>
-<li class="chapter" data-level="5.3" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#diversity-and-ubiquity"><i class="fa fa-check"></i><b>5.3</b> Diversity and Ubiquity</a></li>
-<li class="chapter" data-level="5.4" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#reflections-method"><i class="fa fa-check"></i><b>5.4</b> Reflections Method</a></li>
-<li class="chapter" data-level="5.5" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci"><i class="fa fa-check"></i><b>5.5</b> Economic Complexity Index (ECI)</a></li>
-<li class="chapter" data-level="5.6" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci"><i class="fa fa-check"></i><b>5.6</b> Product Complexity Index (PCI)</a></li>
-<li class="chapter" data-level="5.7" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#countries-not-included-in-rankings-and-indicators"><i class="fa fa-check"></i><b>5.7</b> Countries not included in rankings and indicators</a></li>
-<li class="chapter" data-level="5.8" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-proximity"><i class="fa fa-check"></i><b>5.8</b> Product Proximity</a></li>
-<li class="chapter" data-level="5.9" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-proximity"><i class="fa fa-check"></i><b>5.9</b> Country Proximity</a></li>
-<li class="chapter" data-level="5.10" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-density"><i class="fa fa-check"></i><b>5.10</b> Product Density</a></li>
-<li class="chapter" data-level="5.11" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-density"><i class="fa fa-check"></i><b>5.11</b> Country Density</a></li>
+<li class="chapter" data-level="3" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html"><i class="fa fa-check"></i><b>3</b> The Mathematics of Economic Complexity</a><ul>
+<li class="chapter" data-level="3.1" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca"><i class="fa fa-check"></i><b>3.1</b> Revealed Comparative Advantage (RCA)</a></li>
+<li class="chapter" data-level="3.2" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#smooth-revealed-comparative-advantage-srca"><i class="fa fa-check"></i><b>3.2</b> Smooth Revealed Comparative Advantage (SRCA)</a></li>
+<li class="chapter" data-level="3.3" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#diversity-and-ubiquity"><i class="fa fa-check"></i><b>3.3</b> Diversity and Ubiquity</a></li>
+<li class="chapter" data-level="3.4" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#reflections-method"><i class="fa fa-check"></i><b>3.4</b> Reflections Method</a></li>
+<li class="chapter" data-level="3.5" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci"><i class="fa fa-check"></i><b>3.5</b> Economic Complexity Index (ECI)</a></li>
+<li class="chapter" data-level="3.6" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci"><i class="fa fa-check"></i><b>3.6</b> Product Complexity Index (PCI)</a></li>
+<li class="chapter" data-level="3.7" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#countries-not-included-in-rankings-and-indicators"><i class="fa fa-check"></i><b>3.7</b> Countries not included in rankings and indicators</a></li>
+<li class="chapter" data-level="3.8" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-proximity"><i class="fa fa-check"></i><b>3.8</b> Product Proximity</a></li>
+<li class="chapter" data-level="3.9" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-proximity"><i class="fa fa-check"></i><b>3.9</b> Country Proximity</a></li>
+<li class="chapter" data-level="3.10" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-density"><i class="fa fa-check"></i><b>3.10</b> Product Density</a></li>
+<li class="chapter" data-level="3.11" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-density"><i class="fa fa-check"></i><b>3.11</b> Country Density</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="using-our-datasets.html"><a href="using-our-datasets.html"><i class="fa fa-check"></i><b>6</b> Using our datasets</a><ul>
-<li class="chapter" data-level="6.1" data-path="using-our-datasets.html"><a href="using-our-datasets.html#compressed-data"><i class="fa fa-check"></i><b>6.1</b> Compressed data</a></li>
-<li class="chapter" data-level="6.2" data-path="using-our-datasets.html"><a href="using-our-datasets.html#api"><i class="fa fa-check"></i><b>6.2</b> API</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="using-our-datasets.html"><a href="using-our-datasets.html#metadata"><i class="fa fa-check"></i><b>6.2.1</b> Metadata</a></li>
-<li class="chapter" data-level="6.2.2" data-path="using-our-datasets.html"><a href="using-our-datasets.html#data"><i class="fa fa-check"></i><b>6.2.2</b> Data</a></li>
+<li class="chapter" data-level="4" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>4</b> Datasets</a><ul>
+<li class="chapter" data-level="4.1" data-path="datasets.html"><a href="datasets.html#code-of-conduct"><i class="fa fa-check"></i><b>4.1</b> Code of Conduct</a></li>
+<li class="chapter" data-level="4.2" data-path="datasets.html"><a href="datasets.html#compressed-data"><i class="fa fa-check"></i><b>4.2</b> Compressed data</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="datasets.html"><a href="datasets.html#how-to-use"><i class="fa fa-check"></i><b>4.2.1</b> How to use</a></li>
+<li class="chapter" data-level="4.2.2" data-path="datasets.html"><a href="datasets.html#available-datasets"><i class="fa fa-check"></i><b>4.2.2</b> Available datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="datasets.html"><a href="datasets.html#api"><i class="fa fa-check"></i><b>4.3</b> API</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="datasets.html"><a href="datasets.html#available-tables"><i class="fa fa-check"></i><b>4.3.1</b> Available tables</a></li>
+<li class="chapter" data-level="4.3.2" data-path="datasets.html"><a href="datasets.html#metadata"><i class="fa fa-check"></i><b>4.3.2</b> Metadata</a></li>
+<li class="chapter" data-level="4.3.3" data-path="datasets.html"><a href="datasets.html#api-parameters"><i class="fa fa-check"></i><b>4.3.3</b> API parameters</a></li>
+<li class="chapter" data-level="4.3.4" data-path="datasets.html"><a href="datasets.html#available-reporters"><i class="fa fa-check"></i><b>4.3.4</b> Available reporters</a></li>
+<li class="chapter" data-level="4.3.5" data-path="datasets.html"><a href="datasets.html#yrpc"><i class="fa fa-check"></i><b>4.3.5</b> YRPC</a></li>
+<li class="chapter" data-level="4.3.6" data-path="datasets.html"><a href="datasets.html#yrc"><i class="fa fa-check"></i><b>4.3.6</b> YRC</a></li>
+<li class="chapter" data-level="4.3.7" data-path="datasets.html"><a href="datasets.html#yrp"><i class="fa fa-check"></i><b>4.3.7</b> YRP</a></li>
+<li class="chapter" data-level="4.3.8" data-path="datasets.html"><a href="datasets.html#yc"><i class="fa fa-check"></i><b>4.3.8</b> YC</a></li>
+<li class="chapter" data-level="4.3.9" data-path="datasets.html"><a href="datasets.html#country-rankings"><i class="fa fa-check"></i><b>4.3.9</b> Country rankings</a></li>
+<li class="chapter" data-level="4.3.10" data-path="datasets.html"><a href="datasets.html#product-rankings"><i class="fa fa-check"></i><b>4.3.10</b> Product rankings</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
+<li class="chapter" data-level="5" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>5</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -163,13 +181,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="using-our-datasets" class="section level1">
-<h1><span class="header-section-number">Section 6</span> Using our datasets</h1>
+<div id="datasets" class="section level1">
+<h1><span class="header-section-number">Section 4</span> Datasets</h1>
+<div id="code-of-conduct" class="section level2">
+<h2><span class="header-section-number">4.1</span> Code of Conduct</h2>
+<p>Before you proceed to download the data, please read this carefully.</p>
+<p>No matter about your gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), or technology choices you are able to use this data for any non-commercial purpose, including academic.</p>
+<p>Commercial purposes are strictly out of the boundaries of what you can do with this data according to UN Comtrade dissemination clauses.</p>
+<p>Our datasets are distributed under Creative Commons Attribution-NonCommercial 4.0 International License.</p>
+<p>Before downloading you agree to the usage conditions explained both to <a href="https://comtrade.un.org/db/help/licenseagreement.aspx">UN Comtrade Online Usage Agreement</a> and <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons BY-NC 4.0 License</a>.</p>
+</div>
 <div id="compressed-data" class="section level2">
-<h2><span class="header-section-number">6.1</span> Compressed data</h2>
+<h2><span class="header-section-number">4.2</span> Compressed data</h2>
+<div id="how-to-use" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> How to use</h3>
 <p>There is a special consideration you should have with our datasets, and is that you should always read the trade values as a numeric column and the commodity codes as a character column.</p>
 <p>Different R packages, and statistical software in general, have includeded functions to autodetect column types. In our experience, that can read commodity codes as integers and that would ignore leading zeroes in commodity codes. The same applies to trade values that can be detected as integers after the program reads the first <span class="math inline">\(n\)</span> rows, and that would lead to read large values incorrectly due to integer class maximum value of 2,147,483,647.</p>
-<p>As an example, let’s read 1962 data:</p>
+<p>As an example, let’s read 1962 data and explore what the United Stated exported:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># packages</span>
 
 <span class="kw">library</span>(data.table)
@@ -217,8 +245,8 @@ fread2 &lt;-<span class="st"> </span><span class="cf">function</span>(file, <spa
 
 <span class="co"># download data</span>
 
-url_<span class="dv">1962</span> &lt;-<span class="st"> &quot;https://tradestatistics.io/data/06-tables/hs-rev2007/1-yrpc/yrpc-1962.csv.gz&quot;</span>
-gz_<span class="dv">1962</span> &lt;-<span class="st"> &quot;yrpc-2016.csv.gz&quot;</span>
+url_<span class="dv">1962</span> &lt;-<span class="st"> &quot;https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1962.csv.gz&quot;</span>
+gz_<span class="dv">1962</span> &lt;-<span class="st"> &quot;yrpc-1962.csv.gz&quot;</span>
 
 <span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(gz_<span class="dv">1962</span>)) {
   <span class="kw">try</span>(<span class="kw">download.file</span>(url_<span class="dv">1962</span>, gz_<span class="dv">1962</span>))
@@ -226,88 +254,445 @@ gz_<span class="dv">1962</span> &lt;-<span class="st"> &quot;yrpc-2016.csv.gz&qu
 
 <span class="co"># read data</span>
 
-data_<span class="dv">1962</span> &lt;-<span class="st"> </span><span class="kw">fread2</span>(
-      <span class="st">&quot;yrpc-2016.csv.gz&quot;</span>,
-      <span class="dt">character =</span> <span class="st">&quot;commodity_code&quot;</span>,
-      <span class="dt">numeric =</span> <span class="kw">c</span>(
-        <span class="st">&quot;export_value_usd&quot;</span>,
-        <span class="st">&quot;import_value_usd&quot;</span>,
-        <span class="st">&quot;export_value_usd_change_1_year&quot;</span>,
-        <span class="st">&quot;export_value_usd_change_5_years&quot;</span>,
-        <span class="st">&quot;export_value_usd_percentage_change_1_year&quot;</span>,
-        <span class="st">&quot;export_value_usd_percentage_change_5_years&quot;</span>,
-        <span class="st">&quot;import_value_usd_change_1_year&quot;</span>,
-        <span class="st">&quot;import_value_usd_change_5_years&quot;</span>,
-        <span class="st">&quot;import_value_usd_percentage_change_1_year&quot;</span>,
-        <span class="st">&quot;import_value_usd_percentage_change_5_years&quot;</span>
-      )
-    )
+rda_<span class="dv">1962</span> &lt;-<span class="st"> &quot;api_data_1962.rda&quot;</span>
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(rda_<span class="dv">1962</span>)) {
+  data_<span class="dv">1962</span> &lt;-<span class="st"> </span><span class="kw">fread2</span>(
+        gz_<span class="dv">1962</span>,
+        <span class="dt">character =</span> <span class="st">&quot;commodity_code&quot;</span>,
+        <span class="dt">numeric =</span> <span class="kw">c</span>(
+          <span class="st">&quot;export_value_usd&quot;</span>,
+          <span class="st">&quot;import_value_usd&quot;</span>,
+          <span class="st">&quot;export_value_usd_change_1_year&quot;</span>,
+          <span class="st">&quot;export_value_usd_change_5_years&quot;</span>,
+          <span class="st">&quot;export_value_usd_percentage_change_1_year&quot;</span>,
+          <span class="st">&quot;export_value_usd_percentage_change_5_years&quot;</span>,
+          <span class="st">&quot;import_value_usd_change_1_year&quot;</span>,
+          <span class="st">&quot;import_value_usd_change_5_years&quot;</span>,
+          <span class="st">&quot;import_value_usd_percentage_change_1_year&quot;</span>,
+          <span class="st">&quot;import_value_usd_percentage_change_5_years&quot;</span>
+        )
+      ) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">filter</span>(reporter_iso <span class="op">==</span><span class="st"> &quot;usa&quot;</span>)
+} <span class="cf">else</span> {
+  <span class="kw">load</span>(rda_<span class="dv">1962</span>)
+}
 
 data_<span class="dv">1962</span></code></pre></div>
-<pre><code>## # A tibble: 1,709,034 x 15
+<pre><code>## # A tibble: 49,383 x 7
 ##     year reporter_iso partner_iso commodity_code commodity_code_…
 ##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                     &lt;int&gt;
-##  1  1962 afg          aus         5702                          4
-##  2  1962 afg          aus         570210                        6
-##  3  1962 afg          aut         0501                          4
-##  4  1962 afg          aut         0504                          4
-##  5  1962 afg          aut         050400                        6
-##  6  1962 afg          aut         5702                          4
-##  7  1962 afg          aut         570210                        6
-##  8  1962 afg          bel         0501                          4
-##  9  1962 afg          bel         0504                          4
-## 10  1962 afg          bel         050400                        6
-## # … with 1,709,024 more rows, and 10 more variables:
-## #   export_value_usd &lt;dbl&gt;, import_value_usd &lt;dbl&gt;,
-## #   export_value_usd_change_1_year &lt;dbl&gt;,
-## #   export_value_usd_change_5_years &lt;dbl&gt;,
-## #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,
-## #   export_value_usd_percentage_change_5_years &lt;dbl&gt;,
-## #   import_value_usd_change_1_year &lt;dbl&gt;,
-## #   import_value_usd_change_5_years &lt;dbl&gt;,
-## #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,
-## #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</code></pre>
+##  1  1962 usa          afg         0201                          4
+##  2  1962 usa          afg         0210                          4
+##  3  1962 usa          afg         0401                          4
+##  4  1962 usa          afg         0402                          4
+##  5  1962 usa          afg         0405                          4
+##  6  1962 usa          afg         0406                          4
+##  7  1962 usa          afg         0409                          4
+##  8  1962 usa          afg         0710                          4
+##  9  1962 usa          afg         0801                          4
+## 10  1962 usa          afg         0802                          4
+## # … with 49,373 more rows, and 2 more variables: export_value_usd &lt;int&gt;,
+## #   import_value_usd &lt;int&gt;</code></pre>
+</div>
+<div id="available-datasets" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Available datasets</h3>
+<p>Please check the <a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/md5sums.txt">md5sums</a> to verify data integrity after downloading.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Year</th>
+<th>Last updated</th>
+<th>File size (MB)</th>
+<th>md5sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1962.csv.gz">1962</a></td>
+<td>2018-12-26</td>
+<td>9.19</td>
+<td>0ee7b2a390d2f377e0bae1b630e28542</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1963.csv.gz">1963</a></td>
+<td>2018-12-26</td>
+<td>23.87</td>
+<td>08b8af0a652b6e0c470c11ca7275f12b</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1964.csv.gz">1964</a></td>
+<td>2018-12-26</td>
+<td>26.84</td>
+<td>57496ec83e7c1b9893c1250162eff7e3</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1965.csv.gz">1965</a></td>
+<td>2018-12-26</td>
+<td>29.69</td>
+<td>bda7ba503f93c1d5faa4989b943ba737</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1966.csv.gz">1966</a></td>
+<td>2018-12-26</td>
+<td>31.81</td>
+<td>21b8a1fb12431e1bd395035a8c1cf10a</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1967.csv.gz">1967</a></td>
+<td>2018-12-26</td>
+<td>44.65</td>
+<td>ab62aeaaa32f054fca88b146aa65f960</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1968.csv.gz">1968</a></td>
+<td>2018-12-26</td>
+<td>47.85</td>
+<td>db43871ebb70c1d7065f9effa6f69890</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1969.csv.gz">1969</a></td>
+<td>2018-12-26</td>
+<td>50.47</td>
+<td>4dffda0775f3baf17ad5d8b202d77fab</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1970.csv.gz">1970</a></td>
+<td>2018-12-26</td>
+<td>54.27</td>
+<td>a1dffb9b9e8f72f541c31734f45a3aa9</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1971.csv.gz">1971</a></td>
+<td>2018-12-26</td>
+<td>57.00</td>
+<td>d9987b341f5ee211371dc71083a91e3b</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1972.csv.gz">1972</a></td>
+<td>2018-12-26</td>
+<td>59.30</td>
+<td>e20d9967738d7bd5eabb7e71ecc8d260</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1973.csv.gz">1973</a></td>
+<td>2018-12-26</td>
+<td>62.38</td>
+<td>0eae7662b263ba9f2a34b1ffa9e0c8b6</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1974.csv.gz">1974</a></td>
+<td>2018-12-26</td>
+<td>66.50</td>
+<td>e702d1481b9bba1b22221159d0ece98e</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1975.csv.gz">1975</a></td>
+<td>2018-12-26</td>
+<td>68.99</td>
+<td>78f71d0d52dc034e507e5fdbac2017a8</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1976.csv.gz">1976</a></td>
+<td>2018-12-26</td>
+<td>68.18</td>
+<td>9b45cefd538278095e7fc1b0fcfdbbd0</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1977.csv.gz">1977</a></td>
+<td>2018-12-26</td>
+<td>73.94</td>
+<td>cc31ade14b25f695263b025ee220207e</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1978.csv.gz">1978</a></td>
+<td>2018-12-26</td>
+<td>80.57</td>
+<td>dd4641c9b2930c952fff623ab0e38566</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1979.csv.gz">1979</a></td>
+<td>2018-12-26</td>
+<td>89.33</td>
+<td>9461d28a6a78c1f758042626bfe61b96</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1980.csv.gz">1980</a></td>
+<td>2018-12-26</td>
+<td>93.72</td>
+<td>72a71cff48fecca1e163ea2df469b7d3</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1981.csv.gz">1981</a></td>
+<td>2018-12-26</td>
+<td>97.12</td>
+<td>6d79c42219b91bc00dfa404b209216e3</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1982.csv.gz">1982</a></td>
+<td>2018-12-26</td>
+<td>98.41</td>
+<td>8bf61f594f5c2784640fb1376a192b98</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1983.csv.gz">1983</a></td>
+<td>2018-12-26</td>
+<td>103.35</td>
+<td>be6d2e91a2f57f3726b86f8023fdac55</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1984.csv.gz">1984</a></td>
+<td>2018-12-26</td>
+<td>104.76</td>
+<td>f4e8b0ff8fab6b7c3a04f0a01e2e13fa</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1985.csv.gz">1985</a></td>
+<td>2018-12-26</td>
+<td>108.06</td>
+<td>bbd7e0ae505d92a9c2349b958111728f</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1986.csv.gz">1986</a></td>
+<td>2018-12-26</td>
+<td>111.57</td>
+<td>e7b483da859ac3b6e5c6960be2135b00</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1987.csv.gz">1987</a></td>
+<td>2018-12-26</td>
+<td>114.11</td>
+<td>8910c7a185beed6de76453cc5ae05518</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1988.csv.gz">1988</a></td>
+<td>2018-12-26</td>
+<td>116.44</td>
+<td>0b1e03cef2e34ad2863b281fe0712e2d</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1989.csv.gz">1989</a></td>
+<td>2018-12-26</td>
+<td>121.48</td>
+<td>3860a7c7f258d45572cb4fe05a7b3084</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1990.csv.gz">1990</a></td>
+<td>2018-12-26</td>
+<td>126.79</td>
+<td>173fdd675c79d56309e1aa5bd468ea49</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1991.csv.gz">1991</a></td>
+<td>2018-12-26</td>
+<td>128.31</td>
+<td>f0ad8f0c27c74da2a12b14c6bcfc2d1a</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1992.csv.gz">1992</a></td>
+<td>2018-12-26</td>
+<td>142.85</td>
+<td>a2e5b03eb3bec5f17e4a0b1642194764</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1993.csv.gz">1993</a></td>
+<td>2018-12-26</td>
+<td>183.53</td>
+<td>c7d6d0710c92359515037f5082a9f8ee</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1994.csv.gz">1994</a></td>
+<td>2018-12-26</td>
+<td>209.98</td>
+<td>55b0176c4758e6fa22ee5e8f32cc1104</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1995.csv.gz">1995</a></td>
+<td>2018-12-26</td>
+<td>231.29</td>
+<td>3d76b808d6591e151408428c2a17baa8</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1996.csv.gz">1996</a></td>
+<td>2018-12-26</td>
+<td>225.08</td>
+<td>bb96e401745a5d938920a5feac6ad021</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1997.csv.gz">1997</a></td>
+<td>2018-12-26</td>
+<td>271.01</td>
+<td>92e29059c5b2ac445f72808f515b58d2</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1998.csv.gz">1998</a></td>
+<td>2018-12-26</td>
+<td>293.61</td>
+<td>1b363cf978437d76fb3ea08a2b87664b</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1999.csv.gz">1999</a></td>
+<td>2018-12-26</td>
+<td>314.98</td>
+<td>e9a07d7ea42b8de69247cf83fde1d251</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2000.csv.gz">2000</a></td>
+<td>2018-12-26</td>
+<td>357.59</td>
+<td>3ff097a95a7b4296c5d008f1c42738c3</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2001.csv.gz">2001</a></td>
+<td>2018-12-26</td>
+<td>380.78</td>
+<td>dadaeca7f9978cc86ba56ea6f36f5378</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2002.csv.gz">2002</a></td>
+<td>2018-12-26</td>
+<td>374.03</td>
+<td>67c77761b776c862b954a9c82e273dec</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2003.csv.gz">2003</a></td>
+<td>2018-12-26</td>
+<td>390.76</td>
+<td>ae450ddcbaacc0107098d7a5b76bd4e4</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2004.csv.gz">2004</a></td>
+<td>2018-12-26</td>
+<td>419.84</td>
+<td>749c6522a55cdaa5ebce49c5a89e7ef9</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2005.csv.gz">2005</a></td>
+<td>2018-12-26</td>
+<td>454.80</td>
+<td>5094d98e973a3eeb238d2af21206a2a5</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2006.csv.gz">2006</a></td>
+<td>2018-12-26</td>
+<td>477.17</td>
+<td>09a4821eed7d29e70ced090e5b35e59d</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2007.csv.gz">2007</a></td>
+<td>2018-12-26</td>
+<td>452.87</td>
+<td>f5a91e1d237089a6a22ffad6c8bf02c5</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2008.csv.gz">2008</a></td>
+<td>2018-12-26</td>
+<td>482.61</td>
+<td>fcb85ae525ec351f2d7db4c2460989b1</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2009.csv.gz">2009</a></td>
+<td>2018-12-26</td>
+<td>507.08</td>
+<td>7db4e1e78830caf52271815090e93027</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2010.csv.gz">2010</a></td>
+<td>2018-12-26</td>
+<td>531.34</td>
+<td>e3f281de51f49177e815a24eb5c4e9b3</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2011.csv.gz">2011</a></td>
+<td>2018-12-26</td>
+<td>553.89</td>
+<td>1320d282a6b8d46e70f9508be129b866</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2012.csv.gz">2012</a></td>
+<td>2018-12-26</td>
+<td>563.45</td>
+<td>7ceb21d7db6606578ec4204bebae0dab</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2013.csv.gz">2013</a></td>
+<td>2018-12-26</td>
+<td>586.78</td>
+<td>9b25e8221b607dc5d3b706db118e78a0</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2014.csv.gz">2014</a></td>
+<td>2018-12-26</td>
+<td>596.02</td>
+<td>bec1182c084629bb472aec24c0faea58</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2015.csv.gz">2015</a></td>
+<td>2018-12-26</td>
+<td>606.73</td>
+<td>9226c31eaf7f353dd8b3400b1cba605a</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2016.csv.gz">2016</a></td>
+<td>2018-12-26</td>
+<td>613.93</td>
+<td>83b4da48894c675563e0b2888a350bab</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2017.csv.gz">2017</a></td>
+<td>1888-01-31</td>
+<td>610.42</td>
+<td>1b68922b01cde532ae0ea6ffb5aad8f7</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div id="api" class="section level2">
-<h2><span class="header-section-number">6.2</span> API</h2>
-<p>By using the API you can obtain the same result as in section <a href="using-our-datasets.html#compressed-data">6.1</a>, but in a simpler way:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(jsonlite)
-
-data_<span class="dv">1962</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
-  <span class="st">&quot;https://api.tradestatistics.io/yrpc?y=1962&amp;r=all&amp;p=all&amp;l=4&quot;</span>
-))
-
-data_<span class="dv">1962</span></code></pre></div>
-<pre><code>## # A tibble: 911,002 x 7
-##     year reporter_iso partner_iso commodity_code commodity_code_…
-##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                     &lt;int&gt;
-##  1  1962 afg          aus         3215                          4
-##  2  1962 afg          aus         4802                          4
-##  3  1962 afg          aus         5702                          4
-##  4  1962 afg          aus         6401                          4
-##  5  1962 afg          aus         7010                          4
-##  6  1962 afg          aus         7016                          4
-##  7  1962 afg          aus         8301                          4
-##  8  1962 afg          aus         9999                          4
-##  9  1962 afg          aut         0501                          4
-## 10  1962 afg          aut         0504                          4
-## # … with 910,992 more rows, and 2 more variables: import_value_usd &lt;int&gt;,
-## #   export_value_usd &lt;int&gt;</code></pre>
-<p>Because the API uses PostgreSQL queries that are converted to JSON, the columns are always read correctly with <code>jsonlite</code> R package.</p>
-<p>The last API call makes sense with respect to <code>y</code>, <code>r</code> and <code>p</code>, but <code>l</code> is a requiered parameter that will be detailed in the forthcoming “Data” subsection.</p>
+<h2><span class="header-section-number">4.3</span> API</h2>
+<p>The advantage of the API over https download is that you can filter what to obtain and also access some additional tables.</p>
+<p>To obtain exactly the same data as with compressed files, please refer to <a href="datasets.html#yrpc">4.3.5</a>.</p>
+<p>If you use R you’ll need <code>jsonlite</code> package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(jsonlite)</code></pre></div>
+<div id="available-tables" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Available tables</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(<span class="st">&quot;https://api.tradestatistics.io/tables&quot;</span>))</code></pre></div>
+<pre><code>## # A tibble: 14 x 3
+##    table      description                           source                 
+##    &lt;chr&gt;      &lt;chr&gt;                                 &lt;chr&gt;                  
+##  1 countries  Countries metadata                    UN Comtrade            
+##  2 products   Product metadata                      UN Comtrade            
+##  3 communiti… Product communities                   Harvard&#39;s Center for I…
+##  4 reporters  Reporting countries                   UN Comtrade            
+##  5 country_r… Ranking of countries                  Open Trade Statistics  
+##  6 product_r… Ranking of products                   Open Trade Statistics  
+##  7 yrpc       Bilateral trade at commodity level (… Open Trade Statistics  
+##  8 yrp        Bilateral trade at aggregated level … Open Trade Statistics  
+##  9 yrc        Bilateral trade at aggregated level … Open Trade Statistics  
+## 10 yrc_expor… Bilateral trade at aggregated level … Open Trade Statistics  
+## 11 yrc_impor… Reporter trade at commodity level (Y… Open Trade Statistics  
+## 12 yr         Reporter trade at aggregated level (… Open Trade Statistics  
+## 13 yr_short   Reporter trade at aggregated level (… Open Trade Statistics  
+## 14 yc         Commodity trade at aggregated level … Open Trade Statistics</code></pre>
+</div>
 <div id="metadata" class="section level3">
-<h3><span class="header-section-number">6.2.1</span> Metadata</h3>
-<p>The advantage of the API over https download is that you can filter what to obtain and also access some additional tables:</p>
+<h3><span class="header-section-number">4.3.2</span> Metadata</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Countries (no filter)
-countries &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
-  <span class="st">&quot;https://api.tradestatistics.io/countries&quot;</span>
-))
+rda_countries &lt;-<span class="st"> &quot;countries.rda&quot;</span>
 
-## Products (no filter)
-products &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
-  <span class="st">&quot;https://api.tradestatistics.io/products&quot;</span>
-))</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">countries</code></pre></div>
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(rda_countries)) {
+  countries &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+    <span class="st">&quot;https://api.tradestatistics.io/countries&quot;</span>
+  ))
+  
+  <span class="kw">save</span>(countries, <span class="dt">file =</span> rda_countries, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)
+  
+  countries
+} <span class="cf">else</span> {
+  <span class="kw">load</span>(rda_countries)
+  
+  countries
+}</code></pre></div>
 <pre><code>## # A tibble: 249 x 6
 ##    country_iso country_name_en… country_fullnam… continent_id continent
 ##    &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;    
@@ -322,7 +707,22 @@ products &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span c
 ##  9 arg         Argentina        Argentina                   5 Americas 
 ## 10 arm         Armenia          Armenia                     1 Asia     
 ## # … with 239 more rows, and 1 more variable: eu28_member &lt;int&gt;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">products</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Products (no filter)
+rda_products &lt;-<span class="st"> &quot;products.rda&quot;</span>
+
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(rda_products)) {
+  products &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+    <span class="st">&quot;https://api.tradestatistics.io/products&quot;</span>
+  ))
+  
+  <span class="kw">save</span>(products, <span class="dt">file =</span> rda_products, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)
+  
+  products
+} <span class="cf">else</span> {
+  <span class="kw">load</span>(rda_products)
+  
+  products
+}</code></pre></div>
 <pre><code>## # A tibble: 6,373 x 4
 ##    commodity_code commodity_fullname_english          group_code group_name
 ##    &lt;chr&gt;          &lt;chr&gt;                               &lt;chr&gt;      &lt;chr&gt;     
@@ -777,10 +1177,8 @@ products &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span c
 </tbody>
 </table>
 </div>
-<div id="data" class="section level3">
-<h3><span class="header-section-number">6.2.2</span> Data</h3>
-<div id="general-parameters" class="section level4">
-<h4><span class="header-section-number">6.2.2.1</span> General parameters</h4>
+<div id="api-parameters" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> API parameters</h3>
 <p>The tables provided withing our API contain at least one of these fields:</p>
 <ul>
 <li>Year (<code>y</code>)</li>
@@ -796,63 +1194,63 @@ products &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span c
 <p>By default the API takes <code>c = &quot;all&quot;</code> and <code>l = 4</code> as defaults.</p>
 <p>You can always skip <code>c</code> or <code>l</code>, but <code>y</code>, <code>r</code> and <code>p</code> are requiered to return data.</p>
 </div>
-<div id="available-reporters" class="section level4">
-<h4><span class="header-section-number">6.2.2.2</span> Available reporters</h4>
+<div id="available-reporters" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Available reporters</h3>
 <p>The only applicable filter is by year.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Available reporters (filter by year)</span>
-reporters &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+<span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
   <span class="st">&quot;https://api.tradestatistics.io/reporters?y=2015&quot;</span>
 ))</code></pre></div>
+<pre><code>## # A tibble: 224 x 1
+##    reporter_iso
+##    &lt;chr&gt;       
+##  1 afg         
+##  2 ago         
+##  3 aia         
+##  4 alb         
+##  5 and         
+##  6 are         
+##  7 arg         
+##  8 arm         
+##  9 asm         
+## 10 atf         
+## # … with 214 more rows</code></pre>
 </div>
-<div id="country-rankings" class="section level4">
-<h4><span class="header-section-number">6.2.2.3</span> Country rankings</h4>
-<p>The only applicable filter is by year.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Country rankings (filter by year)</span>
-country_rankings &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
-  <span class="st">&quot;https://api.tradestatistics.io/country_rankings?y=2015&quot;</span>
-))</code></pre></div>
-</div>
-<div id="product-rankings" class="section level4">
-<h4><span class="header-section-number">6.2.2.4</span> Product rankings</h4>
-<p>The only applicable filter is by year.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Product rankings (filter by year)</span>
-product_rankings &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
-  <span class="st">&quot;https://api.tradestatistics.io/product_rankings?y=2015&quot;</span>
-))</code></pre></div>
-</div>
-<div id="year---reporter---partner---commodity" class="section level4">
-<h4><span class="header-section-number">6.2.2.5</span> Year - Reporter - Partner - Commodity</h4>
-<p>You can filter by year, reporter and partner.</p>
+<div id="yrpc" class="section level3">
+<h3><span class="header-section-number">4.3.5</span> YRPC</h3>
+<p><strong>Year - Reporter - Partner - Commodity</strong></p>
+<p>By using the API you can obtain the same result as in section <a href="datasets.html#compressed-data">4.2</a>, but in a simpler way:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Partner - Commodity (filter by year, reporter and partner)</span>
 
 ## filter by commodity length (parameter `l`)
-yrpc_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
-  <span class="st">&quot;https://api.tradestatistics.io/yrpc?y=2015&amp;r=chl&amp;p=arg&amp;l=4&quot;</span>
-))
-
-yrpc_<span class="dv">1</span></code></pre></div>
-<pre><code>## # A tibble: 950 x 15
+<span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(rda_<span class="dv">1962</span>)) {
+  yrpc_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+    <span class="st">&quot;https://api.tradestatistics.io/yrpc?y=1962&amp;r=usa&amp;p=all&amp;l=4&quot;</span>
+  ))
+  
+  yrpc_<span class="dv">1</span>
+} <span class="cf">else</span> {
+  <span class="kw">load</span>(rda_<span class="dv">1962</span>)
+  
+  yrpc_<span class="dv">1</span> &lt;-<span class="st"> </span>data_<span class="dv">1962</span>
+  
+  yrpc_<span class="dv">1</span>
+}</code></pre></div>
+<pre><code>## # A tibble: 49,383 x 7
 ##     year reporter_iso partner_iso commodity_code commodity_code_…
 ##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                     &lt;int&gt;
-##  1  2015 chl          arg         0101                          4
-##  2  2015 chl          arg         0106                          4
-##  3  2015 chl          arg         0201                          4
-##  4  2015 chl          arg         0202                          4
-##  5  2015 chl          arg         0206                          4
-##  6  2015 chl          arg         0207                          4
-##  7  2015 chl          arg         0301                          4
-##  8  2015 chl          arg         0302                          4
-##  9  2015 chl          arg         0303                          4
-## 10  2015 chl          arg         0304                          4
-## # … with 940 more rows, and 10 more variables: export_value_usd &lt;int&gt;,
-## #   import_value_usd &lt;int&gt;, export_value_usd_change_1_year &lt;int&gt;,
-## #   export_value_usd_change_5_years &lt;int&gt;,
-## #   export_value_usd_percentage_change_1_year &lt;dbl&gt;,
-## #   export_value_usd_percentage_change_5_years &lt;dbl&gt;,
-## #   import_value_usd_change_1_year &lt;int&gt;,
-## #   import_value_usd_change_5_years &lt;int&gt;,
-## #   import_value_usd_percentage_change_1_year &lt;dbl&gt;,
-## #   import_value_usd_percentage_change_5_years &lt;dbl&gt;</code></pre>
+##  1  1962 usa          afg         0201                          4
+##  2  1962 usa          afg         0210                          4
+##  3  1962 usa          afg         0401                          4
+##  4  1962 usa          afg         0402                          4
+##  5  1962 usa          afg         0405                          4
+##  6  1962 usa          afg         0406                          4
+##  7  1962 usa          afg         0409                          4
+##  8  1962 usa          afg         0710                          4
+##  9  1962 usa          afg         0801                          4
+## 10  1962 usa          afg         0802                          4
+## # … with 49,373 more rows, and 2 more variables: export_value_usd &lt;int&gt;,
+## #   import_value_usd &lt;int&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## filter by commodity group (parameter `c`)
 yrpc_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
   <span class="st">&quot;https://api.tradestatistics.io/yrpc?y=2015&amp;r=chl&amp;p=arg&amp;c=01&quot;</span>
@@ -890,8 +1288,9 @@ yrpc_<span class="dv">2</span></code></pre></div>
 <li><code>export_value_usd_change_5_years</code>: Nominal increase/decrease in exports measured in USD with respect to five years ago</li>
 </ul>
 </div>
-<div id="year---reporter---commodity" class="section level4">
-<h4><span class="header-section-number">6.2.2.6</span> Year - Reporter - Commodity</h4>
+<div id="yrc" class="section level3">
+<h3><span class="header-section-number">4.3.6</span> YRC</h3>
+<p><strong>Year - Reporter - Commodity</strong></p>
 <p>The only applicable filter is by year and reporter.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Commodity (filter by year and reporter)</span>
 
@@ -957,16 +1356,18 @@ yrc_<span class="dv">2</span></code></pre></div>
 ## #   export_value_usd_percentage_change_5_years &lt;dbl&gt;</code></pre>
 <p>Here the <code>export_rca*</code> and <code>import_rca*</code> fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>.</p>
 </div>
-<div id="year---reporter---partner" class="section level4">
-<h4><span class="header-section-number">6.2.2.7</span> Year - Reporter - Partner</h4>
+<div id="yrp" class="section level3">
+<h3><span class="header-section-number">4.3.7</span> YRP</h3>
+<p><strong>Year - Reporter - Partner</strong></p>
 <p>The only applicable filter is by year, reporter and partner.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Partner (filter by year, reporter and partner)</span>
 yrp &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
   <span class="st">&quot;https://api.tradestatistics.io/yrp?y=2015&amp;r=chl&amp;p=arg&quot;</span>
 ))</code></pre></div>
 </div>
-<div id="year---commodity" class="section level4">
-<h4><span class="header-section-number">6.2.2.8</span> Year - Commodity</h4>
+<div id="yc" class="section level3">
+<h3><span class="header-section-number">4.3.8</span> YC</h3>
+<p><strong>Year - Commodity</strong></p>
 <p>The only applicable filter is by year and commodity.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Commodity (filter by year)</span>
 yc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
@@ -999,9 +1400,9 @@ yc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="
 <li><code>pci_rank_4_digits_commodity_code</code>: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)</li>
 <li><code>pci_rank_4_digits_commodity_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>
 </ul>
-</div>
-<div id="year---reporter" class="section level4">
-<h4><span class="header-section-number">6.2.2.9</span> Year - Reporter</h4>
+<div id="yr" class="section level4">
+<h4><span class="header-section-number">4.3.8.1</span> YR</h4>
+<p><strong>Year - Reporter</strong></p>
 <p>The only applicable filter is by year and reporter.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Year - Reporter (filter by year and reporter)
 yr &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
@@ -1032,8 +1433,24 @@ yr &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="
 <li><code>eci_rank_4_digits_commodity_code</code>: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)</li>
 <li><code>eci_rank_4_digits_commodity_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>
 </ul>
-
 </div>
+</div>
+<div id="country-rankings" class="section level3">
+<h3><span class="header-section-number">4.3.9</span> Country rankings</h3>
+<p>The only applicable filter is by year.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Country rankings (filter by year)</span>
+country_rankings &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+  <span class="st">&quot;https://api.tradestatistics.io/country_rankings?y=2015&quot;</span>
+))</code></pre></div>
+</div>
+<div id="product-rankings" class="section level3">
+<h3><span class="header-section-number">4.3.10</span> Product rankings</h3>
+<p>The only applicable filter is by year.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Product rankings (filter by year)</span>
+product_rankings &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+  <span class="st">&quot;https://api.tradestatistics.io/product_rankings?y=2015&quot;</span>
+))</code></pre></div>
+
 </div>
 </div>
 </div>

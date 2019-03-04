@@ -1,12 +1,26 @@
-# Using our datasets
+# Datasets
+
+## Code of Conduct
+
+Before you proceed to download the data, please read this carefully.
+
+No matter about your gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), or technology choices you are able to use this data for any non-commercial purpose, including academic.
+
+Commercial purposes are strictly out of the boundaries of what you can do with this data according to UN Comtrade dissemination clauses.
+
+Our datasets are distributed under Creative Commons Attribution-NonCommercial 4.0 International License.
+
+Before downloading you agree to the usage conditions explained both to [UN Comtrade Online Usage Agreement](https://comtrade.un.org/db/help/licenseagreement.aspx) and [Creative Commons BY-NC 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/).
 
 ## Compressed data
+
+### How to use
 
 There is a special consideration you should have with our datasets, and is that you should always read the trade values as a numeric column and the commodity codes as a character column.
 
 Different R packages, and statistical software in general, have includeded functions to autodetect column types. In our experience, that can read commodity codes as integers and that would ignore leading zeroes in commodity codes. The same applies to trade values that can be detected as integers after the program reads the first $n$ rows, and that would lead to read large values incorrectly due to integer class maximum value of 2,147,483,647.
 
-As an example, let's read 1962 data:
+As an example, let's read 1962 data and explore what the United Stated exported:
 
 
 ```r
@@ -57,8 +71,8 @@ fread2 <- function(file, select = NULL, character = NULL, numeric = NULL) {
 
 # download data
 
-url_1962 <- "https://tradestatistics.io/data/06-tables/hs-rev2007/1-yrpc/yrpc-1962.csv.gz"
-gz_1962 <- "yrpc-2016.csv.gz"
+url_1962 <- "https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1962.csv.gz"
+gz_1962 <- "yrpc-1962.csv.gz"
 
 if (!file.exists(gz_1962)) {
   try(download.file(url_1962, gz_1962))
@@ -66,109 +80,174 @@ if (!file.exists(gz_1962)) {
 
 # read data
 
-data_1962 <- fread2(
-      "yrpc-2016.csv.gz",
-      character = "commodity_code",
-      numeric = c(
-        "export_value_usd",
-        "import_value_usd",
-        "export_value_usd_change_1_year",
-        "export_value_usd_change_5_years",
-        "export_value_usd_percentage_change_1_year",
-        "export_value_usd_percentage_change_5_years",
-        "import_value_usd_change_1_year",
-        "import_value_usd_change_5_years",
-        "import_value_usd_percentage_change_1_year",
-        "import_value_usd_percentage_change_5_years"
-      )
-    )
+rda_1962 <- "api_data_1962.rda"
+
+if (!file.exists(rda_1962)) {
+  data_1962 <- fread2(
+        gz_1962,
+        character = "commodity_code",
+        numeric = c(
+          "export_value_usd",
+          "import_value_usd",
+          "export_value_usd_change_1_year",
+          "export_value_usd_change_5_years",
+          "export_value_usd_percentage_change_1_year",
+          "export_value_usd_percentage_change_5_years",
+          "import_value_usd_change_1_year",
+          "import_value_usd_change_5_years",
+          "import_value_usd_percentage_change_1_year",
+          "import_value_usd_percentage_change_5_years"
+        )
+      ) %>% 
+    filter(reporter_iso == "usa")
+} else {
+  load(rda_1962)
+}
 
 data_1962
 ```
 
 ```
-## # A tibble: 1,709,034 x 15
+## # A tibble: 49,383 x 7
 ##     year reporter_iso partner_iso commodity_code commodity_code_…
 ##    <int> <chr>        <chr>       <chr>                     <int>
-##  1  1962 afg          aus         5702                          4
-##  2  1962 afg          aus         570210                        6
-##  3  1962 afg          aut         0501                          4
-##  4  1962 afg          aut         0504                          4
-##  5  1962 afg          aut         050400                        6
-##  6  1962 afg          aut         5702                          4
-##  7  1962 afg          aut         570210                        6
-##  8  1962 afg          bel         0501                          4
-##  9  1962 afg          bel         0504                          4
-## 10  1962 afg          bel         050400                        6
-## # … with 1,709,024 more rows, and 10 more variables:
-## #   export_value_usd <dbl>, import_value_usd <dbl>,
-## #   export_value_usd_change_1_year <dbl>,
-## #   export_value_usd_change_5_years <dbl>,
-## #   export_value_usd_percentage_change_1_year <dbl>,
-## #   export_value_usd_percentage_change_5_years <dbl>,
-## #   import_value_usd_change_1_year <dbl>,
-## #   import_value_usd_change_5_years <dbl>,
-## #   import_value_usd_percentage_change_1_year <dbl>,
-## #   import_value_usd_percentage_change_5_years <dbl>
+##  1  1962 usa          afg         0201                          4
+##  2  1962 usa          afg         0210                          4
+##  3  1962 usa          afg         0401                          4
+##  4  1962 usa          afg         0402                          4
+##  5  1962 usa          afg         0405                          4
+##  6  1962 usa          afg         0406                          4
+##  7  1962 usa          afg         0409                          4
+##  8  1962 usa          afg         0710                          4
+##  9  1962 usa          afg         0801                          4
+## 10  1962 usa          afg         0802                          4
+## # … with 49,373 more rows, and 2 more variables: export_value_usd <int>,
+## #   import_value_usd <int>
 ```
+
+### Available datasets
+
+Please check the [md5sums](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/md5sums.txt) to verify data integrity after downloading.
+
+|Year                                                                                |Last updated|File size (MB)|md5sum                          |
+|------------------------------------------------------------------------------------|------------|--------------|--------------------------------|
+|[1962](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1962.csv.gz)|2018-12-26  |9.19          |0ee7b2a390d2f377e0bae1b630e28542|
+|[1963](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1963.csv.gz)|2018-12-26  |23.87         |08b8af0a652b6e0c470c11ca7275f12b|
+|[1964](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1964.csv.gz)|2018-12-26  |26.84         |57496ec83e7c1b9893c1250162eff7e3|
+|[1965](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1965.csv.gz)|2018-12-26  |29.69         |bda7ba503f93c1d5faa4989b943ba737|
+|[1966](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1966.csv.gz)|2018-12-26  |31.81         |21b8a1fb12431e1bd395035a8c1cf10a|
+|[1967](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1967.csv.gz)|2018-12-26  |44.65         |ab62aeaaa32f054fca88b146aa65f960|
+|[1968](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1968.csv.gz)|2018-12-26  |47.85         |db43871ebb70c1d7065f9effa6f69890|
+|[1969](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1969.csv.gz)|2018-12-26  |50.47         |4dffda0775f3baf17ad5d8b202d77fab|
+|[1970](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1970.csv.gz)|2018-12-26  |54.27         |a1dffb9b9e8f72f541c31734f45a3aa9|
+|[1971](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1971.csv.gz)|2018-12-26  |57.00         |d9987b341f5ee211371dc71083a91e3b|
+|[1972](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1972.csv.gz)|2018-12-26  |59.30         |e20d9967738d7bd5eabb7e71ecc8d260|
+|[1973](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1973.csv.gz)|2018-12-26  |62.38         |0eae7662b263ba9f2a34b1ffa9e0c8b6|
+|[1974](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1974.csv.gz)|2018-12-26  |66.50         |e702d1481b9bba1b22221159d0ece98e|
+|[1975](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1975.csv.gz)|2018-12-26  |68.99         |78f71d0d52dc034e507e5fdbac2017a8|
+|[1976](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1976.csv.gz)|2018-12-26  |68.18         |9b45cefd538278095e7fc1b0fcfdbbd0|
+|[1977](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1977.csv.gz)|2018-12-26  |73.94         |cc31ade14b25f695263b025ee220207e|
+|[1978](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1978.csv.gz)|2018-12-26  |80.57         |dd4641c9b2930c952fff623ab0e38566|
+|[1979](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1979.csv.gz)|2018-12-26  |89.33         |9461d28a6a78c1f758042626bfe61b96|
+|[1980](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1980.csv.gz)|2018-12-26  |93.72         |72a71cff48fecca1e163ea2df469b7d3|
+|[1981](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1981.csv.gz)|2018-12-26  |97.12         |6d79c42219b91bc00dfa404b209216e3|
+|[1982](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1982.csv.gz)|2018-12-26  |98.41         |8bf61f594f5c2784640fb1376a192b98|
+|[1983](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1983.csv.gz)|2018-12-26  |103.35        |be6d2e91a2f57f3726b86f8023fdac55|
+|[1984](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1984.csv.gz)|2018-12-26  |104.76        |f4e8b0ff8fab6b7c3a04f0a01e2e13fa|
+|[1985](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1985.csv.gz)|2018-12-26  |108.06        |bbd7e0ae505d92a9c2349b958111728f|
+|[1986](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1986.csv.gz)|2018-12-26  |111.57        |e7b483da859ac3b6e5c6960be2135b00|
+|[1987](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1987.csv.gz)|2018-12-26  |114.11        |8910c7a185beed6de76453cc5ae05518|
+|[1988](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1988.csv.gz)|2018-12-26  |116.44        |0b1e03cef2e34ad2863b281fe0712e2d|
+|[1989](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1989.csv.gz)|2018-12-26  |121.48        |3860a7c7f258d45572cb4fe05a7b3084|
+|[1990](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1990.csv.gz)|2018-12-26  |126.79        |173fdd675c79d56309e1aa5bd468ea49|
+|[1991](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1991.csv.gz)|2018-12-26  |128.31        |f0ad8f0c27c74da2a12b14c6bcfc2d1a|
+|[1992](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1992.csv.gz)|2018-12-26  |142.85        |a2e5b03eb3bec5f17e4a0b1642194764|
+|[1993](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1993.csv.gz)|2018-12-26  |183.53        |c7d6d0710c92359515037f5082a9f8ee|
+|[1994](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1994.csv.gz)|2018-12-26  |209.98        |55b0176c4758e6fa22ee5e8f32cc1104|
+|[1995](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1995.csv.gz)|2018-12-26  |231.29        |3d76b808d6591e151408428c2a17baa8|
+|[1996](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1996.csv.gz)|2018-12-26  |225.08        |bb96e401745a5d938920a5feac6ad021|
+|[1997](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1997.csv.gz)|2018-12-26  |271.01        |92e29059c5b2ac445f72808f515b58d2|
+|[1998](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1998.csv.gz)|2018-12-26  |293.61        |1b363cf978437d76fb3ea08a2b87664b|
+|[1999](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1999.csv.gz)|2018-12-26  |314.98        |e9a07d7ea42b8de69247cf83fde1d251|
+|[2000](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2000.csv.gz)|2018-12-26  |357.59        |3ff097a95a7b4296c5d008f1c42738c3|
+|[2001](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2001.csv.gz)|2018-12-26  |380.78        |dadaeca7f9978cc86ba56ea6f36f5378|
+|[2002](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2002.csv.gz)|2018-12-26  |374.03        |67c77761b776c862b954a9c82e273dec|
+|[2003](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2003.csv.gz)|2018-12-26  |390.76        |ae450ddcbaacc0107098d7a5b76bd4e4|
+|[2004](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2004.csv.gz)|2018-12-26  |419.84        |749c6522a55cdaa5ebce49c5a89e7ef9|
+|[2005](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2005.csv.gz)|2018-12-26  |454.80        |5094d98e973a3eeb238d2af21206a2a5|
+|[2006](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2006.csv.gz)|2018-12-26  |477.17        |09a4821eed7d29e70ced090e5b35e59d|
+|[2007](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2007.csv.gz)|2018-12-26  |452.87        |f5a91e1d237089a6a22ffad6c8bf02c5|
+|[2008](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2008.csv.gz)|2018-12-26  |482.61        |fcb85ae525ec351f2d7db4c2460989b1|
+|[2009](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2009.csv.gz)|2018-12-26  |507.08        |7db4e1e78830caf52271815090e93027|
+|[2010](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2010.csv.gz)|2018-12-26  |531.34        |e3f281de51f49177e815a24eb5c4e9b3|
+|[2011](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2011.csv.gz)|2018-12-26  |553.89        |1320d282a6b8d46e70f9508be129b866|
+|[2012](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2012.csv.gz)|2018-12-26  |563.45        |7ceb21d7db6606578ec4204bebae0dab|
+|[2013](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2013.csv.gz)|2018-12-26  |586.78        |9b25e8221b607dc5d3b706db118e78a0|
+|[2014](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2014.csv.gz)|2018-12-26  |596.02        |bec1182c084629bb472aec24c0faea58|
+|[2015](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2015.csv.gz)|2018-12-26  |606.73        |9226c31eaf7f353dd8b3400b1cba605a|
+|[2016](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2016.csv.gz)|2018-12-26  |613.93        |83b4da48894c675563e0b2888a350bab|
+|[2017](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-2017.csv.gz)|1888-01-31  |610.42        |1b68922b01cde532ae0ea6ffb5aad8f7|
 
 ## API
 
-By using the API you can obtain the same result as in section \@ref(compressed-data), but in a simpler way: 
+The advantage of the API over https download is that you can filter what to obtain and also access some additional tables.
+
+To obtain exactly the same data as with compressed files, please refer to \@ref(yrpc).
+
+If you use R you'll need `jsonlite` package.
 
 
 ```r
 library(jsonlite)
+```
 
-data_1962 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrpc?y=1962&r=all&p=all&l=4"
-))
+### Available tables
 
-data_1962
+
+```r
+as_tibble(fromJSON("https://api.tradestatistics.io/tables"))
 ```
 
 ```
-## # A tibble: 911,002 x 7
-##     year reporter_iso partner_iso commodity_code commodity_code_…
-##    <int> <chr>        <chr>       <chr>                     <int>
-##  1  1962 afg          aus         3215                          4
-##  2  1962 afg          aus         4802                          4
-##  3  1962 afg          aus         5702                          4
-##  4  1962 afg          aus         6401                          4
-##  5  1962 afg          aus         7010                          4
-##  6  1962 afg          aus         7016                          4
-##  7  1962 afg          aus         8301                          4
-##  8  1962 afg          aus         9999                          4
-##  9  1962 afg          aut         0501                          4
-## 10  1962 afg          aut         0504                          4
-## # … with 910,992 more rows, and 2 more variables: import_value_usd <int>,
-## #   export_value_usd <int>
+## # A tibble: 14 x 3
+##    table      description                           source                 
+##    <chr>      <chr>                                 <chr>                  
+##  1 countries  Countries metadata                    UN Comtrade            
+##  2 products   Product metadata                      UN Comtrade            
+##  3 communiti… Product communities                   Harvard's Center for I…
+##  4 reporters  Reporting countries                   UN Comtrade            
+##  5 country_r… Ranking of countries                  Open Trade Statistics  
+##  6 product_r… Ranking of products                   Open Trade Statistics  
+##  7 yrpc       Bilateral trade at commodity level (… Open Trade Statistics  
+##  8 yrp        Bilateral trade at aggregated level … Open Trade Statistics  
+##  9 yrc        Bilateral trade at aggregated level … Open Trade Statistics  
+## 10 yrc_expor… Bilateral trade at aggregated level … Open Trade Statistics  
+## 11 yrc_impor… Reporter trade at commodity level (Y… Open Trade Statistics  
+## 12 yr         Reporter trade at aggregated level (… Open Trade Statistics  
+## 13 yr_short   Reporter trade at aggregated level (… Open Trade Statistics  
+## 14 yc         Commodity trade at aggregated level … Open Trade Statistics
 ```
-
-Because the API uses PostgreSQL queries that are converted to JSON, the columns are always read correctly with `jsonlite` R package.
-
-The last API call makes sense with respect to `y`, `r` and `p`, but `l` is a requiered parameter that will be detailed in the forthcoming "Data" subsection.
 
 ### Metadata
-
-The advantage of the API over https download is that you can filter what to obtain and also access some additional tables:
 
 
 ```r
 ## Countries (no filter)
-countries <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/countries"
-))
+rda_countries <- "countries.rda"
 
-## Products (no filter)
-products <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/products"
-))
-```
-
-
-```r
-countries
+if (!file.exists(rda_countries)) {
+  countries <- as_tibble(fromJSON(
+    "https://api.tradestatistics.io/countries"
+  ))
+  
+  save(countries, file = rda_countries, compress = "xz")
+  
+  countries
+} else {
+  load(rda_countries)
+  
+  countries
+}
 ```
 
 ```
@@ -188,9 +267,23 @@ countries
 ## # … with 239 more rows, and 1 more variable: eu28_member <int>
 ```
 
-
 ```r
-products
+## Products (no filter)
+rda_products <- "products.rda"
+
+if (!file.exists(rda_products)) {
+  products <- as_tibble(fromJSON(
+    "https://api.tradestatistics.io/products"
+  ))
+  
+  save(products, file = rda_products, compress = "xz")
+  
+  products
+} else {
+  load(rda_products)
+  
+  products
+}
 ```
 
 ```
@@ -328,9 +421,7 @@ alias   meaning
 99      Alias for all codes in the group Commodities not specified according to kind                                                                                                                                                                                               
 all     Alias for all codes                                                                                                                                                                                                                                                        
 
-### Data
-
-#### General parameters
+### API parameters
 
 The tables provided withing our API contain at least one of these fields:
 
@@ -353,81 +444,77 @@ By default the API takes `c = "all"` and `l = 4` as defaults.
 
 You can always skip `c` or `l`, but `y`, `r` and `p` are requiered to return data.
 
-#### Available reporters
+### Available reporters
 
 The only applicable filter is by year.
 
 
 ```r
 # Available reporters (filter by year)
-reporters <- as_tibble(fromJSON(
+as_tibble(fromJSON(
   "https://api.tradestatistics.io/reporters?y=2015"
 ))
 ```
 
-#### Country rankings
-
-The only applicable filter is by year.
-
-
-```r
-# Country rankings (filter by year)
-country_rankings <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/country_rankings?y=2015"
-))
+```
+## # A tibble: 224 x 1
+##    reporter_iso
+##    <chr>       
+##  1 afg         
+##  2 ago         
+##  3 aia         
+##  4 alb         
+##  5 and         
+##  6 are         
+##  7 arg         
+##  8 arm         
+##  9 asm         
+## 10 atf         
+## # … with 214 more rows
 ```
 
-#### Product rankings
+### YRPC
 
-The only applicable filter is by year.
+**Year - Reporter - Partner - Commodity**
 
-
-```r
-# Product rankings (filter by year)
-product_rankings <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/product_rankings?y=2015"
-))
-```
-
-#### Year - Reporter - Partner - Commodity
-
-You can filter by year, reporter and partner.
+By using the API you can obtain the same result as in section \@ref(compressed-data), but in a simpler way:
 
 
 ```r
 # Year - Reporter - Partner - Commodity (filter by year, reporter and partner)
 
 ## filter by commodity length (parameter `l`)
-yrpc_1 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrpc?y=2015&r=chl&p=arg&l=4"
-))
-
-yrpc_1
+if (!file.exists(rda_1962)) {
+  yrpc_1 <- as_tibble(fromJSON(
+    "https://api.tradestatistics.io/yrpc?y=1962&r=usa&p=all&l=4"
+  ))
+  
+  yrpc_1
+} else {
+  load(rda_1962)
+  
+  yrpc_1 <- data_1962
+  
+  yrpc_1
+}
 ```
 
 ```
-## # A tibble: 950 x 15
+## # A tibble: 49,383 x 7
 ##     year reporter_iso partner_iso commodity_code commodity_code_…
 ##    <int> <chr>        <chr>       <chr>                     <int>
-##  1  2015 chl          arg         0101                          4
-##  2  2015 chl          arg         0106                          4
-##  3  2015 chl          arg         0201                          4
-##  4  2015 chl          arg         0202                          4
-##  5  2015 chl          arg         0206                          4
-##  6  2015 chl          arg         0207                          4
-##  7  2015 chl          arg         0301                          4
-##  8  2015 chl          arg         0302                          4
-##  9  2015 chl          arg         0303                          4
-## 10  2015 chl          arg         0304                          4
-## # … with 940 more rows, and 10 more variables: export_value_usd <int>,
-## #   import_value_usd <int>, export_value_usd_change_1_year <int>,
-## #   export_value_usd_change_5_years <int>,
-## #   export_value_usd_percentage_change_1_year <dbl>,
-## #   export_value_usd_percentage_change_5_years <dbl>,
-## #   import_value_usd_change_1_year <int>,
-## #   import_value_usd_change_5_years <int>,
-## #   import_value_usd_percentage_change_1_year <dbl>,
-## #   import_value_usd_percentage_change_5_years <dbl>
+##  1  1962 usa          afg         0201                          4
+##  2  1962 usa          afg         0210                          4
+##  3  1962 usa          afg         0401                          4
+##  4  1962 usa          afg         0402                          4
+##  5  1962 usa          afg         0405                          4
+##  6  1962 usa          afg         0406                          4
+##  7  1962 usa          afg         0409                          4
+##  8  1962 usa          afg         0710                          4
+##  9  1962 usa          afg         0801                          4
+## 10  1962 usa          afg         0802                          4
+## # … with 49,373 more rows, and 2 more variables: export_value_usd <int>,
+## #   import_value_usd <int>
 ```
 
 ```r
@@ -472,7 +559,9 @@ Some columns requiere an explanation:
 * `export_value_usd_change_1_year`: Nominal increase/decrease in exports measured in USD with respect to last year
 * `export_value_usd_change_5_years`: Nominal increase/decrease in exports measured in USD with respect to five years ago
 
-#### Year - Reporter - Commodity
+### YRC
+
+**Year - Reporter - Commodity**
 
 The only applicable filter is by year and reporter.
 
@@ -553,7 +642,9 @@ yrc_2
 
 Here the `export_rca*` and `import_rca*` fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/).
 
-#### Year - Reporter - Partner
+### YRP
+
+**Year - Reporter - Partner**
 
 The only applicable filter is by year, reporter and partner.
 
@@ -565,7 +656,9 @@ yrp <- as_tibble(fromJSON(
 ))
 ```
 
-#### Year - Commodity
+### YC
+
+**Year - Commodity**
 
 The only applicable filter is by year and commodity.
 
@@ -612,7 +705,9 @@ Here some fields deserve an explanation:
 * `pci_rank_4_digits_commodity_code`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
 * `pci_rank_4_digits_commodity_code_delta_1_year`: How many places a country increased or decreased with respect to last year
 
-#### Year - Reporter
+#### YR
+
+**Year - Reporter**
 
 The only applicable filter is by year and reporter.
 
@@ -656,3 +751,28 @@ Some fields here require more detail:
 * `eci_4_digits_commodity_code`: Economic Complexity Index (ECI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits commodity codes.
 * `eci_rank_4_digits_commodity_code`: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)
 * `eci_rank_4_digits_commodity_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+
+### Country rankings
+
+The only applicable filter is by year.
+
+
+```r
+# Country rankings (filter by year)
+country_rankings <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/country_rankings?y=2015"
+))
+```
+
+### Product rankings
+
+The only applicable filter is by year.
+
+
+```r
+# Product rankings (filter by year)
+product_rankings <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/product_rankings?y=2015"
+))
+```
+

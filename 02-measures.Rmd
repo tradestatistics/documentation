@@ -10,7 +10,7 @@ When associating countries to products it is important to take into account the 
 
 To make countries and products comparable we use Balassa's definition of Revealed Comparative Advantage (RCA). Balassa's definition says that a country has revealed Comparative advantage in a product if it exports more than its "fair" share, that is, a share that is equal to the share of total world trade that the product represents. For example, in 2008, with exports of \$42 billion, soybeans represented 0.35% of world trade. Of this total, Brazil exported nearly \$11 billion, and since Brazil's total exports for that year were \$140 billion, soybeans accounted for 7.8% of Brazil's exports. This represents around 21 times Brazil's "fair share" of soybean exports (7.8% divided by 0.35%), so we can say that Brazil has revealed comparative advantage in soybeans.
 
-Let $\hat{x}_{c,p}$ represent the exports of country $c$ in product $p$, just as it was defined in \@ref(data-sources), we can express the Revealed Comparative Advantage that country $c$ has in product $p$ as:
+Let $\hat{x}_{c,p}$ represent the exports of country $c$ in product $p$, we can express the Revealed Comparative Advantage that country $c$ has in product $p$ as:
 
 \begin{equation}
 \renewcommand{\vec}[1]{\boldsymbol{#1}}

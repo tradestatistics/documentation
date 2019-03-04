@@ -1,12 +1,13 @@
-# Data Processing
+# Data processing
 
 ## Tidy Data
 
 We followed Tidy Data principles exposed in [@tidydata2014] and  [@r4ds2016]. Those principles are closely tied to those of relational databases and Codd’s relational algebra.
 
-```{r, echo = F, fig.cap="Data pipeline"}
-knitr::include_graphics("fig/tidy-data.svg")
-```
+<div class="figure">
+<img src="fig/tidy-data.svg" alt="Data pipeline"  />
+<p class="caption">(\#fig:unnamed-chunk-1)Data pipeline</p>
+</div>
 
 ## Filling gaps in our data
 
@@ -22,19 +23,35 @@ $$\hat{x}_{c,c',p} = \max\left\{x_{c,c',p}, \frac{m_{c',c,p}}{1.08}\right\}$$
 $$\hat{m}_{c,c',p} = \max\left\{x_{c',c,p}, \frac{m_{c,c',p}}{1.08}\right\}$$
 After symmetrization all observations are rounded to zero decimals.
 
-### Required packages and objects
+## How do we clean data?
 
-```{r, message=FALSE, warning=FALSE}
-# Packages ----------------------------------------------------------------
+You can check the GitHub repository, but here we provide a simplified and commented example that reproduces the exact steps we performed to clean the data.
 
+Provided that Comtrade raw data cannot be redistributed, I'll limit the example to five reporters in the year 1962 (the first year with available data).
+    
+Let's define two files for the example:
+
+
+```r
+raw_file <- "raw_data_1962_5_reporters.rda"
+clean_file <- "clean_data_1962_5_reporters.rda"
+```
+
+### Required packages
+
+
+```r
 library(data.table)
 library(dplyr)
 library(stringr)
 library(purrr)
 library(janitor)
+```
 
-# Custom functions to read data -------------------------------------------
+### Custom function to read data
 
+
+```r
 fread2 <- function(file, select = NULL, character = NULL, numeric = NULL) {
   if(str_sub(file, start = -2) == "gz") {
     d <- fread(
@@ -62,7 +79,12 @@ fread2 <- function(file, select = NULL, character = NULL, numeric = NULL) {
   
   return(d)
 }
+```
 
+### CIF-FOB rate, commodity codes length and ISO codes
+
+
+```r
 # CIF-FOB rate ------------------------------------------------------------
     
 # See Anderson & van Wincoop, 2004, Hummels, 2006 and Gaulier & Zignago, 2010 about 8% rate consistency
@@ -81,34 +103,56 @@ country_codes <- country_codes %>%
   mutate(iso3_digit_alpha = str_to_lower(iso3_digit_alpha)) %>% 
   filter(!iso3_digit_alpha %in% c("wld","null")) %>% 
   as_vector()
-
-# Five reporters rda file  ------------------------------------------------
-rda_file <- "five_reporters_data.rda"
 ```
 
 ### Read raw data
 
-```{r}
-# Read data ---------------------------------------------------------------
 
-if (!file.exists(rda_file)) {
+```r
+if (!file.exists(raw_file)) {
   raw_data <- fread2(
-    "../yearly-datasets/01-raw-data/hs-rev2007/gz/type-C_r-ALL_ps-2016_freq-A_px-H3_pub-20180612_fmt-csv_ex-20180705.csv.gz",
+    "../yearly-datasets/01-raw-data/sitc-rev1/gz/type-C_r-ALL_ps-1962_freq-A_px-S1_pub-20050214_fmt-csv_ex-20151113.csv.gz",
     select = c("Year", "Aggregate Level", "Trade Flow", "Reporter ISO", "Partner ISO", "Commodity Code", "Trade Value (US$)"),
     character = "Commodity Code",
     numeric = "Trade Value (US$)"
-  )
+  ) %>% 
+    filter(
+      reporter_iso == "CHL",
+      partner_iso %in% c("ARG", "BRA", "PER", "USA")
+    )
+  
+  save(raw_data, file = raw_file, compress = "xz")
+  
+  raw_data
+} else {
+  load(raw_file)
   
   raw_data
 }
 ```
 
+```
+## # A tibble: 2,606 x 7
+##     year aggregate_level trade_flow reporter_iso partner_iso commodity_code
+##    <int>           <int> <chr>      <chr>        <chr>       <chr>         
+##  1  1962               3 Import     CHL          BRA         071           
+##  2  1962               3 Import     CHL          PER         071           
+##  3  1962               3 Import     CHL          USA         071           
+##  4  1962               4 Export     CHL          PER         2218          
+##  5  1962               3 Export     CHL          ARG         265           
+##  6  1962               3 Import     CHL          BRA         265           
+##  7  1962               3 Import     CHL          PER         265           
+##  8  1962               3 Import     CHL          USA         265           
+##  9  1962               5 Export     CHL          BRA         29193         
+## 10  1962               5 Export     CHL          USA         29193         
+## # … with 2,596 more rows, and 1 more variable: trade_value_us <dbl>
+```
+
 ### Clean data
 
-```{r}
-# Clean data --------------------------------------------------------------
 
-if (!file.exists(rda_file)) {
+```r
+if (!file.exists(clean_file)) {
   clean_data <- raw_data %>%
     
     rename(trade_value_usd = trade_value_us) %>%
@@ -130,28 +174,39 @@ if (!file.exists(rda_file)) {
     filter(
       reporter_iso %in% country_codes,
       partner_iso %in% country_codes
-    ) %>% 
-    
-    # Provided Comtrade data cannot be redistributed, I'll limit the
-    # example to five reporters
-    
-    filter(
-      reporter_iso == "chl",
-      partner_iso %in% c("arg", "bra", "per", "usa")
     )
   
-  save(clean_data, file = rda_file, compress = "xz")
+  save(clean_data, file = clean_file, compress = "xz")
   
   clean_data
 } else {
-  load(rda_file)
+  load(clean_file)
   
   clean_data
 }
 ```
 
+```
+## # A tibble: 949 x 7
+##     year aggregate_level trade_flow reporter_iso partner_iso commodity_code
+##    <int>           <int> <chr>      <chr>        <chr>       <chr>         
+##  1  1962               4 Export     chl          per         2218          
+##  2  1962               4 Import     chl          usa         5129          
+##  3  1962               4 Import     chl          usa         5153          
+##  4  1962               4 Import     chl          arg         5417          
+##  5  1962               4 Export     chl          per         6822          
+##  6  1962               4 Import     chl          usa         6822          
+##  7  1962               4 Export     chl          usa         6822          
+##  8  1962               4 Import     chl          usa         6862          
+##  9  1962               4 Import     chl          usa         6934          
+## 10  1962               4 Import     chl          arg         7141          
+## # … with 939 more rows, and 1 more variable: trade_value_usd <dbl>
+```
+
 ### Symmetric (clean) data
-```{r}
+
+
+```r
 # Exports data ------------------------------------------------------------
 
 exports <- clean_data %>%
@@ -205,6 +260,23 @@ exports_model <- exports_model_unrepeated_parent %>%
   filter(trade_value_usd > 0)
 
 exports_model
+```
+
+```
+## # A tibble: 949 x 6
+##     year reporter_iso partner_iso commodity_code commodity_code_…
+##    <dbl> <chr>        <chr>       <chr>                     <int>
+##  1  2016 arg          chl         0011                          4
+##  2  2016 arg          chl         0012                          4
+##  3  2016 arg          chl         0013                          4
+##  4  2016 arg          chl         0015                          4
+##  5  2016 arg          chl         0111                          4
+##  6  2016 arg          chl         0112                          4
+##  7  2016 arg          chl         0113                          4
+##  8  2016 arg          chl         0118                          4
+##  9  2016 arg          chl         0121                          4
+## 10  2016 arg          chl         0133                          4
+## # … with 939 more rows, and 1 more variable: trade_value_usd <dbl>
 ```
 
 ## GitHub repositories

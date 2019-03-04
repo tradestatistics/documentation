@@ -25,7 +25,7 @@
 <meta name="author" content="Pachá (Mauricio Vargas Sepúlveda)">
 
 
-<meta name="date" content="2019-02-26">
+<meta name="date" content="2019-03-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 
-<link rel="next" href="data-sources.html">
+<link rel="next" href="data-processing.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -104,46 +104,64 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">Table of Contents</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a></li>
-<li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data Sources</a></li>
-<li class="chapter" data-level="3" data-path="data-availability.html"><a href="data-availability.html"><i class="fa fa-check"></i><b>3</b> Data Availability</a><ul>
-<li class="chapter" data-level="3.1" data-path="data-availability.html"><a href="data-availability.html#yearly-data"><i class="fa fa-check"></i><b>3.1</b> Yearly data</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#project-goals"><i class="fa fa-check"></i><b>1.1</b> Project goals</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i><b>1.2</b> Data availability</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#sources"><i class="fa fa-check"></i><b>1.3</b> Sources</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#code"><i class="fa fa-check"></i><b>1.4</b> Code</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.5</b> Contact</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#donate"><i class="fa fa-check"></i><b>1.6</b> Donate</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>4</b> Data Processing</a><ul>
-<li class="chapter" data-level="4.1" data-path="data-processing.html"><a href="data-processing.html#tidy-data"><i class="fa fa-check"></i><b>4.1</b> Tidy Data</a></li>
-<li class="chapter" data-level="4.2" data-path="data-processing.html"><a href="data-processing.html#filling-gaps-in-our-data"><i class="fa fa-check"></i><b>4.2</b> Filling gaps in our data</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="data-processing.html"><a href="data-processing.html#required-packages-and-objects"><i class="fa fa-check"></i><b>4.2.1</b> Required packages and objects</a></li>
-<li class="chapter" data-level="4.2.2" data-path="data-processing.html"><a href="data-processing.html#read-raw-data"><i class="fa fa-check"></i><b>4.2.2</b> Read raw data</a></li>
-<li class="chapter" data-level="4.2.3" data-path="data-processing.html"><a href="data-processing.html#clean-data"><i class="fa fa-check"></i><b>4.2.3</b> Clean data</a></li>
-<li class="chapter" data-level="4.2.4" data-path="data-processing.html"><a href="data-processing.html#symmetric-clean-data"><i class="fa fa-check"></i><b>4.2.4</b> Symmetric (clean) data</a></li>
+<li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data processing</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#tidy-data"><i class="fa fa-check"></i><b>2.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#filling-gaps-in-our-data"><i class="fa fa-check"></i><b>2.2</b> Filling gaps in our data</a></li>
+<li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#how-do-we-clean-data"><i class="fa fa-check"></i><b>2.3</b> How do we clean data?</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data-processing.html"><a href="data-processing.html#required-packages"><i class="fa fa-check"></i><b>2.3.1</b> Required packages</a></li>
+<li class="chapter" data-level="2.3.2" data-path="data-processing.html"><a href="data-processing.html#custom-function-to-read-data"><i class="fa fa-check"></i><b>2.3.2</b> Custom function to read data</a></li>
+<li class="chapter" data-level="2.3.3" data-path="data-processing.html"><a href="data-processing.html#cif-fob-rate-commodity-codes-length-and-iso-codes"><i class="fa fa-check"></i><b>2.3.3</b> CIF-FOB rate, commodity codes length and ISO codes</a></li>
+<li class="chapter" data-level="2.3.4" data-path="data-processing.html"><a href="data-processing.html#read-raw-data"><i class="fa fa-check"></i><b>2.3.4</b> Read raw data</a></li>
+<li class="chapter" data-level="2.3.5" data-path="data-processing.html"><a href="data-processing.html#clean-data"><i class="fa fa-check"></i><b>2.3.5</b> Clean data</a></li>
+<li class="chapter" data-level="2.3.6" data-path="data-processing.html"><a href="data-processing.html#symmetric-clean-data"><i class="fa fa-check"></i><b>2.3.6</b> Symmetric (clean) data</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="data-processing.html"><a href="data-processing.html#github-repositories"><i class="fa fa-check"></i><b>4.3</b> GitHub repositories</a></li>
-<li class="chapter" data-level="4.4" data-path="data-processing.html"><a href="data-processing.html#software-information"><i class="fa fa-check"></i><b>4.4</b> Software information</a></li>
-<li class="chapter" data-level="4.5" data-path="data-processing.html"><a href="data-processing.html#hardware-information"><i class="fa fa-check"></i><b>4.5</b> Hardware information</a></li>
-<li class="chapter" data-level="4.6" data-path="data-processing.html"><a href="data-processing.html#reproducibility-notes"><i class="fa fa-check"></i><b>4.6</b> Reproducibility notes</a></li>
-<li class="chapter" data-level="4.7" data-path="data-processing.html"><a href="data-processing.html#coding-style-and-performant-code"><i class="fa fa-check"></i><b>4.7</b> Coding style and performant code</a></li>
+<li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#github-repositories"><i class="fa fa-check"></i><b>2.4</b> GitHub repositories</a></li>
+<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#software-information"><i class="fa fa-check"></i><b>2.5</b> Software information</a></li>
+<li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#hardware-information"><i class="fa fa-check"></i><b>2.6</b> Hardware information</a></li>
+<li class="chapter" data-level="2.7" data-path="data-processing.html"><a href="data-processing.html#reproducibility-notes"><i class="fa fa-check"></i><b>2.7</b> Reproducibility notes</a></li>
+<li class="chapter" data-level="2.8" data-path="data-processing.html"><a href="data-processing.html#coding-style-and-performant-code"><i class="fa fa-check"></i><b>2.8</b> Coding style and performant code</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html"><i class="fa fa-check"></i><b>5</b> The Mathematics of Economic Complexity</a><ul>
-<li class="chapter" data-level="5.1" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca"><i class="fa fa-check"></i><b>5.1</b> Revealed Comparative Advantage (RCA)</a></li>
-<li class="chapter" data-level="5.2" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#smooth-revealed-comparative-advantage-srca"><i class="fa fa-check"></i><b>5.2</b> Smooth Revealed Comparative Advantage (SRCA)</a></li>
-<li class="chapter" data-level="5.3" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#diversity-and-ubiquity"><i class="fa fa-check"></i><b>5.3</b> Diversity and Ubiquity</a></li>
-<li class="chapter" data-level="5.4" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#reflections-method"><i class="fa fa-check"></i><b>5.4</b> Reflections Method</a></li>
-<li class="chapter" data-level="5.5" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci"><i class="fa fa-check"></i><b>5.5</b> Economic Complexity Index (ECI)</a></li>
-<li class="chapter" data-level="5.6" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci"><i class="fa fa-check"></i><b>5.6</b> Product Complexity Index (PCI)</a></li>
-<li class="chapter" data-level="5.7" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#countries-not-included-in-rankings-and-indicators"><i class="fa fa-check"></i><b>5.7</b> Countries not included in rankings and indicators</a></li>
-<li class="chapter" data-level="5.8" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-proximity"><i class="fa fa-check"></i><b>5.8</b> Product Proximity</a></li>
-<li class="chapter" data-level="5.9" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-proximity"><i class="fa fa-check"></i><b>5.9</b> Country Proximity</a></li>
-<li class="chapter" data-level="5.10" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-density"><i class="fa fa-check"></i><b>5.10</b> Product Density</a></li>
-<li class="chapter" data-level="5.11" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-density"><i class="fa fa-check"></i><b>5.11</b> Country Density</a></li>
+<li class="chapter" data-level="3" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html"><i class="fa fa-check"></i><b>3</b> The Mathematics of Economic Complexity</a><ul>
+<li class="chapter" data-level="3.1" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca"><i class="fa fa-check"></i><b>3.1</b> Revealed Comparative Advantage (RCA)</a></li>
+<li class="chapter" data-level="3.2" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#smooth-revealed-comparative-advantage-srca"><i class="fa fa-check"></i><b>3.2</b> Smooth Revealed Comparative Advantage (SRCA)</a></li>
+<li class="chapter" data-level="3.3" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#diversity-and-ubiquity"><i class="fa fa-check"></i><b>3.3</b> Diversity and Ubiquity</a></li>
+<li class="chapter" data-level="3.4" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#reflections-method"><i class="fa fa-check"></i><b>3.4</b> Reflections Method</a></li>
+<li class="chapter" data-level="3.5" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci"><i class="fa fa-check"></i><b>3.5</b> Economic Complexity Index (ECI)</a></li>
+<li class="chapter" data-level="3.6" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci"><i class="fa fa-check"></i><b>3.6</b> Product Complexity Index (PCI)</a></li>
+<li class="chapter" data-level="3.7" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#countries-not-included-in-rankings-and-indicators"><i class="fa fa-check"></i><b>3.7</b> Countries not included in rankings and indicators</a></li>
+<li class="chapter" data-level="3.8" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-proximity"><i class="fa fa-check"></i><b>3.8</b> Product Proximity</a></li>
+<li class="chapter" data-level="3.9" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-proximity"><i class="fa fa-check"></i><b>3.9</b> Country Proximity</a></li>
+<li class="chapter" data-level="3.10" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-density"><i class="fa fa-check"></i><b>3.10</b> Product Density</a></li>
+<li class="chapter" data-level="3.11" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-density"><i class="fa fa-check"></i><b>3.11</b> Country Density</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="using-our-datasets.html"><a href="using-our-datasets.html"><i class="fa fa-check"></i><b>6</b> Using our datasets</a><ul>
-<li class="chapter" data-level="6.1" data-path="using-our-datasets.html"><a href="using-our-datasets.html#compressed-data"><i class="fa fa-check"></i><b>6.1</b> Compressed data</a></li>
-<li class="chapter" data-level="6.2" data-path="using-our-datasets.html"><a href="using-our-datasets.html#api"><i class="fa fa-check"></i><b>6.2</b> API</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="using-our-datasets.html"><a href="using-our-datasets.html#metadata"><i class="fa fa-check"></i><b>6.2.1</b> Metadata</a></li>
-<li class="chapter" data-level="6.2.2" data-path="using-our-datasets.html"><a href="using-our-datasets.html#data"><i class="fa fa-check"></i><b>6.2.2</b> Data</a></li>
+<li class="chapter" data-level="4" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>4</b> Datasets</a><ul>
+<li class="chapter" data-level="4.1" data-path="datasets.html"><a href="datasets.html#code-of-conduct"><i class="fa fa-check"></i><b>4.1</b> Code of Conduct</a></li>
+<li class="chapter" data-level="4.2" data-path="datasets.html"><a href="datasets.html#compressed-data"><i class="fa fa-check"></i><b>4.2</b> Compressed data</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="datasets.html"><a href="datasets.html#how-to-use"><i class="fa fa-check"></i><b>4.2.1</b> How to use</a></li>
+<li class="chapter" data-level="4.2.2" data-path="datasets.html"><a href="datasets.html#available-datasets"><i class="fa fa-check"></i><b>4.2.2</b> Available datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="datasets.html"><a href="datasets.html#api"><i class="fa fa-check"></i><b>4.3</b> API</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="datasets.html"><a href="datasets.html#available-tables"><i class="fa fa-check"></i><b>4.3.1</b> Available tables</a></li>
+<li class="chapter" data-level="4.3.2" data-path="datasets.html"><a href="datasets.html#metadata"><i class="fa fa-check"></i><b>4.3.2</b> Metadata</a></li>
+<li class="chapter" data-level="4.3.3" data-path="datasets.html"><a href="datasets.html#api-parameters"><i class="fa fa-check"></i><b>4.3.3</b> API parameters</a></li>
+<li class="chapter" data-level="4.3.4" data-path="datasets.html"><a href="datasets.html#available-reporters"><i class="fa fa-check"></i><b>4.3.4</b> Available reporters</a></li>
+<li class="chapter" data-level="4.3.5" data-path="datasets.html"><a href="datasets.html#year---reporter---partner---commodity"><i class="fa fa-check"></i><b>4.3.5</b> Year - Reporter - Partner - Commodity</a></li>
+<li class="chapter" data-level="4.3.6" data-path="datasets.html"><a href="datasets.html#year---reporter---commodity"><i class="fa fa-check"></i><b>4.3.6</b> Year - Reporter - Commodity</a></li>
+<li class="chapter" data-level="4.3.7" data-path="datasets.html"><a href="datasets.html#year---reporter---partner"><i class="fa fa-check"></i><b>4.3.7</b> Year - Reporter - Partner</a></li>
+<li class="chapter" data-level="4.3.8" data-path="datasets.html"><a href="datasets.html#year---commodity"><i class="fa fa-check"></i><b>4.3.8</b> Year - Commodity</a></li>
+<li class="chapter" data-level="4.3.9" data-path="datasets.html"><a href="datasets.html#country-rankings"><i class="fa fa-check"></i><b>4.3.9</b> Country rankings</a></li>
+<li class="chapter" data-level="4.3.10" data-path="datasets.html"><a href="datasets.html#product-rankings"><i class="fa fa-check"></i><b>4.3.10</b> Product rankings</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
+<li class="chapter" data-level="5" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>5</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -166,13 +184,78 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Open Trade Statistics Documentation</h1>
 <p class="author"><em>Pachá (Mauricio Vargas Sepúlveda)</em></p>
-<p class="date"><em>2019-02-26</em></p>
+<p class="date"><em>2019-03-03</em></p>
 </div>
 <div id="about" class="section level1">
 <h1><span class="header-section-number">Section 1</span> About</h1>
-<p>This documentation is a hard attempt to try to explain how to use the scripts created to process the data available from <a href="https://tradestatistics.io/">Open Trade Statistics</a> and how to use our API.</p>
-<p>We made all the scripts available under the <a href="https://github.com/tradestatistics">Trade Statistics Organization</a>.</p>
+<div id="project-goals" class="section level2">
+<h2><span class="header-section-number">1.1</span> Project goals</h2>
+<p>Open Trade Statistics is an independent project that values reproducible research and provides tidy trade data. We are heavily inspired by R community values and Open Licenses views on freedom.</p>
+<p>We focus on commodities data and our added value, unlike many other good trade data projects, is that we focus on data processing and reproducibilidy instead of data visualization.</p>
+<p>Our goal is to ease data analysis and promote a reproducibility culture.</p>
+<p>We advocate for openness and collaboration, so our contribution is focused on:</p>
+<ul>
+<li>Releasing all of our source code on GitHub</li>
+<li>Releasing snapshots of the software we use</li>
+<li>Sharing curated data (direct download and API)</li>
+</ul>
+</div>
+<div id="data-availability" class="section level2">
+<h2><span class="header-section-number">1.2</span> Data availability</h2>
+<p>We used different trade classifications according to the data availability.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Classification</th>
+<th>Availability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>HS rev 1992</td>
+<td>1992 – 2017</td>
+</tr>
+<tr class="even">
+<td>HS rev 1996</td>
+<td>1996 – 2017</td>
+</tr>
+<tr class="odd">
+<td>HS rev 2002</td>
+<td>2002 – 2017</td>
+</tr>
+<tr class="even">
+<td>HS rev 2007</td>
+<td>2007 – 2017</td>
+</tr>
+<tr class="odd">
+<td>SITC rev 1</td>
+<td>1962 – 2017</td>
+</tr>
+<tr class="even">
+<td>SITC rev 2</td>
+<td>1976 – 2017</td>
+</tr>
+</tbody>
+</table>
+<p>These datasets were used all together in order to create a unified data series for the period 1962-2017 with all products classified under HS rev 2007.</p>
+</div>
+<div id="sources" class="section level2">
+<h2><span class="header-section-number">1.3</span> Sources</h2>
+<p>All of the product data shown on the OTS site is classified using either SITC (Standard International Trade Classification) or HS (Harmonized System), the raw data was obtained from <a href="http://comtrade.un.org/">UN COMTRADE</a> and its under their authorization that we share claned versions of the original raw datasets.</p>
+</div>
+<div id="code" class="section level2">
+<h2><span class="header-section-number">1.4</span> Code</h2>
+<p>We made all the scripts available under the <a href="https://github.com/tradestatistics">Trade Statistics Organization</a>. Pull requests and new ideas are always welcome!</p>
+</div>
+<div id="contact" class="section level2">
+<h2><span class="header-section-number">1.5</span> Contact</h2>
+<p>Follow us on Twitter! Our username is <a href="https://twitter.com/opentradestats">@opentradestats</a>.</p>
+</div>
+<div id="donate" class="section level2">
+<h2><span class="header-section-number">1.6</span> Donate</h2>
+<p>You can also help offset our hosting costs by donating via <a href="https://paypal.me/tradestatistics">PayPal</a>.</p>
 
+</div>
 </div>
             </section>
 
@@ -180,7 +263,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 
-<a href="data-sources.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="data-processing.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
