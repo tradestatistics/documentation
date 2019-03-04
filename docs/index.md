@@ -1,5 +1,5 @@
 --- 
-title: "Open Trade Statistics Documentation"
+title: "Open Trade Statistics"
 author: "Pachá (Mauricio Vargas Sepúlveda)"
 date: "2019-03-04"
 site: bookdown::bookdown_site

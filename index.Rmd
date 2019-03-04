@@ -1,5 +1,5 @@
 --- 
-title: "Open Trade Statistics Documentation"
+title: "Open Trade Statistics"
 author: "Pachá (Mauricio Vargas Sepúlveda)"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
