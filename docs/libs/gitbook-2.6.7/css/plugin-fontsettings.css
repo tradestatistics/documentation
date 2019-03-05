@@ -74,10 +74,10 @@
   font-size: 4rem;
 }
 .book.font-family-0 {
-  font-family: Georgia, serif;
+  font-family: Charter, Georgia, serif;
 }
 .book.font-family-1 {
-  font-family: "Fira Sans", sans-serif;
+  font-family: "Fira Sans", Helvetica, Arial, sans-serif;
 }
 .book.color-theme-1 .book-body .page-wrapper .page-inner section.normal {
   color: #704214;
