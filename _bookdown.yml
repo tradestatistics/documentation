@@ -1,7 +1,7 @@
 book_filename: "ots-documentation"
 chapter_name: "Section "
-repo: https://github.com/observatory-economic-complexity/oec-documentation
-output_dir: docs
+repo: https://github.com/tradestatistics/
+output_dir: "~/www/tradestatistics/docs"
 rmd_files: ["index.Rmd", "01-processing.Rmd", "02-measures.Rmd", 
 "03-datasets.Rmd", "04-references.Rmd"]
 new_session: yes

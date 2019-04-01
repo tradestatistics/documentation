@@ -4,6 +4,7 @@ bookdown::gitbook:
   sharing:
       facebook: yes
       twitter: yes
+  css: styles.css
   config:
     toc:
       collapse: subsection

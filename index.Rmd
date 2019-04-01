@@ -9,12 +9,6 @@ link-citations: yes
 github-repo: tradestatistics/documentation
 ---
 
-```{r, echo = F}
-htmltools::img(src = knitr::image_uri("fig/logo-horizontal.svg"), 
-               alt = 'logo', 
-               style = 'position:absolute; top:0; right:0; padding:10px;')
-```
-
 # About
 
 ## Project goals

@@ -21,7 +21,7 @@ RCA_{c,p} = \frac{\hat{x}_{c,p}}{\sum_c \hat{x}_{c,p}} / \frac{\sum_p \hat{x}_{c
 
 ## Smooth Revealed Comparative Advantage (SRCA)
 
-We smoothed changes in export volumes induced by the price fluctuation of commodities by using a modification of \@ref(eq:rca) in which $x_{c,p}$ is averaged over the previous three years by using weights:
+We smoothed changes in export volumes induced by the price fluctuation of products by using a modification of \@ref(eq:rca) in which $x_{c,p}$ is averaged over the previous three years by using weights:
 
 $$
 SRCA_{c,p}^{(t)} = \frac{\tilde{x}_{c,p}^{(t)}}{\sum_c \tilde{x}_{c,p}^{(t)}} / \frac{\sum_p \tilde{x}_{c,p}^{(t)}}{\sum_{c}\sum_{p} \tilde{x}_{c,p}^{(t)}}

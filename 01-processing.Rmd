@@ -5,7 +5,7 @@
 We followed Tidy Data principles exposed in [@tidydata2014] and  [@r4ds2016]. Those principles are closely tied to those of relational databases and Codd’s relational algebra.
 
 ```{r, echo = F, fig.cap="Data pipeline"}
-knitr::include_graphics("fig/tidy-data.svg")
+knitr::include_graphics("fig/data-science.svg")
 ```
 
 ## Filling gaps in our data
@@ -31,8 +31,8 @@ Provided that Comtrade raw data cannot be redistributed, I'll limit the example 
 Let's define two files for the example:
 
 ```{r}
-raw_file <- "raw_data_1962_5_reporters.rda"
-clean_file <- "clean_data_1962_5_reporters.rda"
+raw_file <- "raw_data_1962_five_reporters.rda"
+clean_file <- "clean_data_1962_five_reporters.rda"
 ```
 
 ### Required packages
@@ -131,15 +131,18 @@ if (!file.exists(raw_file)) {
 if (!file.exists(clean_file)) {
   clean_data <- raw_data %>%
     
-    rename(trade_value_usd = trade_value_us) %>%
+    rename(
+      trade_value_usd = trade_value_us,
+      product_code = product_code
+    ) %>%
     
     filter(aggregate_level %in% J) %>%
     filter(trade_flow %in% c("Export","Import")) %>%
     
     filter(
-      !is.na(commodity_code),
-      commodity_code != "",
-      commodity_code != " "
+      !is.na(product_code),
+      product_code != "",
+      product_code != " "
     ) %>%
     
     mutate(
@@ -169,27 +172,27 @@ if (!file.exists(clean_file)) {
 
 exports <- clean_data %>%
   filter(trade_flow == "Export") %>%
-  select(reporter_iso, partner_iso, commodity_code, trade_value_usd) %>% 
+  select(reporter_iso, partner_iso, product_code, trade_value_usd) %>% 
   mutate(trade_value_usd = ceiling(trade_value_usd))
 
 exports_mirrored <- clean_data %>%
   filter(trade_flow == "Import") %>%
-  select(reporter_iso, partner_iso, commodity_code, trade_value_usd) %>% 
+  select(reporter_iso, partner_iso, product_code, trade_value_usd) %>% 
   mutate(trade_value_usd = ceiling(trade_value_usd / cif_fob_rate))
 
 # Reporter and Partner must be inverted
-colnames(exports_mirrored) <- c("partner_iso", "reporter_iso", "commodity_code", "trade_value_usd")
+colnames(exports_mirrored) <- c("partner_iso", "reporter_iso", "product_code", "trade_value_usd")
 
 exports_model <- exports %>% 
-  full_join(exports_mirrored, by = c("reporter_iso", "partner_iso", "commodity_code")) %>% 
+  full_join(exports_mirrored, by = c("reporter_iso", "partner_iso", "product_code")) %>% 
   rowwise() %>% 
   mutate(trade_value_usd = max(trade_value_usd.x, trade_value_usd.y, na.rm = T)) %>% 
   ungroup() %>% 
-  mutate(commodity_code_parent = str_sub(commodity_code, 1, 4)) %>% 
-  group_by(reporter_iso, partner_iso, commodity_code_parent) %>% 
+  mutate(product_code_parent = str_sub(product_code, 1, 4)) %>% 
+  group_by(reporter_iso, partner_iso, product_code_parent) %>% 
   mutate(parent_count = n()) %>% 
   ungroup() %>% 
-  select(reporter_iso, partner_iso, commodity_code, commodity_code_parent, parent_count, trade_value_usd)
+  select(reporter_iso, partner_iso, product_code, product_code_parent, parent_count, trade_value_usd)
 
 exports_model_unrepeated_parent <- exports_model %>% 
   filter(parent_count == 1)
@@ -197,24 +200,24 @@ exports_model_unrepeated_parent <- exports_model %>%
 exports_model_repeated_parent <- exports_model %>% 
   filter(
     parent_count > 1,
-    str_length(commodity_code) %in% c(5,6)
+    str_length(product_code) %in% c(5,6)
   )
 
 exports_model_repeated_parent_summary <- exports_model_repeated_parent %>% 
-  group_by(reporter_iso, partner_iso, commodity_code_parent) %>% 
+  group_by(reporter_iso, partner_iso, product_code_parent) %>% 
   summarise(trade_value_usd = sum(trade_value_usd, na.rm = T)) %>% 
   ungroup() %>% 
-  rename(commodity_code = commodity_code_parent)
+  rename(product_code = product_code_parent)
 
 exports_model <- exports_model_unrepeated_parent %>% 
   bind_rows(exports_model_repeated_parent) %>% 
   bind_rows(exports_model_repeated_parent_summary) %>% 
-  arrange(reporter_iso, partner_iso, commodity_code) %>% 
+  arrange(reporter_iso, partner_iso, product_code) %>% 
   mutate(
     year = 2016,
-    commodity_code_length = str_length(commodity_code)
+    product_code_length = str_length(product_code)
   ) %>% 
-  select(year, reporter_iso, partner_iso, commodity_code, commodity_code_length, trade_value_usd) %>% 
+  select(year, reporter_iso, partner_iso, product_code, product_code_length, trade_value_usd) %>% 
   filter(trade_value_usd > 0)
 
 exports_model
@@ -232,10 +235,6 @@ exports_model
 We used R 3.4.3 and RStudio Desktop 1.1 on Ubuntu Desktop 18.04.
 
 We built R from binaries in order to obtain a setup linked with multi-threaded numeric libraries. Our build is linked to OpenBLAS which we used over alternatives such as Intel MKL, BLAS or ATLAS that can also be used.
-
-If you use Windows the scripts will only use a single core because we used a parallelization that depends on fork system call that is only supported on Unix systems. You can always run the scripts on Windows and the only difference will be that it will use less RAM and it will be slower to compute.
-
-Also, before running the scripts on Windows verify that you installed GNU Utilities beforehand. One easy option is to install [Chocolatey](https://chocolatey.org/) first and then install the GNU Utilities by running `choco install unxutils` on Cmd or Power Shell as administrator.
 
 ## Hardware information
 
@@ -260,3 +259,9 @@ The only reproducibility flaw of this project lies in data downloading. Obtainin
 We used the [Tidyverse Style Guide](http://style.tidyverse.org/). As cornerstone references for performant code we followed [@advancedr2014] and [@masteringsoftware2017].
 
 Some matrix operations are written in Rcpp to take advantage of C++ speed. To take full advantage of hardware and numerical libraries we am using sparse matrices as it is explained in [@rcpparmadillo2018].
+
+## Note for Windows users
+
+If you use Windows the scripts will only use a single core because we used a parallelization that depends on fork system call that is only supported on Unix systems. You can always run the scripts on Windows and the only difference will be that it will use less RAM and processor, and it will be slower to compute.
+
+Also, before running the scripts on Windows verify that you installed GNU Utilities beforehand. One easy option is to install [Chocolatey](https://chocolatey.org/) first and then install the GNU Utilities by running `choco install unxutils` on Cmd or Power Shell as administrator.
