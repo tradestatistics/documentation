@@ -291,7 +291,7 @@ product_rankings <- as_tibble(fromJSON(
 
 ## R Package
 
-To ease API using, we provide an [R Package](https://tradestatistics.github.io/tradestatistics/). This package is aligned with [ROpenSci](https://ropensci.org/) directives and its documentation is available on a separate site.
+To ease API using, we provide an [R Package](https://ropensci.github.io/tradestatistics/). This package is a part of [ROpenSci](https://ropensci.org/) and its documentation is available on a separate site.
 
 ## Compressed data
 
