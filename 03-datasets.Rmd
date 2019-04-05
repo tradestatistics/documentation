@@ -12,6 +12,8 @@ Our datasets are distributed under Creative Commons Attribution-NonCommercial 4.
 
 Before downloading you agree to the usage conditions explained both to [UN Comtrade Online Usage Agreement](https://comtrade.un.org/db/help/licenseagreement.aspx) and [Creative Commons BY-NC 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/).
 
+Besides datasets, the code used to create the API, dashboard and R package are released under [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
+
 ## API
 
 The advantage of the API over https download is that you can filter what to obtain and also access some additional tables.
@@ -291,7 +293,11 @@ product_rankings <- as_tibble(fromJSON(
 
 ## R Package
 
-To ease API using, we provide an [R Package](https://ropensci.github.io/tradestatistics/). This package is a part of [ROpenSci](https://ropensci.org/) and its documentation is available on a separate site.
+To ease API using, we provide an [R Package](https://ropensci.github.io/tradestatistics/). This package is a part of [ROpenSci](https://ropensci.org/) and its documentation is available on a separate [pkgdown site](https://ropensci.github.io/tradestatistics/).
+
+## Dashboard (beta)
+
+To ease API using, we provide a [Shiny Dashboard](https://shiny.tradestatistics.io/) that is still under improvements.
 
 ## Compressed data
 
