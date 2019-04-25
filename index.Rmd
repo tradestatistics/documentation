@@ -25,6 +25,14 @@ We advocate for openness and collaboration, so our contribution is focused on:
 * Releasing snapshots of the software we use
 * Sharing curated data (direct download and API)
 
+<br>
+
+<p>
+  <a href="https://www.digitalocean.com/">
+    <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" width="201px">
+  </a>
+</p>
+
 ## Data availability
 
 We used different trade classifications according to the data availability.
@@ -50,7 +58,18 @@ We made all the scripts available on [GitHub](https://github.com/tradestatistics
 
 ## Contact
 
-Follow us on Twitter! Our username is [\@opentradestats](https://twitter.com/opentradestats).
+Follow us on Twitter! Our username is [\@opentradestats](https://twitter.com/opentradestats). We're also on [GitHub](https://github.com/tradestatistics).
+
+## DigitalOcean
+
+This project is hosted on [DigitalOcean](https://digitalocean.com). Under their Open Source Sponsorships they are subsidizing 25% of the yearly server costs. Thanks DigitalOcean!
+
+If you register with this [link](https://m.do.co/c/6119f0430dad), you'll get free credits to try DigitalOcean and we also get credits for the project:
+
+```
+Referral Link
+https://m.do.co/c/6119f0430dad
+```
 
 ## Donate
 
