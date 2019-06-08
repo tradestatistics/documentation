@@ -238,11 +238,9 @@ We built R from binaries in order to obtain a setup linked with multi-threaded n
 
 ## Hardware information
 
-All the data processing was done by using a Lenovo Thinkpad L380 that features an Intel i5-8250U 1.60 GHz processor and 32 GB (two DDR4 cards of sixteen gigabytes each).
+All the data processing was done by using a DigitalOcean droplet with 6 vCPUs and 32GB in RAM to accelerate data processing.
 
-The functions are executed using parallelization on four cores because empirically we detected and overhead due to data communication with the cores when using more cores.
-
-Please notice that running our scripts with parallelization demands more RAM than the amount you can find on an average laptop. You can always disable parallelization in the scripts or reduce the default number of cores.
+The functions were executed using parallelization on four cores. Please notice that running our scripts with parallelization demands more RAM than the amount you can find on an average laptop. You can always disable parallelization in the scripts or reduce the default number of cores.
 
 ## Reproducibility notes
 
