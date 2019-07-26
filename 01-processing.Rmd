@@ -248,15 +248,13 @@ To guarantee reproducibility we provide [Packrat](https://rstudio.github.io/pack
 
 Our R installation is isolated from apt-get to avoid any accidental updates that can alter the data pipeline and/or the output.
 
-The projects are related to each other. In order to avoid multiple copies of files some projects read files from other projects. For example, [OTS Yearly Datasets](https://github.com/tradestatistics/yearly-datasets) input is the output of [OTS Atlas Data](https://github.com/tradestatistics/atlas-data).
+The projects are related to each other. In order to avoid multiple copies of files some projects read files from other projects. For example, [OTS Yearly Datasets](https://github.com/tradestatistics/yearly-datasets) uses [OTS Atlas Data](https://github.com/tradestatistics/atlas-data) as inpu.
 
 The only reproducibility flaw of this project lies in data downloading. Obtaining raw datasets from UN COMTRADE demands an API key that can only be obtained with institutional access that is limited to some universities and institutes.
 
 ## Coding style and performant code
 
 We used the [Tidyverse Style Guide](http://style.tidyverse.org/). As cornerstone references for performant code we followed [@advancedr2014] and [@masteringsoftware2017].
-
-Some matrix operations are written in Rcpp to take advantage of C++ speed. To take full advantage of hardware and numerical libraries we am using sparse matrices as it is explained in [@rcpparmadillo2018].
 
 ## Note for Windows users
 

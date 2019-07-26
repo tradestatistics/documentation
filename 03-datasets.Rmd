@@ -1,18 +1,8 @@
 # Datasets
 
-## Code of Conduct
+## Before downloading datasets
 
-Before you proceed to download the data, please read this carefully.
-
-No matter your gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), or technology choices you are able to use this data for any non-commercial purpose, including academic.
-
-Commercial purposes are strictly out of the boundaries of what you can do with this data according to UN Comtrade dissemination clauses.
-
-Our datasets are distributed under Creative Commons Attribution-NonCommercial 4.0 International License.
-
-Before downloading you agree to the usage conditions explained both to [UN Comtrade Online Usage Agreement](https://comtrade.un.org/db/help/licenseagreement.aspx) and [Creative Commons BY-NC 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/).
-
-Besides datasets, the code used to create the API, dashboard and R package are released under [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
+If you are going to download data, you have to read the [Code of Conduct](https://docs.tradestatistics.io/index.html#code-of-conduct) first.
 
 ## API
 
@@ -22,13 +12,13 @@ To obtain exactly the same data as with compressed files, please refer to \@ref(
 
 If you use R you'll need `jsonlite` and `dplyr` packages.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(jsonlite)
 ```
 
 These packages are also useful:
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(dplyr)
 library(stringr)
 ```
@@ -416,7 +406,7 @@ md5sums <- read_fwf("../yearly-datasets/06-tables/hs-rev2007/1-yrpc/md5sums.txt"
 
 tibble(
   `Year` = paste0("[", 1962:2017, "](", urls, ")"),
-  `Last updated` = "2019-03-07",
+  `Last updated` = "2019-07-12",
   `File size (MB)` = round(file.size(files) / 1024^2, 2),
   `MD5 sum` = md5sums$md5sum
 ) %>% 

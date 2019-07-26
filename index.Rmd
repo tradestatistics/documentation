@@ -6,6 +6,7 @@ site: bookdown::bookdown_site
 documentclass: book
 bibliography: [references.bib]
 link-citations: yes
+url: 'https\://docs.tradestatistics.io'
 github-repo: tradestatistics/documentation
 ---
 
@@ -24,6 +25,20 @@ We advocate for openness and collaboration, so our contribution is focused on:
 * Releasing all of our source code on GitHub
 * Releasing snapshots of the software we use
 * Sharing curated data (direct download and API)
+
+## Code of Conduct
+
+Before you proceed to download the data, please read this carefully.
+
+No matter your gender, gender identity and expression, age, sexual orientation, disability, physical appearance, body size, race, ethnicity, religion (or lack thereof), or technology choices you are able to use this data for any non-commercial purpose, including academic.
+
+In general, our software is released under GNU license and our datasets and contents are released under Creative Commons license.
+
+Commercial purposes are strictly out of the boundaries of what you can do with this data according to [UN Comtrade dissemination clauses](https://comtrade.un.org/db/help/PolicyOnUseAndRedissemination.pdf).
+
+Except where otherwise noted, content on this site is licensed under the [Creative Commons BY-NC 4.0 License](https://creativecommons.org/licenses/by-nc/4.0/). Besides CC-BY-NC, when downloading datasets you also agree to the usage conditions explained both to [UN Comtrade Online Usage Agreement](https://comtrade.un.org/db/help/licenseagreement.aspx).
+
+The dashboard and R package are released under [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html), which follow the license recommendations from [The R Project](https://www.r-project.org/Licenses/).
 
 ## Data availability
 
