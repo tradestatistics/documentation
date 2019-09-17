@@ -18,13 +18,15 @@ Open Trade Statistics is an independent project that values reproducible researc
 
 We focus on commodities data and our added value, unlike many other good trade data projects, is that we focus on data processing and reproducibility instead of data visualization.
 
-Our goal is to ease data analysis and promote a reproducibility culture.
-
 We advocate for openness and collaboration, so our contribution is focused on:
 
 * Releasing all of our source code on GitHub
 * Releasing snapshots of the software we use
 * Sharing curated data (direct download and API)
+
+Besides open data we don't track users, we don't want your personal information and we use https to protect your navigation and our service.
+
+Our goal is to ease data analysis, promote a reproducibility culture, and do something towards a better internet.
 
 ## Code of Conduct
 
@@ -80,6 +82,6 @@ Referral Link
 https://m.do.co/c/6119f0430dad
 ```
 
-## Donate
+## Buy us a coffee
 
-You can also help offset our hosting costs by donating via [PayPal](https://paypal.me/tradestatistics).
+If you like this work, [buy us a coffee](https://www.buymeacoffee.com/pacha), it shall be used to produce more of it. Thank you for your support!

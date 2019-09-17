@@ -114,11 +114,9 @@ Both `r` and `p` accept any valid ISO code or alias contained in the [countries]
 
 `c` takes any valid product code or alias from the [products](https://api.tradestatistics.io/products). For example, both `0101` (valid HS product code) and `01` (valid HS group code) are valid API filtering parameters.
 
-In addition to `y, r, p, c` parameters, the length (`l`) parameter allows efficient queries provided our data contains both 4 and 6 digits long product codes. Because 4 digits code contain 6 digits codes, our approach is to allow the user to use `l=4`, `l=6` or `l=all` to provide just the requested data.
+By default the API takes `c = "all"` as default.
 
-By default the API takes `c = "all"` and `l = 4` as defaults.
-
-You can always skip `c` or `l`, but `y`, `r` and `p` are requiered to return data.
+You can always skip `c`, but `y`, `r` and `p` are requiered to return data.
 
 ### Available reporters
 
@@ -144,7 +142,7 @@ rda_1962 <- "api_data_1962.rda"
 ## filter by product code length (parameter `l`)
 if (!file.exists(rda_1962)) {
   yrpc_1 <- as_tibble(fromJSON(
-    "https://api.tradestatistics.io/yrpc?y=1962&r=usa&p=all&l=4"
+    "https://api.tradestatistics.io/yrpc?y=1962&r=usa&p=all"
   ))
   
   save(yrpc_1, file = rda_1962, compress = "xz")
@@ -186,14 +184,14 @@ The only applicable filter is by year, reporter, product code and (optionally) p
 
 ## filter by reporter ISO (parameter `r`)
 yrc_1 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrc?y=2015&r=chl&l=4"
+  "https://api.tradestatistics.io/yrc?y=2015&r=chl"
 ))
 
 yrc_1
 
 ## filter by reporter alias (also parameter `r`)
 yrc_2 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrc?y=2015&r=c-am&l=4"
+  "https://api.tradestatistics.io/yrc?y=2015&r=c-am"
 ))
 
 yrc_2
@@ -231,10 +229,8 @@ yc
 
 Here some fields deserve an explanation:
 
-* `pci_4_digits_product_code`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits product codes.
-* `pci_6_digits_product_code`: Similar to the previous field but built by using just six digits product codes.
-* `pci_rank_4_digits_product_code`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
-* `pci_rank_4_digits_product_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+* `pci_*_method`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits product codes.
+* `pci_rank_*_method`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
 
 #### YR (Year and Reporter)
 
@@ -255,9 +251,8 @@ yr
 
 Some fields here require more detail:
 
-* `eci_4_digits_product_code`: Economic Complexity Index (ECI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits product codes.
-* `eci_rank_4_digits_product_code`: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)
-* `eci_rank_4_digits_product_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+* `eci_*_method`: Economic Complexity Index (ECI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits product codes.
+* `eci_rank_*_method`: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)
 
 ### Country rankings
 
@@ -268,6 +263,8 @@ The only applicable filter is by year.
 country_rankings <- as_tibble(fromJSON(
   "https://api.tradestatistics.io/country_rankings?y=2015"
 ))
+
+country_rankings
 ```
 
 ### Product rankings
@@ -279,6 +276,8 @@ The only applicable filter is by year.
 product_rankings <- as_tibble(fromJSON(
   "https://api.tradestatistics.io/product_rankings?y=2015"
 ))
+
+product_rankings
 ```
 
 ## R Package
@@ -297,7 +296,7 @@ There is a special consideration you should have with our datasets, and is that 
 
 Different R packages, and statistical software in general, have includeded functions to autodetect column types. In our experience, that can read product codes as integers and that would ignore leading zeroes in product codes. The same applies to trade values that can be detected as integers after the program reads the first $n$ rows, and that would lead to read large values incorrectly due to integer class maximum value of 2,147,483,647.
 
-As an example, let's read 1962 data and explore what the United Stated exported:
+As an example, let's read 1962 data and explore what the United Stated exported. This is the same information that you can obtain by using the API:
 
 ```{r, warning=FALSE, message=FALSE}
 # packages
@@ -365,15 +364,7 @@ if (!file.exists(rda_1962)) {
         character = "product_code",
         numeric = c(
           "export_value_usd",
-          "import_value_usd",
-          "export_value_usd_change_1_year",
-          "export_value_usd_change_5_years",
-          "export_value_usd_percentage_change_1_year",
-          "export_value_usd_percentage_change_5_years",
-          "import_value_usd_change_1_year",
-          "import_value_usd_change_5_years",
-          "import_value_usd_percentage_change_1_year",
-          "import_value_usd_percentage_change_5_years"
+          "import_value_usd"
         )
       ) %>% 
     filter(reporter_iso == "usa")
@@ -405,8 +396,8 @@ urls <- str_replace(files, "../yearly-datasets/", "https://data.tradestatistics.
 md5sums <- read_fwf("../yearly-datasets/06-tables/hs-rev2007/1-yrpc/md5sums.txt", fwf_widths(c(32, 18), c("md5sum", "file"))) %>%   mutate(file = str_trim(file))
 
 tibble(
-  `Year` = paste0("[", 1962:2017, "](", urls, ")"),
-  `Last updated` = "2019-07-12",
+  `Year` = paste0("[", 1962:2018, "](", urls, ")"),
+  `Last updated` = "2019-08-16",
   `File size (MB)` = round(file.size(files) / 1024^2, 2),
   `MD5 sum` = md5sums$md5sum
 ) %>% 
