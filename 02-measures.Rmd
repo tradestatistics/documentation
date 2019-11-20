@@ -16,7 +16,7 @@ The full list of included countries is available [here](https://github.com/trade
 
 ## Revealed Comparative Advantage (RCA)
 
-Let $\renewcommand{\vec}[1]{\boldsymbol{#1}}\newcommand{\R}{\mathbb{R}} X \in \R^{C\times P}$ be a matrix with entries $x_{c,p}$ that represent the exports of country $c$ in product $p$, we can express the Revealed Comparative Advantage that country $c$ has in product $p$ as:
+Let $\renewcommand{\vec}[1]{\boldsymbol{#1}}\newcommand{\R}{\mathbb{R}} X \in \R^{C\times P}$ be a matrix with entries $x_{c,p}$ that represents the exports of country $c$ in product $p$, we can express the Revealed Comparative Advantage that country $c$ has in product $p$ as:
 
 \begin{equation}
 (\#eq:Xcp)
