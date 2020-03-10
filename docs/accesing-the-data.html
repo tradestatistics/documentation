@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section 4 Accesing the data | Open Trade Statistics</title>
+  <meta name="description" content="Section 4 Accesing the data | Open Trade Statistics" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section 4 Accesing the data | Open Trade Statistics" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://docs.tradestatistics.io" />
+  
+  
+  <meta name="github-repo" content="tradestatistics/documentation" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section 4 Accesing the data | Open Trade Statistics" />
+  
+  
+  
+
+<meta name="author" content="Pachá (Mauricio Vargas Sepúlveda)" />
+
+
+<meta name="date" content="2020-03-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="the-mathematics-of-economic-complexity.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Table of Contents</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#project-goals"><i class="fa fa-check"></i><b>1.1</b> Project goals</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#code-of-conduct"><i class="fa fa-check"></i><b>1.2</b> Code of Conduct</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i><b>1.3</b> Data availability</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#sources"><i class="fa fa-check"></i><b>1.4</b> Sources</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#code"><i class="fa fa-check"></i><b>1.5</b> Code</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.6</b> Contact</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#open-source-sponsorships"><i class="fa fa-check"></i><b>1.7</b> Open Source Sponsorships</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#buy-us-a-coffee"><i class="fa fa-check"></i><b>1.8</b> Buy us a coffee</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data processing</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#tidy-data"><i class="fa fa-check"></i><b>2.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#filling-gaps-in-our-data"><i class="fa fa-check"></i><b>2.2</b> Filling gaps in our data</a></li>
+<li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#data-cleaning"><i class="fa fa-check"></i><b>2.3</b> Data cleaning</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data-processing.html"><a href="data-processing.html#required-packages"><i class="fa fa-check"></i><b>2.3.1</b> Required packages</a></li>
+<li class="chapter" data-level="2.3.2" data-path="data-processing.html"><a href="data-processing.html#custom-function-to-read-data"><i class="fa fa-check"></i><b>2.3.2</b> Custom function to read data</a></li>
+<li class="chapter" data-level="2.3.3" data-path="data-processing.html"><a href="data-processing.html#cif-fob-rate-commodity-codes-length-and-iso-codes"><i class="fa fa-check"></i><b>2.3.3</b> CIF-FOB rate, commodity codes length and ISO codes</a></li>
+<li class="chapter" data-level="2.3.4" data-path="data-processing.html"><a href="data-processing.html#read-raw-data"><i class="fa fa-check"></i><b>2.3.4</b> Read raw data</a></li>
+<li class="chapter" data-level="2.3.5" data-path="data-processing.html"><a href="data-processing.html#clean-data"><i class="fa fa-check"></i><b>2.3.5</b> Clean data</a></li>
+<li class="chapter" data-level="2.3.6" data-path="data-processing.html"><a href="data-processing.html#symmetric-clean-data"><i class="fa fa-check"></i><b>2.3.6</b> Symmetric (clean) data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#github-repositories"><i class="fa fa-check"></i><b>2.4</b> GitHub repositories</a></li>
+<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#software-information"><i class="fa fa-check"></i><b>2.5</b> Software information</a></li>
+<li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#hardware-information"><i class="fa fa-check"></i><b>2.6</b> Hardware information</a></li>
+<li class="chapter" data-level="2.7" data-path="data-processing.html"><a href="data-processing.html#reproducibility-notes"><i class="fa fa-check"></i><b>2.7</b> Reproducibility notes</a></li>
+<li class="chapter" data-level="2.8" data-path="data-processing.html"><a href="data-processing.html#coding-style-and-performant-code"><i class="fa fa-check"></i><b>2.8</b> Coding style and performant code</a></li>
+<li class="chapter" data-level="2.9" data-path="data-processing.html"><a href="data-processing.html#note-for-windows-users"><i class="fa fa-check"></i><b>2.9</b> Note for Windows users</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html"><i class="fa fa-check"></i><b>3</b> The Mathematics of Economic Complexity</a><ul>
+<li class="chapter" data-level="3.1" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#countries-not-included-in-rankings-and-indicators"><i class="fa fa-check"></i><b>3.1</b> Countries not included in rankings and indicators</a></li>
+<li class="chapter" data-level="3.2" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca"><i class="fa fa-check"></i><b>3.2</b> Revealed Comparative Advantage (RCA)</a></li>
+<li class="chapter" data-level="3.3" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#smooth-revealed-comparative-advantage-srca"><i class="fa fa-check"></i><b>3.3</b> Smooth Revealed Comparative Advantage (SRCA)</a></li>
+<li class="chapter" data-level="3.4" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-product-matrix"><i class="fa fa-check"></i><b>3.4</b> Country-product matrix</a></li>
+<li class="chapter" data-level="3.5" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#diversity-and-ubiquity"><i class="fa fa-check"></i><b>3.5</b> Diversity and Ubiquity</a></li>
+<li class="chapter" data-level="3.6" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#reflections-method"><i class="fa fa-check"></i><b>3.6</b> Reflections Method</a></li>
+<li class="chapter" data-level="3.7" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci"><i class="fa fa-check"></i><b>3.7</b> Economic Complexity Index (ECI)</a></li>
+<li class="chapter" data-level="3.8" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci"><i class="fa fa-check"></i><b>3.8</b> Product Complexity Index (PCI)</a></li>
+<li class="chapter" data-level="3.9" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#eigenvalues-method"><i class="fa fa-check"></i><b>3.9</b> Eigenvalues method</a></li>
+<li class="chapter" data-level="3.10" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#fitness-method"><i class="fa fa-check"></i><b>3.10</b> Fitness method</a></li>
+<li class="chapter" data-level="3.11" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-proximity"><i class="fa fa-check"></i><b>3.11</b> Product Proximity</a></li>
+<li class="chapter" data-level="3.12" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-proximity"><i class="fa fa-check"></i><b>3.12</b> Country Proximity</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="accesing-the-data.html"><a href="accesing-the-data.html"><i class="fa fa-check"></i><b>4</b> Accesing the data</a><ul>
+<li class="chapter" data-level="4.1" data-path="accesing-the-data.html"><a href="accesing-the-data.html#before-downloading-datasets"><i class="fa fa-check"></i><b>4.1</b> Before downloading datasets</a></li>
+<li class="chapter" data-level="4.2" data-path="accesing-the-data.html"><a href="accesing-the-data.html#api"><i class="fa fa-check"></i><b>4.2</b> API</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="accesing-the-data.html"><a href="accesing-the-data.html#available-tables"><i class="fa fa-check"></i><b>4.2.1</b> Available tables</a></li>
+<li class="chapter" data-level="4.2.2" data-path="accesing-the-data.html"><a href="accesing-the-data.html#metadata"><i class="fa fa-check"></i><b>4.2.2</b> Metadata</a></li>
+<li class="chapter" data-level="4.2.3" data-path="accesing-the-data.html"><a href="accesing-the-data.html#api-parameters"><i class="fa fa-check"></i><b>4.2.3</b> API parameters</a></li>
+<li class="chapter" data-level="4.2.4" data-path="accesing-the-data.html"><a href="accesing-the-data.html#available-reporters"><i class="fa fa-check"></i><b>4.2.4</b> Available reporters</a></li>
+<li class="chapter" data-level="4.2.5" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrpc-year-reporter-partner-and-product-code"><i class="fa fa-check"></i><b>4.2.5</b> YRPC (Year, Reporter, Partner and Product Code)</a></li>
+<li class="chapter" data-level="4.2.6" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrc-year-reporter-and-product-code"><i class="fa fa-check"></i><b>4.2.6</b> YRC (Year, Reporter and Product Code)</a></li>
+<li class="chapter" data-level="4.2.7" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrp-year-reporter-and-partner"><i class="fa fa-check"></i><b>4.2.7</b> YRP (Year, Reporter and Partner)</a></li>
+<li class="chapter" data-level="4.2.8" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yc-year-and-product-code"><i class="fa fa-check"></i><b>4.2.8</b> YC (Year and Product Code)</a></li>
+<li class="chapter" data-level="4.2.9" data-path="accesing-the-data.html"><a href="accesing-the-data.html#country-rankings"><i class="fa fa-check"></i><b>4.2.9</b> Country rankings</a></li>
+<li class="chapter" data-level="4.2.10" data-path="accesing-the-data.html"><a href="accesing-the-data.html#product-rankings"><i class="fa fa-check"></i><b>4.2.10</b> Product rankings</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="accesing-the-data.html"><a href="accesing-the-data.html#r-package"><i class="fa fa-check"></i><b>4.3</b> R Package</a></li>
+<li class="chapter" data-level="4.4" data-path="accesing-the-data.html"><a href="accesing-the-data.html#dashboard-beta"><i class="fa fa-check"></i><b>4.4</b> Dashboard (beta)</a></li>
+<li class="chapter" data-level="4.5" data-path="accesing-the-data.html"><a href="accesing-the-data.html#rds-datasets"><i class="fa fa-check"></i><b>4.5</b> RDS datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>5</b> References</a></li>
+<li class="divider"></li>
+<li>
+  <a href="https://www.digitalocean.com/">
+    <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" width="201px">
+  </a>
+</li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Open Trade Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="accesing-the-data" class="section level1">
+<h1><span class="header-section-number">Section 4</span> Accesing the data</h1>
+<div id="before-downloading-datasets" class="section level2">
+<h2><span class="header-section-number">4.1</span> Before downloading datasets</h2>
+<p>If you are going to download data, you have to read the <a href="https://docs.tradestatistics.io/index.html#code-of-conduct">Code of Conduct</a> first.</p>
+</div>
+<div id="api" class="section level2">
+<h2><span class="header-section-number">4.2</span> API</h2>
+<p>The advantage of the API over https download is that you can filter what to obtain and also access some additional tables.</p>
+<p>To obtain exactly the same data as with compressed files, please refer to <a href="accesing-the-data.html#yrpc-year-reporter-partner-and-product-code">4.2.5</a>.</p>
+<p>If you use R you’ll need <code>jsonlite</code> and <code>dplyr</code> packages.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw">library</span>(jsonlite)</a></code></pre></div>
+<p>These packages are also useful:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw">library</span>(stringr)</a></code></pre></div>
+<div id="available-tables" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Available tables</h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(<span class="st">&quot;https://api.tradestatistics.io/tables&quot;</span>))</a></code></pre></div>
+<pre><code>## # A tibble: 12 x 3
+##    table       description                           source                     
+##    &lt;chr&gt;       &lt;chr&gt;                                 &lt;chr&gt;                      
+##  1 countries   Countries metadata                    UN Comtrade                
+##  2 products    Product metadata                      UN Comtrade                
+##  3 reporters   Reporting countries                   UN Comtrade                
+##  4 communities Product communities                   Center for International D…
+##  5 product_sh… Product short names                   The Observatory of Economi…
+##  6 country_ra… Ranking of countries                  Open Trade Statistics      
+##  7 product_ra… Ranking of products                   Open Trade Statistics      
+##  8 yrpc        Bilateral trade at product level (Ye… Open Trade Statistics      
+##  9 yrp         Reporter trade at aggregated level (… Open Trade Statistics      
+## 10 yrc         Reporter trade at aggregated level (… Open Trade Statistics      
+## 11 yr          Reporter trade at aggregated level (… Open Trade Statistics      
+## 12 yc          Product trade at aggregated level (Y… Open Trade Statistics</code></pre>
+</div>
+<div id="metadata" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Metadata</h3>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="co">## Countries (no filter)</span></a>
+<a class="sourceLine" id="cb16-2" data-line-number="2">rda_countries &lt;-<span class="st"> &quot;countries.rda&quot;</span></a>
+<a class="sourceLine" id="cb16-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb16-4" data-line-number="4"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(rda_countries)) {</a>
+<a class="sourceLine" id="cb16-5" data-line-number="5">  countries &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(</a>
+<a class="sourceLine" id="cb16-6" data-line-number="6">    <span class="st">&quot;https://api.tradestatistics.io/countries&quot;</span></a>
+<a class="sourceLine" id="cb16-7" data-line-number="7">  ))</a>
+<a class="sourceLine" id="cb16-8" data-line-number="8">  </a>
+<a class="sourceLine" id="cb16-9" data-line-number="9">  <span class="kw">save</span>(countries, <span class="dt">file =</span> rda_countries, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
+<a class="sourceLine" id="cb16-10" data-line-number="10">  </a>
+<a class="sourceLine" id="cb16-11" data-line-number="11">  countries</a>
+<a class="sourceLine" id="cb16-12" data-line-number="12">} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb16-13" data-line-number="13">  <span class="kw">load</span>(rda_countries)</a>
+<a class="sourceLine" id="cb16-14" data-line-number="14">  </a>
+<a class="sourceLine" id="cb16-15" data-line-number="15">  countries</a>
+<a class="sourceLine" id="cb16-16" data-line-number="16">}</a></code></pre></div>
+<pre><code>## # A tibble: 249 x 6
+##    country_iso country_name_en… country_fullnam… continent_id continent
+##    &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;                   &lt;int&gt; &lt;chr&gt;    
+##  1 afg         Afghanistan      Afghanistan                 1 Asia     
+##  2 alb         Albania          Albania                     2 Europe   
+##  3 dza         Algeria          Algeria                     3 Africa   
+##  4 asm         American Samoa   American Samoa              4 Oceania  
+##  5 and         Andorra          Andorra                     2 Europe   
+##  6 ago         Angola           Angola                      3 Africa   
+##  7 aia         Anguilla         Anguilla                    5 Americas 
+##  8 atg         Antigua and Bar… Antigua and Bar…            5 Americas 
+##  9 arg         Argentina        Argentina                   5 Americas 
+## 10 arm         Armenia          Armenia                     1 Asia     
+## # … with 239 more rows, and 1 more variable: eu28_member &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co">## Products (no filter)</span></a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">rda_products &lt;-<span class="st"> &quot;products.rda&quot;</span></a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(rda_products)) {</a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">  products &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(</a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">    <span class="st">&quot;https://api.tradestatistics.io/products&quot;</span></a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">  ))</a>
+<a class="sourceLine" id="cb18-8" data-line-number="8">  </a>
+<a class="sourceLine" id="cb18-9" data-line-number="9">  <span class="kw">save</span>(products, <span class="dt">file =</span> rda_products, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
+<a class="sourceLine" id="cb18-10" data-line-number="10">  </a>
+<a class="sourceLine" id="cb18-11" data-line-number="11">  products</a>
+<a class="sourceLine" id="cb18-12" data-line-number="12">} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb18-13" data-line-number="13">  <span class="kw">load</span>(rda_products)</a>
+<a class="sourceLine" id="cb18-14" data-line-number="14">  </a>
+<a class="sourceLine" id="cb18-15" data-line-number="15">  products</a>
+<a class="sourceLine" id="cb18-16" data-line-number="16">}</a></code></pre></div>
+<pre><code>## # A tibble: 1,320 x 4
+##    product_code product_fullname_english              group_code group_name     
+##    &lt;chr&gt;        &lt;chr&gt;                                 &lt;chr&gt;      &lt;chr&gt;          
+##  1 0101         Horses, asses, mules and hinnies; li… 01         Animals; live  
+##  2 0102         Bovine animals; live                  01         Animals; live  
+##  3 0103         Swine; live                           01         Animals; live  
+##  4 0104         Sheep and goats; live                 01         Animals; live  
+##  5 0105         Poultry; live, fowls of the species … 01         Animals; live  
+##  6 0106         Animals, n.e.c. in chapter 01; live   01         Animals; live  
+##  7 0201         Meat of bovine animals; fresh or chi… 02         Meat and edibl…
+##  8 0202         Meat of bovine animals; frozen        02         Meat and edibl…
+##  9 0203         Meat of swine; fresh, chilled or fro… 02         Meat and edibl…
+## 10 0204         Meat of sheep or goats; fresh, chill… 02         Meat and edibl…
+## # … with 1,310 more rows</code></pre>
+<p>Please notice that these tables include some aliases.</p>
+<p><code>countries</code> includes some meta-codes, <code>c-xx</code> where <code>xx</code> must the first two letters of a continent and <code>all</code>, this is:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Alias</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">c-af</td>
+<td align="left">Alias for all valid ISO codes in Africa</td>
+</tr>
+<tr class="even">
+<td align="left">c-am</td>
+<td align="left">Alias for all valid ISO codes in the Americas</td>
+</tr>
+<tr class="odd">
+<td align="left">c-as</td>
+<td align="left">Alias for all valid ISO codes in Asia</td>
+</tr>
+<tr class="even">
+<td align="left">c-eu</td>
+<td align="left">Alias for all valid ISO codes in Europe</td>
+</tr>
+<tr class="odd">
+<td align="left">c-oc</td>
+<td align="left">Alias for all valid ISO codes in Oceania</td>
+</tr>
+<tr class="even">
+<td align="left">all</td>
+<td align="left">Alias for all valid ISO codes in the World</td>
+</tr>
+</tbody>
+</table>
+<p><code>products</code> also includes some meta-codes, <code>xx</code> for the first two digits of a code and those digits are the product group and <code>all</code>, this is:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Alias</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">01</td>
+<td align="left">Alias for all codes in the group Animals; live</td>
+</tr>
+<tr class="even">
+<td align="left">02</td>
+<td align="left">Alias for all codes in the group Meat and edible meat offal</td>
+</tr>
+<tr class="odd">
+<td align="left">03</td>
+<td align="left">Alias for all codes in the group Fish and crustaceans, molluscs and other aquatic invertebrates</td>
+</tr>
+<tr class="even">
+<td align="left">04</td>
+<td align="left">Alias for all codes in the group Dairy produce; birds’ eggs; natural honey; edible products of animal origin, not elsewhere specified or included</td>
+</tr>
+<tr class="odd">
+<td align="left">05</td>
+<td align="left">Alias for all codes in the group Animal originated products; not elsewhere specified or included</td>
+</tr>
+<tr class="even">
+<td align="left">06</td>
+<td align="left">Alias for all codes in the group Trees and other plants, live; bulbs, roots and the like; cut flowers and ornamental foliage</td>
+</tr>
+<tr class="odd">
+<td align="left">07</td>
+<td align="left">Alias for all codes in the group Vegetables and certain roots and tubers; edible</td>
+</tr>
+<tr class="even">
+<td align="left">08</td>
+<td align="left">Alias for all codes in the group Fruit and nuts, edible; peel of citrus fruit or melons</td>
+</tr>
+<tr class="odd">
+<td align="left">09</td>
+<td align="left">Alias for all codes in the group Coffee, tea, mate and spices</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="left">Alias for all codes in the group Cereals</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="left">Alias for all codes in the group Products of the milling industry; malt, starches, inulin, wheat gluten</td>
+</tr>
+<tr class="even">
+<td align="left">12</td>
+<td align="left">Alias for all codes in the group Oil seeds and oleaginous fruits; miscellaneous grains, seeds and fruit, industrial or medicinal plants; straw and fodder</td>
+</tr>
+<tr class="odd">
+<td align="left">13</td>
+<td align="left">Alias for all codes in the group Lac; gums, resins and other vegetable saps and extracts</td>
+</tr>
+<tr class="even">
+<td align="left">14</td>
+<td align="left">Alias for all codes in the group Vegetable plaiting materials; vegetable products not elsewhere specified or included</td>
+</tr>
+<tr class="odd">
+<td align="left">15</td>
+<td align="left">Alias for all codes in the group Animal or vegetable fats and oils and their cleavage products; prepared animal fats; animal or vegetable waxes</td>
+</tr>
+<tr class="even">
+<td align="left">16</td>
+<td align="left">Alias for all codes in the group Meat, fish or crustaceans, molluscs or other aquatic invertebrates; preparations thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">17</td>
+<td align="left">Alias for all codes in the group Sugars and sugar confectionery</td>
+</tr>
+<tr class="even">
+<td align="left">18</td>
+<td align="left">Alias for all codes in the group Cocoa and cocoa preparations</td>
+</tr>
+<tr class="odd">
+<td align="left">19</td>
+<td align="left">Alias for all codes in the group Preparations of cereals, flour, starch or milk; pastrycooks’ products</td>
+</tr>
+<tr class="even">
+<td align="left">20</td>
+<td align="left">Alias for all codes in the group Preparations of vegetables, fruit, nuts or other parts of plants</td>
+</tr>
+<tr class="odd">
+<td align="left">21</td>
+<td align="left">Alias for all codes in the group Miscellaneous edible preparations</td>
+</tr>
+<tr class="even">
+<td align="left">22</td>
+<td align="left">Alias for all codes in the group Beverages, spirits and vinegar</td>
+</tr>
+<tr class="odd">
+<td align="left">23</td>
+<td align="left">Alias for all codes in the group Food industries, residues and wastes thereof; prepared animal fodder</td>
+</tr>
+<tr class="even">
+<td align="left">24</td>
+<td align="left">Alias for all codes in the group Tobacco and manufactured tobacco substitutes</td>
+</tr>
+<tr class="odd">
+<td align="left">25</td>
+<td align="left">Alias for all codes in the group Salt; sulphur; earths, stone; plastering materials, lime and cement</td>
+</tr>
+<tr class="even">
+<td align="left">26</td>
+<td align="left">Alias for all codes in the group Ores, slag and ash</td>
+</tr>
+<tr class="odd">
+<td align="left">27</td>
+<td align="left">Alias for all codes in the group Mineral fuels, mineral oils and products of their distillation; bituminous substances; mineral waxes</td>
+</tr>
+<tr class="even">
+<td align="left">28</td>
+<td align="left">Alias for all codes in the group Inorganic chemicals; organic and inorganic compounds of precious metals; of rare earth metals, of radio-active elements and of isotopes</td>
+</tr>
+<tr class="odd">
+<td align="left">29</td>
+<td align="left">Alias for all codes in the group Organic chemicals</td>
+</tr>
+<tr class="even">
+<td align="left">30</td>
+<td align="left">Alias for all codes in the group Pharmaceutical products</td>
+</tr>
+<tr class="odd">
+<td align="left">31</td>
+<td align="left">Alias for all codes in the group Fertilizers</td>
+</tr>
+<tr class="even">
+<td align="left">32</td>
+<td align="left">Alias for all codes in the group Tanning or dyeing extracts; tannins and their derivatives; dyes, pigments and other colouring matter; paints, varnishes; putty, other mastics; inks</td>
+</tr>
+<tr class="odd">
+<td align="left">33</td>
+<td align="left">Alias for all codes in the group Essential oils and resinoids; perfumery, cosmetic or toilet preparations</td>
+</tr>
+<tr class="even">
+<td align="left">34</td>
+<td align="left">Alias for all codes in the group Soap, organic surface-active agents; washing, lubricating, polishing or scouring preparations; artificial or prepared waxes, candles and similar articles, modelling pastes, dental waxes and dental preparations with a basis of plaster</td>
+</tr>
+<tr class="odd">
+<td align="left">35</td>
+<td align="left">Alias for all codes in the group Albuminoidal substances; modified starches; glues; enzymes</td>
+</tr>
+<tr class="even">
+<td align="left">36</td>
+<td align="left">Alias for all codes in the group Explosives; pyrotechnic products; matches; pyrophoric alloys; certain combustible preparations</td>
+</tr>
+<tr class="odd">
+<td align="left">37</td>
+<td align="left">Alias for all codes in the group Photographic or cinematographic goods</td>
+</tr>
+<tr class="even">
+<td align="left">38</td>
+<td align="left">Alias for all codes in the group Chemical products n.e.c.</td>
+</tr>
+<tr class="odd">
+<td align="left">39</td>
+<td align="left">Alias for all codes in the group Plastics and articles thereof</td>
+</tr>
+<tr class="even">
+<td align="left">40</td>
+<td align="left">Alias for all codes in the group Rubber and articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">41</td>
+<td align="left">Alias for all codes in the group Raw hides and skins (other than furskins) and leather</td>
+</tr>
+<tr class="even">
+<td align="left">42</td>
+<td align="left">Alias for all codes in the group Articles of leather; saddlery and harness; travel goods, handbags and similar containers; articles of animal gut (other than silk-worm gut)</td>
+</tr>
+<tr class="odd">
+<td align="left">43</td>
+<td align="left">Alias for all codes in the group Furskins and artificial fur; manufactures thereof</td>
+</tr>
+<tr class="even">
+<td align="left">44</td>
+<td align="left">Alias for all codes in the group Wood and articles of wood; wood charcoal</td>
+</tr>
+<tr class="odd">
+<td align="left">45</td>
+<td align="left">Alias for all codes in the group Cork and articles of cork</td>
+</tr>
+<tr class="even">
+<td align="left">46</td>
+<td align="left">Alias for all codes in the group Manufactures of straw, esparto or other plaiting materials; basketware and wickerwork</td>
+</tr>
+<tr class="odd">
+<td align="left">47</td>
+<td align="left">Alias for all codes in the group Pulp of wood or other fibrous cellulosic material; recovered (waste and scrap) paper or paperboard</td>
+</tr>
+<tr class="even">
+<td align="left">48</td>
+<td align="left">Alias for all codes in the group Paper and paperboard; articles of paper pulp, of paper or paperboard</td>
+</tr>
+<tr class="odd">
+<td align="left">49</td>
+<td align="left">Alias for all codes in the group Printed books, newspapers, pictures and other products of the printing industry; manuscripts, typescripts and plans</td>
+</tr>
+<tr class="even">
+<td align="left">50</td>
+<td align="left">Alias for all codes in the group Silk</td>
+</tr>
+<tr class="odd">
+<td align="left">51</td>
+<td align="left">Alias for all codes in the group Wool, fine or coarse animal hair; horsehair yarn and woven fabric</td>
+</tr>
+<tr class="even">
+<td align="left">52</td>
+<td align="left">Alias for all codes in the group Cotton</td>
+</tr>
+<tr class="odd">
+<td align="left">53</td>
+<td align="left">Alias for all codes in the group Vegetable textile fibres; paper yarn and woven fabrics of paper yarn</td>
+</tr>
+<tr class="even">
+<td align="left">54</td>
+<td align="left">Alias for all codes in the group Man-made filaments; strip and the like of man-made textile materials</td>
+</tr>
+<tr class="odd">
+<td align="left">55</td>
+<td align="left">Alias for all codes in the group Man-made staple fibres</td>
+</tr>
+<tr class="even">
+<td align="left">56</td>
+<td align="left">Alias for all codes in the group Wadding, felt and nonwovens, special yarns; twine, cordage, ropes and cables and articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">57</td>
+<td align="left">Alias for all codes in the group Carpets and other textile floor coverings</td>
+</tr>
+<tr class="even">
+<td align="left">58</td>
+<td align="left">Alias for all codes in the group Fabrics; special woven fabrics, tufted textile fabrics, lace, tapestries, trimmings, embroidery</td>
+</tr>
+<tr class="odd">
+<td align="left">59</td>
+<td align="left">Alias for all codes in the group Textile fabrics; impregnated, coated, covered or laminated; textile articles of a kind suitable for industrial use</td>
+</tr>
+<tr class="even">
+<td align="left">60</td>
+<td align="left">Alias for all codes in the group Fabrics; knitted or crocheted</td>
+</tr>
+<tr class="odd">
+<td align="left">61</td>
+<td align="left">Alias for all codes in the group Apparel and clothing accessories; knitted or crocheted</td>
+</tr>
+<tr class="even">
+<td align="left">62</td>
+<td align="left">Alias for all codes in the group Apparel and clothing accessories; not knitted or crocheted</td>
+</tr>
+<tr class="odd">
+<td align="left">63</td>
+<td align="left">Alias for all codes in the group Textiles, made up articles; sets; worn clothing and worn textile articles; rags</td>
+</tr>
+<tr class="even">
+<td align="left">64</td>
+<td align="left">Alias for all codes in the group Footwear; gaiters and the like; parts of such articles</td>
+</tr>
+<tr class="odd">
+<td align="left">65</td>
+<td align="left">Alias for all codes in the group Headgear and parts thereof</td>
+</tr>
+<tr class="even">
+<td align="left">66</td>
+<td align="left">Alias for all codes in the group Umbrellas, sun umbrellas, walking-sticks, seat sticks, whips, riding crops; and parts thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">67</td>
+<td align="left">Alias for all codes in the group Feathers and down, prepared; and articles made of feather or of down; artificial flowers; articles of human hair</td>
+</tr>
+<tr class="even">
+<td align="left">68</td>
+<td align="left">Alias for all codes in the group Stone, plaster, cement, asbestos, mica or similar materials; articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">69</td>
+<td align="left">Alias for all codes in the group Ceramic products</td>
+</tr>
+<tr class="even">
+<td align="left">70</td>
+<td align="left">Alias for all codes in the group Glass and glassware</td>
+</tr>
+<tr class="odd">
+<td align="left">71</td>
+<td align="left">Alias for all codes in the group Natural, cultured pearls; precious, semi-precious stones; precious metals, metals clad with precious metal, and articles thereof; imitation jewellery; coin</td>
+</tr>
+<tr class="even">
+<td align="left">72</td>
+<td align="left">Alias for all codes in the group Iron and steel</td>
+</tr>
+<tr class="odd">
+<td align="left">73</td>
+<td align="left">Alias for all codes in the group Iron or steel articles</td>
+</tr>
+<tr class="even">
+<td align="left">74</td>
+<td align="left">Alias for all codes in the group Copper and articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">75</td>
+<td align="left">Alias for all codes in the group Nickel and articles thereof</td>
+</tr>
+<tr class="even">
+<td align="left">76</td>
+<td align="left">Alias for all codes in the group Aluminium and articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">78</td>
+<td align="left">Alias for all codes in the group Lead and articles thereof</td>
+</tr>
+<tr class="even">
+<td align="left">79</td>
+<td align="left">Alias for all codes in the group Zinc and articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">80</td>
+<td align="left">Alias for all codes in the group Tin; articles thereof</td>
+</tr>
+<tr class="even">
+<td align="left">81</td>
+<td align="left">Alias for all codes in the group Metals; n.e.c., cermets and articles thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">82</td>
+<td align="left">Alias for all codes in the group Tools, implements, cutlery, spoons and forks, of base metal; parts thereof, of base metal</td>
+</tr>
+<tr class="even">
+<td align="left">83</td>
+<td align="left">Alias for all codes in the group Metal; miscellaneous products of base metal</td>
+</tr>
+<tr class="odd">
+<td align="left">84</td>
+<td align="left">Alias for all codes in the group Nuclear reactors, boilers, machinery and mechanical appliances; parts thereof</td>
+</tr>
+<tr class="even">
+<td align="left">85</td>
+<td align="left">Alias for all codes in the group Electrical machinery and equipment and parts thereof; sound recorders and reproducers; television image and sound recorders and reproducers, parts and accessories of such articles</td>
+</tr>
+<tr class="odd">
+<td align="left">86</td>
+<td align="left">Alias for all codes in the group Railway, tramway locomotives, rolling-stock and parts thereof; railway or tramway track fixtures and fittings and parts thereof; mechanical (including electro-mechanical) traffic signalling equipment of all kinds</td>
+</tr>
+<tr class="even">
+<td align="left">87</td>
+<td align="left">Alias for all codes in the group Vehicles; other than railway or tramway rolling stock, and parts and accessories thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">88</td>
+<td align="left">Alias for all codes in the group Aircraft, spacecraft and parts thereof</td>
+</tr>
+<tr class="even">
+<td align="left">89</td>
+<td align="left">Alias for all codes in the group Ships, boats and floating structures</td>
+</tr>
+<tr class="odd">
+<td align="left">90</td>
+<td align="left">Alias for all codes in the group Optical, photographic, cinematographic, measuring, checking, medical or surgical instruments and apparatus; parts and accessories</td>
+</tr>
+<tr class="even">
+<td align="left">91</td>
+<td align="left">Alias for all codes in the group Clocks and watches and parts thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">92</td>
+<td align="left">Alias for all codes in the group Musical instruments; parts and accessories of such articles</td>
+</tr>
+<tr class="even">
+<td align="left">93</td>
+<td align="left">Alias for all codes in the group Arms and ammunition; parts and accessories thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">94</td>
+<td align="left">Alias for all codes in the group Furniture; bedding, mattresses, mattress supports, cushions and similar stuffed furnishings; lamps and lighting fittings, n.e.c.; illuminated signs, illuminated name-plates and the like; prefabricated buildings</td>
+</tr>
+<tr class="even">
+<td align="left">95</td>
+<td align="left">Alias for all codes in the group Toys, games and sports requisites; parts and accessories thereof</td>
+</tr>
+<tr class="odd">
+<td align="left">96</td>
+<td align="left">Alias for all codes in the group Miscellaneous manufactured articles</td>
+</tr>
+<tr class="even">
+<td align="left">97</td>
+<td align="left">Alias for all codes in the group Works of art; collectors’ pieces and antiques</td>
+</tr>
+<tr class="odd">
+<td align="left">99</td>
+<td align="left">Alias for all codes in the group Commodities not specified according to kind</td>
+</tr>
+<tr class="even">
+<td align="left">all</td>
+<td align="left">Alias for all codes</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="api-parameters" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> API parameters</h3>
+<p>The tables provided withing our API contain at least one of these fields:</p>
+<ul>
+<li>Year (<code>y</code>)</li>
+<li>Reporter ISO (<code>r</code>)</li>
+<li>Partner ISO (<code>p</code>)</li>
+<li>Product Code (<code>c</code>)</li>
+</ul>
+<p>The most detailed table is <code>yrpc</code> that contains all bilateral flows at product level.</p>
+<p>With respect to <code>y</code> you can pass any integer contained in <span class="math inline">\([1962,2018]\)</span>.</p>
+<p>Both <code>r</code> and <code>p</code> accept any valid ISO code or alias contained in the <a href="https://api.tradestatistics.io/countries">countries</a> table. For example, both <code>chl</code> (valid ISO code) and <code>c-am</code> (continent Americas, an alias) are valid API filtering parameters.</p>
+<p><code>c</code> takes any valid product code or alias from the <a href="https://api.tradestatistics.io/products">products</a>. For example, both <code>0101</code> (valid HS product code) and <code>01</code> (valid HS group code) are valid API filtering parameters.</p>
+<p>By default the API takes <code>c = &quot;all&quot;</code> by default.</p>
+<p>You can always skip <code>c</code>, but <code>y</code>, <code>r</code> and <code>p</code> are requiered to return data.</p>
+</div>
+<div id="available-reporters" class="section level3">
+<h3><span class="header-section-number">4.2.4</span> Available reporters</h3>
+<p>The only applicable filter is by year.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co"># Available reporters (filter by year)</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(</a>
+<a class="sourceLine" id="cb20-3" data-line-number="3">  <span class="st">&quot;https://api.tradestatistics.io/reporters?y=2015&quot;</span></a>
+<a class="sourceLine" id="cb20-4" data-line-number="4">))</a></code></pre></div>
+<pre><code>## # A tibble: 225 x 1
+##    reporter_iso
+##    &lt;chr&gt;       
+##  1 zwe         
+##  2 zmb         
+##  3 zaf         
+##  4 yem         
+##  5 wsm         
+##  6 wlf         
+##  7 vut         
+##  8 vnm         
+##  9 vgb         
+## 10 ven         
+## # … with 215 more rows</code></pre>
+</div>
+<div id="yrpc-year-reporter-partner-and-product-code" class="section level3">
+<h3><span class="header-section-number">4.2.5</span> YRPC (Year, Reporter, Partner and Product Code)</h3>
+<p>The applicable filters here are year, reporter, partner, product code and (optionally) product code length.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># Year - Reporter - Partner - Product Code (filter by year, reporter and partner)</span></a>
+<a class="sourceLine" id="cb22-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="co">## file to store the query results</span></a>
+<a class="sourceLine" id="cb22-4" data-line-number="4">rda_<span class="dv">1962</span> &lt;-<span class="st"> &quot;api_data_1962.rda&quot;</span></a>
+<a class="sourceLine" id="cb22-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb22-6" data-line-number="6"><span class="co">## filter by product code length (parameter `l`)</span></a>
+<a class="sourceLine" id="cb22-7" data-line-number="7"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(rda_<span class="dv">1962</span>)) {</a>
+<a class="sourceLine" id="cb22-8" data-line-number="8">  yrpc_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(</a>
+<a class="sourceLine" id="cb22-9" data-line-number="9">    <span class="st">&quot;https://api.tradestatistics.io/yrpc?y=1962&amp;r=usa&amp;p=all&quot;</span></a>
+<a class="sourceLine" id="cb22-10" data-line-number="10">  ))</a>
+<a class="sourceLine" id="cb22-11" data-line-number="11">  </a>
+<a class="sourceLine" id="cb22-12" data-line-number="12">  <span class="kw">save</span>(yrpc_<span class="dv">1</span>, <span class="dt">file =</span> rda_<span class="dv">1962</span>, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
+<a class="sourceLine" id="cb22-13" data-line-number="13">  </a>
+<a class="sourceLine" id="cb22-14" data-line-number="14">  yrpc_<span class="dv">1</span></a>
+<a class="sourceLine" id="cb22-15" data-line-number="15">} <span class="cf">else</span> {</a>
+<a class="sourceLine" id="cb22-16" data-line-number="16">  <span class="kw">load</span>(rda_<span class="dv">1962</span>)</a>
+<a class="sourceLine" id="cb22-17" data-line-number="17">  </a>
+<a class="sourceLine" id="cb22-18" data-line-number="18">  yrpc_<span class="dv">1</span></a>
+<a class="sourceLine" id="cb22-19" data-line-number="19">}</a></code></pre></div>
+<pre><code>## # A tibble: 35,346 x 6
+##     year reporter_iso partner_iso product_code import_value_usd export_value_usd
+##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                   &lt;int&gt;            &lt;int&gt;
+##  1  1962 usa          zaf         7502                     2758               NA
+##  2  1962 usa          zaf         7213                    76363               NA
+##  3  1962 usa          zaf         7206                   143415               NA
+##  4  1962 usa          zaf         7201                   189295               NA
+##  5  1962 usa          zaf         7118                     6687               NA
+##  6  1962 usa          zaf         7102                 22770831               NA
+##  7  1962 usa          zaf         5105                   268857               NA
+##  8  1962 usa          zaf         5102                    48423               NA
+##  9  1962 usa          zaf         5101                 26275600               NA
+## 10  1962 usa          zaf         4702                  2224566               NA
+## # … with 35,336 more rows</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="co">## filter by product group (parameter `c`)</span></a>
+<a class="sourceLine" id="cb24-2" data-line-number="2">yrpc_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(</a>
+<a class="sourceLine" id="cb24-3" data-line-number="3">  <span class="st">&quot;https://api.tradestatistics.io/yrpc?y=2015&amp;r=chl&amp;p=arg&amp;c=01&quot;</span></a>
+<a class="sourceLine" id="cb24-4" data-line-number="4">))</a>
+<a class="sourceLine" id="cb24-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb24-6" data-line-number="6">yrpc_<span class="dv">2</span></a></code></pre></div>
+<pre><code>## # A tibble: 2 x 6
+##    year reporter_iso partner_iso product_code export_value_usd import_value_usd
+##   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                   &lt;int&gt;            &lt;int&gt;
+## 1  2015 chl          arg         0106                    53213            34120
+## 2  2015 chl          arg         0101                   123800           392190</code></pre>
+<p>Some columns requiere an explanation:</p>
+<ul>
+<li><code>product_code</code>: HS07 product codes (e.g. according to the  table within this package, 0101 stands for “Horses, etc.”)</li>
+<li><code>product_code_length</code>: How many digits does <code>product_code</code> contain, this can be useful to filter by depth when using HS codes (HS 6 digits is a more detailed version of HS 4 digits, and therefore you don’t have to sum both or you’ll be counting exports/imports twice)</li>
+<li><code>group_code</code>: International categorization of group products defined after product ID</li>
+<li><code>group_name</code>: English name corresponding to <code>group_id</code></li>
+<li><code>export_value_usd</code>: Exports measured in nominal United States Dollars (USD)</li>
+<li><code>import_value_usd</code>: Imports measured in nominal United States Dollars (USD)</li>
+<li><code>export_value_usd_percentage_change_1_year</code>: Nominal increase/decrease in exports measured as percentage with respect to last year</li>
+<li><code>export_value_usd_percentage_change_5_years</code>: Nominal increase/decrease in exports measured as percentage with respect to five years ago</li>
+<li><code>export_value_usd_change_1_year</code>: Nominal increase/decrease in exports measured in USD with respect to last year</li>
+<li><code>export_value_usd_change_5_years</code>: Nominal increase/decrease in exports measured in USD with respect to five years ago</li>
+</ul>
+</div>
+<div id="yrc-year-reporter-and-product-code" class="section level3">
+<h3><span class="header-section-number">4.2.6</span> YRC (Year, Reporter and Product Code)</h3>
+<p>The only applicable filter is by year, reporter, product code and (optionally) product code length.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="co"># Year - Reporter - Product Code (filter by year and reporter)</span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb26-3" data-line-number="3"><span class="co">## filter by reporter ISO (parameter `r`)</span></a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">yrc_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(</a>
+<a class="sourceLine" id="cb26-5" data-line-number="5">  <span class="st">&quot;https://api.tradestatistics.io/yrc?y=2015&amp;r=chl&quot;</span></a>
+<a class="sourceLine" id="cb26-6" data-line-number="6">))</a>
+<a class="sourceLine" id="cb26-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb26-8" data-line-number="8">yrc_<span class="dv">1</span></a></code></pre></div>
+<pre><code>## # A tibble: 1,214 x 7
+##     year reporter_iso product_code export_value_usd import_value_usd export_rca
+##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;      &lt;dbl&gt;
+##  1  2015 chl          9999                418275298       3762480583     0.218 
+##  2  2015 chl          9706                  1707137           672446     0.0559
+##  3  2015 chl          9705                   842192          1406771     0.07  
+##  4  2015 chl          9704                     1000            14911     0.0444
+##  5  2015 chl          9703                   494608          3739440     0.0226
+##  6  2015 chl          9702                    33049           517013     0.0175
+##  7  2015 chl          9701                  1055091          9190143     0.0599
+##  8  2015 chl          9618                   376809          5512649     0.141 
+##  9  2015 chl          9617                  2244928         15290042     0.378 
+## 10  2015 chl          9616                    32828          4020991     0.0055
+## # … with 1,204 more rows, and 1 more variable: import_rca &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="co">## filter by reporter alias (also parameter `r`)</span></a>
+<a class="sourceLine" id="cb28-2" data-line-number="2">yrc_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(</a>
+<a class="sourceLine" id="cb28-3" data-line-number="3">  <span class="st">&quot;https://api.tradestatistics.io/yrc?y=2015&amp;r=c-am&quot;</span></a>
+<a class="sourceLine" id="cb28-4" data-line-number="4">))</a>
+<a class="sourceLine" id="cb28-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb28-6" data-line-number="6">yrc_<span class="dv">2</span></a></code></pre></div>
+<pre><code>## # A tibble: 47,673 x 7
+##     year reporter_iso product_code export_value_usd import_value_usd export_rca
+##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;      &lt;dbl&gt;
+##  1  2015 vgb          8213                       15             2279    1.77e-2
+##  2  2015 vgb          9032                    17265           104027    1.80e-2
+##  3  2015 vgb          9031                    18991           466671    1.13e-2
+##  4  2015 vgb          9030                    28455           180127    2.39e-2
+##  5  2015 vgb          9029                    15976             1381    4.36e-2
+##  6  2015 vgb          9028                        0           116064   NA      
+##  7  2015 vgb          9027                     4870           698770    1.75e-1
+##  8  2015 vgb          9026                    41202           548144    9.77e-2
+##  9  2015 vgb          9025                    11017            84800    1.10e-1
+## 10  2015 vgb          9024                        1             3889    9.52e-6
+## # … with 47,663 more rows, and 1 more variable: import_rca &lt;dbl&gt;</code></pre>
+<p>Here the <code>export_rca*</code> and <code>import_rca*</code> fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>.</p>
+</div>
+<div id="yrp-year-reporter-and-partner" class="section level3">
+<h3><span class="header-section-number">4.2.7</span> YRP (Year, Reporter and Partner)</h3>
+<p>The only applicable filter is by year, reporter and partner.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="co"># Year - Reporter - Partner (filter by year, reporter and partner)</span></a>
+<a class="sourceLine" id="cb30-2" data-line-number="2">yrp &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(</a>
+<a class="sourceLine" id="cb30-3" data-line-number="3">  <span class="st">&quot;https://api.tradestatistics.io/yrp?y=2015&amp;r=chl&amp;p=arg&quot;</span></a>
+<a class="sourceLine" id="cb30-4" data-line-number="4">))</a></code></pre></div>
+</div>
+<div id="yc-year-and-product-code" class="section level3">
+<h3><span class="header-section-number">4.2.8</span> YC (Year and Product Code)</h3>
+<p>The only applicable filter is by year, product and (optionally) product code length.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="co"># Year - Product Code (filter by year)</span></a>
+<a class="sourceLine" id="cb31-2" data-line-number="2">yc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(</a>
+<a class="sourceLine" id="cb31-3" data-line-number="3">  <span class="st">&quot;https://api.tradestatistics.io/yc?y=2015&amp;c=0101&quot;</span></a>
+<a class="sourceLine" id="cb31-4" data-line-number="4">))</a></code></pre></div>
+<p>Let’s explore the first rows of <code>yr</code>:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1">yc</a></code></pre></div>
+<pre><code>## # A tibble: 1 x 14
+##    year product_code export_value_usd import_value_usd pci_fitness_met…
+##   &lt;int&gt; &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1  2015 0101               3480824300       3480824300            0.256
+## # … with 9 more variables: pci_rank_fitness_method &lt;int&gt;,
+## #   pci_reflections_method &lt;dbl&gt;, pci_rank_reflections_method &lt;int&gt;,
+## #   pci_eigenvalues_method &lt;dbl&gt;, pci_rank_eigenvalues_method &lt;int&gt;,
+## #   top_exporter_iso &lt;chr&gt;, top_exporter_trade_value_usd &lt;int&gt;,
+## #   top_importer_iso &lt;chr&gt;, top_importer_trade_value_usd &lt;int&gt;</code></pre>
+<p>Here some fields deserve an explanation:</p>
+<ul>
+<li><code>pci_4_digits_product_code</code>: Product Complexity Index (PCI) which is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>. This index is built by using just four digits product codes.</li>
+<li><code>pci_6_digits_product_code</code>: Similar to the previous field but built by using just six digits product codes.</li>
+<li><code>pci_rank_4_digits_product_code</code>: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)</li>
+<li><code>pci_rank_4_digits_product_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>
+</ul>
+<div id="yr-year-and-reporter" class="section level4">
+<h4><span class="header-section-number">4.2.8.1</span> YR (Year and Reporter)</h4>
+<p>The only applicable filter is by year and reporter.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="co">## Year - Reporter (filter by year and reporter)</span></a>
+<a class="sourceLine" id="cb34-2" data-line-number="2">yr &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(</a>
+<a class="sourceLine" id="cb34-3" data-line-number="3">  <span class="st">&quot;https://api.tradestatistics.io/yr?y=2015&amp;r=chl&quot;</span></a>
+<a class="sourceLine" id="cb34-4" data-line-number="4">))</a></code></pre></div>
+<p>Let’s explore the first rows of <code>yr</code>:</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1">yr</a></code></pre></div>
+<pre><code>## # A tibble: 1 x 14
+##    year reporter_iso export_value_usd import_value_usd eci_fitness_met…
+##   &lt;int&gt; &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
+## 1  2015 chl               69654431602      73744618202            0.472
+## # … with 9 more variables: eci_rank_fitness_method &lt;int&gt;,
+## #   eci_reflections_method &lt;dbl&gt;, eci_rank_reflections_method &lt;int&gt;,
+## #   eci_eigenvalues_method &lt;dbl&gt;, eci_rank_eigenvalues_method &lt;int&gt;,
+## #   top_export_product_code &lt;chr&gt;, top_export_trade_value_usd &lt;dbl&gt;,
+## #   top_import_product_code &lt;chr&gt;, top_import_trade_value_usd &lt;dbl&gt;</code></pre>
+<p>Some fields here require more detail:</p>
+<ul>
+<li><code>eci_4_digits_product_code</code>: Economic Complexity Index (ECI) which is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>. This index is built by using just four digits product codes.</li>
+<li><code>eci_rank_4_digits_product_code</code>: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)</li>
+<li><code>eci_rank_4_digits_product_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>
+</ul>
+</div>
+</div>
+<div id="country-rankings" class="section level3">
+<h3><span class="header-section-number">4.2.9</span> Country rankings</h3>
+<p>The only applicable filter is by year.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="co"># Country rankings (filter by year)</span></a>
+<a class="sourceLine" id="cb37-2" data-line-number="2">country_rankings &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(</a>
+<a class="sourceLine" id="cb37-3" data-line-number="3">  <span class="st">&quot;https://api.tradestatistics.io/country_rankings?y=2015&quot;</span></a>
+<a class="sourceLine" id="cb37-4" data-line-number="4">))</a></code></pre></div>
+</div>
+<div id="product-rankings" class="section level3">
+<h3><span class="header-section-number">4.2.10</span> Product rankings</h3>
+<p>The only applicable filter is by year.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="co"># Product rankings (filter by year)</span></a>
+<a class="sourceLine" id="cb38-2" data-line-number="2">product_rankings &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(</a>
+<a class="sourceLine" id="cb38-3" data-line-number="3">  <span class="st">&quot;https://api.tradestatistics.io/product_rankings?y=2015&quot;</span></a>
+<a class="sourceLine" id="cb38-4" data-line-number="4">))</a></code></pre></div>
+</div>
+</div>
+<div id="r-package" class="section level2">
+<h2><span class="header-section-number">4.3</span> R Package</h2>
+<p>To ease API using, we provide an <a href="https://ropensci.github.io/tradestatistics/">R Package</a>. This package is a part of <a href="https://ropensci.org/">ROpenSci</a> and its documentation is available on a separate <a href="https://ropensci.github.io/tradestatistics/">pkgdown site</a>.</p>
+</div>
+<div id="dashboard-beta" class="section level2">
+<h2><span class="header-section-number">4.4</span> Dashboard (beta)</h2>
+<p>To ease API using, we provide a <a href="https://shiny.tradestatistics.io/">Shiny Dashboard</a> that is still under improvements.</p>
+</div>
+<div id="rds-datasets" class="section level2">
+<h2><span class="header-section-number">4.5</span> RDS datasets</h2>
+<p>Please check the <a href="https://docs.tradestatistics.io/direct-download/md5sums.txt">md5sums</a> to verify data integrity after downloading.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Year</th>
+<th align="left">Last updated</th>
+<th align="right">File size (MB)</th>
+<th align="left">MD5 sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1962.rds">1962</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">2.63</td>
+<td align="left">0710271b2ad39456b1eb535f5d5e9f56</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1963.rds">1963</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">3.17</td>
+<td align="left">152bddc2916d86090da498f92945de74</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1964.rds">1964</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">3.47</td>
+<td align="left">d528349e5505c7763d776b21a1f5f15a</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1965.rds">1965</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">3.92</td>
+<td align="left">db6b5cad4c2c17b7d0b8e1cc6a68d028</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1966.rds">1966</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">4.17</td>
+<td align="left">2dfcf4fa79e8fe3951d4502ca3e7ccf1</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1967.rds">1967</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">4.33</td>
+<td align="left">289e46b050a6a552e8dc18ac9ba4d568</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1968.rds">1968</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">4.51</td>
+<td align="left">55a02f559401d8d59438855d02fad980</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1969.rds">1969</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">4.77</td>
+<td align="left">747810a983548041bf7b255f9c1aabed</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1970.rds">1970</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">5.29</td>
+<td align="left">4e1b4f1d117c20202d514334ef4c4d91</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1971.rds">1971</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">5.47</td>
+<td align="left">ae058dbef525921c1ffe6fca579f019a</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1972.rds">1972</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">5.75</td>
+<td align="left">7d742e516e06a764c464b578a817b121</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1973.rds">1973</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">6.21</td>
+<td align="left">a561dbf7598452dd79b996e6c19ed053</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1974.rds">1974</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">6.69</td>
+<td align="left">6b139d5e9399cf98f776cdb81b713ad5</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1975.rds">1975</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">6.80</td>
+<td align="left">487683a9f033afac988c9f00c966e410</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1976.rds">1976</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">6.78</td>
+<td align="left">48b632a07a3d097400811b0d80ceb566</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1977.rds">1977</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">7.16</td>
+<td align="left">1048fb22908b42c5dc3ebda762286e6a</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1978.rds">1978</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">7.55</td>
+<td align="left">2dcac6cebcb28839c2c7317863746d29</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1979.rds">1979</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">7.97</td>
+<td align="left">bc15d15ac627685e1eea7f4d53642f0d</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1980.rds">1980</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">8.35</td>
+<td align="left">f7af0c5caa489f0f772459eebcf6f46f</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1981.rds">1981</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">8.42</td>
+<td align="left">5a09b82d76cced2043db08bd6077dbf0</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1982.rds">1982</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">8.32</td>
+<td align="left">ee43f099b2263e5048928ec9792dcb20</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1983.rds">1983</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">8.39</td>
+<td align="left">1cc3c5839d91c9ae6186751c09b23e84</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1984.rds">1984</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">8.37</td>
+<td align="left">56577fbc39804dcccf37546c8718fe7b</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1985.rds">1985</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">8.61</td>
+<td align="left">ff48557e8caeef78ca5add4100dd9744</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1986.rds">1986</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">8.99</td>
+<td align="left">74795130828662098ba6c4e002dad054</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1987.rds">1987</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">9.29</td>
+<td align="left">5804b112b6eef00d5ba806a5d305f524</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1988.rds">1988</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">9.70</td>
+<td align="left">115e004f3685c8656cd30905ab8dfefd</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1989.rds">1989</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">10.19</td>
+<td align="left">b29fadadd15d9d0385c96a965c1575bf</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1990.rds">1990</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">10.62</td>
+<td align="left">533b8912d031d899304613b4e7af141c</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1991.rds">1991</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">10.62</td>
+<td align="left">dac5c5dee613a2d793d99614f0e9477b</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1992.rds">1992</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">10.89</td>
+<td align="left">fc7590a189a9b69819fc2583d0e6da3c</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1993.rds">1993</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">11.55</td>
+<td align="left">e23704d41b26e8674034297e54b5a0e7</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1994.rds">1994</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">12.79</td>
+<td align="left">cca7adb027006e6da12afb78f3aa2786</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1995.rds">1995</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">13.66</td>
+<td align="left">48d28b20bd88a58f56d56ac3ef7951d7</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1996.rds">1996</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">13.13</td>
+<td align="left">83f7d600d240546b198fccbb5e118e73</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1997.rds">1997</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">14.25</td>
+<td align="left">5492caac7f67796d7da8cbbe269016d7</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1998.rds">1998</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">14.79</td>
+<td align="left">011c64f6687369e4a663fc094a9a8847</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-1999.rds">1999</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">15.54</td>
+<td align="left">799cc174df9e4c95f1bdd05e6e148593</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2000.rds">2000</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">18.25</td>
+<td align="left">ee77cab73284d85dbae53138804bbc51</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2001.rds">2001</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">18.92</td>
+<td align="left">ab25b48877b6d3dd9167f9872823fdf4</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2002.rds">2002</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">17.90</td>
+<td align="left">889147aa362e5aa566a0c796b008c86a</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2003.rds">2003</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">19.15</td>
+<td align="left">f21d81db973122c26863e2def9f287a8</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2004.rds">2004</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">20.55</td>
+<td align="left">8c3dccd426b43556a03e6b3dc37d7674</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2005.rds">2005</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">21.65</td>
+<td align="left">c7263a3b189eb397f8795714c844e4ae</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2006.rds">2006</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">22.70</td>
+<td align="left">0db819dfb53195b4ab4a81ba93c4512b</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2007.rds">2007</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">21.45</td>
+<td align="left">b1e904f2e057cd65be7e4cbaf92fb7d5</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2008.rds">2008</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">23.21</td>
+<td align="left">01d5456efecc2048f1e454997cc5b70b</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2009.rds">2009</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">23.74</td>
+<td align="left">08b37c4359023841a53c46dfec83d5cb</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2010.rds">2010</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">24.55</td>
+<td align="left">ed76c148725cd7bc3014309bf7d87542</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2011.rds">2011</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">25.32</td>
+<td align="left">be3aabb2d2c1730ab143d0d3a35201e3</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2012.rds">2012</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">25.90</td>
+<td align="left">1c791e5a4aef24203939ae8b231ab086</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2013.rds">2013</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">26.41</td>
+<td align="left">7abbc88a788f2fffbe10a6403ed9ee5e</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2014.rds">2014</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">26.67</td>
+<td align="left">760eae713d043fd65623c9b2e6ab1d33</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2015.rds">2015</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">26.92</td>
+<td align="left">81555b1726508ee7676419cf379ad265</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2016.rds">2016</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">26.70</td>
+<td align="left">b316c512d846d763183b3ee964dc9987</td>
+</tr>
+<tr class="even">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2017.rds">2017</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">27.47</td>
+<td align="left">270270ed38577e600c97f6c140f81573</td>
+</tr>
+<tr class="odd">
+<td align="left"><a href="https://docs.tradestatistics.io/direct-download/yrpc-2018.rds">2018</a></td>
+<td align="left">2020-02-11</td>
+<td align="right">26.85</td>
+<td align="left">30186ff0d29e785cf5db3c914793b5e0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-mathematics-of-economic-complexity.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-# Datasets
+# Accesing the data
 
 ## Before downloading datasets
 
@@ -287,128 +287,24 @@ To ease API using, we provide an [R Package](https://ropensci.github.io/tradesta
 
 To ease API using, we provide a [Shiny Dashboard](https://shiny.tradestatistics.io/) that is still under improvements.
 
-## Compressed data
+## RDS datasets
 
-### How to use
-
-There is a special consideration you should have with our datasets, and is that you should always read the trade values as a numeric column and the product codes as a character column.
-
-Different R packages, and statistical software in general, have includeded functions to autodetect column types. In our experience, that can read product codes as integers and that would ignore leading zeroes in product codes. The same applies to trade values that can be detected as integers after the program reads the first $n$ rows, and that would lead to read large values incorrectly due to integer class maximum value of 2,147,483,647.
-
-As an example, let's read 1962 data and explore what the United Stated exported:
-
-```{r, warning=FALSE, message=FALSE}
-# packages
-
-library(data.table)
-library(dplyr)
-library(stringr)
-library(janitor)
-
-# custom functions
-
-messageline <- function() {
-  message(rep("-", 60))
-}
-
-fread2 <- function(file, select = NULL, character = NULL, numeric = NULL) {
-  messageline()
-  message("function fread2")
-  message("file: ", file)
-  
-  if(str_sub(file, start = -2) == "gz") {
-    d <- fread(
-      cmd = paste("zcat", file),
-      select = select,
-      colClasses = list(
-        character = character,
-        numeric = numeric
-      )
-    ) %>%
-      as_tibble() %>%
-      clean_names()
-  } else {
-    d <- fread(
-      input = file,
-      select = select,
-      colClasses = list(
-        character = character,
-        numeric = numeric
-      )
-    ) %>%
-      as_tibble() %>%
-      clean_names()
-  }
-  
-  return(d)
-}
-
-# download data
-
-url_1962 <- "https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/yrpc-1962.csv.gz"
-gz_1962 <- "yrpc-1962.csv.gz"
-
-if (!file.exists(gz_1962)) {
-  try(download.file(url_1962, gz_1962))
-}
-
-# read data
-
-# same filename as in the YRPC example from the API section (it's the same data)
-rda_1962 <- "api_data_1962.rda"
-
-if (!file.exists(rda_1962)) {
-  yrpc_1 <- fread2(
-        gz_1962,
-        character = "product_code",
-        numeric = c(
-          "export_value_usd",
-          "import_value_usd"
-        )
-      ) %>% 
-    filter(reporter_iso == "usa")
-} else {
-  load(rda_1962)
-}
-
-yrpc_1
-```
-
-### Available datasets
-
-Please check the [md5sums](https://data.tradestatistics.io/06-tables/hs-rev2007/1-yrpc/md5sums.txt) to verify data integrity after downloading.
-
-#### Metadata
-
-* [Products table](https://data.tradestatistics.io/06-tables/hs-rev2007/0-attributes/attributes_products.csv.gz)
-* [Countries table](https://data.tradestatistics.io/06-tables/hs-rev2007/0-attributes/attributes_countries.csv.gz)
-
-#### Yearly datasets
+Please check the [md5sums](https://docs.tradestatistics.io/direct-download/md5sums.txt) to verify data integrity after downloading.
 
 ```{r, echo = FALSE, message = F}
 library(readr)
 library(tidyr)
 
-files <- list.files("../yearly-datasets/06-tables/hs-rev2007/1-yrpc", pattern = "gz", full.names = TRUE)
-urls <- str_replace(files, "../yearly-datasets/", "https://data.tradestatistics.io/")
+files <- list.files("./docs/direct-download", pattern = "rds", full.names = TRUE)
+urls <- str_replace(files, "./docs/direct-download/", "https://docs.tradestatistics.io/direct-download/")
 
-md5sums <- read_fwf("../yearly-datasets/06-tables/hs-rev2007/1-yrpc/md5sums.txt", fwf_widths(c(32, 18), c("md5sum", "file"))) %>%   mutate(file = str_trim(file))
+md5sums <- read_fwf("./docs/direct-download/md5sums.txt", fwf_widths(c(32, 15), c("md5sum", "file"))) %>% mutate(file = str_trim(file))
 
 tibble(
   `Year` = paste0("[", 1962:2018, "](", urls, ")"),
-  `Last updated` = "2019-09-18",
+  `Last updated` = "2020-02-11",
   `File size (MB)` = round(file.size(files) / 1024^2, 2),
   `MD5 sum` = md5sums$md5sum
-) %>% 
+) %>%
   kable()
 ```
-
-### Note for Windows users
-
-If you use Windows the scripts will only use a single core because we used a parallelization that depends on fork system call that is only supported on Unix systems. You can always run the scripts on Windows and the only difference will be that it will use less RAM and processor, and it will be slower to compute.
-
-Also, before running the scripts on Windows verify that you installed GNU Utilities beforehand. One easy option is to install [Chocolatey](https://chocolatey.org/) first and then install the GNU Utilities by running `choco install unxutils` on Cmd or Power Shell as administrator.
-
-### Note for spreadsheets users
-
-If you plan to use the datasets with a software such as Microsoft Excel, Libre Office Calc or similar, please use [7-zip](https://www.7-zip.org/) to decompress the datasets. Also, be sure that your software reads the `product_code` column as character or it will trim codes starting with zero.

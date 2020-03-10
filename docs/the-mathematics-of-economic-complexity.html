@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Section 3 The Mathematics of Economic Complexity | Open Trade Statistics</title>
+  <meta name="description" content="Section 3 The Mathematics of Economic Complexity | Open Trade Statistics" />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Section 3 The Mathematics of Economic Complexity | Open Trade Statistics" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://docs.tradestatistics.io" />
+  
+  
+  <meta name="github-repo" content="tradestatistics/documentation" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Section 3 The Mathematics of Economic Complexity | Open Trade Statistics" />
+  
+  
+  
+
+<meta name="author" content="Pachá (Mauricio Vargas Sepúlveda)" />
+
+
+<meta name="date" content="2020-03-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-processing.html"/>
+<link rel="next" href="accesing-the-data.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Table of Contents</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#project-goals"><i class="fa fa-check"></i><b>1.1</b> Project goals</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#code-of-conduct"><i class="fa fa-check"></i><b>1.2</b> Code of Conduct</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#data-availability"><i class="fa fa-check"></i><b>1.3</b> Data availability</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#sources"><i class="fa fa-check"></i><b>1.4</b> Sources</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#code"><i class="fa fa-check"></i><b>1.5</b> Code</a></li>
+<li class="chapter" data-level="1.6" data-path="index.html"><a href="index.html#contact"><i class="fa fa-check"></i><b>1.6</b> Contact</a></li>
+<li class="chapter" data-level="1.7" data-path="index.html"><a href="index.html#open-source-sponsorships"><i class="fa fa-check"></i><b>1.7</b> Open Source Sponsorships</a></li>
+<li class="chapter" data-level="1.8" data-path="index.html"><a href="index.html#buy-us-a-coffee"><i class="fa fa-check"></i><b>1.8</b> Buy us a coffee</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-processing.html"><a href="data-processing.html"><i class="fa fa-check"></i><b>2</b> Data processing</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-processing.html"><a href="data-processing.html#tidy-data"><i class="fa fa-check"></i><b>2.1</b> Tidy Data</a></li>
+<li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#filling-gaps-in-our-data"><i class="fa fa-check"></i><b>2.2</b> Filling gaps in our data</a></li>
+<li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#data-cleaning"><i class="fa fa-check"></i><b>2.3</b> Data cleaning</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="data-processing.html"><a href="data-processing.html#required-packages"><i class="fa fa-check"></i><b>2.3.1</b> Required packages</a></li>
+<li class="chapter" data-level="2.3.2" data-path="data-processing.html"><a href="data-processing.html#custom-function-to-read-data"><i class="fa fa-check"></i><b>2.3.2</b> Custom function to read data</a></li>
+<li class="chapter" data-level="2.3.3" data-path="data-processing.html"><a href="data-processing.html#cif-fob-rate-commodity-codes-length-and-iso-codes"><i class="fa fa-check"></i><b>2.3.3</b> CIF-FOB rate, commodity codes length and ISO codes</a></li>
+<li class="chapter" data-level="2.3.4" data-path="data-processing.html"><a href="data-processing.html#read-raw-data"><i class="fa fa-check"></i><b>2.3.4</b> Read raw data</a></li>
+<li class="chapter" data-level="2.3.5" data-path="data-processing.html"><a href="data-processing.html#clean-data"><i class="fa fa-check"></i><b>2.3.5</b> Clean data</a></li>
+<li class="chapter" data-level="2.3.6" data-path="data-processing.html"><a href="data-processing.html#symmetric-clean-data"><i class="fa fa-check"></i><b>2.3.6</b> Symmetric (clean) data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#github-repositories"><i class="fa fa-check"></i><b>2.4</b> GitHub repositories</a></li>
+<li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#software-information"><i class="fa fa-check"></i><b>2.5</b> Software information</a></li>
+<li class="chapter" data-level="2.6" data-path="data-processing.html"><a href="data-processing.html#hardware-information"><i class="fa fa-check"></i><b>2.6</b> Hardware information</a></li>
+<li class="chapter" data-level="2.7" data-path="data-processing.html"><a href="data-processing.html#reproducibility-notes"><i class="fa fa-check"></i><b>2.7</b> Reproducibility notes</a></li>
+<li class="chapter" data-level="2.8" data-path="data-processing.html"><a href="data-processing.html#coding-style-and-performant-code"><i class="fa fa-check"></i><b>2.8</b> Coding style and performant code</a></li>
+<li class="chapter" data-level="2.9" data-path="data-processing.html"><a href="data-processing.html#note-for-windows-users"><i class="fa fa-check"></i><b>2.9</b> Note for Windows users</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html"><i class="fa fa-check"></i><b>3</b> The Mathematics of Economic Complexity</a><ul>
+<li class="chapter" data-level="3.1" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#countries-not-included-in-rankings-and-indicators"><i class="fa fa-check"></i><b>3.1</b> Countries not included in rankings and indicators</a></li>
+<li class="chapter" data-level="3.2" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca"><i class="fa fa-check"></i><b>3.2</b> Revealed Comparative Advantage (RCA)</a></li>
+<li class="chapter" data-level="3.3" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#smooth-revealed-comparative-advantage-srca"><i class="fa fa-check"></i><b>3.3</b> Smooth Revealed Comparative Advantage (SRCA)</a></li>
+<li class="chapter" data-level="3.4" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-product-matrix"><i class="fa fa-check"></i><b>3.4</b> Country-product matrix</a></li>
+<li class="chapter" data-level="3.5" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#diversity-and-ubiquity"><i class="fa fa-check"></i><b>3.5</b> Diversity and Ubiquity</a></li>
+<li class="chapter" data-level="3.6" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#reflections-method"><i class="fa fa-check"></i><b>3.6</b> Reflections Method</a></li>
+<li class="chapter" data-level="3.7" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci"><i class="fa fa-check"></i><b>3.7</b> Economic Complexity Index (ECI)</a></li>
+<li class="chapter" data-level="3.8" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci"><i class="fa fa-check"></i><b>3.8</b> Product Complexity Index (PCI)</a></li>
+<li class="chapter" data-level="3.9" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#eigenvalues-method"><i class="fa fa-check"></i><b>3.9</b> Eigenvalues method</a></li>
+<li class="chapter" data-level="3.10" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#fitness-method"><i class="fa fa-check"></i><b>3.10</b> Fitness method</a></li>
+<li class="chapter" data-level="3.11" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-proximity"><i class="fa fa-check"></i><b>3.11</b> Product Proximity</a></li>
+<li class="chapter" data-level="3.12" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-proximity"><i class="fa fa-check"></i><b>3.12</b> Country Proximity</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="accesing-the-data.html"><a href="accesing-the-data.html"><i class="fa fa-check"></i><b>4</b> Accesing the data</a><ul>
+<li class="chapter" data-level="4.1" data-path="accesing-the-data.html"><a href="accesing-the-data.html#before-downloading-datasets"><i class="fa fa-check"></i><b>4.1</b> Before downloading datasets</a></li>
+<li class="chapter" data-level="4.2" data-path="accesing-the-data.html"><a href="accesing-the-data.html#api"><i class="fa fa-check"></i><b>4.2</b> API</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="accesing-the-data.html"><a href="accesing-the-data.html#available-tables"><i class="fa fa-check"></i><b>4.2.1</b> Available tables</a></li>
+<li class="chapter" data-level="4.2.2" data-path="accesing-the-data.html"><a href="accesing-the-data.html#metadata"><i class="fa fa-check"></i><b>4.2.2</b> Metadata</a></li>
+<li class="chapter" data-level="4.2.3" data-path="accesing-the-data.html"><a href="accesing-the-data.html#api-parameters"><i class="fa fa-check"></i><b>4.2.3</b> API parameters</a></li>
+<li class="chapter" data-level="4.2.4" data-path="accesing-the-data.html"><a href="accesing-the-data.html#available-reporters"><i class="fa fa-check"></i><b>4.2.4</b> Available reporters</a></li>
+<li class="chapter" data-level="4.2.5" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrpc-year-reporter-partner-and-product-code"><i class="fa fa-check"></i><b>4.2.5</b> YRPC (Year, Reporter, Partner and Product Code)</a></li>
+<li class="chapter" data-level="4.2.6" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrc-year-reporter-and-product-code"><i class="fa fa-check"></i><b>4.2.6</b> YRC (Year, Reporter and Product Code)</a></li>
+<li class="chapter" data-level="4.2.7" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrp-year-reporter-and-partner"><i class="fa fa-check"></i><b>4.2.7</b> YRP (Year, Reporter and Partner)</a></li>
+<li class="chapter" data-level="4.2.8" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yc-year-and-product-code"><i class="fa fa-check"></i><b>4.2.8</b> YC (Year and Product Code)</a></li>
+<li class="chapter" data-level="4.2.9" data-path="accesing-the-data.html"><a href="accesing-the-data.html#country-rankings"><i class="fa fa-check"></i><b>4.2.9</b> Country rankings</a></li>
+<li class="chapter" data-level="4.2.10" data-path="accesing-the-data.html"><a href="accesing-the-data.html#product-rankings"><i class="fa fa-check"></i><b>4.2.10</b> Product rankings</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="accesing-the-data.html"><a href="accesing-the-data.html#r-package"><i class="fa fa-check"></i><b>4.3</b> R Package</a></li>
+<li class="chapter" data-level="4.4" data-path="accesing-the-data.html"><a href="accesing-the-data.html#dashboard-beta"><i class="fa fa-check"></i><b>4.4</b> Dashboard (beta)</a></li>
+<li class="chapter" data-level="4.5" data-path="accesing-the-data.html"><a href="accesing-the-data.html#rds-datasets"><i class="fa fa-check"></i><b>4.5</b> RDS datasets</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>5</b> References</a></li>
+<li class="divider"></li>
+<li>
+  <a href="https://www.digitalocean.com/">
+    <img src="https://opensource.nyc3.cdn.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.svg" width="201px">
+  </a>
+</li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Open Trade Statistics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-mathematics-of-economic-complexity" class="section level1">
+<h1><span class="header-section-number">Section 3</span> The Mathematics of Economic Complexity</h1>
+<p>This section is adapted from <span class="citation">[<a href="#ref-atlas2014">8</a>]</span> but it differs at some points. In particular <span class="citation">[<a href="#ref-measuringcomplexity2015">9</a>]</span> and <span class="citation">[<a href="#ref-interpretationreflections2014">10</a>]</span> provide useful technical details.</p>
+<p>Our changes here consisted in expressing most of the original equations in terms of matrix and vectors. This is because if you use statistical software such as R, it’s more efficient to use linear algebra instead of other operations.</p>
+<div id="countries-not-included-in-rankings-and-indicators" class="section level2">
+<h2><span class="header-section-number">3.1</span> Countries not included in rankings and indicators</h2>
+<p>The curated data includes all the countries available from UN Comtrade data. However, RCA based calculations such as ECI, PCI and Proximity consider 128 countries studied in <span class="citation">[<a href="#ref-atlas2014">8</a>]</span> according to a selection process that includes both quality and quantity of data.</p>
+<p>The full list of included countries is available <a href="https://github.com/tradestatistics/atlas-data/blob/master/2-scraped-tables/ranking-1-economic-complexity-index.csv">here</a>.</p>
+</div>
+<div id="revealed-comparative-advantage-rca" class="section level2">
+<h2><span class="header-section-number">3.2</span> Revealed Comparative Advantage (RCA)</h2>
+<p>Let <span class="math inline">\(\renewcommand{\vec}[1]{\boldsymbol{#1}}\newcommand{\R}{\mathbb{R}} X \in \R^{C\times P}\)</span> be a matrix with entries <span class="math inline">\(x_{c,p}\)</span> that represents the exports of country <span class="math inline">\(c\)</span> in product <span class="math inline">\(p\)</span>, we can express the Revealed Comparative Advantage that country <span class="math inline">\(c\)</span> has in product <span class="math inline">\(p\)</span> as:</p>
+<p><span class="math display" id="eq:Xcp">\[\begin{equation}
+\tag{3.1}
+((X \oslash (X \vec{1}_{P\times 1}))^t \oslash  (X^t \vec{1}_{C\times 1}  \oslash (\vec{1}_{C\times 1}^t X \vec{1}_{P\times 1})))^t
+\end{equation}\]</span>
+<span class="math inline">\(\oslash\)</span> denotes element-wise division and <span class="math inline">\(t\)</span> denotes transposition.</p>
+<p>This is the same as:
+<span class="math display" id="eq:rca">\[\begin{equation}
+\tag{3.2}
+RCA_{c,p} = \frac{x_{c,p}}{\sum_c x_{c,p}} / \frac{\sum_p x_{c,p}}{\sum_{c}\sum_{p} x_{c,p}}
+\end{equation}\]</span></p>
+</div>
+<div id="smooth-revealed-comparative-advantage-srca" class="section level2">
+<h2><span class="header-section-number">3.3</span> Smooth Revealed Comparative Advantage (SRCA)</h2>
+<p>Consider the matrix <span class="math inline">\(X\)</span> defined as in <a href="the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca">3.2</a>, use the entries from the matrix to create <span class="math inline">\(\hat{X}\in \R^{C\times P}\)</span> with entries</p>
+<p><span class="math display" id="eq:Xcp2">\[\begin{equation}
+\tag{3.3}
+\hat{x}_{c,p}^{(t)} = \frac{2x_{c,p}^{(t)} + x_{c,p}^{(t-1)} + x_{c,p}^{(t-2)}}{4}
+\end{equation}\]</span></p>
+<p>So that <span class="math inline">\(x_{c,p}\)</span> is averaged over the previous three years by using weights. This is done to smooth changes in exports induced by the price fluctuation of products, and instead of equation <a href="the-mathematics-of-economic-complexity.html#eq:rca">(3.2)</a> we used</p>
+<p><span class="math display" id="eq:srca">\[\begin{equation}
+\tag{3.4}
+SRCA_{c,p}^{(t)} = \frac{\hat{x}_{c,p}^{(t)}}{\sum_c \hat{x}_{c,p}^{(t)}} / \frac{\sum_p \hat{x}_{c,p}^{(t)}}{\sum_{c}\sum_{p} \hat{x}_{c,p}^{(t)}}
+\end{equation}\]</span></p>
+<p>For some years this needs to be altered. As an example, for 1962 the SRCA is the same as RCA and for 1963 the <span class="math inline">\(x_{c,p}^{(t-3)}\)</span> part is omitted and the denominator is changed to 3.</p>
+</div>
+<div id="country-product-matrix" class="section level2">
+<h2><span class="header-section-number">3.4</span> Country-product matrix</h2>
+<p>Taking <span class="math inline">\(\hat{X}\)</span> as with entries as in <a href="the-mathematics-of-economic-complexity.html#eq:Xcp2">(3.3)</a> we create <span class="math inline">\(S \in \mathbb{R}^{C\times P}\)</span> with entries defined as:
+<span class="math display" id="eq:Scp">\[\begin{equation}
+\tag{3.5}
+s_{c,p} = \begin{cases}1 &amp; \text{ if } SRCA_{c,p}^{(t)} &gt; 1\cr 0 &amp; \text{ otherwise}  \end{cases}
+\end{equation}\]</span></p>
+<!-- $S$ is the matrix summarizing which country makes what, and is used to construct the product space and our measures of economic complexity for countries and products. -->
+<p>In order to compute some of the equations exposed here we had to reduce <span class="math inline">\(S\)</span> by removing cols and rows where each entry is zero. For some years the number of countries <span class="math inline">\(C\)</span> can be less than 128 (the number of countries originally included in <span class="citation">[<a href="#ref-atlas2014">8</a>]</span>) as it was exposed in <a href="data-processing.html#data-processing">2</a>. The number of products <span class="math inline">\(P\)</span>, which can be 1,222 at maximum (under the HS07 trade classification we are using), can also experience a small decrease for a given year.</p>
+</div>
+<div id="diversity-and-ubiquity" class="section level2">
+<h2><span class="header-section-number">3.5</span> Diversity and Ubiquity</h2>
+<p>With <span class="math inline">\(S\)</span> defined as in <a href="the-mathematics-of-economic-complexity.html#eq:Scp">(3.5)</a>, we can measure Diversity and Ubiquity simply by summing over the rows or columns of that matrix.</p>
+<p>Diversity is defined as:
+<span class="math display">\[\vec{k}_c^0 = S\vec{1}_{P\times 1}\]</span></p>
+<p>And Ubiquity as:
+<span class="math display">\[\vec{k}_p^0 = (\vec{1}_{C\times 1}^t S)^t\]</span></p>
+<p>for a single country/product this is the same as
+<span class="math display">\[k_{c}^{(0)} = \sum_p s_{c,p} \\
+k_{p}^{(0)} = \sum_c s_{c,p}\]</span></p>
+</div>
+<div id="reflections-method" class="section level2">
+<h2><span class="header-section-number">3.6</span> Reflections Method</h2>
+<p>Economic Complexity is a measure of how much productive knowledge different countries mobilize. This can be computed as a recursion that involves the average ubiquity of the products that a country exports, and the average diversity of the countries that make those products.</p>
+<p>Product Complexity is a measure of how much productive knowledge different products mobilize. Its computation is analogous to Economic Complexity, which leads to the recursion:</p>
+<p><span class="math display" id="eq:kcn">\[\begin{equation}
+\tag{3.6}
+k_{c}^{(n)} = \frac{1}{k_{c}^{(0)}} \sum_p s_{c,p} k_{p}^{(n-1)}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:kpn">\[\begin{equation}
+\tag{3.7}
+k_{p}^{(n)} = \frac{1}{k_{p}^{(0)}} \sum_c s_{c,p} k_{c}^{(n-1)}
+\end{equation}\]</span></p>
+<p>Then we insert <a href="the-mathematics-of-economic-complexity.html#eq:kpn">(3.7)</a> into <a href="the-mathematics-of-economic-complexity.html#eq:kcn">(3.6)</a> to obtain:</p>
+<p><span class="math display" id="eq:kcn2">\[\begin{equation}
+\tag{3.8}
+k_{c}^{(n)} = \sum_c \left(\frac{1}{k_{c}^{(0)}} \sum_p s_{c,p} s_{c,p} \frac{1}{k_{p}^{(0)}} s_{c&#39;,p}\right) k_{c}^{(n-2)}
+\end{equation}\]</span></p>
+<p><a href="the-mathematics-of-economic-complexity.html#eq:kcn2">(3.8)</a> above can be conveniently written as a matrix equation (this formulation takes some ideas from <span class="citation">[<a href="#ref-measuringcomplexity2015">9</a>]</span> and <span class="citation">[<a href="#ref-interpretationreflections2014">10</a>]</span>):</p>
+<p><span class="math display" id="eq:kcn3">\[\begin{equation}
+\tag{3.9}
+\vec{k}_c^{(n)} = \hat{S}\vec{k}_c^{(n-2)} \\
+\vec{k}_p^{(n)} = \tilde{S}\vec{k}_p^{(n-2)}
+\end{equation}\]</span></p>
+<p>Where
+<span class="math display" id="eq:mcc">\[\begin{equation}
+\tag{3.10}
+\hat{S} = (S \oslash K_c^{(0)}) (S^t \oslash K_p^{(0)})
+\end{equation}\]</span>
+and
+<span class="math display" id="eq:mpp">\[\begin{equation}
+\tag{3.11}
+\tilde{S} = (S^t \oslash D) (S \oslash U)
+\end{equation}\]</span>
+<span class="math inline">\(\oslash\)</span> denotes element-wise division, <span class="math inline">\(d_{c,p} = k_c^{(0)}\)</span> and <span class="math inline">\(u_{p,c} = k_p^{(0)}\)</span>.</p>
+<p>In particular, the interpretation of the scores changes when considering odd or even iteration order <span class="math inline">\(n\)</span>, high-order iterations are difficult to interpret, and the process asymptotically converges to a trivial fixed point according to <span class="citation">[<a href="#ref-measuringcomplexity2015">9</a>]</span>.</p>
+<p>For the analysis we used <span class="math inline">\(n=19\)</span> to compute <span class="math inline">\(k_c\)</span> and <span class="math inline">\(n=20\)</span> to compute <span class="math inline">\(k_p\)</span>.</p>
+</div>
+<div id="economic-complexity-index-eci" class="section level2">
+<h2><span class="header-section-number">3.7</span> Economic Complexity Index (ECI)</h2>
+<p>From the <a href="the-mathematics-of-economic-complexity.html#reflections-method">3.6</a>, we define the Economic Complexity Index (ECI) exactly as in <span class="citation">[<a href="#ref-atlas2014">8</a>]</span>, this is:</p>
+<p><span class="math display" id="eq:eci">\[\begin{equation}
+\tag{3.12}
+ECI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}
+\end{equation}\]</span></p>
+<p>Where</p>
+<ul>
+<li><span class="math inline">\(\vec{v}\)</span> is a vector whose coordinates are given by <span class="math inline">\(k_{c}^{(19)}\)</span> where <span class="math inline">\(c \in 1,\ldots,C\)</span></li>
+<li><span class="math inline">\(\mu_v = \sum_c v_c / C\)</span> (mean of <span class="math inline">\(\vec{v}\)</span>)</li>
+<li><span class="math inline">\(\sigma_v = \sqrt{\sum_c (v_c - \mu_v)^2 / (C - 1)}\)</span> (standard deviation of <span class="math inline">\(\vec{v}\)</span>)</li>
+</ul>
+</div>
+<div id="product-complexity-index-pci" class="section level2">
+<h2><span class="header-section-number">3.8</span> Product Complexity Index (PCI)</h2>
+<p>Similar to the Economic Complexity Index (ECI), we define a Product Complexity Index (PCI) from <a href="the-mathematics-of-economic-complexity.html#reflections-method">3.6</a>. We define PCI as:</p>
+<p><span class="math display" id="eq:pci">\[\begin{equation}
+\tag{3.13}
+PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}
+\end{equation}\]</span></p>
+<p>Where</p>
+<ul>
+<li><span class="math inline">\(\vec{w}\)</span> is a vector whose coordinates are given by <span class="math inline">\(k_{p}^{(20)}\)</span> where <span class="math inline">\(p \in 1,\ldots,P\)</span></li>
+<li><span class="math inline">\(\mu_w = \sum_p w_p / P\)</span> (mean of <span class="math inline">\(\vec{w}\)</span>)</li>
+<li><span class="math inline">\(\sigma_w = \sqrt{\sum_p (w_p - \mu_w)^2 / (P - 1)}\)</span> (standard deviation of <span class="math inline">\(\vec{w}\)</span>)</li>
+</ul>
+</div>
+<div id="eigenvalues-method" class="section level2">
+<h2><span class="header-section-number">3.9</span> Eigenvalues method</h2>
+<p>An alternative to obtain the Economic Complexity Index from <a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci">3.7</a> is to take <a href="the-mathematics-of-economic-complexity.html#eq:Scp">(3.5)</a> and compute the eigenvector associated to the second largest eigenvalue of the matrix:
+<span class="math display">\[(S \oslash D) (S^t \oslash U)\]</span>
+Where <span class="math inline">\(\oslash\)</span> denotes element-wise division, <span class="math inline">\(d_{c,p} = k_c^{(0)}\)</span> and <span class="math inline">\(u_{p,c} = k_p^{(0)}\)</span>.</p>
+<p>Analogously, the Product Complexity Index from <a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci">3.8</a> corresponds to the associated eigenvector of the second largest eigenvalue of the matrix:
+<span class="math display">\[(S^t \oslash U) (S \oslash D)\]</span></p>
+<p>The resulting vectors are standardized by taking
+<span class="math display">\[ECI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}\:, PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}\]</span>
+Where <span class="math inline">\(\mu_x\)</span> denotes the mean of <span class="math inline">\(x\)</span> and <span class="math inline">\(\sigma_x\)</span> denotes de standard deviation of <span class="math inline">\(x\)</span>.</p>
+</div>
+<div id="fitness-method" class="section level2">
+<h2><span class="header-section-number">3.10</span> Fitness method</h2>
+<p>Another alternative to obtain the Economic Complexity Index from <a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci">3.7</a> and Product Complexity Index from <a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci">3.8</a> is to start with <span class="math inline">\(\vec{k}_{c}^{(0)} = \vec{1}\)</span> and <span class="math inline">\(\vec{k}_{p}^{(0)} = \vec{1}\)</span>. From that initial condition the next steps are to compute:</p>
+<p><span class="math display">\[\begin{equation}
+\vec{k}_c^{(n)} = S \hat{\vec{k}}_p^{(n-1)}\\
+\vec{k}_p^{(n)} = S^t \vec{\hat{k}}_c^{(n-1)}
+\end{equation}\]</span></p>
+<p>where
+<span class="math display">\[\begin{equation}
+\hat{k}_c^{(n-1)} = (k_c^{(n-1)})^{-\gamma}\\
+\hat{k}_p^{(n-1)} = (k_p^{(n-1)})^{-1/\gamma}
+\end{equation}\]</span>
+for <span class="math inline">\(\gamma &gt; 0\)</span> (the original version of the Fitness Method uses <span class="math inline">\(\gamma = 1\)</span>).</p>
+<p>In addition, each step of the method involves to divide the result of <span class="math inline">\(\vec{k}_c^{(n)}\)</span> and <span class="math inline">\(\vec{k}_p^{(n)}\)</span> by its mean, so that the final equations for each step are:
+<span class="math display">\[\begin{equation}
+\tilde{\vec{k}}_c^{(n)} = \vec{k}_c^{(n)} / \mu_{\vec{k}_c^{(n)}}\\
+\tilde{\vec{k}}_p^{(n)} = \vec{k}_p^{(n)} / \mu_{\vec{k}_p^{(n)}}
+\end{equation}\]</span></p>
+<p>The resulting vectors are standardized by taking
+<span class="math display">\[ECI_c = \frac{v_c - \mu_{v}}{\sigma_{v}},\: PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}\]</span></p>
+</div>
+<div id="product-proximity" class="section level2">
+<h2><span class="header-section-number">3.11</span> Product Proximity</h2>
+<p>For a pair of goods <span class="math inline">\(p\)</span> and <span class="math inline">\(p&#39;\)</span> we define Product Proximity <span class="math inline">\(\Phi \in \mathbb{R}^{P\times P}\)</span> as:</p>
+<p><span class="math display">\[
+\Phi = (S^t S) \oslash U
+\]</span>
+where <span class="math inline">\(\oslash\)</span> denotes element-wise division and <span class="math inline">\(u_{p,p&#39;} = \max(k_{p}^{(0)}, k_{p&#39;}^{(0)})\)</span>.</p>
+<p>In other terms, each entry of <span class="math inline">\(\Phi\)</span> corresponds to:
+<span class="math display">\[
+\phi_{p,p&#39;} = \frac{\sum_c s_{c,p} s_{c,p&#39;}}{\max(k_{p}^{(0)}, k_{p&#39;}^{(0)})}
+\]</span></p>
+</div>
+<div id="country-proximity" class="section level2">
+<h2><span class="header-section-number">3.12</span> Country Proximity</h2>
+<p>Similar to <a href="the-mathematics-of-economic-complexity.html#country-proximity">3.12</a>, we define Country Proximity <span class="math inline">\(\Lambda \in \mathbb{R}^{C\times C}\)</span> as:</p>
+<p><span class="math display">\[
+\Lambda = (SS^t) \oslash D
+\]</span>
+where <span class="math inline">\(\oslash\)</span> denotes element-wise division and <span class="math inline">\(d_{p,p&#39;} = \max(k_{c}^{(0)}, k_{c&#39;}^{(0)})\)</span>.</p>
+<p>In other terms, each entry of <span class="math inline">\(\Lambda\)</span> corresponds to:
+<span class="math display">\[
+\lambda_{c,c&#39;} = \frac{\sum_p s_{c,p} s_{c,p&#39;}}{\max(k_{c}^{(0)}, k_{c&#39;}^{(0)})}
+\]</span></p>
+
+</div>
+</div>
+<h3> References</h3>
+<div id="refs" class="references">
+<div id="ref-atlas2014">
+<p>[8] R. Hausmann, C. Hidalgo, S. Bustos, M. Coscia, A. Simoes, and M. Yildirim, <em>The atlas of economic complexity: Mapping paths to prosperity</em>. Mit Press, 2014.</p>
+</div>
+<div id="ref-measuringcomplexity2015">
+<p>[9] M. Mariani, A. Vidmer, M. Medo, and Y.-C. Zhang, “Measuring economic complexity of countries and products: Which metric to use?” <em>The European Physical Journal B</em>, vol. 88, no. 11, p. 293, 2015.</p>
+</div>
+<div id="ref-interpretationreflections2014">
+<p>[10] E. Kemp-Benedict, “An interpretation and critique of the method of reflections,” University Library of Munich, 2014.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-processing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="accesing-the-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
