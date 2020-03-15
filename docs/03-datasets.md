@@ -34,20 +34,20 @@ as_tibble(fromJSON("https://api.tradestatistics.io/tables"))
 
 ```
 ## # A tibble: 12 x 3
-##    table       description                           source                     
-##    <chr>       <chr>                                 <chr>                      
-##  1 countries   Countries metadata                    UN Comtrade                
-##  2 products    Product metadata                      UN Comtrade                
-##  3 reporters   Reporting countries                   UN Comtrade                
-##  4 communities Product communities                   Center for International D…
-##  5 product_sh… Product short names                   The Observatory of Economi…
-##  6 country_ra… Ranking of countries                  Open Trade Statistics      
-##  7 product_ra… Ranking of products                   Open Trade Statistics      
-##  8 yrpc        Bilateral trade at product level (Ye… Open Trade Statistics      
-##  9 yrp         Reporter trade at aggregated level (… Open Trade Statistics      
-## 10 yrc         Reporter trade at aggregated level (… Open Trade Statistics      
-## 11 yr          Reporter trade at aggregated level (… Open Trade Statistics      
-## 12 yc          Product trade at aggregated level (Y… Open Trade Statistics
+##    table      description                        source                    
+##    <chr>      <chr>                              <chr>                     
+##  1 countries  Countries metadata                 UN Comtrade               
+##  2 products   Product metadata                   UN Comtrade               
+##  3 reporters  Reporting countries                UN Comtrade               
+##  4 communiti… Product communities                Center for International …
+##  5 product_s… Product short names                The Observatory of Econom…
+##  6 country_r… Ranking of countries               Open Trade Statistics     
+##  7 product_r… Ranking of products                Open Trade Statistics     
+##  8 yrpc       Bilateral trade at product level … Open Trade Statistics     
+##  9 yrp        Reporter trade at aggregated leve… Open Trade Statistics     
+## 10 yrc        Reporter trade at aggregated leve… Open Trade Statistics     
+## 11 yr         Reporter trade at aggregated leve… Open Trade Statistics     
+## 12 yc         Product trade at aggregated level… Open Trade Statistics
 ```
 
 ### Metadata
@@ -61,13 +61,13 @@ if (!file.exists(rda_countries)) {
   countries <- as_tibble(fromJSON(
     "https://api.tradestatistics.io/countries"
   ))
-  
+
   save(countries, file = rda_countries, compress = "xz")
-  
+
   countries
 } else {
   load(rda_countries)
-  
+
   countries
 }
 ```
@@ -97,31 +97,31 @@ if (!file.exists(rda_products)) {
   products <- as_tibble(fromJSON(
     "https://api.tradestatistics.io/products"
   ))
-  
+
   save(products, file = rda_products, compress = "xz")
-  
+
   products
 } else {
   load(rda_products)
-  
+
   products
 }
 ```
 
 ```
 ## # A tibble: 1,320 x 4
-##    product_code product_fullname_english              group_code group_name     
-##    <chr>        <chr>                                 <chr>      <chr>          
-##  1 0101         Horses, asses, mules and hinnies; li… 01         Animals; live  
-##  2 0102         Bovine animals; live                  01         Animals; live  
-##  3 0103         Swine; live                           01         Animals; live  
-##  4 0104         Sheep and goats; live                 01         Animals; live  
-##  5 0105         Poultry; live, fowls of the species … 01         Animals; live  
-##  6 0106         Animals, n.e.c. in chapter 01; live   01         Animals; live  
-##  7 0201         Meat of bovine animals; fresh or chi… 02         Meat and edibl…
-##  8 0202         Meat of bovine animals; frozen        02         Meat and edibl…
-##  9 0203         Meat of swine; fresh, chilled or fro… 02         Meat and edibl…
-## 10 0204         Meat of sheep or goats; fresh, chill… 02         Meat and edibl…
+##    product_code product_fullname_english          group_code group_name    
+##    <chr>        <chr>                             <chr>      <chr>         
+##  1 0101         Horses, asses, mules and hinnies… 01         Animals; live 
+##  2 0102         Bovine animals; live              01         Animals; live 
+##  3 0103         Swine; live                       01         Animals; live 
+##  4 0104         Sheep and goats; live             01         Animals; live 
+##  5 0105         Poultry; live, fowls of the spec… 01         Animals; live 
+##  6 0106         Animals, n.e.c. in chapter 01; l… 01         Animals; live 
+##  7 0201         Meat of bovine animals; fresh or… 02         Meat and edib…
+##  8 0202         Meat of bovine animals; frozen    02         Meat and edib…
+##  9 0203         Meat of swine; fresh, chilled or… 02         Meat and edib…
+## 10 0204         Meat of sheep or goats; fresh, c… 02         Meat and edib…
 ## # … with 1,310 more rows
 ```
 
@@ -272,12 +272,12 @@ The only applicable filter is by year.
 ```r
 # Available reporters (filter by year)
 as_tibble(fromJSON(
-  "https://api.tradestatistics.io/reporters?y=2015"
+  "https://api.tradestatistics.io/reporters?y=2018"
 ))
 ```
 
 ```
-## # A tibble: 225 x 1
+## # A tibble: 226 x 1
 ##    reporter_iso
 ##    <chr>       
 ##  1 zwe         
@@ -290,7 +290,7 @@ as_tibble(fromJSON(
 ##  8 vnm         
 ##  9 vgb         
 ## 10 ven         
-## # … with 215 more rows
+## # … with 216 more rows
 ```
 
 ### YRPC (Year, Reporter, Partner and Product Code)
@@ -309,49 +309,51 @@ if (!file.exists(rda_1962)) {
   yrpc_1 <- as_tibble(fromJSON(
     "https://api.tradestatistics.io/yrpc?y=1962&r=usa&p=all"
   ))
-  
+
   save(yrpc_1, file = rda_1962, compress = "xz")
-  
+
   yrpc_1
 } else {
   load(rda_1962)
-  
+
   yrpc_1
 }
 ```
 
 ```
 ## # A tibble: 35,346 x 6
-##     year reporter_iso partner_iso product_code import_value_usd export_value_usd
-##    <int> <chr>        <chr>       <chr>                   <int>            <int>
-##  1  1962 usa          zaf         7502                     2758               NA
-##  2  1962 usa          zaf         7213                    76363               NA
-##  3  1962 usa          zaf         7206                   143415               NA
-##  4  1962 usa          zaf         7201                   189295               NA
-##  5  1962 usa          zaf         7118                     6687               NA
-##  6  1962 usa          zaf         7102                 22770831               NA
-##  7  1962 usa          zaf         5105                   268857               NA
-##  8  1962 usa          zaf         5102                    48423               NA
-##  9  1962 usa          zaf         5101                 26275600               NA
-## 10  1962 usa          zaf         4702                  2224566               NA
-## # … with 35,336 more rows
+##     year reporter_iso partner_iso product_code import_value_usd
+##    <int> <chr>        <chr>       <chr>                   <int>
+##  1  1962 usa          zaf         7502                     2758
+##  2  1962 usa          zaf         7213                    76363
+##  3  1962 usa          zaf         7206                   143415
+##  4  1962 usa          zaf         7201                   189295
+##  5  1962 usa          zaf         7118                     6687
+##  6  1962 usa          zaf         7102                 22770831
+##  7  1962 usa          zaf         5105                   268857
+##  8  1962 usa          zaf         5102                    48423
+##  9  1962 usa          zaf         5101                 26275600
+## 10  1962 usa          zaf         4702                  2224566
+## # … with 35,336 more rows, and 1 more variable: export_value_usd <int>
 ```
 
 ```r
 ## filter by product group (parameter `c`)
 yrpc_2 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrpc?y=2015&r=chl&p=arg&c=01"
+  "https://api.tradestatistics.io/yrpc?y=2018&r=chl&p=arg&c=01"
 ))
 
 yrpc_2
 ```
 
 ```
-## # A tibble: 2 x 6
-##    year reporter_iso partner_iso product_code export_value_usd import_value_usd
-##   <int> <chr>        <chr>       <chr>                   <int>            <int>
-## 1  2015 chl          arg         0106                    53213            34120
-## 2  2015 chl          arg         0101                   123800           392190
+## # A tibble: 3 x 6
+##    year reporter_iso partner_iso product_code export_value_usd
+##   <int> <chr>        <chr>       <chr>                   <int>
+## 1  2018 chl          arg         0106                    15618
+## 2  2018 chl          arg         0102                   285000
+## 3  2018 chl          arg         0101                   156298
+## # … with 1 more variable: import_value_usd <int>
 ```
 
 Some columns requiere an explanation:
@@ -377,53 +379,55 @@ The only applicable filter is by year, reporter, product code and (optionally) p
 
 ## filter by reporter ISO (parameter `r`)
 yrc_1 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrc?y=2015&r=chl"
+  "https://api.tradestatistics.io/yrc?y=2018&r=chl"
 ))
 
 yrc_1
 ```
 
 ```
-## # A tibble: 1,214 x 7
-##     year reporter_iso product_code export_value_usd import_value_usd export_rca
-##    <int> <chr>        <chr>                   <dbl>            <dbl>      <dbl>
-##  1  2015 chl          9999                418275298       3762480583     0.218 
-##  2  2015 chl          9706                  1707137           672446     0.0559
-##  3  2015 chl          9705                   842192          1406771     0.07  
-##  4  2015 chl          9704                     1000            14911     0.0444
-##  5  2015 chl          9703                   494608          3739440     0.0226
-##  6  2015 chl          9702                    33049           517013     0.0175
-##  7  2015 chl          9701                  1055091          9190143     0.0599
-##  8  2015 chl          9618                   376809          5512649     0.141 
-##  9  2015 chl          9617                  2244928         15290042     0.378 
-## 10  2015 chl          9616                    32828          4020991     0.0055
-## # … with 1,204 more rows, and 1 more variable: import_rca <dbl>
+## # A tibble: 1,212 x 7
+##     year reporter_iso product_code export_value_usd import_value_usd
+##    <int> <chr>        <chr>                   <dbl>            <dbl>
+##  1  2018 chl          9999                573391778       1724350825
+##  2  2018 chl          9706                   547787          2489933
+##  3  2018 chl          9705                   359137           539346
+##  4  2018 chl          9704                      498            92045
+##  5  2018 chl          9703                  1490937          5487577
+##  6  2018 chl          9702                    55106           327203
+##  7  2018 chl          9701                  3599380          8467616
+##  8  2018 chl          9618                   145782          3549560
+##  9  2018 chl          9617                  7141588         25588384
+## 10  2018 chl          9616                    39793          5230789
+## # … with 1,202 more rows, and 2 more variables: export_rca <dbl>,
+## #   import_rca <dbl>
 ```
 
 ```r
 ## filter by reporter alias (also parameter `r`)
 yrc_2 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrc?y=2015&r=c-am"
+  "https://api.tradestatistics.io/yrc?y=2018&r=c-am"
 ))
 
 yrc_2
 ```
 
 ```
-## # A tibble: 47,673 x 7
-##     year reporter_iso product_code export_value_usd import_value_usd export_rca
-##    <int> <chr>        <chr>                   <dbl>            <dbl>      <dbl>
-##  1  2015 vgb          8213                       15             2279    1.77e-2
-##  2  2015 vgb          9032                    17265           104027    1.80e-2
-##  3  2015 vgb          9031                    18991           466671    1.13e-2
-##  4  2015 vgb          9030                    28455           180127    2.39e-2
-##  5  2015 vgb          9029                    15976             1381    4.36e-2
-##  6  2015 vgb          9028                        0           116064   NA      
-##  7  2015 vgb          9027                     4870           698770    1.75e-1
-##  8  2015 vgb          9026                    41202           548144    9.77e-2
-##  9  2015 vgb          9025                    11017            84800    1.10e-1
-## 10  2015 vgb          9024                        1             3889    9.52e-6
-## # … with 47,663 more rows, and 1 more variable: import_rca <dbl>
+## # A tibble: 45,962 x 7
+##     year reporter_iso product_code export_value_usd import_value_usd
+##    <int> <chr>        <chr>                   <dbl>            <dbl>
+##  1  2018 vgb          9999                  4797280        438897813
+##  2  2018 vgb          9706                     4312            17868
+##  3  2018 vgb          9705                  1369696             4096
+##  4  2018 vgb          9703                  4457371           614338
+##  5  2018 vgb          9702                        0             3351
+##  6  2018 vgb          9701                 11239573         22272348
+##  7  2018 vgb          9618                      806                0
+##  8  2018 vgb          9617                       14              378
+##  9  2018 vgb          9616                      212            71636
+## 10  2018 vgb          9615                      453               13
+## # … with 45,952 more rows, and 2 more variables: export_rca <dbl>,
+## #   import_rca <dbl>
 ```
 
 Here the `export_rca*` and `import_rca*` fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/).
@@ -436,7 +440,7 @@ The only applicable filter is by year, reporter and partner.
 ```r
 # Year - Reporter - Partner (filter by year, reporter and partner)
 yrp <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrp?y=2015&r=chl&p=arg"
+  "https://api.tradestatistics.io/yrp?y=2018&r=chl&p=arg"
 ))
 ```
 
@@ -448,7 +452,7 @@ The only applicable filter is by year, product and (optionally) product code len
 ```r
 # Year - Product Code (filter by year)
 yc <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yc?y=2015&c=0101"
+  "https://api.tradestatistics.io/yc?y=2018&c=0101"
 ))
 ```
 
@@ -463,7 +467,7 @@ yc
 ## # A tibble: 1 x 14
 ##    year product_code export_value_usd import_value_usd pci_fitness_met…
 ##   <int> <chr>                   <dbl>            <dbl>            <dbl>
-## 1  2015 0101               3480824300       3480824300            0.256
+## 1  2018 0101               4073362162       4073362162            0.293
 ## # … with 9 more variables: pci_rank_fitness_method <int>,
 ## #   pci_reflections_method <dbl>, pci_rank_reflections_method <int>,
 ## #   pci_eigenvalues_method <dbl>, pci_rank_eigenvalues_method <int>,
@@ -486,7 +490,7 @@ The only applicable filter is by year and reporter.
 ```r
 ## Year - Reporter (filter by year and reporter)
 yr <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yr?y=2015&r=chl"
+  "https://api.tradestatistics.io/yr?y=2018&r=chl"
 ))
 ```
 
@@ -501,7 +505,7 @@ yr
 ## # A tibble: 1 x 14
 ##    year reporter_iso export_value_usd import_value_usd eci_fitness_met…
 ##   <int> <chr>                   <dbl>            <dbl>            <dbl>
-## 1  2015 chl               69654431602      73744618202            0.472
+## 1  2018 chl               82917211883      83743442685            0.420
 ## # … with 9 more variables: eci_rank_fitness_method <int>,
 ## #   eci_reflections_method <dbl>, eci_rank_reflections_method <int>,
 ## #   eci_eigenvalues_method <dbl>, eci_rank_eigenvalues_method <int>,
@@ -523,7 +527,7 @@ The only applicable filter is by year.
 ```r
 # Country rankings (filter by year)
 country_rankings <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/country_rankings?y=2015"
+  "https://api.tradestatistics.io/country_rankings?y=2018"
 ))
 ```
 
@@ -535,7 +539,7 @@ The only applicable filter is by year.
 ```r
 # Product rankings (filter by year)
 product_rankings <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/product_rankings?y=2015"
+  "https://api.tradestatistics.io/product_rankings?y=2018"
 ))
 ```
 

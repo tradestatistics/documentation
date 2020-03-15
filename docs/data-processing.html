@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Section 2 Data processing | Open Trade Statistics</title>
   <meta name="description" content="Section 2 Data processing | Open Trade Statistics" />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Section 2 Data processing | Open Trade Statistics" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Pachá (Mauricio Vargas Sepúlveda)" />
 
 
-<meta name="date" content="2020-03-10" />
+<meta name="date" content="2020-03-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,66 +53,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="styles.css" type="text/css" />
@@ -146,11 +121,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.2" data-path="data-processing.html"><a href="data-processing.html#filling-gaps-in-our-data"><i class="fa fa-check"></i><b>2.2</b> Filling gaps in our data</a></li>
 <li class="chapter" data-level="2.3" data-path="data-processing.html"><a href="data-processing.html#data-cleaning"><i class="fa fa-check"></i><b>2.3</b> Data cleaning</a><ul>
 <li class="chapter" data-level="2.3.1" data-path="data-processing.html"><a href="data-processing.html#required-packages"><i class="fa fa-check"></i><b>2.3.1</b> Required packages</a></li>
-<li class="chapter" data-level="2.3.2" data-path="data-processing.html"><a href="data-processing.html#custom-function-to-read-data"><i class="fa fa-check"></i><b>2.3.2</b> Custom function to read data</a></li>
-<li class="chapter" data-level="2.3.3" data-path="data-processing.html"><a href="data-processing.html#cif-fob-rate-commodity-codes-length-and-iso-codes"><i class="fa fa-check"></i><b>2.3.3</b> CIF-FOB rate, commodity codes length and ISO codes</a></li>
-<li class="chapter" data-level="2.3.4" data-path="data-processing.html"><a href="data-processing.html#read-raw-data"><i class="fa fa-check"></i><b>2.3.4</b> Read raw data</a></li>
-<li class="chapter" data-level="2.3.5" data-path="data-processing.html"><a href="data-processing.html#clean-data"><i class="fa fa-check"></i><b>2.3.5</b> Clean data</a></li>
-<li class="chapter" data-level="2.3.6" data-path="data-processing.html"><a href="data-processing.html#symmetric-clean-data"><i class="fa fa-check"></i><b>2.3.6</b> Symmetric (clean) data</a></li>
+<li class="chapter" data-level="2.3.2" data-path="data-processing.html"><a href="data-processing.html#cif-fob-rate-commodity-codes-length-and-iso-codes"><i class="fa fa-check"></i><b>2.3.2</b> CIF-FOB rate, commodity codes length and ISO codes</a></li>
+<li class="chapter" data-level="2.3.3" data-path="data-processing.html"><a href="data-processing.html#read-raw-data"><i class="fa fa-check"></i><b>2.3.3</b> Read raw data</a></li>
+<li class="chapter" data-level="2.3.4" data-path="data-processing.html"><a href="data-processing.html#clean-data"><i class="fa fa-check"></i><b>2.3.4</b> Clean data</a></li>
+<li class="chapter" data-level="2.3.5" data-path="data-processing.html"><a href="data-processing.html#symmetric-clean-data"><i class="fa fa-check"></i><b>2.3.5</b> Symmetric (clean) data</a></li>
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="data-processing.html"><a href="data-processing.html#github-repositories"><i class="fa fa-check"></i><b>2.4</b> GitHub repositories</a></li>
 <li class="chapter" data-level="2.5" data-path="data-processing.html"><a href="data-processing.html#software-information"><i class="fa fa-check"></i><b>2.5</b> Software information</a></li>
@@ -234,150 +208,2677 @@ Figure 2.1: Data pipeline
 <p>Exports are reported FOB (free on board) while imports are reported CIF (cost, insurance and freight). When country A sends products to country C that will be registered with a larger value when it arrives to destination because the importer is including cost, insurance and freight that was not registered before shipping. There are different approaches to solve this difficulty, and in particular <span class="citation">[<a href="#ref-tradecosts2004">3</a>]</span>, <span class="citation">[<a href="#ref-geography2009">4</a>]</span> and <span class="citation">[<a href="#ref-baci2010">5</a>]</span> discuss this in detail and propose that an 8% CIF/FOB ratio is suitable to discount costs and compare imports and exports.</p>
 <p>There are some noble and remarkable approaches such as gravitational models. As, to our knowledge at the moment, there is no literature reporting the estimation of a gravity equation for this purpose that returns a satisfactory fitting.</p>
 <p>Let <span class="math inline">\(x_{c,c&#39;,p}\)</span> represent the exports of country <span class="math inline">\(c\)</span> to country <span class="math inline">\(c&#39;\)</span> in product <span class="math inline">\(p\)</span> and <span class="math inline">\(m_{c&#39;,c,p}\)</span> the imports of country <span class="math inline">\(c&#39;\)</span> from country <span class="math inline">\(c\)</span>. Under this notation we defined corrected flows as:</p>
-<p><span class="math display">\[\hat{x}_{c,c&#39;,p} = \max\left\{x_{c,c&#39;,p}, \frac{m_{c&#39;,c,p}}{1.08}\right\}\]</span>
-<span class="math display">\[\hat{m}_{c,c&#39;,p} = \max\left\{x_{c&#39;,c,p}, \frac{m_{c,c&#39;,p}}{1.08}\right\}\]</span>
-After symmetrization all observations are rounded to zero decimals.</p>
+<p><span class="math display">\[\hat{x}_{c,c&#39;,p} = \max\left\{x_{c,c&#39;,p}, \frac{m_{c&#39;,c,p}}{1.08}\right\}\]</span> <span class="math display">\[\hat{m}_{c,c&#39;,p} = \max\left\{x_{c&#39;,c,p}, \frac{m_{c,c&#39;,p}}{1.08}\right\}\]</span> After symmetrization all observations are rounded to zero decimals.</p>
 </div>
 <div id="data-cleaning" class="section level2">
 <h2><span class="header-section-number">2.3</span> Data cleaning</h2>
 <p>You can check the GitHub repository, but here we provide a simplified and commented example that reproduces the exact steps we performed to clean the data.</p>
-<p>Provided that Comtrade raw data cannot be redistributed, I’ll limit the example to five reporters in the year 1962 (the first year with available data).</p>
+<p>Provided that Comtrade raw data cannot be redistributed, I’ll limit the example to four countries in the year 1962 (the first year with available data).</p>
 <p>Let’s define two files for the example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">raw_file &lt;-<span class="st"> &quot;raw_data_1962_five_reporters.rda&quot;</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">clean_file &lt;-<span class="st"> &quot;clean_data_1962_five_reporters.rda&quot;</span></a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">raw_file &lt;-<span class="st"> &quot;raw_data_1962_four_countries.rda&quot;</span>
+clean_file &lt;-<span class="st"> &quot;clean_data_1962_four_countries.rda&quot;</span></code></pre></div>
 <div id="required-packages" class="section level3">
 <h3><span class="header-section-number">2.3.1</span> Required packages</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(data.table)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">library</span>(stringr)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="kw">library</span>(purrr)</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw">library</span>(janitor)</a></code></pre></div>
-</div>
-<div id="custom-function-to-read-data" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Custom function to read data</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">fread2 &lt;-<span class="st"> </span><span class="cf">function</span>(file, <span class="dt">select =</span> <span class="ot">NULL</span>, <span class="dt">character =</span> <span class="ot">NULL</span>, <span class="dt">numeric =</span> <span class="ot">NULL</span>) {</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="cf">if</span>(<span class="kw">str_sub</span>(file, <span class="dt">start =</span> <span class="dv">-2</span>) <span class="op">==</span><span class="st"> &quot;gz&quot;</span>) {</a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">    d &lt;-<span class="st"> </span><span class="kw">fread</span>(</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">      <span class="dt">cmd =</span> <span class="kw">paste</span>(<span class="st">&quot;zcat&quot;</span>, file),</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">      <span class="dt">select =</span> select,</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">      <span class="dt">colClasses =</span> <span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">        <span class="dt">character =</span> character,</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">        <span class="dt">numeric =</span> numeric</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">      )</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">    ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="st">      </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="st">      </span><span class="kw">clean_names</span>()</a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">  } <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb4-14" data-line-number="14">    d &lt;-<span class="st"> </span><span class="kw">fread</span>(</a>
-<a class="sourceLine" id="cb4-15" data-line-number="15">      <span class="dt">input =</span> file,</a>
-<a class="sourceLine" id="cb4-16" data-line-number="16">      <span class="dt">select =</span> select,</a>
-<a class="sourceLine" id="cb4-17" data-line-number="17">      <span class="dt">colClasses =</span> <span class="kw">list</span>(</a>
-<a class="sourceLine" id="cb4-18" data-line-number="18">        <span class="dt">character =</span> character,</a>
-<a class="sourceLine" id="cb4-19" data-line-number="19">        <span class="dt">numeric =</span> numeric</a>
-<a class="sourceLine" id="cb4-20" data-line-number="20">      )</a>
-<a class="sourceLine" id="cb4-21" data-line-number="21">    ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-22" data-line-number="22"><span class="st">      </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb4-23" data-line-number="23"><span class="st">      </span><span class="kw">clean_names</span>()</a>
-<a class="sourceLine" id="cb4-24" data-line-number="24">  }</a>
-<a class="sourceLine" id="cb4-25" data-line-number="25">  </a>
-<a class="sourceLine" id="cb4-26" data-line-number="26">  <span class="kw">return</span>(d)</a>
-<a class="sourceLine" id="cb4-27" data-line-number="27">}</a></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(stringr)
+<span class="kw">library</span>(purrr)
+<span class="kw">library</span>(janitor)</code></pre></div>
 </div>
 <div id="cif-fob-rate-commodity-codes-length-and-iso-codes" class="section level3">
-<h3><span class="header-section-number">2.3.3</span> CIF-FOB rate, commodity codes length and ISO codes</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># CIF-FOB rate ------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">    </a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co"># See Anderson &amp; van Wincoop, 2004, Hummels, 2006 and Gaulier &amp; Zignago, 2010 about 8% rate consistency</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">cif_fob_rate &lt;-<span class="st"> </span><span class="fl">1.08</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co"># Commodity codes length --------------------------------------------------</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">J &lt;-<span class="st"> </span><span class="dv">4</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co"># ISO-3 codes -------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">    </a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="kw">load</span>(<span class="st">&quot;../comtrade-codes/01-2-tidy-country-data/country-codes.RData&quot;</span>)</a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">    </a>
-<a class="sourceLine" id="cb5-14" data-line-number="14">country_codes &lt;-<span class="st"> </span>country_codes <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="st">  </span><span class="kw">select</span>(iso3_digit_alpha) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">iso3_digit_alpha =</span> <span class="kw">str_to_lower</span>(iso3_digit_alpha)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span>iso3_digit_alpha <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;wld&quot;</span>,<span class="st">&quot;null&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="st">  </span><span class="kw">as_vector</span>()</a></code></pre></div>
+<h3><span class="header-section-number">2.3.2</span> CIF-FOB rate, commodity codes length and ISO codes</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># CIF-FOB rate ------------------------------------------------------------</span>
+
+<span class="co"># See Anderson &amp; van Wincoop, 2004, Hummels, 2006 and Gaulier &amp; Zignago, 2010 about 8% rate consistency</span>
+cif_fob_rate &lt;-<span class="st"> </span><span class="fl">1.08</span>
+
+<span class="co"># Commodity codes length --------------------------------------------------</span>
+
+J &lt;-<span class="st"> </span><span class="dv">4</span>
+
+<span class="co"># ISO-3 codes -------------------------------------------------------------</span>
+
+<span class="kw">load</span>(<span class="st">&quot;../comtrade-codes/01-2-tidy-country-data/country-codes.RData&quot;</span>)
+
+country_codes &lt;-<span class="st"> </span>country_codes <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(iso3_digit_alpha) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">iso3_digit_alpha =</span> <span class="kw">str_to_lower</span>(iso3_digit_alpha)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span>iso3_digit_alpha <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;wld&quot;</span>, <span class="st">&quot;null&quot;</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">as_vector</span>()</code></pre></div>
 </div>
 <div id="read-raw-data" class="section level3">
-<h3><span class="header-section-number">2.3.4</span> Read raw data</h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(raw_file)) {</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">  raw_data &lt;-<span class="st"> </span><span class="kw">fread2</span>(</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="st">&quot;../yearly-datasets/01-raw-data/sitc-rev1/gz/type-C_r-ALL_ps-1962_freq-A_px-S1_pub-20050214_fmt-csv_ex-20151113.csv.gz&quot;</span>,</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="dt">select =</span> <span class="kw">c</span>(<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Aggregate Level&quot;</span>, <span class="st">&quot;Trade Flow&quot;</span>, <span class="st">&quot;Reporter ISO&quot;</span>, <span class="st">&quot;Partner ISO&quot;</span>, <span class="st">&quot;Commodity Code&quot;</span>, <span class="st">&quot;Trade Value (US$)&quot;</span>),</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">    <span class="dt">character =</span> <span class="st">&quot;Commodity Code&quot;</span>,</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">    <span class="dt">numeric =</span> <span class="st">&quot;Trade Value (US$)&quot;</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">  ) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="st">    </span><span class="kw">filter</span>(</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">      reporter_iso <span class="op">==</span><span class="st"> &quot;CHL&quot;</span>,</a>
-<a class="sourceLine" id="cb6-10" data-line-number="10">      partner_iso <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ARG&quot;</span>, <span class="st">&quot;BRA&quot;</span>, <span class="st">&quot;PER&quot;</span>)</a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">    )</a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">  </a>
-<a class="sourceLine" id="cb6-13" data-line-number="13">  <span class="kw">save</span>(raw_data, <span class="dt">file =</span> raw_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
-<a class="sourceLine" id="cb6-14" data-line-number="14">  </a>
-<a class="sourceLine" id="cb6-15" data-line-number="15">  raw_data</a>
-<a class="sourceLine" id="cb6-16" data-line-number="16">} <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb6-17" data-line-number="17">  <span class="kw">load</span>(raw_file)</a>
-<a class="sourceLine" id="cb6-18" data-line-number="18">  </a>
-<a class="sourceLine" id="cb6-19" data-line-number="19">  raw_data</a>
-<a class="sourceLine" id="cb6-20" data-line-number="20">}</a></code></pre></div>
-<pre><code>## # A tibble: 1,288 x 7
-##     year aggregate_level trade_flow reporter_iso partner_iso commodity_code
-##    &lt;int&gt;           &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;         
-##  1  1962               3 Import     CHL          BRA         071           
-##  2  1962               3 Import     CHL          PER         071           
-##  3  1962               4 Export     CHL          PER         2218          
-##  4  1962               3 Export     CHL          ARG         265           
-##  5  1962               3 Import     CHL          BRA         265           
-##  6  1962               3 Import     CHL          PER         265           
-##  7  1962               5 Export     CHL          BRA         29193         
-##  8  1962               1 Export     CHL          ARG         3             
-##  9  1962               1 Import     CHL          BRA         3             
-## 10  1962               1 Import     CHL          PER         3             
-## # … with 1,278 more rows, and 1 more variable: trade_value_us &lt;dbl&gt;</code></pre>
+<h3><span class="header-section-number">2.3.3</span> Read raw data</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(raw_file)) {
+  raw_data &lt;-<span class="st"> </span><span class="kw">readRDS</span>(<span class="st">&quot;../yearly-datasets/01-raw-data/sitc-rev1/rds/type-C_r-ALL_ps-1962_freq-A_px-S1_pub-20050214_fmt-csv_ex-20151113.rds&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">select</span>(<span class="st">&quot;Year&quot;</span>, <span class="st">&quot;Aggregate Level&quot;</span>, <span class="st">&quot;Trade Flow&quot;</span>, <span class="st">&quot;Reporter ISO&quot;</span>, <span class="st">&quot;Partner ISO&quot;</span>, <span class="st">&quot;Commodity Code&quot;</span>, <span class="st">&quot;Trade Value (US$)&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">filter</span>(
+      <span class="st">`</span><span class="dt">Reporter ISO</span><span class="st">`</span> <span class="op">==</span><span class="st"> &quot;CHL&quot;</span>,
+      <span class="st">`</span><span class="dt">Partner ISO</span><span class="st">`</span> <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;ARG&quot;</span>, <span class="st">&quot;BRA&quot;</span>, <span class="st">&quot;PER&quot;</span>)
+    )
+
+  <span class="kw">save</span>(raw_data, <span class="dt">file =</span> raw_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)
+
+  raw_data
+} <span class="cf">else</span> {
+  <span class="kw">load</span>(raw_file)
+
+  raw_data
+}</code></pre></div>
+<pre><code>##      Year Aggregate Level Trade Flow Reporter ISO Partner ISO
+## 1    1962               3     Import          CHL         BRA
+## 2    1962               3     Import          CHL         PER
+## 3    1962               4     Export          CHL         PER
+## 4    1962               3     Export          CHL         ARG
+## 5    1962               3     Import          CHL         BRA
+## 6    1962               3     Import          CHL         PER
+## 7    1962               5     Export          CHL         BRA
+## 8    1962               1     Export          CHL         ARG
+## 9    1962               1     Import          CHL         BRA
+## 10   1962               1     Import          CHL         PER
+## 11   1962               3     Import          CHL         ARG
+## 12   1962               3     Export          CHL         ARG
+## 13   1962               3     Export          CHL         BRA
+## 14   1962               3     Import          CHL         PER
+## 15   1962               2     Import          CHL         ARG
+## 16   1962               2     Import          CHL         BRA
+## 17   1962               2     Import          CHL         PER
+## 18   1962               3     Export          CHL         ARG
+## 19   1962               3     Export          CHL         BRA
+## 20   1962               4     Import          CHL         ARG
+## 21   1962               3     Import          CHL         ARG
+## 22   1962               3     Export          CHL         ARG
+## 23   1962               3     Export          CHL         BRA
+## 24   1962               3     Import          CHL         PER
+## 25   1962               3     Export          CHL         PER
+## 26   1962               3     Import          CHL         BRA
+## 27   1962               4     Export          CHL         PER
+## 28   1962               3     Import          CHL         ARG
+## 29   1962               4     Import          CHL         ARG
+## 30   1962               4     Import          CHL         BRA
+## 31   1962               3     Import          CHL         ARG
+## 32   1962               3     Import          CHL         BRA
+## 33   1962               3     Import          CHL         PER
+## 34   1962               3     Import          CHL         ARG
+## 35   1962               3     Import          CHL         BRA
+## 36   1962               4     Import          CHL         ARG
+## 37   1962               5     Import          CHL         BRA
+## 38   1962               5     Import          CHL         PER
+## 39   1962               3     Import          CHL         ARG
+## 40   1962               3     Import          CHL         BRA
+## 41   1962               3     Import          CHL         PER
+## 42   1962               2     Import          CHL         PER
+## 43   1962               2     Import          CHL         ARG
+## 44   1962               2     Import          CHL         BRA
+## 45   1962               2     Export          CHL         BRA
+## 46   1962               2     Export          CHL         PER
+## 47   1962               4     Import          CHL         ARG
+## 48   1962               3     Import          CHL         BRA
+## 49   1962               3     Import          CHL         PER
+## 50   1962               4     Import          CHL         ARG
+## 51   1962               4     Import          CHL         ARG
+## 52   1962               4     Import          CHL         PER
+## 53   1962               3     Import          CHL         ARG
+## 54   1962               3     Import          CHL         BRA
+## 55   1962               3     Export          CHL         PER
+## 56   1962               3     Import          CHL         ARG
+## 57   1962               3     Import          CHL         PER
+## 58   1962               4     Import          CHL         ARG
+## 59   1962               4     Export          CHL         ARG
+## 60   1962               3     Export          CHL         ARG
+## 61   1962               2     Import          CHL         ARG
+## 62   1962               3     Import          CHL         ARG
+## 63   1962               3     Import          CHL         BRA
+## 64   1962               3     Import          CHL         PER
+## 65   1962               3     Export          CHL         PER
+## 66   1962               4     Import          CHL         ARG
+## 67   1962               4     Import          CHL         BRA
+## 68   1962               4     Import          CHL         PER
+## 69   1962               4     Import          CHL         ARG
+## 70   1962               4     Import          CHL         ARG
+## 71   1962               3     Import          CHL         ARG
+## 72   1962               3     Import          CHL         PER
+## 73   1962               3     Export          CHL         PER
+## 74   1962               5     Import          CHL         PER
+## 75   1962               4     Import          CHL         ARG
+## 76   1962               2     Import          CHL         ARG
+## 77   1962               2     Export          CHL         PER
+## 78   1962               2     Import          CHL         ARG
+## 79   1962               2     Import          CHL         PER
+## 80   1962               4     Import          CHL         ARG
+## 81   1962               4     Import          CHL         ARG
+## 82   1962               4     Import          CHL         PER
+## 83   1962               2     Import          CHL         ARG
+## 84   1962               2     Import          CHL         BRA
+## 85   1962               2     Import          CHL         PER
+## 86   1962               4     Import          CHL         BRA
+## 87   1962               4     Import          CHL         PER
+## 88   1962               4     Import          CHL         PER
+## 89   1962               3     Import          CHL         ARG
+## 90   1962               3     Import          CHL         ARG
+## 91   1962               3     Export          CHL         ARG
+## 92   1962               3     Export          CHL         BRA
+## 93   1962               3     Import          CHL         PER
+## 94   1962               3     Export          CHL         PER
+## 95   1962               2     Import          CHL         ARG
+## 96   1962               2     Import          CHL         BRA
+## 97   1962               2     Export          CHL         PER
+## 98   1962               2     Export          CHL         ARG
+## 99   1962               2     Import          CHL         PER
+## 100  1962               2     Export          CHL         PER
+## 101  1962               3     Export          CHL         ARG
+## 102  1962               3     Import          CHL         PER
+## 103  1962               3     Export          CHL         PER
+## 104  1962               5     Export          CHL         ARG
+## 105  1962               5     Import          CHL         PER
+## 106  1962               5     Export          CHL         PER
+## 107  1962               2     Export          CHL         ARG
+## 108  1962               2     Export          CHL         BRA
+## 109  1962               2     Export          CHL         PER
+## 110  1962               4     Import          CHL         ARG
+## 111  1962               4     Import          CHL         BRA
+## 112  1962               3     Import          CHL         ARG
+## 113  1962               3     Export          CHL         PER
+## 114  1962               4     Export          CHL         ARG
+## 115  1962               2     Import          CHL         ARG
+## 116  1962               2     Export          CHL         ARG
+## 117  1962               2     Export          CHL         BRA
+## 118  1962               2     Import          CHL         BRA
+## 119  1962               2     Import          CHL         PER
+## 120  1962               3     Import          CHL         ARG
+## 121  1962               3     Import          CHL         ARG
+## 122  1962               3     Import          CHL         PER
+## 123  1962               5     Import          CHL         PER
+## 124  1962               2     Import          CHL         ARG
+## 125  1962               2     Export          CHL         ARG
+## 126  1962               2     Import          CHL         BRA
+## 127  1962               4     Import          CHL         ARG
+## 128  1962               5     Import          CHL         PER
+## 129  1962               2     Export          CHL         BRA
+## 130  1962               4     Import          CHL         PER
+## 131  1962               2     Import          CHL         ARG
+## 132  1962               2     Export          CHL         ARG
+## 133  1962               2     Export          CHL         BRA
+## 134  1962               3     Import          CHL         PER
+## 135  1962               3     Export          CHL         PER
+## 136  1962               3     Import          CHL         ARG
+## 137  1962               3     Export          CHL         ARG
+## 138  1962               3     Import          CHL         PER
+## 139  1962               3     Export          CHL         PER
+## 140  1962               4     Import          CHL         BRA
+## 141  1962               3     Import          CHL         ARG
+## 142  1962               3     Import          CHL         BRA
+## 143  1962               3     Import          CHL         PER
+## 144  1962               2     Import          CHL         ARG
+## 145  1962               2     Export          CHL         ARG
+## 146  1962               2     Import          CHL         BRA
+## 147  1962               2     Export          CHL         BRA
+## 148  1962               2     Import          CHL         PER
+## 149  1962               2     Export          CHL         PER
+## 150  1962               2     Import          CHL         ARG
+## 151  1962               2     Export          CHL         ARG
+## 152  1962               2     Export          CHL         BRA
+## 153  1962               4     Export          CHL         ARG
+## 154  1962               4     Export          CHL         BRA
+## 155  1962               3     Import          CHL         PER
+## 156  1962               4     Import          CHL         PER
+## 157  1962               5     Import          CHL         PER
+## 158  1962               3     Import          CHL         ARG
+## 159  1962               3     Import          CHL         PER
+## 160  1962               3     Export          CHL         PER
+## 161  1962               1     Import          CHL         ARG
+## 162  1962               1     Export          CHL         ARG
+## 163  1962               1     Import          CHL         BRA
+## 164  1962               1     Export          CHL         BRA
+## 165  1962               1     Import          CHL         PER
+## 166  1962               1     Export          CHL         PER
+## 167  1962               3     Import          CHL         ARG
+## 168  1962               3     Export          CHL         ARG
+## 169  1962               3     Export          CHL         BRA
+## 170  1962               3     Import          CHL         ARG
+## 171  1962               3     Export          CHL         ARG
+## 172  1962               3     Import          CHL         PER
+## 173  1962               3     Import          CHL         ARG
+## 174  1962               3     Import          CHL         BRA
+## 175  1962               3     Import          CHL         ARG
+## 176  1962               3     Export          CHL         ARG
+## 177  1962               3     Import          CHL         BRA
+## 178  1962               3     Import          CHL         PER
+## 179  1962               4     Import          CHL         ARG
+## 180  1962               4     Import          CHL         BRA
+## 181  1962               4     Import          CHL         PER
+## 182  1962               3     Import          CHL         PER
+## 183  1962               2     Import          CHL         ARG
+## 184  1962               2     Import          CHL         BRA
+## 185  1962               2     Import          CHL         PER
+## 186  1962               2     Import          CHL         ARG
+## 187  1962               3     Import          CHL         PER
+## 188  1962               2     Import          CHL         ARG
+## 189  1962               2     Import          CHL         BRA
+## 190  1962               2     Import          CHL         PER
+## 191  1962               3     Import          CHL         ARG
+## 192  1962               3     Import          CHL         BRA
+## 193  1962               3     Import          CHL         PER
+## 194  1962               4     Import          CHL         ARG
+## 195  1962               5     Import          CHL         ARG
+## 196  1962               3     Import          CHL         ARG
+## 197  1962               3     Export          CHL         ARG
+## 198  1962               3     Import          CHL         BRA
+## 199  1962               3     Import          CHL         ARG
+## 200  1962               3     Import          CHL         BRA
+## 201  1962               3     Import          CHL         PER
+## 202  1962               3     Import          CHL         ARG
+## 203  1962               4     Export          CHL         PER
+## 204  1962               1     Import          CHL         BRA
+## 205  1962               1     Export          CHL         BRA
+## 206  1962               1     Import          CHL         PER
+## 207  1962               1     Export          CHL         PER
+## 208  1962               3     Import          CHL         ARG
+## 209  1962               3     Export          CHL         ARG
+## 210  1962               3     Import          CHL         BRA
+## 211  1962               3     Export          CHL         BRA
+## 212  1962               3     Import          CHL         PER
+## 213  1962               3     Export          CHL         PER
+## 214  1962               2     Import          CHL         ARG
+## 215  1962               4     Import          CHL         ARG
+## 216  1962               4     Export          CHL         ARG
+## 217  1962               4     Import          CHL         BRA
+## 218  1962               4     Export          CHL         BRA
+## 219  1962               4     Import          CHL         PER
+## 220  1962               4     Export          CHL         PER
+## 221  1962               3     Import          CHL         ARG
+## 222  1962               1     Import          CHL         ARG
+## 223  1962               1     Export          CHL         ARG
+## 224  1962               1     Import          CHL         BRA
+## 225  1962               1     Export          CHL         BRA
+## 226  1962               1     Import          CHL         PER
+## 227  1962               1     Export          CHL         PER
+## 228  1962               4     Import          CHL         PER
+## 229  1962               4     Export          CHL         ARG
+## 230  1962               4     Import          CHL         PER
+## 231  1962               4     Import          CHL         PER
+## 232  1962               4     Export          CHL         PER
+## 233  1962               3     Import          CHL         ARG
+## 234  1962               3     Export          CHL         ARG
+## 235  1962               3     Export          CHL         BRA
+## 236  1962               3     Import          CHL         PER
+## 237  1962               3     Export          CHL         PER
+## 238  1962               3     Import          CHL         ARG
+## 239  1962               3     Export          CHL         ARG
+## 240  1962               3     Import          CHL         BRA
+## 241  1962               3     Export          CHL         BRA
+## 242  1962               3     Export          CHL         PER
+## 243  1962               4     Export          CHL         PER
+## 244  1962               4     Export          CHL         ARG
+## 245  1962               4     Import          CHL         PER
+## 246  1962               4     Export          CHL         PER
+## 247  1962               3     Export          CHL         BRA
+## 248  1962               3     Import          CHL         PER
+## 249  1962               5     Import          CHL         PER
+## 250  1962               5     Export          CHL         ARG
+## 251  1962               5     Export          CHL         PER
+## 252  1962               4     Import          CHL         ARG
+## 253  1962               3     Import          CHL         ARG
+## 254  1962               3     Export          CHL         ARG
+## 255  1962               3     Export          CHL         BRA
+## 256  1962               3     Export          CHL         PER
+## 257  1962               5     Export          CHL         PER
+## 258  1962               2     Import          CHL         ARG
+## 259  1962               2     Export          CHL         ARG
+## 260  1962               2     Import          CHL         BRA
+## 261  1962               2     Import          CHL         PER
+## 262  1962               2     Export          CHL         PER
+## 263  1962               5     Import          CHL         ARG
+## 264  1962               5     Import          CHL         BRA
+## 265  1962               5     Import          CHL         PER
+## 266  1962               4     Import          CHL         BRA
+## 267  1962               5     Import          CHL         ARG
+## 268  1962               3     Import          CHL         ARG
+## 269  1962               3     Export          CHL         ARG
+## 270  1962               3     Export          CHL         BRA
+## 271  1962               3     Import          CHL         PER
+## 272  1962               3     Export          CHL         PER
+## 273  1962               4     Import          CHL         ARG
+## 274  1962               4     Export          CHL         PER
+## 275  1962               3     Import          CHL         ARG
+## 276  1962               3     Export          CHL         ARG
+## 277  1962               3     Import          CHL         ARG
+## 278  1962               3     Import          CHL         BRA
+## 279  1962               5     Import          CHL         ARG
+## 280  1962               4     Export          CHL         BRA
+## 281  1962               4     Export          CHL         PER
+## 282  1962               4     Import          CHL         ARG
+## 283  1962               4     Import          CHL         BRA
+## 284  1962               4     Export          CHL         PER
+## 285  1962               4     Import          CHL         ARG
+## 286  1962               4     Import          CHL         BRA
+## 287  1962               4     Import          CHL         PER
+## 288  1962               2     Import          CHL         PER
+## 289  1962               2     Export          CHL         PER
+## 290  1962               1     Import          CHL         PER
+## 291  1962               1     Export          CHL         PER
+## 292  1962               2     Import          CHL         ARG
+## 293  1962               2     Export          CHL         ARG
+## 294  1962               2     Import          CHL         BRA
+## 295  1962               2     Import          CHL         PER
+## 296  1962               4     Export          CHL         ARG
+## 297  1962               4     Import          CHL         BRA
+## 298  1962               4     Import          CHL         PER
+## 299  1962               4     Import          CHL         BRA
+## 300  1962               2     Import          CHL         ARG
+## 301  1962               2     Export          CHL         ARG
+## 302  1962               2     Import          CHL         BRA
+## 303  1962               2     Export          CHL         BRA
+## 304  1962               2     Import          CHL         PER
+## 305  1962               2     Export          CHL         PER
+## 306  1962               4     Import          CHL         PER
+## 307  1962               1     Import          CHL         PER
+## 308  1962               1     Export          CHL         PER
+## 309  1962               4     Import          CHL         PER
+## 310  1962               3     Import          CHL         PER
+## 311  1962               3     Export          CHL         PER
+## 312  1962               5     Import          CHL         PER
+## 313  1962               2     Import          CHL         BRA
+## 314  1962               2     Import          CHL         PER
+## 315  1962               2     Export          CHL         PER
+## 316  1962               2     Import          CHL         PER
+## 317  1962               2     Export          CHL         PER
+## 318  1962               3     Import          CHL         PER
+## 319  1962               4     Import          CHL         PER
+## 320  1962               4     Import          CHL         ARG
+## 321  1962               4     Export          CHL         ARG
+## 322  1962               4     Import          CHL         PER
+## 323  1962               4     Import          CHL         BRA
+## 324  1962               4     Export          CHL         PER
+## 325  1962               1     Import          CHL         ARG
+## 326  1962               1     Export          CHL         ARG
+## 327  1962               1     Import          CHL         BRA
+## 328  1962               1     Import          CHL         PER
+## 329  1962               1     Export          CHL         PER
+## 330  1962               4     Export          CHL         ARG
+## 331  1962               4     Export          CHL         PER
+## 332  1962               2     Import          CHL         BRA
+## 333  1962               2     Export          CHL         BRA
+## 334  1962               2     Import          CHL         PER
+## 335  1962               2     Export          CHL         PER
+## 336  1962               0     Import          CHL         PER
+## 337  1962               0     Export          CHL         PER
+## 338  1962               4     Import          CHL         ARG
+## 339  1962               4     Import          CHL         ARG
+## 340  1962               3     Import          CHL         PER
+## 341  1962               4     Import          CHL         PER
+## 342  1962               4     Import          CHL         ARG
+## 343  1962               4     Export          CHL         ARG
+## 344  1962               4     Import          CHL         PER
+## 345  1962               4     Export          CHL         PER
+## 346  1962               4     Export          CHL         ARG
+## 347  1962               4     Export          CHL         BRA
+## 348  1962               5     Import          CHL         ARG
+## 349  1962               2     Export          CHL         ARG
+## 350  1962               5     Import          CHL         ARG
+## 351  1962               5     Import          CHL         PER
+## 352  1962               5     Export          CHL         PER
+## 353  1962               4     Import          CHL         PER
+## 354  1962               4     Export          CHL         PER
+## 355  1962               5     Import          CHL         PER
+## 356  1962               5     Export          CHL         ARG
+## 357  1962               5     Export          CHL         PER
+## 358  1962               5     Import          CHL         PER
+## 359  1962               4     Import          CHL         ARG
+## 360  1962               3     Import          CHL         ARG
+## 361  1962               5     Import          CHL         PER
+## 362  1962               4     Import          CHL         BRA
+## 363  1962               4     Import          CHL         PER
+## 364  1962               5     Import          CHL         PER
+## 365  1962               2     Import          CHL         ARG
+## 366  1962               2     Export          CHL         ARG
+## 367  1962               2     Import          CHL         BRA
+## 368  1962               5     Export          CHL         ARG
+## 369  1962               4     Import          CHL         PER
+## 370  1962               5     Import          CHL         BRA
+## 371  1962               5     Import          CHL         BRA
+## 372  1962               5     Import          CHL         PER
+## 373  1962               5     Import          CHL         ARG
+## 374  1962               5     Import          CHL         BRA
+## 375  1962               4     Import          CHL         PER
+## 376  1962               4     Export          CHL         PER
+## 377  1962               4     Import          CHL         ARG
+## 378  1962               4     Export          CHL         BRA
+## 379  1962               4     Import          CHL         ARG
+## 380  1962               4     Export          CHL         BRA
+## 381  1962               4     Import          CHL         PER
+## 382  1962               4     Export          CHL         PER
+## 383  1962               4     Import          CHL         ARG
+## 384  1962               4     Import          CHL         BRA
+## 385  1962               4     Import          CHL         ARG
+## 386  1962               4     Import          CHL         ARG
+## 387  1962               3     Export          CHL         ARG
+## 388  1962               4     Export          CHL         ARG
+## 389  1962               4     Import          CHL         ARG
+## 390  1962               4     Import          CHL         ARG
+## 391  1962               4     Export          CHL         ARG
+## 392  1962               5     Import          CHL         PER
+## 393  1962               4     Import          CHL         ARG
+## 394  1962               3     Import          CHL         ARG
+## 395  1962               5     Import          CHL         ARG
+## 396  1962               5     Import          CHL         PER
+## 397  1962               5     Import          CHL         ARG
+## 398  1962               5     Import          CHL         PER
+## 399  1962               4     Import          CHL         PER
+## 400  1962               4     Export          CHL         PER
+## 401  1962               5     Import          CHL         ARG
+## 402  1962               5     Import          CHL         PER
+## 403  1962               3     Import          CHL         PER
+## 404  1962               5     Import          CHL         ARG
+## 405  1962               5     Import          CHL         ARG
+## 406  1962               4     Import          CHL         PER
+## 407  1962               5     Import          CHL         ARG
+## 408  1962               5     Import          CHL         BRA
+## 409  1962               5     Import          CHL         PER
+## 410  1962               5     Export          CHL         ARG
+## 411  1962               4     Export          CHL         ARG
+## 412  1962               4     Import          CHL         ARG
+## 413  1962               4     Export          CHL         ARG
+## 414  1962               4     Import          CHL         BRA
+## 415  1962               4     Export          CHL         BRA
+## 416  1962               5     Import          CHL         ARG
+## 417  1962               5     Import          CHL         BRA
+## 418  1962               4     Import          CHL         ARG
+## 419  1962               4     Export          CHL         ARG
+## 420  1962               5     Import          CHL         ARG
+## 421  1962               5     Import          CHL         BRA
+## 422  1962               5     Import          CHL         PER
+## 423  1962               4     Import          CHL         ARG
+## 424  1962               4     Import          CHL         ARG
+## 425  1962               3     Import          CHL         PER
+## 426  1962               3     Import          CHL         ARG
+## 427  1962               4     Export          CHL         BRA
+## 428  1962               4     Export          CHL         PER
+## 429  1962               5     Import          CHL         ARG
+## 430  1962               4     Import          CHL         ARG
+## 431  1962               3     Export          CHL         BRA
+## 432  1962               4     Import          CHL         PER
+## 433  1962               4     Import          CHL         ARG
+## 434  1962               4     Import          CHL         BRA
+## 435  1962               4     Import          CHL         ARG
+## 436  1962               4     Import          CHL         BRA
+## 437  1962               5     Import          CHL         PER
+## 438  1962               4     Export          CHL         ARG
+## 439  1962               4     Export          CHL         BRA
+## 440  1962               4     Import          CHL         PER
+## 441  1962               4     Export          CHL         PER
+## 442  1962               5     Import          CHL         PER
+## 443  1962               4     Import          CHL         ARG
+## 444  1962               4     Import          CHL         BRA
+## 445  1962               4     Import          CHL         PER
+## 446  1962               4     Import          CHL         PER
+## 447  1962               4     Import          CHL         ARG
+## 448  1962               4     Import          CHL         BRA
+## 449  1962               4     Import          CHL         PER
+## 450  1962               4     Import          CHL         PER
+## 451  1962               4     Import          CHL         PER
+## 452  1962               3     Import          CHL         PER
+## 453  1962               3     Export          CHL         PER
+## 454  1962               5     Import          CHL         ARG
+## 455  1962               5     Export          CHL         ARG
+## 456  1962               5     Import          CHL         ARG
+## 457  1962               5     Import          CHL         PER
+## 458  1962               5     Import          CHL         ARG
+## 459  1962               4     Import          CHL         BRA
+## 460  1962               4     Import          CHL         PER
+## 461  1962               4     Import          CHL         PER
+## 462  1962               5     Import          CHL         BRA
+## 463  1962               4     Export          CHL         BRA
+## 464  1962               4     Import          CHL         PER
+## 465  1962               4     Export          CHL         PER
+## 466  1962               5     Import          CHL         PER
+## 467  1962               4     Import          CHL         PER
+## 468  1962               4     Export          CHL         PER
+## 469  1962               4     Import          CHL         ARG
+## 470  1962               2     Import          CHL         ARG
+## 471  1962               3     Export          CHL         BRA
+## 472  1962               3     Export          CHL         PER
+## 473  1962               4     Import          CHL         PER
+## 474  1962               5     Import          CHL         PER
+## 475  1962               5     Import          CHL         PER
+## 476  1962               4     Export          CHL         BRA
+## 477  1962               4     Import          CHL         PER
+## 478  1962               4     Import          CHL         ARG
+## 479  1962               4     Export          CHL         PER
+## 480  1962               5     Export          CHL         BRA
+## 481  1962               5     Export          CHL         PER
+## 482  1962               3     Import          CHL         ARG
+## 483  1962               5     Export          CHL         ARG
+## 484  1962               5     Export          CHL         BRA
+## 485  1962               5     Export          CHL         PER
+## 486  1962               5     Import          CHL         ARG
+## 487  1962               4     Import          CHL         ARG
+## 488  1962               5     Import          CHL         BRA
+## 489  1962               5     Import          CHL         ARG
+## 490  1962               4     Import          CHL         ARG
+## 491  1962               4     Import          CHL         PER
+## 492  1962               5     Import          CHL         PER
+## 493  1962               5     Export          CHL         PER
+## 494  1962               5     Import          CHL         PER
+## 495  1962               4     Import          CHL         BRA
+## 496  1962               3     Export          CHL         PER
+## 497  1962               5     Import          CHL         PER
+## 498  1962               5     Export          CHL         PER
+## 499  1962               4     Export          CHL         ARG
+## 500  1962               4     Export          CHL         BRA
+## 501  1962               4     Import          CHL         PER
+## 502  1962               4     Export          CHL         PER
+## 503  1962               5     Export          CHL         ARG
+## 504  1962               5     Export          CHL         BRA
+## 505  1962               5     Import          CHL         PER
+## 506  1962               5     Export          CHL         PER
+## 507  1962               4     Export          CHL         ARG
+## 508  1962               4     Import          CHL         PER
+## 509  1962               4     Import          CHL         PER
+## 510  1962               3     Import          CHL         PER
+## 511  1962               4     Import          CHL         ARG
+## 512  1962               4     Import          CHL         PER
+## 513  1962               4     Export          CHL         ARG
+## 514  1962               4     Import          CHL         BRA
+## 515  1962               4     Export          CHL         PER
+## 516  1962               5     Import          CHL         PER
+## 517  1962               5     Import          CHL         PER
+## 518  1962               3     Import          CHL         PER
+## 519  1962               3     Export          CHL         PER
+## 520  1962               4     Import          CHL         PER
+## 521  1962               5     Import          CHL         PER
+## 522  1962               4     Import          CHL         PER
+## 523  1962               5     Import          CHL         PER
+## 524  1962               4     Import          CHL         BRA
+## 525  1962               5     Import          CHL         BRA
+## 526  1962               5     Import          CHL         PER
+## 527  1962               5     Import          CHL         PER
+## 528  1962               5     Export          CHL         PER
+## 529  1962               5     Import          CHL         ARG
+## 530  1962               5     Import          CHL         BRA
+## 531  1962               5     Export          CHL         PER
+## 532  1962               3     Import          CHL         ARG
+## 533  1962               3     Import          CHL         ARG
+## 534  1962               3     Export          CHL         PER
+## 535  1962               4     Import          CHL         ARG
+## 536  1962               4     Import          CHL         ARG
+## 537  1962               3     Export          CHL         ARG
+## 538  1962               5     Import          CHL         ARG
+## 539  1962               5     Import          CHL         PER
+## 540  1962               4     Import          CHL         ARG
+## 541  1962               4     Import          CHL         PER
+## 542  1962               4     Import          CHL         ARG
+## 543  1962               4     Import          CHL         PER
+## 544  1962               5     Import          CHL         ARG
+## 545  1962               5     Import          CHL         ARG
+## 546  1962               3     Export          CHL         BRA
+## 547  1962               3     Export          CHL         PER
+## 548  1962               4     Import          CHL         ARG
+## 549  1962               4     Import          CHL         PER
+## 550  1962               4     Export          CHL         ARG
+## 551  1962               4     Export          CHL         PER
+## 552  1962               5     Import          CHL         ARG
+## 553  1962               5     Import          CHL         BRA
+## 554  1962               5     Export          CHL         PER
+## 555  1962               4     Import          CHL         ARG
+## 556  1962               4     Import          CHL         BRA
+## 557  1962               4     Import          CHL         PER
+## 558  1962               4     Import          CHL         PER
+## 559  1962               5     Export          CHL         PER
+## 560  1962               4     Import          CHL         ARG
+## 561  1962               4     Import          CHL         ARG
+## 562  1962               4     Import          CHL         BRA
+## 563  1962               4     Import          CHL         BRA
+## 564  1962               4     Import          CHL         PER
+## 565  1962               5     Import          CHL         ARG
+## 566  1962               4     Export          CHL         ARG
+## 567  1962               4     Import          CHL         ARG
+## 568  1962               4     Import          CHL         ARG
+## 569  1962               5     Export          CHL         ARG
+## 570  1962               4     Import          CHL         PER
+## 571  1962               4     Import          CHL         PER
+## 572  1962               5     Export          CHL         PER
+## 573  1962               5     Import          CHL         ARG
+## 574  1962               5     Import          CHL         BRA
+## 575  1962               4     Import          CHL         PER
+## 576  1962               5     Import          CHL         PER
+## 577  1962               4     Import          CHL         PER
+## 578  1962               4     Import          CHL         ARG
+## 579  1962               4     Import          CHL         BRA
+## 580  1962               5     Export          CHL         ARG
+## 581  1962               5     Import          CHL         PER
+## 582  1962               4     Import          CHL         PER
+## 583  1962               5     Export          CHL         ARG
+## 584  1962               5     Import          CHL         PER
+## 585  1962               5     Import          CHL         PER
+## 586  1962               5     Export          CHL         ARG
+## 587  1962               5     Export          CHL         BRA
+## 588  1962               5     Export          CHL         ARG
+## 589  1962               5     Export          CHL         PER
+## 590  1962               5     Import          CHL         ARG
+## 591  1962               5     Export          CHL         PER
+## 592  1962               5     Import          CHL         PER
+## 593  1962               5     Export          CHL         PER
+## 594  1962               5     Import          CHL         ARG
+## 595  1962               5     Import          CHL         BRA
+## 596  1962               5     Import          CHL         PER
+## 597  1962               5     Import          CHL         ARG
+## 598  1962               4     Import          CHL         ARG
+## 599  1962               4     Import          CHL         PER
+## 600  1962               4     Export          CHL         PER
+## 601  1962               5     Import          CHL         ARG
+## 602  1962               5     Import          CHL         ARG
+## 603  1962               5     Export          CHL         ARG
+## 604  1962               5     Import          CHL         PER
+## 605  1962               5     Export          CHL         ARG
+## 606  1962               5     Export          CHL         BRA
+## 607  1962               5     Import          CHL         ARG
+## 608  1962               4     Import          CHL         ARG
+## 609  1962               4     Import          CHL         BRA
+## 610  1962               5     Import          CHL         ARG
+## 611  1962               5     Import          CHL         PER
+## 612  1962               5     Import          CHL         ARG
+## 613  1962               5     Export          CHL         ARG
+## 614  1962               5     Import          CHL         ARG
+## 615  1962               5     Export          CHL         BRA
+## 616  1962               5     Import          CHL         PER
+## 617  1962               5     Import          CHL         PER
+## 618  1962               4     Import          CHL         PER
+## 619  1962               4     Import          CHL         PER
+## 620  1962               5     Import          CHL         ARG
+## 621  1962               5     Export          CHL         PER
+## 622  1962               5     Export          CHL         ARG
+## 623  1962               4     Export          CHL         ARG
+## 624  1962               5     Import          CHL         BRA
+## 625  1962               4     Import          CHL         ARG
+## 626  1962               5     Export          CHL         BRA
+## 627  1962               4     Import          CHL         ARG
+## 628  1962               5     Import          CHL         ARG
+## 629  1962               5     Export          CHL         BRA
+## 630  1962               5     Import          CHL         ARG
+## 631  1962               5     Import          CHL         BRA
+## 632  1962               5     Import          CHL         PER
+## 633  1962               5     Import          CHL         ARG
+## 634  1962               5     Import          CHL         ARG
+## 635  1962               5     Import          CHL         PER
+## 636  1962               3     Import          CHL         PER
+## 637  1962               5     Import          CHL         PER
+## 638  1962               5     Import          CHL         ARG
+## 639  1962               4     Export          CHL         PER
+## 640  1962               4     Export          CHL         ARG
+## 641  1962               4     Export          CHL         BRA
+## 642  1962               4     Export          CHL         PER
+## 643  1962               4     Import          CHL         ARG
+## 644  1962               4     Export          CHL         ARG
+## 645  1962               4     Import          CHL         BRA
+## 646  1962               4     Import          CHL         PER
+## 647  1962               4     Export          CHL         PER
+## 648  1962               2     Export          CHL         ARG
+## 649  1962               2     Export          CHL         BRA
+## 650  1962               2     Import          CHL         PER
+## 651  1962               2     Export          CHL         PER
+## 652  1962               5     Import          CHL         PER
+## 653  1962               5     Import          CHL         PER
+## 654  1962               4     Import          CHL         ARG
+## 655  1962               4     Export          CHL         ARG
+## 656  1962               4     Import          CHL         ARG
+## 657  1962               4     Import          CHL         ARG
+## 658  1962               4     Export          CHL         PER
+## 659  1962               5     Export          CHL         PER
+## 660  1962               5     Export          CHL         PER
+## 661  1962               5     Export          CHL         BRA
+## 662  1962               5     Export          CHL         PER
+## 663  1962               4     Import          CHL         BRA
+## 664  1962               4     Import          CHL         PER
+## 665  1962               4     Import          CHL         ARG
+## 666  1962               4     Import          CHL         ARG
+## 667  1962               3     Import          CHL         ARG
+## 668  1962               3     Import          CHL         ARG
+## 669  1962               3     Import          CHL         BRA
+## 670  1962               3     Import          CHL         PER
+## 671  1962               3     Import          CHL         ARG
+## 672  1962               5     Import          CHL         PER
+## 673  1962               3     Import          CHL         ARG
+## 674  1962               3     Import          CHL         ARG
+## 675  1962               4     Export          CHL         ARG
+## 676  1962               4     Export          CHL         ARG
+## 677  1962               4     Export          CHL         ARG
+## 678  1962               4     Import          CHL         BRA
+## 679  1962               4     Export          CHL         BRA
+## 680  1962               4     Export          CHL         PER
+## 681  1962               4     Import          CHL         ARG
+## 682  1962               4     Export          CHL         ARG
+## 683  1962               4     Export          CHL         BRA
+## 684  1962               4     Import          CHL         PER
+## 685  1962               4     Import          CHL         ARG
+## 686  1962               4     Import          CHL         BRA
+## 687  1962               4     Export          CHL         BRA
+## 688  1962               4     Import          CHL         ARG
+## 689  1962               4     Export          CHL         ARG
+## 690  1962               4     Import          CHL         ARG
+## 691  1962               4     Export          CHL         ARG
+## 692  1962               4     Import          CHL         PER
+## 693  1962               4     Export          CHL         PER
+## 694  1962               3     Export          CHL         ARG
+## 695  1962               3     Export          CHL         BRA
+## 696  1962               3     Export          CHL         PER
+## 697  1962               4     Import          CHL         ARG
+## 698  1962               4     Import          CHL         PER
+## 699  1962               3     Import          CHL         ARG
+## 700  1962               3     Export          CHL         ARG
+## 701  1962               3     Import          CHL         BRA
+## 702  1962               2     Import          CHL         ARG
+## 703  1962               4     Import          CHL         ARG
+## 704  1962               4     Export          CHL         ARG
+## 705  1962               4     Export          CHL         BRA
+## 706  1962               4     Export          CHL         PER
+## 707  1962               4     Import          CHL         ARG
+## 708  1962               4     Import          CHL         ARG
+## 709  1962               4     Export          CHL         PER
+## 710  1962               3     Import          CHL         PER
+## 711  1962               4     Import          CHL         PER
+## 712  1962               3     Import          CHL         PER
+## 713  1962               4     Import          CHL         PER
+## 714  1962               3     Import          CHL         PER
+## 715  1962               4     Import          CHL         PER
+## 716  1962               4     Import          CHL         ARG
+## 717  1962               4     Export          CHL         ARG
+## 718  1962               4     Import          CHL         PER
+## 719  1962               4     Import          CHL         PER
+## 720  1962               4     Import          CHL         ARG
+## 721  1962               4     Import          CHL         BRA
+## 722  1962               3     Import          CHL         BRA
+## 723  1962               3     Export          CHL         ARG
+## 724  1962               3     Export          CHL         BRA
+## 725  1962               3     Import          CHL         PER
+## 726  1962               3     Export          CHL         PER
+## 727  1962               4     Import          CHL         PER
+## 728  1962               4     Import          CHL         PER
+## 729  1962               3     Import          CHL         PER
+## 730  1962               4     Import          CHL         ARG
+## 731  1962               4     Import          CHL         ARG
+## 732  1962               4     Import          CHL         BRA
+## 733  1962               4     Export          CHL         PER
+## 734  1962               5     Export          CHL         ARG
+## 735  1962               5     Import          CHL         PER
+## 736  1962               5     Export          CHL         PER
+## 737  1962               4     Export          CHL         ARG
+## 738  1962               4     Export          CHL         BRA
+## 739  1962               4     Export          CHL         PER
+## 740  1962               4     Import          CHL         ARG
+## 741  1962               4     Import          CHL         PER
+## 742  1962               3     Import          CHL         ARG
+## 743  1962               5     Import          CHL         PER
+## 744  1962               5     Export          CHL         ARG
+## 745  1962               5     Export          CHL         BRA
+## 746  1962               5     Export          CHL         PER
+## 747  1962               5     Export          CHL         ARG
+## 748  1962               5     Import          CHL         BRA
+## 749  1962               5     Export          CHL         BRA
+## 750  1962               5     Export          CHL         PER
+## 751  1962               3     Import          CHL         PER
+## 752  1962               5     Import          CHL         ARG
+## 753  1962               5     Import          CHL         BRA
+## 754  1962               4     Import          CHL         ARG
+## 755  1962               5     Import          CHL         PER
+## 756  1962               4     Import          CHL         ARG
+## 757  1962               4     Export          CHL         ARG
+## 758  1962               4     Export          CHL         BRA
+## 759  1962               4     Import          CHL         PER
+## 760  1962               4     Export          CHL         PER
+## 761  1962               5     Import          CHL         PER
+## 762  1962               4     Import          CHL         ARG
+## 763  1962               5     Import          CHL         PER
+## 764  1962               5     Import          CHL         ARG
+## 765  1962               5     Import          CHL         PER
+## 766  1962               5     Import          CHL         PER
+## 767  1962               4     Export          CHL         ARG
+## 768  1962               4     Import          CHL         PER
+## 769  1962               5     Import          CHL         ARG
+## 770  1962               5     Import          CHL         BRA
+## 771  1962               5     Import          CHL         PER
+## 772  1962               5     Import          CHL         ARG
+## 773  1962               5     Import          CHL         BRA
+## 774  1962               5     Import          CHL         ARG
+## 775  1962               5     Import          CHL         BRA
+## 776  1962               4     Import          CHL         PER
+## 777  1962               5     Import          CHL         ARG
+## 778  1962               5     Import          CHL         BRA
+## 779  1962               5     Import          CHL         PER
+## 780  1962               4     Import          CHL         ARG
+## 781  1962               5     Import          CHL         ARG
+## 782  1962               5     Export          CHL         BRA
+## 783  1962               5     Export          CHL         PER
+## 784  1962               5     Import          CHL         ARG
+## 785  1962               5     Import          CHL         ARG
+## 786  1962               5     Export          CHL         ARG
+## 787  1962               5     Import          CHL         ARG
+## 788  1962               5     Import          CHL         BRA
+## 789  1962               4     Export          CHL         ARG
+## 790  1962               5     Export          CHL         ARG
+## 791  1962               5     Export          CHL         BRA
+## 792  1962               5     Export          CHL         PER
+## 793  1962               4     Import          CHL         ARG
+## 794  1962               4     Import          CHL         BRA
+## 795  1962               5     Import          CHL         ARG
+## 796  1962               5     Import          CHL         ARG
+## 797  1962               5     Import          CHL         PER
+## 798  1962               5     Import          CHL         PER
+## 799  1962               5     Import          CHL         PER
+## 800  1962               5     Import          CHL         ARG
+## 801  1962               5     Export          CHL         ARG
+## 802  1962               5     Import          CHL         BRA
+## 803  1962               5     Export          CHL         PER
+## 804  1962               5     Import          CHL         ARG
+## 805  1962               5     Import          CHL         BRA
+## 806  1962               5     Import          CHL         PER
+## 807  1962               5     Import          CHL         ARG
+## 808  1962               5     Export          CHL         ARG
+## 809  1962               5     Import          CHL         BRA
+## 810  1962               5     Import          CHL         PER
+## 811  1962               5     Export          CHL         PER
+## 812  1962               5     Import          CHL         BRA
+## 813  1962               4     Import          CHL         PER
+## 814  1962               4     Import          CHL         PER
+## 815  1962               4     Import          CHL         ARG
+## 816  1962               5     Import          CHL         ARG
+## 817  1962               5     Import          CHL         BRA
+## 818  1962               5     Import          CHL         PER
+## 819  1962               4     Import          CHL         ARG
+## 820  1962               4     Import          CHL         BRA
+## 821  1962               4     Import          CHL         PER
+## 822  1962               4     Import          CHL         ARG
+## 823  1962               4     Export          CHL         ARG
+## 824  1962               4     Import          CHL         PER
+## 825  1962               4     Export          CHL         PER
+## 826  1962               5     Import          CHL         ARG
+## 827  1962               5     Import          CHL         ARG
+## 828  1962               5     Import          CHL         BRA
+## 829  1962               5     Import          CHL         ARG
+## 830  1962               5     Import          CHL         BRA
+## 831  1962               5     Import          CHL         PER
+## 832  1962               5     Import          CHL         ARG
+## 833  1962               5     Import          CHL         BRA
+## 834  1962               5     Import          CHL         ARG
+## 835  1962               5     Import          CHL         ARG
+## 836  1962               5     Import          CHL         ARG
+## 837  1962               5     Import          CHL         ARG
+## 838  1962               5     Import          CHL         BRA
+## 839  1962               2     Import          CHL         ARG
+## 840  1962               2     Export          CHL         ARG
+## 841  1962               2     Import          CHL         BRA
+## 842  1962               2     Export          CHL         BRA
+## 843  1962               2     Import          CHL         PER
+## 844  1962               2     Export          CHL         PER
+## 845  1962               4     Import          CHL         ARG
+## 846  1962               4     Import          CHL         ARG
+## 847  1962               4     Export          CHL         ARG
+## 848  1962               4     Export          CHL         BRA
+## 849  1962               4     Import          CHL         PER
+## 850  1962               4     Export          CHL         PER
+## 851  1962               3     Import          CHL         ARG
+## 852  1962               3     Export          CHL         ARG
+## 853  1962               3     Import          CHL         BRA
+## 854  1962               3     Export          CHL         BRA
+## 855  1962               3     Import          CHL         PER
+## 856  1962               3     Export          CHL         PER
+## 857  1962               3     Import          CHL         ARG
+## 858  1962               3     Import          CHL         BRA
+## 859  1962               3     Export          CHL         PER
+## 860  1962               3     Import          CHL         ARG
+## 861  1962               2     Import          CHL         ARG
+## 862  1962               2     Export          CHL         ARG
+## 863  1962               2     Import          CHL         BRA
+## 864  1962               2     Export          CHL         BRA
+## 865  1962               2     Import          CHL         PER
+## 866  1962               3     Export          CHL         ARG
+## 867  1962               3     Import          CHL         BRA
+## 868  1962               3     Export          CHL         BRA
+## 869  1962               3     Import          CHL         PER
+## 870  1962               2     Import          CHL         ARG
+## 871  1962               1     Import          CHL         ARG
+## 872  1962               1     Export          CHL         ARG
+## 873  1962               1     Export          CHL         BRA
+## 874  1962               1     Import          CHL         PER
+## 875  1962               1     Export          CHL         PER
+## 876  1962               4     Import          CHL         ARG
+## 877  1962               1     Import          CHL         ARG
+## 878  1962               1     Export          CHL         ARG
+## 879  1962               1     Import          CHL         BRA
+## 880  1962               1     Export          CHL         BRA
+## 881  1962               2     Import          CHL         ARG
+## 882  1962               2     Export          CHL         BRA
+## 883  1962               2     Import          CHL         PER
+## 884  1962               3     Import          CHL         ARG
+## 885  1962               3     Import          CHL         PER
+## 886  1962               2     Import          CHL         ARG
+## 887  1962               2     Export          CHL         ARG
+## 888  1962               2     Export          CHL         BRA
+## 889  1962               2     Import          CHL         PER
+## 890  1962               2     Export          CHL         PER
+## 891  1962               3     Import          CHL         ARG
+## 892  1962               3     Export          CHL         BRA
+## 893  1962               4     Export          CHL         BRA
+## 894  1962               3     Export          CHL         ARG
+## 895  1962               3     Export          CHL         BRA
+## 896  1962               3     Import          CHL         PER
+## 897  1962               3     Export          CHL         PER
+## 898  1962               4     Export          CHL         ARG
+## 899  1962               4     Import          CHL         PER
+## 900  1962               3     Import          CHL         ARG
+## 901  1962               3     Export          CHL         ARG
+## 902  1962               3     Import          CHL         BRA
+## 903  1962               3     Import          CHL         PER
+## 904  1962               3     Import          CHL         ARG
+## 905  1962               3     Import          CHL         ARG
+## 906  1962               2     Import          CHL         ARG
+## 907  1962               2     Import          CHL         BRA
+## 908  1962               2     Import          CHL         PER
+## 909  1962               2     Export          CHL         PER
+## 910  1962               2     Import          CHL         PER
+## 911  1962               4     Export          CHL         BRA
+## 912  1962               4     Import          CHL         PER
+## 913  1962               2     Import          CHL         PER
+## 914  1962               2     Export          CHL         PER
+## 915  1962               2     Import          CHL         ARG
+## 916  1962               2     Export          CHL         ARG
+## 917  1962               2     Import          CHL         BRA
+## 918  1962               2     Export          CHL         BRA
+## 919  1962               2     Import          CHL         PER
+## 920  1962               2     Export          CHL         PER
+## 921  1962               4     Import          CHL         ARG
+## 922  1962               4     Import          CHL         BRA
+## 923  1962               4     Import          CHL         PER
+## 924  1962               3     Import          CHL         PER
+## 925  1962               3     Export          CHL         PER
+## 926  1962               4     Import          CHL         ARG
+## 927  1962               4     Import          CHL         PER
+## 928  1962               4     Export          CHL         PER
+## 929  1962               4     Import          CHL         PER
+## 930  1962               4     Import          CHL         ARG
+## 931  1962               4     Import          CHL         PER
+## 932  1962               4     Import          CHL         BRA
+## 933  1962               3     Import          CHL         BRA
+## 934  1962               3     Import          CHL         PER
+## 935  1962               2     Import          CHL         ARG
+## 936  1962               2     Export          CHL         ARG
+## 937  1962               2     Import          CHL         BRA
+## 938  1962               4     Import          CHL         PER
+## 939  1962               3     Import          CHL         ARG
+## 940  1962               3     Export          CHL         ARG
+## 941  1962               3     Import          CHL         BRA
+## 942  1962               3     Import          CHL         PER
+## 943  1962               3     Export          CHL         PER
+## 944  1962               4     Import          CHL         ARG
+## 945  1962               4     Export          CHL         ARG
+## 946  1962               4     Import          CHL         BRA
+## 947  1962               4     Import          CHL         PER
+## 948  1962               4     Export          CHL         PER
+## 949  1962               4     Import          CHL         ARG
+## 950  1962               3     Import          CHL         ARG
+## 951  1962               3     Import          CHL         BRA
+## 952  1962               4     Import          CHL         BRA
+## 953  1962               2     Import          CHL         ARG
+## 954  1962               2     Export          CHL         ARG
+## 955  1962               2     Import          CHL         BRA
+## 956  1962               2     Export          CHL         BRA
+## 957  1962               2     Import          CHL         PER
+## 958  1962               4     Import          CHL         ARG
+## 959  1962               4     Export          CHL         ARG
+## 960  1962               4     Export          CHL         BRA
+## 961  1962               4     Import          CHL         PER
+## 962  1962               4     Import          CHL         ARG
+## 963  1962               4     Import          CHL         BRA
+## 964  1962               4     Import          CHL         ARG
+## 965  1962               4     Import          CHL         PER
+## 966  1962               4     Import          CHL         ARG
+## 967  1962               4     Import          CHL         BRA
+## 968  1962               4     Import          CHL         PER
+## 969  1962               3     Import          CHL         ARG
+## 970  1962               3     Export          CHL         ARG
+## 971  1962               3     Import          CHL         BRA
+## 972  1962               3     Import          CHL         PER
+## 973  1962               3     Export          CHL         PER
+## 974  1962               2     Import          CHL         ARG
+## 975  1962               2     Export          CHL         ARG
+## 976  1962               2     Import          CHL         BRA
+## 977  1962               2     Export          CHL         BRA
+## 978  1962               2     Import          CHL         PER
+## 979  1962               2     Export          CHL         PER
+## 980  1962               4     Import          CHL         PER
+## 981  1962               4     Import          CHL         ARG
+## 982  1962               4     Import          CHL         BRA
+## 983  1962               4     Import          CHL         PER
+## 984  1962               4     Import          CHL         ARG
+## 985  1962               2     Import          CHL         PER
+## 986  1962               4     Import          CHL         PER
+## 987  1962               3     Import          CHL         ARG
+## 988  1962               2     Import          CHL         ARG
+## 989  1962               2     Export          CHL         ARG
+## 990  1962               2     Import          CHL         BRA
+## 991  1962               2     Import          CHL         PER
+## 992  1962               2     Export          CHL         PER
+## 993  1962               4     Import          CHL         ARG
+## 994  1962               4     Import          CHL         BRA
+## 995  1962               4     Import          CHL         PER
+## 996  1962               4     Import          CHL         ARG
+## 997  1962               4     Import          CHL         BRA
+## 998  1962               4     Import          CHL         PER
+## 999  1962               4     Import          CHL         ARG
+## 1000 1962               4     Import          CHL         PER
+## 1001 1962               4     Export          CHL         PER
+## 1002 1962               4     Import          CHL         ARG
+## 1003 1962               4     Import          CHL         BRA
+## 1004 1962               4     Import          CHL         PER
+## 1005 1962               3     Import          CHL         ARG
+## 1006 1962               3     Import          CHL         BRA
+## 1007 1962               3     Export          CHL         PER
+## 1008 1962               3     Export          CHL         ARG
+## 1009 1962               3     Import          CHL         BRA
+## 1010 1962               3     Import          CHL         PER
+## 1011 1962               3     Export          CHL         PER
+## 1012 1962               4     Import          CHL         BRA
+## 1013 1962               4     Import          CHL         PER
+## 1014 1962               0     Import          CHL         ARG
+## 1015 1962               0     Export          CHL         ARG
+## 1016 1962               0     Import          CHL         BRA
+## 1017 1962               0     Export          CHL         BRA
+## 1018 1962               4     Import          CHL         ARG
+## 1019 1962               3     Export          CHL         ARG
+## 1020 1962               2     Import          CHL         ARG
+## 1021 1962               2     Export          CHL         ARG
+## 1022 1962               2     Import          CHL         BRA
+## 1023 1962               2     Export          CHL         BRA
+## 1024 1962               2     Import          CHL         PER
+## 1025 1962               2     Export          CHL         PER
+## 1026 1962               5     Export          CHL         ARG
+## 1027 1962               5     Export          CHL         PER
+## 1028 1962               3     Import          CHL         ARG
+## 1029 1962               3     Import          CHL         BRA
+## 1030 1962               3     Import          CHL         PER
+## 1031 1962               3     Import          CHL         ARG
+## 1032 1962               3     Export          CHL         ARG
+## 1033 1962               3     Import          CHL         PER
+## 1034 1962               5     Import          CHL         ARG
+## 1035 1962               1     Import          CHL         ARG
+## 1036 1962               1     Export          CHL         ARG
+## 1037 1962               1     Import          CHL         BRA
+## 1038 1962               1     Import          CHL         ARG
+## 1039 1962               1     Export          CHL         ARG
+## 1040 1962               1     Import          CHL         BRA
+## 1041 1962               1     Export          CHL         BRA
+## 1042 1962               1     Import          CHL         PER
+## 1043 1962               1     Export          CHL         PER
+## 1044 1962               4     Import          CHL         ARG
+## 1045 1962               4     Export          CHL         ARG
+## 1046 1962               2     Import          CHL         ARG
+## 1047 1962               2     Export          CHL         ARG
+## 1048 1962               2     Export          CHL         PER
+## 1049 1962               1     Import          CHL         ARG
+## 1050 1962               1     Export          CHL         ARG
+## 1051 1962               1     Import          CHL         BRA
+## 1052 1962               1     Export          CHL         BRA
+## 1053 1962               4     Import          CHL         PER
+## 1054 1962               4     Export          CHL         PER
+## 1055 1962               3     Import          CHL         ARG
+## 1056 1962               3     Import          CHL         BRA
+## 1057 1962               3     Import          CHL         PER
+## 1058 1962               4     Import          CHL         PER
+## 1059 1962               4     Import          CHL         ARG
+## 1060 1962               4     Import          CHL         PER
+## 1061 1962               4     Export          CHL         PER
+## 1062 1962               4     Import          CHL         PER
+## 1063 1962               5     Import          CHL         ARG
+## 1064 1962               4     Import          CHL         ARG
+## 1065 1962               4     Import          CHL         PER
+## 1066 1962               4     Import          CHL         BRA
+## 1067 1962               4     Import          CHL         PER
+## 1068 1962               4     Import          CHL         ARG
+## 1069 1962               4     Export          CHL         ARG
+## 1070 1962               4     Import          CHL         BRA
+## 1071 1962               4     Import          CHL         PER
+## 1072 1962               4     Import          CHL         ARG
+## 1073 1962               4     Import          CHL         BRA
+## 1074 1962               4     Import          CHL         ARG
+## 1075 1962               4     Import          CHL         BRA
+## 1076 1962               4     Import          CHL         PER
+## 1077 1962               4     Import          CHL         ARG
+## 1078 1962               4     Export          CHL         ARG
+## 1079 1962               4     Import          CHL         BRA
+## 1080 1962               5     Import          CHL         ARG
+## 1081 1962               5     Export          CHL         ARG
+## 1082 1962               4     Import          CHL         ARG
+## 1083 1962               5     Import          CHL         ARG
+## 1084 1962               4     Export          CHL         ARG
+## 1085 1962               4     Export          CHL         BRA
+## 1086 1962               4     Import          CHL         PER
+## 1087 1962               4     Export          CHL         PER
+## 1088 1962               4     Import          CHL         ARG
+## 1089 1962               4     Import          CHL         BRA
+## 1090 1962               3     Import          CHL         ARG
+## 1091 1962               5     Export          CHL         ARG
+## 1092 1962               5     Export          CHL         BRA
+## 1093 1962               4     Export          CHL         ARG
+## 1094 1962               4     Import          CHL         ARG
+## 1095 1962               3     Export          CHL         ARG
+## 1096 1962               4     Export          CHL         ARG
+## 1097 1962               3     Import          CHL         ARG
+## 1098 1962               3     Export          CHL         PER
+## 1099 1962               3     Export          CHL         ARG
+## 1100 1962               3     Export          CHL         BRA
+## 1101 1962               3     Import          CHL         PER
+## 1102 1962               3     Import          CHL         ARG
+## 1103 1962               3     Import          CHL         BRA
+## 1104 1962               3     Import          CHL         PER
+## 1105 1962               2     Import          CHL         ARG
+## 1106 1962               2     Export          CHL         ARG
+## 1107 1962               3     Import          CHL         ARG
+## 1108 1962               3     Import          CHL         BRA
+## 1109 1962               3     Export          CHL         ARG
+## 1110 1962               3     Import          CHL         PER
+## 1111 1962               3     Export          CHL         PER
+## 1112 1962               4     Import          CHL         PER
+## 1113 1962               2     Import          CHL         PER
+## 1114 1962               2     Export          CHL         PER
+## 1115 1962               3     Import          CHL         ARG
+## 1116 1962               3     Export          CHL         ARG
+## 1117 1962               3     Import          CHL         BRA
+## 1118 1962               3     Import          CHL         PER
+## 1119 1962               3     Export          CHL         PER
+## 1120 1962               5     Import          CHL         ARG
+## 1121 1962               5     Import          CHL         ARG
+## 1122 1962               5     Import          CHL         ARG
+## 1123 1962               3     Import          CHL         ARG
+## 1124 1962               3     Import          CHL         BRA
+## 1125 1962               3     Import          CHL         PER
+## 1126 1962               3     Import          CHL         ARG
+## 1127 1962               3     Import          CHL         BRA
+## 1128 1962               3     Import          CHL         PER
+## 1129 1962               3     Import          CHL         ARG
+## 1130 1962               3     Export          CHL         ARG
+## 1131 1962               3     Import          CHL         BRA
+## 1132 1962               3     Export          CHL         BRA
+## 1133 1962               3     Import          CHL         PER
+## 1134 1962               3     Export          CHL         PER
+## 1135 1962               3     Import          CHL         ARG
+## 1136 1962               3     Import          CHL         PER
+## 1137 1962               3     Import          CHL         ARG
+## 1138 1962               3     Import          CHL         BRA
+## 1139 1962               3     Import          CHL         PER
+## 1140 1962               3     Import          CHL         ARG
+## 1141 1962               3     Export          CHL         ARG
+## 1142 1962               3     Import          CHL         BRA
+## 1143 1962               3     Import          CHL         ARG
+## 1144 1962               3     Import          CHL         PER
+## 1145 1962               3     Export          CHL         PER
+## 1146 1962               3     Import          CHL         ARG
+## 1147 1962               3     Export          CHL         ARG
+## 1148 1962               3     Import          CHL         BRA
+## 1149 1962               3     Export          CHL         BRA
+## 1150 1962               3     Import          CHL         PER
+## 1151 1962               3     Export          CHL         PER
+## 1152 1962               3     Import          CHL         ARG
+## 1153 1962               3     Export          CHL         PER
+## 1154 1962               4     Import          CHL         ARG
+## 1155 1962               4     Import          CHL         ARG
+## 1156 1962               4     Import          CHL         ARG
+## 1157 1962               3     Export          CHL         BRA
+## 1158 1962               3     Import          CHL         PER
+## 1159 1962               3     Export          CHL         PER
+## 1160 1962               4     Import          CHL         ARG
+## 1161 1962               4     Export          CHL         ARG
+## 1162 1962               4     Export          CHL         BRA
+## 1163 1962               4     Export          CHL         PER
+## 1164 1962               4     Export          CHL         BRA
+## 1165 1962               4     Export          CHL         PER
+## 1166 1962               4     Import          CHL         PER
+## 1167 1962               4     Import          CHL         PER
+## 1168 1962               3     Import          CHL         BRA
+## 1169 1962               3     Import          CHL         PER
+## 1170 1962               4     Export          CHL         ARG
+## 1171 1962               4     Export          CHL         BRA
+## 1172 1962               2     Export          CHL         ARG
+## 1173 1962               3     Import          CHL         PER
+## 1174 1962               4     Import          CHL         PER
+## 1175 1962               2     Import          CHL         BRA
+## 1176 1962               3     Import          CHL         BRA
+## 1177 1962               5     Import          CHL         PER
+## 1178 1962               5     Export          CHL         PER
+## 1179 1962               3     Import          CHL         ARG
+## 1180 1962               3     Import          CHL         BRA
+## 1181 1962               5     Import          CHL         ARG
+## 1182 1962               4     Import          CHL         ARG
+## 1183 1962               4     Import          CHL         PER
+## 1184 1962               4     Export          CHL         PER
+## 1185 1962               2     Import          CHL         PER
+## 1186 1962               2     Import          CHL         PER
+## 1187 1962               2     Export          CHL         PER
+## 1188 1962               3     Import          CHL         ARG
+## 1189 1962               3     Import          CHL         PER
+## 1190 1962               4     Import          CHL         PER
+## 1191 1962               3     Import          CHL         ARG
+## 1192 1962               3     Import          CHL         BRA
+## 1193 1962               3     Import          CHL         PER
+## 1194 1962               4     Import          CHL         ARG
+## 1195 1962               4     Import          CHL         PER
+## 1196 1962               4     Import          CHL         ARG
+## 1197 1962               4     Export          CHL         ARG
+## 1198 1962               3     Import          CHL         PER
+## 1199 1962               4     Import          CHL         ARG
+## 1200 1962               4     Import          CHL         BRA
+## 1201 1962               4     Import          CHL         ARG
+## 1202 1962               4     Import          CHL         ARG
+## 1203 1962               4     Import          CHL         BRA
+## 1204 1962               4     Import          CHL         ARG
+## 1205 1962               4     Import          CHL         BRA
+## 1206 1962               4     Import          CHL         PER
+## 1207 1962               3     Import          CHL         PER
+## 1208 1962               3     Export          CHL         PER
+## 1209 1962               3     Import          CHL         ARG
+## 1210 1962               5     Import          CHL         ARG
+## 1211 1962               4     Import          CHL         ARG
+## 1212 1962               3     Import          CHL         ARG
+## 1213 1962               4     Import          CHL         ARG
+## 1214 1962               4     Import          CHL         ARG
+## 1215 1962               1     Import          CHL         ARG
+## 1216 1962               1     Export          CHL         ARG
+## 1217 1962               4     Export          CHL         PER
+## 1218 1962               4     Import          CHL         ARG
+## 1219 1962               3     Import          CHL         ARG
+## 1220 1962               4     Import          CHL         ARG
+## 1221 1962               3     Import          CHL         ARG
+## 1222 1962               3     Export          CHL         BRA
+## 1223 1962               4     Export          CHL         PER
+## 1224 1962               4     Export          CHL         ARG
+## 1225 1962               4     Import          CHL         ARG
+## 1226 1962               4     Import          CHL         BRA
+## 1227 1962               4     Import          CHL         PER
+## 1228 1962               4     Import          CHL         BRA
+## 1229 1962               5     Export          CHL         ARG
+## 1230 1962               5     Export          CHL         BRA
+## 1231 1962               5     Import          CHL         ARG
+## 1232 1962               2     Import          CHL         ARG
+## 1233 1962               2     Import          CHL         ARG
+## 1234 1962               2     Export          CHL         ARG
+## 1235 1962               2     Export          CHL         BRA
+## 1236 1962               3     Import          CHL         PER
+## 1237 1962               2     Import          CHL         PER
+## 1238 1962               2     Export          CHL         PER
+## 1239 1962               2     Export          CHL         ARG
+## 1240 1962               3     Import          CHL         BRA
+## 1241 1962               4     Export          CHL         ARG
+## 1242 1962               4     Import          CHL         BRA
+## 1243 1962               4     Import          CHL         PER
+## 1244 1962               3     Export          CHL         PER
+## 1245 1962               5     Import          CHL         PER
+## 1246 1962               3     Import          CHL         ARG
+## 1247 1962               3     Export          CHL         ARG
+## 1248 1962               3     Import          CHL         BRA
+## 1249 1962               4     Import          CHL         ARG
+## 1250 1962               3     Import          CHL         ARG
+## 1251 1962               4     Import          CHL         ARG
+## 1252 1962               3     Import          CHL         PER
+## 1253 1962               4     Import          CHL         PER
+## 1254 1962               4     Import          CHL         ARG
+## 1255 1962               4     Import          CHL         PER
+## 1256 1962               3     Import          CHL         ARG
+## 1257 1962               4     Export          CHL         PER
+## 1258 1962               3     Import          CHL         ARG
+## 1259 1962               3     Import          CHL         PER
+## 1260 1962               4     Import          CHL         PER
+## 1261 1962               4     Import          CHL         BRA
+## 1262 1962               4     Import          CHL         ARG
+## 1263 1962               4     Import          CHL         PER
+## 1264 1962               5     Import          CHL         PER
+## 1265 1962               3     Import          CHL         ARG
+## 1266 1962               3     Import          CHL         PER
+## 1267 1962               5     Import          CHL         ARG
+## 1268 1962               5     Import          CHL         PER
+## 1269 1962               3     Import          CHL         ARG
+## 1270 1962               3     Import          CHL         BRA
+## 1271 1962               5     Import          CHL         PER
+## 1272 1962               4     Import          CHL         ARG
+## 1273 1962               3     Export          CHL         ARG
+## 1274 1962               3     Export          CHL         BRA
+## 1275 1962               5     Import          CHL         PER
+## 1276 1962               3     Export          CHL         PER
+## 1277 1962               4     Import          CHL         PER
+## 1278 1962               3     Import          CHL         PER
+## 1279 1962               3     Export          CHL         PER
+## 1280 1962               4     Import          CHL         ARG
+## 1281 1962               4     Export          CHL         ARG
+## 1282 1962               4     Import          CHL         BRA
+## 1283 1962               4     Export          CHL         PER
+## 1284 1962               4     Import          CHL         ARG
+## 1285 1962               4     Import          CHL         BRA
+## 1286 1962               4     Import          CHL         ARG
+## 1287 1962               2     Import          CHL         ARG
+## 1288 1962               2     Export          CHL         ARG
+##      Commodity Code Trade Value (US$)
+## 1               071           2652104
+## 2               071             19205
+## 3              2218              1575
+## 4               265              7676
+## 5               265             35408
+## 6               265              2804
+## 7             29193             21675
+## 8                 3              4275
+## 9                 3             96410
+## 10                3           3364412
+## 11              513              3108
+## 12              513             42776
+## 13              513             66651
+## 14              513             49416
+## 15               53            761818
+## 16               53              5604
+## 17               53              9509
+## 18              514             48175
+## 19              514            629575
+## 20             5417             10604
+## 21              641              1104
+## 22              641           1039575
+## 23              641            603676
+## 24              641               504
+## 25              641            573575
+## 26              676              7604
+## 27             6822            154203
+## 28              693             31904
+## 29             7141               704
+## 30             7141              8104
+## 31              717              2304
+## 32              717            207304
+## 33              717              5608
+## 34              715              9004
+## 35              715              6104
+## 36             7173              2304
+## 37            71999             35205
+## 38            71999             15504
+## 39              725               804
+## 40              725              1508
+## 41              725               504
+## 42               81              3408
+## 43               04           3605635
+## 44               04              6004
+## 45               04            587452
+## 46               04             39051
+## 47             0452            328405
+## 48              072            234009
+## 49              072             12004
+## 50             0811               604
+## 51             2119             83304
+## 52             2119               804
+## 53              221              8905
+## 54              221              3004
+## 55              221              1575
+## 56              262            986313
+## 57              262             51809
+## 58             2762             62410
+## 59             2762              5575
+## 60              521             83375
+## 61               58              2004
+## 62              599             52622
+## 63              599               704
+## 64              599              1004
+## 65              599             10676
+## 66             6645              1004
+## 67             6645              4405
+## 68             6842             11008
+## 69             7191              3604
+## 70             8619              1408
+## 71              862              7705
+## 72              891               904
+## 73              891              1676
+## 74            89441             12804
+## 75             0483              3604
+## 76               01           4139035
+## 77               01             24450
+## 78               02            641817
+## 79               02             12205
+## 80             0460             12804
+## 81             0488              1705
+## 82             0544             20205
+## 83               06           1572012
+## 84               06           1046804
+## 85               06            956104
+## 86             0711           2652104
+## 87             0711             19205
+## 88             0751              2705
+## 89              081             30012
+## 90              112              4304
+## 91              112              4075
+## 92              112              9375
+## 93              112             17505
+## 94              112             45576
+## 95               22              8905
+## 96               22              3004
+## 97               22              1575
+## 98               24           2032150
+## 99               24             13813
+## 100              24             50427
+## 101             243           2032150
+## 102             243             11908
+## 103             243             50427
+## 104           24331           1629775
+## 105           24331              1304
+## 106           24331             10176
+## 107              25           2035476
+## 108              25            766775
+## 109              25            118175
+## 110            2628            327205
+## 111            2654             34904
+## 112             274              4804
+## 113             274             24276
+## 114            2813           1955476
+## 115              29            116404
+## 116              29             42427
+## 117              29             30450
+## 118              33             96410
+## 119              33           3364412
+## 120             421            137617
+## 121             533              3205
+## 122             533              9509
+## 123           53335              1304
+## 124              54             37913
+## 125              54              6575
+## 126              54              1604
+## 127            5541             15804
+## 128           61195               704
+## 129              62               675
+## 130            6321              3405
+## 131              64              1708
+## 132              64           1039575
+## 133              64            603676
+## 134             655             12804
+## 135             655               675
+## 136             662             16005
+## 137             662             10476
+## 138             662              2008
+## 139             662              8575
+## 140            6631              2804
+## 141             663             33104
+## 142             663              2804
+## 143             663              7112
+## 144              67               604
+## 145              67           1502026
+## 146              67             12309
+## 147              67             15575
+## 148              67             54541
+## 149              67             26328
+## 150              68               704
+## 151              68           2959426
+## 152              68          14049626
+## 153            6821           2614875
+## 154            6821          14049626
+## 155             684             11008
+## 156            6851             68505
+## 157           69221             11205
+## 158             698              1208
+## 159             698             21920
+## 160             698              6375
+## 161               7            633821
+## 162               7            960828
+## 163               7            357188
+## 164               7             15326
+## 165               7           1313416
+## 166               7            115379
+## 167             711              3004
+## 168             711              3075
+## 169             711              2476
+## 170             712             11104
+## 171             712               675
+## 172             712              2308
+## 173             714             13909
+## 174             714              8104
+## 175             719             92129
+## 176             719              8075
+## 177             719             96427
+## 178             719            259830
+## 179            7199             15308
+## 180            7199             37009
+## 181            7199             18808
+## 182             812              3408
+## 183              82              4708
+## 184              82              4708
+## 185              82             78009
+## 186              84              5208
+## 187             851              1205
+## 188              86             49322
+## 189              86             12509
+## 190              86              4104
+## 191             861              1408
+## 192             861             12509
+## 193             861              4104
+## 194            8641               504
+## 195           89143              1905
+## 196             892           2449319
+## 197             892              9275
+## 198             892             31609
+## 199             894              3708
+## 200             894               504
+## 201             894             12804
+## 202             895              1205
+## 203            8960               675
+## 204               9              7405
+## 205               9             35175
+## 206               9             11705
+## 207               9             27276
+## 208             931             19205
+## 209             931             74875
+## 210             931              7405
+## 211             931             35175
+## 212             931             11705
+## 213             931             27276
+## 214              94              1205
+## 215            9310             19205
+## 216            9310             74875
+## 217            9310              7405
+## 218            9310             35175
+## 219            9310             11705
+## 220            9310             27276
+## 221             941              1205
+## 222               0          35929876
+## 223               0           1245354
+## 224               0           6371750
+## 225               0           1240231
+## 226               0           1328677
+## 227               0           1506306
+## 228            0014              1604
+## 229            0512             34376
+## 230            0512              9504
+## 231            0519             74710
+## 232            0519             96951
+## 233             054             31005
+## 234             054            656226
+## 235             054            177352
+## 236             054             55913
+## 237             054            148450
+## 238             055             10909
+## 239             055              1375
+## 240             055              1104
+## 241             055              7275
+## 242             055             88426
+## 243            0555             73051
+## 244            2433           1629775
+## 245            2433              1304
+## 246            2433             10851
+## 247             629               675
+## 248             629             27205
+## 249           65321              5604
+## 250           66231             10476
+## 251           66231              8575
+## 252            6635             33104
+## 253             682               704
+## 254             682           2959426
+## 255             682          14049626
+## 256             682            154203
+## 257           68225             66175
+## 258              72            477955
+## 259              72             10251
+## 260              72             25139
+## 261              72             52730
+## 262              72             38252
+## 263           82103               604
+## 264           82103               604
+## 265           82103             12705
+## 266            8617             10804
+## 267           86194               804
+## 268             899               504
+## 269             271            297075
+## 270             271            916676
+## 271             271            230205
+## 272             271            277476
+## 273            2741              4804
+## 274            2741             24276
+## 275             012              2604
+## 276             032              1976
+## 277             044             15504
+## 278             044              6004
+## 279           04601             12804
+## 280            0520              2051
+## 281            0520             96150
+## 282            0539               804
+## 283            0539              2705
+## 284            0539            534676
+## 285            0741              3104
+## 286            0741             12304
+## 287            0741             12304
+## 288              11             39415
+## 289              11             45576
+## 290               2          17170856
+## 291               2            472804
+## 292              26            986313
+## 293              26              7676
+## 294              26            117812
+## 295              26          16838622
+## 296            2929              2976
+## 297            3321             96410
+## 298            3321           3274108
+## 299            4314             52404
+## 300              51              7112
+## 301              51            543177
+## 302              51              6304
+## 303              51            696226
+## 304              51             91225
+## 305              51            102426
+## 306            5333              9509
+## 307               6            526737
+## 308               6            793632
+## 309            6210              8108
+## 310             632             11017
+## 311             632              1476
+## 312           65403               504
+## 313              66             17126
+## 314              66             37146
+## 315              66             11450
+## 316              68            316631
+## 317              68            154203
+## 318             693               504
+## 319            7111              3504
+## 320            7122             11104
+## 321            7122               675
+## 322            7122               504
+## 323            7231              1905
+## 324            7231             31776
+## 325               8           2532597
+## 326               8             17725
+## 327               8             53248
+## 328               8            116859
+## 329               8             42554
+## 330            8972              7775
+## 331            8972              4176
+## 332              93              7405
+## 333              93             35175
+## 334              93             11705
+## 335              93             27276
+## 336           TOTAL          23973816
+## 337           TOTAL           3117604
+## 338            0819             25904
+## 339            0913           1813405
+## 340             686            110505
+## 341            7121              1804
+## 342            0541             31005
+## 343            0541            629575
+## 344            0541              6604
+## 345            0541              4275
+## 346            0752             18175
+## 347            0752             19175
+## 348           09904              1604
+## 349              52             83375
+## 350           58192              2004
+## 351           63272               604
+## 352           63272              1476
+## 353            6731              1405
+## 354            6731              5176
+## 355           67351              3405
+## 356           68221            330575
+## 357           68221             26776
+## 358           86198              4104
+## 359            0111           3794205
+## 360             042              5804
+## 361           11102             17705
+## 362            2631             82404
+## 363            2631          16747504
+## 364           33251             90304
+## 365              41            308908
+## 366              41             17475
+## 367              41              2504
+## 368           51284              1275
+## 369            6514              1205
+## 370           66311              2804
+## 371           72323              1405
+## 372           72323               804
+## 373           72998              1004
+## 374           72998               704
+## 375            7353            603804
+## 376            7353             54776
+## 377            0011          23836804
+## 378            0011              2775
+## 379            0133             21205
+## 380            0482            305476
+## 381            0513            112005
+## 382            0515              6575
+## 383            0742             50205
+## 384            0742           2404604
+## 385            2621              1004
+## 386            2911            116404
+## 387             321              4275
+## 388            3214              4275
+## 389            4215              6304
+## 390            5121              4004
+## 391            5121            449676
+## 392           51313               604
+## 393            5333              3205
+## 394             554             15804
+## 395           59955             10804
+## 396           63273              6104
+## 397           64211               604
+## 398           65121              2905
+## 399            6636              5804
+## 400            6715              8676
+## 401           67701               604
+## 402           67701              1304
+## 403             685             69910
+## 404           69603              2004
+## 405           69721              3604
+## 406            6984              2504
+## 407           72502               804
+## 408           72502               804
+## 409           72502               504
+## 410           72993              6775
+## 411            7317            903676
+## 412            7321              9804
+## 413            7321             35076
+## 414            7321             12705
+## 415            7321              3775
+## 416           89111              2405
+## 417           89111              1405
+## 418            8914              1905
+## 419            8914               675
+## 420           89523              1205
+## 421           89712               604
+## 422           89712               704
+## 423            9510              1705
+## 424            0121              2604
+## 425             025             12205
+## 426             041           3232104
+## 427            0430            281976
+## 428            0430             38376
+## 429           04882              1705
+## 430            0990              2208
+## 431             212             55475
+## 432            2623             48904
+## 433            5324            757205
+## 434            5324              5604
+## 435            5997             13205
+## 436            5997               704
+## 437           62104              3004
+## 438            6515               975
+## 439            6515             77076
+## 440            6556             12804
+## 441            6556               675
+## 442           66244              1504
+## 443            6665              1604
+## 444            6665              1705
+## 445            6665               804
+## 446            6735              3405
+## 447            7194              2205
+## 448            7194              2104
+## 449            7194              1405
+## 450            8122               804
+## 451            2632             36505
+## 452             514             13104
+## 453             514            101551
+## 454           54163              6905
+## 455           54163              6575
+## 456           69311             31904
+## 457           69311               504
+## 458           69606              5504
+## 459            7173            207304
+## 460            7173              5004
+## 461            7193             49404
+## 462           72995              5405
+## 463            7317              9075
+## 464            7321              2004
+## 465            7321              2275
+## 466           89111               904
+## 467            8930              4104
+## 468            8930              1176
+## 469            9410              1205
+## 470              95              1705
+## 471             052              2051
+## 472             052             96150
+## 473            6618              9909
+## 474           66392               604
+## 475           69894              7104
+## 476            2120             55475
+## 477            0250             12205
+## 478            0459              5705
+## 479            0459               675
+## 480           05209              1476
+## 481           05209             95475
+## 482             091           1813405
+## 483           11213              4075
+## 484           11213              9375
+## 485           24332               675
+## 486           27662             63404
+## 487            4229             34505
+## 488           43143             52404
+## 489           51369              1004
+## 490            5819              2004
+## 491            6324               904
+## 492           65561             12804
+## 493           65561               675
+## 494           66245               504
+## 495            6674              1004
+## 496             671              8676
+## 497           67311              1405
+## 498           67311              5176
+## 499            6743           1483176
+## 500            6743             15575
+## 501            6743              5405
+## 502            6743             12476
+## 503           67431           1483176
+## 504           67431             15575
+## 505           67431              5405
+## 506           67431             12476
+## 507            6748               875
+## 508            6748             22604
+## 509            6782              4905
+## 510             681             58404
+## 511            6922              2205
+## 512            6922             11205
+## 513            6923              6476
+## 514            6923              1604
+## 515            6923             17675
+## 516           69885              9604
+## 517           69887               904
+## 518             723               804
+## 519             723             31776
+## 520            7291               604
+## 521           72912               604
+## 522            7327             70005
+## 523           85101              1205
+## 524            8618              1705
+## 525           86182              1705
+## 526           89294               604
+## 527           89299              2604
+## 528           89299              3075
+## 529           89601               604
+## 530           89601               504
+## 531           89601               675
+## 532             951              1705
+## 533             045            334110
+## 534             045               675
+## 535            0612            188604
+## 536            2765              4610
+## 537             281           1955476
+## 538           53101               604
+## 539           66381               704
+## 540            7333             12104
+## 541            7333             39005
+## 542            8923              2705
+## 543            8923               504
+## 544           09906               604
+## 545           01189             31705
+## 546             043            281976
+## 547             043             38376
+## 548            0511              8804
+## 549            0511             31705
+## 550            0551              1375
+## 551            0551             15375
+## 552           05551              2504
+## 553           05551              1104
+## 554           05551              1176
+## 555            0611           1382304
+## 556            0611           1046804
+## 557            0611            956104
+## 558            1110             21910
+## 559           11213             45576
+## 560            2114             10004
+## 561            2211              8905
+## 562            2211              3004
+## 563            2658               504
+## 564            2658              2804
+## 565           29111            116404
+## 566            4111             17475
+## 567            4212               704
+## 568            4216            125505
+## 569           51212            449676
+## 570            5131             30208
+## 571            5133             19208
+## 572           51429             10275
+## 573           59951               804
+## 574           59971               704
+## 575            6512              2905
+## 576           65141              1205
+## 577            6624              2008
+## 578            6641              7705
+## 579            6641              5604
+## 580           67321             17975
+## 581           67321               804
+## 582            6747              6804
+## 583           67481               875
+## 584           67481             22604
+## 585           68111             58404
+## 586           68212           2614875
+## 587           68212          13982975
+## 588           68222             13976
+## 589           68222             57276
+## 590           68226               704
+## 591           68226              3976
+## 592           68421              9504
+## 593           69892              6375
+## 594           71942              2205
+## 595           71942              2104
+## 596           71942              1405
+## 597           72321               804
+## 598            7241              1905
+## 599            7241               604
+## 600            7341             20076
+## 601           86243              7705
+## 602           86411               504
+## 603           05199              1575
+## 604           05199             20705
+## 605           65151               975
+## 606           65151             77076
+## 607           66233             16005
+## 608            0440             15504
+## 609            0440              6004
+## 610           08119               604
+## 611           27693             57104
+## 612           41132              5804
+## 613           51225              1275
+## 614           51325              2104
+## 615           51325             60376
+## 616           51332               804
+## 617           66362              5804
+## 618            6861            110505
+## 619            7325             21005
+## 620           59953             23404
+## 621           59953             10676
+## 622           89141               675
+## 623            2652              7676
+## 624           07232             45705
+## 625            2116              9104
+## 626           68211             61776
+## 627            8945              1104
+## 628           27695               604
+## 629           68213              4875
+## 630           66413              7705
+## 631           66413              5604
+## 632           05195             54005
+## 633           27652              1905
+## 634           89913               504
+## 635           66182               504
+## 636             687             66804
+## 637           59957              1004
+## 638           95104              1705
+## 639            2712            277476
+## 640            6411           1039575
+## 641            6411            603676
+## 642            6411            573575
+## 643            0015             29804
+## 644            0015              1775
+## 645            0015              5304
+## 646            0015             16205
+## 647            0015             57375
+## 648              03             12827
+## 649              03               975
+## 650              03             12504
+## 651              03              2676
+## 652           68521              1405
+## 653           51226             28705
+## 654            0012            120505
+## 655            0012             11375
+## 656            0013             31205
+## 657            0112             81904
+## 658            0112             11375
+## 659           05171              3476
+## 660           05192             66375
+## 661           05203               575
+## 662           05203               675
+## 663            0723             45705
+## 664            2711            230205
+## 665            2761              1504
+## 666            0422              5804
+## 667             046             12804
+## 668             061           1570908
+## 669             061           1046804
+## 670             061            956104
+## 671             099              2208
+## 672           11101              4205
+## 673             023            615804
+## 674             024              1205
+## 675            0311               875
+## 676            0313              9976
+## 677            0517            506275
+## 678            0517              1804
+## 679            0517            443176
+## 680            0517             35151
+## 681            0535              2604
+## 682            0545              1775
+## 683            0545             19076
+## 684            0545             29104
+## 685            0555             10909
+## 686            0555              1104
+## 687            0555              7275
+## 688            0813              3504
+## 689            1121              4075
+## 690            2111            705804
+## 691            2432            402375
+## 692            2432             10604
+## 693            2432             39576
+## 694             251           2035476
+## 695             251            766775
+## 696             251            118175
+## 697            2769             86309
+## 698            2769             57104
+## 699             411            308908
+## 700             411             17475
+## 701             411              2504
+## 702              42            172122
+## 703            5132              2104
+## 704            5132             42776
+## 705            5132             66651
+## 706            5132               875
+## 707            5310               604
+## 708            5530              4205
+## 709            5530               975
+## 710             611               704
+## 711            6119               704
+## 712             621              8108
+## 713            6419               504
+## 714             654               504
+## 715            6540               504
+## 716            6623             16005
+## 717            6623             10476
+## 718            6639               604
+## 719            6651             15604
+## 720            6652              2705
+## 721            6652              1604
+## 722             667              1004
+## 723             674           1484051
+## 724             674             15575
+## 725             674             34813
+## 726             674             12476
+## 727            6811             58404
+## 728            6852              1405
+## 729             691              3304
+## 730            6972              3604
+## 731            8912              3405
+## 732            8912              1405
+## 733            8912              1676
+## 734           24321            402375
+## 735           24321             10604
+## 736           24321             39576
+## 737            2512           2035476
+## 738            2512            766775
+## 739            2512            118175
+## 740            2622            658104
+## 741            2622              2905
+## 742             022             24808
+## 743           03201             12504
+## 744           03202              1976
+## 745           03202               975
+## 746           03202              2676
+## 747           05172            506275
+## 748           05172              1804
+## 749           05172            443176
+## 750           05172             31675
+## 751             242              1905
+## 752           41139            303104
+## 753           41139              2504
+## 754            4213              5104
+## 755           51339             18404
+## 756            5136              1004
+## 757            5142             48175
+## 758            5142            629575
+## 759            5142             13104
+## 760            5142            101551
+## 761           51424             13104
+## 762            6415              1104
+## 763           65661              3905
+## 764           65691              1405
+## 765           65691              1604
+## 766           66183              9405
+## 767            6732             17975
+## 768            6732               804
+## 769           71931               804
+## 770           71931             38404
+## 771           71931             49404
+## 772           72491            397304
+## 773           72491              6304
+## 774           72492              3205
+## 775           72503               704
+## 776            7323            208804
+## 777           89211           1342804
+## 778           89211              4705
+## 779           89211              7905
+## 780            8952              1205
+## 781           05552              8405
+## 782           05552              7275
+## 783           05552             71875
+## 784           06201              1104
+## 785           27623             14905
+## 786           29291              2976
+## 787           51213              4004
+## 788           51223              6304
+## 789            5128              1275
+## 790           51322             42776
+## 791           51322              6275
+## 792           51322               875
+## 793            5415             20404
+## 794            5415              1604
+## 795           59978             13205
+## 796           59999              4405
+## 797           62105              5104
+## 798           66511             15604
+## 799           68422              1504
+## 800           69221              2205
+## 801           69231              6476
+## 802           69231              1604
+## 803           69231             17675
+## 804           69523              3705
+## 805           69523               804
+## 806           69523               804
+## 807           69524             73705
+## 808           69524               875
+## 809           69524              5804
+## 810           69524              2705
+## 811           69524              1875
+## 812           69711               604
+## 813            6983              1804
+## 814            6988             10508
+## 815            7142             13205
+## 816           71992              1304
+## 817           71992              1804
+## 818           71994              3304
+## 819            7232               804
+## 820            7232              1405
+## 821            7232               804
+## 822            7293               704
+## 823            7293              3476
+## 824            7293              1004
+## 825            7293              6476
+## 826           72951              2804
+## 827           73289              2504
+## 828           73289              1405
+## 829           82109              4104
+## 830           82109              4104
+## 831           82109             65304
+## 832           84112              2604
+## 833           86171             10804
+## 834           86197               604
+## 835           86309             39705
+## 836           89299              1905
+## 837           89442              2604
+## 838           89442               504
+## 839              00          24018316
+## 840              00             13150
+## 841              00              5304
+## 842              00              2775
+## 843              00             17809
+## 844              00             57375
+## 845            0138              3104
+## 846            0240              1205
+## 847            0320              1976
+## 848            0320               975
+## 849            0320             12504
+## 850            0320              2676
+## 851             051              8804
+## 852             051            543601
+## 853             051              1804
+## 854             051            443176
+## 855             051            227924
+## 856             051            515052
+## 857             053              3408
+## 858             053              2705
+## 859             053            534676
+## 860             062              1104
+## 861              07             53309
+## 862              07             18175
+## 863              07           5308025
+## 864              07             19175
+## 865              07             46218
+## 866             075             18175
+## 867             075              5004
+## 868             075             19175
+## 869             075              2705
+## 870              08             30012
+## 871               1              4304
+## 872               1              4075
+## 873               1              9375
+## 874               1             39415
+## 875               1             45576
+## 876            1124              4304
+## 877               2           2142879
+## 878               2           6375855
+## 879               2            120816
+## 880               2           1769376
+## 881              21            808216
+## 882              21             55475
+## 883              21               804
+## 884             211            808216
+## 885             211               804
+## 886              27            223041
+## 887              27            302650
+## 888              27            916676
+## 889              27            287309
+## 890              27            301752
+## 891             291            116404
+## 892             291             21675
+## 893            2919             21675
+## 894             292             42427
+## 895             292              8775
+## 896             292             30308
+## 897             292               875
+## 898            2925               675
+## 899            2925             27804
+## 900             512              4004
+## 901             512            452226
+## 902             512              6304
+## 903             512             28705
+## 904             531               604
+## 905             581              2004
+## 906              59             52622
+## 907              59               704
+## 908              59              1004
+## 909              59             10676
+## 910              61               704
+## 911            6291               675
+## 912            6291             27205
+## 913              63             11017
+## 914              63              1476
+## 915              65              3509
+## 916              65               975
+## 917              65              1104
+## 918              65             77076
+## 919              65             29435
+## 920              65               675
+## 921            6576              2104
+## 922            6576              1104
+## 923            6576               904
+## 924             661             11114
+## 925             661              2875
+## 926            6612              1205
+## 927            6612              1205
+## 928            6612              2875
+## 929            6638               704
+## 930            6664              1304
+## 931            6664               504
+## 932            6761              7604
+## 933             678              4705
+## 934             678             12810
+## 935              69            123839
+## 936              69              7351
+## 937              69              8816
+## 938            6911              3304
+## 939             695             77410
+## 940             695               875
+## 941             695              6608
+## 942             695              3509
+## 943             695              1875
+## 944            6952             77410
+## 945            6952               875
+## 946            6952              6608
+## 947            6952              3509
+## 948            6952              1875
+## 949            6960              7508
+## 950             697              3604
+## 951             697               604
+## 952            6971               604
+## 953              71            131454
+## 954              71             11825
+## 955              71            317939
+## 956              71              2476
+## 957              71            295255
+## 958            7115              3004
+## 959            7115              3075
+## 960            7115              2476
+## 961            7115             24005
+## 962            7151              9004
+## 963            7151              6104
+## 964            7221             13705
+## 965            7221             45505
+## 966            7249            400509
+## 967            7249              6304
+## 968            7249              3705
+## 969             729              5116
+## 970             729             10251
+## 971             729              6109
+## 972             729              1608
+## 973             729              6476
+## 974              73             24412
+## 975              73            938752
+## 976              73             14110
+## 977              73             12850
+## 978              73            965431
+## 979              73             77127
+## 980            8123              2604
+## 981            8210              4708
+## 982            8210              4708
+## 983            8210             78009
+## 984            8411              5208
+## 985              85              1205
+## 986            8510              1205
+## 987             864               504
+## 988              89           2473359
+## 989              89             17725
+## 990              89             36031
+## 991              89             30133
+## 992              89             42554
+## 993            8911              2405
+## 994            8911              1405
+## 995            8911               904
+## 996            8921           1342804
+## 997            8921              4705
+## 998            8921              7905
+## 999            8929              1905
+## 1000           8929              3208
+## 1001           8929              3075
+## 1002           8944              2604
+## 1003           8944               504
+## 1004           8944             12804
+## 1005            896               604
+## 1006            896               504
+## 1007            896               675
+## 1008            897              7775
+## 1009            897               604
+## 1010            897               704
+## 1011            897              4176
+## 1012           8971               604
+## 1013           8971               704
+## 1014          TOTAL          42823100
+## 1015          TOTAL          14854293
+## 1016          TOTAL           7115296
+## 1017          TOTAL          18512336
+## 1018           0134               704
+## 1019            031             10851
+## 1020             05             54126
+## 1021             05           1201202
+## 1022             05              5613
+## 1023             05            629854
+## 1024             05            283837
+## 1025             05           1382754
+## 1026          05193              1375
+## 1027          05193             30576
+## 1028            074             53309
+## 1029            074           2416908
+## 1030            074             12304
+## 1031            276            218237
+## 1032            276              5575
+## 1033            276             57104
+## 1034          27651              2705
+## 1035              4            481030
+## 1036              4             17475
+## 1037              4             54908
+## 1038              5            881478
+## 1039              5            634002
+## 1040              5             14216
+## 1041              5            696226
+## 1042              5            101738
+## 1043              5            114077
+## 1044           5416              6905
+## 1045           5416              6575
+## 1046             55             20009
+## 1047             55               875
+## 1048             55               975
+## 1049              6            195000
+## 1050              6           5519829
+## 1051              6             39355
+## 1052              6          14746628
+## 1053           6327              6708
+## 1054           6327              1476
+## 1055            665              2705
+## 1056            665              1604
+## 1057            665             15604
+## 1058           6942              1004
+## 1059           6989              1208
+## 1060           6989              7104
+## 1061           6989              6375
+## 1062           7172               604
+## 1063          71915              3604
+## 1064           7192              1304
+## 1065           7192             32005
+## 1066           7197              2705
+## 1067           7197              1104
+## 1068           7198             68904
+## 1069           7198              8075
+## 1070           7198             16205
+## 1071           7198            157104
+## 1072           7222             19804
+## 1073           7222              7104
+## 1074           7250               804
+## 1075           7250              1508
+## 1076           7250               504
+## 1077           7299              1608
+## 1078           7299              6775
+## 1079           7299              6109
+## 1080          27621             47505
+## 1081          27621              5575
+## 1082           2766             63404
+## 1083          27699             85705
+## 1084           2924             38776
+## 1085           2924              8775
+## 1086           2924              2504
+## 1087           2924               875
+## 1088           4113            308908
+## 1089           4113              2504
+## 1090            422             34505
+## 1091          51425             48175
+## 1092          51425            629575
+## 1093           5214             83375
+## 1094           5323               804
+## 1095            551               875
+## 1096           5511               875
+## 1097            553              4205
+## 1098            553               975
+## 1099            651               975
+## 1100            651             77076
+## 1101            651              4110
+## 1102            657              2104
+## 1103            657              1104
+## 1104            657               904
+## 1105             66             64636
+## 1106             66             10476
+## 1107            664              8709
+## 1108            664             10009
+## 1109            673             17975
+## 1110            673              5614
+## 1111            673              5176
+## 1112           6871             66804
+## 1113             69             41446
+## 1114             69             25925
+## 1115            692              2205
+## 1116            692              6476
+## 1117            692              1604
+## 1118            692             11205
+## 1119            692             17675
+## 1120          69893               704
+## 1121          69896               504
+## 1122          71999             14004
+## 1123            722             33509
+## 1124            722              7104
+## 1125            722             45505
+## 1126            724            403918
+## 1127            724              7108
+## 1128            724              4309
+## 1129            732             12308
+## 1130            732             35076
+## 1131            732             14110
+## 1132            732              3775
+## 1133            732            322622
+## 1134            732              2275
+## 1135            733             12104
+## 1136            733             39005
+## 1137            821              4708
+## 1138            821              4708
+## 1139            821             78009
+## 1140            891              7715
+## 1141            891               675
+## 1142            891              2810
+## 1143            893             10304
+## 1144            893              4104
+## 1145            893              1176
+## 1146            001          24018316
+## 1147            001             13150
+## 1148            001              5304
+## 1149            001              2775
+## 1150            001             17809
+## 1151            001             57375
+## 1152            011           4111418
+## 1153            011             24450
+## 1154           0113            203604
+## 1155           0221             19804
+## 1156           0222              5004
+## 1157            032               975
+## 1158            032             12504
+## 1159            032              2676
+## 1160           0410           3232104
+## 1161           0542             24876
+## 1162           0542            158276
+## 1163           0542            144175
+## 1164           1121              9375
+## 1165           1121             45576
+## 1166           1123             17505
+## 1167           2429              1905
+## 1168            263             82404
+## 1169            263          16784008
+## 1170           2712            297075
+## 1171           2712            916676
+## 1172             28           1955476
+## 1173            332           3364412
+## 1174           3325             90304
+## 1175             43             52404
+## 1176            431             52404
+## 1177          51311             29604
+## 1178          51425             91276
+## 1179            532            758009
+## 1180            532              5604
+## 1181          53331              3205
+## 1182           5995             35012
+## 1183           5995              1004
+## 1184           5995             10676
+## 1185             62             35313
+## 1186             64               504
+## 1187             64            573575
+## 1188            656              1405
+## 1189            656              5509
+## 1190           6566              3905
+## 1191            666              2908
+## 1192            666              1705
+## 1193            666              1308
+## 1194           6770               604
+## 1195           6770              1304
+## 1196           6822               704
+## 1197           6822            344551
+## 1198            694              1004
+## 1199           7193               804
+## 1200           7193             38404
+## 1201           7231             33804
+## 1202           7242              1504
+## 1203           7242               804
+## 1204           7328              2504
+## 1205           7328              1405
+## 1206           7328             20804
+## 1207            735            603804
+## 1208            735             54776
+## 1209            841              5208
+## 1210          84111              2604
+## 1211           8624              7705
+## 1212            863             39705
+## 1213           8630             39705
+## 1214           8930             10304
+## 1215              9             22115
+## 1216              9             74875
+## 1217           0111             13075
+## 1218           0118             31705
+## 1219            013             25013
+## 1220           0230            615804
+## 1221            048              5309
+## 1222            048            305476
+## 1223           0514            376375
+## 1224           0519              2950
+## 1225           0620              1104
+## 1226           0721            188304
+## 1227           0721             12004
+## 1228           0751              5004
+## 1229          07529             18175
+## 1230          07529             19175
+## 1231          08199             25904
+## 1232             09           1815613
+## 1233             11              4304
+## 1234             11              4075
+## 1235             11              9375
+## 1236            111             21910
+## 1237             29             30308
+## 1238             29               875
+## 1239             32              4275
+## 1240            332             96410
+## 1241           5122              1275
+## 1242           5122              6304
+## 1243           5122             28705
+## 1244            513               875
+## 1245          53332              8205
+## 1246            541             37913
+## 1247            541              6575
+## 1248            541              1604
+## 1249           5999              4405
+## 1250            642               604
+## 1251           6421               604
+## 1252            653              5604
+## 1253           6532              5604
+## 1254           6569              1405
+## 1255           6569              1604
+## 1256            661              1205
+## 1257           6623              8575
+## 1258            677               604
+## 1259            677              1304
+## 1260           6781              7905
+## 1261           6785              4705
+## 1262           6931             31904
+## 1263           6931               504
+## 1264          69421              1004
+## 1265            696              7508
+## 1266            711             27509
+## 1267          71921              1304
+## 1268          71921             32005
+## 1269            723             34608
+## 1270            723              3310
+## 1271          72491              3705
+## 1272           7295              2804
+## 1273            731            903676
+## 1274            731              9075
+## 1275          73289             20804
+## 1276            734             20076
+## 1277           8619              4104
+## 1278            892             11617
+## 1279            892             34851
+## 1280           8922           1101905
+## 1281           8922              9275
+## 1282           8922             26904
+## 1283           8922             31776
+## 1284           8960               604
+## 1285           8960               504
+## 1286           8991               504
+## 1287             93             19205
+## 1288             93             74875</code></pre>
 </div>
 <div id="clean-data" class="section level3">
-<h3><span class="header-section-number">2.3.5</span> Clean data</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(clean_file)) {</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">  clean_data &lt;-<span class="st"> </span>raw_data <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">    </span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">    </span><span class="kw">rename</span>(</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">      <span class="dt">trade_value_usd =</span> trade_value_us,</a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">      <span class="dt">product_code =</span> commodity_code</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">    ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="st">    </span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="st">    </span><span class="kw">filter</span>(aggregate_level <span class="op">%in%</span><span class="st"> </span>J) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="st">    </span><span class="kw">filter</span>(trade_flow <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Export&quot;</span>,<span class="st">&quot;Import&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="st">    </span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="st">    </span><span class="kw">filter</span>(</a>
-<a class="sourceLine" id="cb8-13" data-line-number="13">      <span class="op">!</span><span class="kw">is.na</span>(product_code),</a>
-<a class="sourceLine" id="cb8-14" data-line-number="14">      product_code <span class="op">!=</span><span class="st"> &quot;&quot;</span>,</a>
-<a class="sourceLine" id="cb8-15" data-line-number="15">      product_code <span class="op">!=</span><span class="st"> &quot; &quot;</span></a>
-<a class="sourceLine" id="cb8-16" data-line-number="16">    ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="st">    </span></a>
-<a class="sourceLine" id="cb8-18" data-line-number="18"><span class="st">    </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb8-19" data-line-number="19">      <span class="dt">reporter_iso =</span> <span class="kw">str_to_lower</span>(reporter_iso),</a>
-<a class="sourceLine" id="cb8-20" data-line-number="20">      <span class="dt">partner_iso =</span> <span class="kw">str_to_lower</span>(partner_iso)</a>
-<a class="sourceLine" id="cb8-21" data-line-number="21">    ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb8-22" data-line-number="22"><span class="st">    </span></a>
-<a class="sourceLine" id="cb8-23" data-line-number="23"><span class="st">    </span><span class="kw">filter</span>(</a>
-<a class="sourceLine" id="cb8-24" data-line-number="24">      reporter_iso <span class="op">%in%</span><span class="st"> </span>country_codes,</a>
-<a class="sourceLine" id="cb8-25" data-line-number="25">      partner_iso <span class="op">%in%</span><span class="st"> </span>country_codes</a>
-<a class="sourceLine" id="cb8-26" data-line-number="26">    )</a>
-<a class="sourceLine" id="cb8-27" data-line-number="27">  </a>
-<a class="sourceLine" id="cb8-28" data-line-number="28">  <span class="kw">save</span>(clean_data, <span class="dt">file =</span> clean_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)</a>
-<a class="sourceLine" id="cb8-29" data-line-number="29">  </a>
-<a class="sourceLine" id="cb8-30" data-line-number="30">  clean_data</a>
-<a class="sourceLine" id="cb8-31" data-line-number="31">} <span class="cf">else</span> {</a>
-<a class="sourceLine" id="cb8-32" data-line-number="32">  <span class="kw">load</span>(clean_file)</a>
-<a class="sourceLine" id="cb8-33" data-line-number="33">  </a>
-<a class="sourceLine" id="cb8-34" data-line-number="34">  clean_data</a>
-<a class="sourceLine" id="cb8-35" data-line-number="35">}</a></code></pre></div>
+<h3><span class="header-section-number">2.3.4</span> Clean data</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(clean_file)) {
+  clean_data &lt;-<span class="st"> </span>raw_data <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">clean_names</span>() <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">rename</span>(
+      <span class="dt">product_code =</span> commodity_code,
+      <span class="dt">trade_value_usd =</span> trade_value_us
+    ) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">filter</span>(aggregate_level <span class="op">%in%</span><span class="st"> </span>J) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">filter</span>(trade_flow <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Export&quot;</span>, <span class="st">&quot;Import&quot;</span>)) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">filter</span>(
+      <span class="op">!</span><span class="kw">is.na</span>(product_code),
+      product_code <span class="op">!=</span><span class="st"> &quot;&quot;</span>,
+      product_code <span class="op">!=</span><span class="st"> &quot; &quot;</span>
+    ) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">mutate</span>(
+      <span class="dt">reporter_iso =</span> <span class="kw">str_to_lower</span>(reporter_iso),
+      <span class="dt">partner_iso =</span> <span class="kw">str_to_lower</span>(partner_iso),
+
+      <span class="dt">reporter_iso =</span> <span class="kw">ifelse</span>(reporter_iso <span class="op">==</span><span class="st"> &quot;rou&quot;</span>, <span class="st">&quot;rom&quot;</span>, reporter_iso),
+      <span class="dt">partner_iso =</span> <span class="kw">ifelse</span>(partner_iso <span class="op">==</span><span class="st"> &quot;rou&quot;</span>, <span class="st">&quot;rom&quot;</span>, partner_iso)
+    ) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">filter</span>(
+      reporter_iso <span class="op">%in%</span><span class="st"> </span>country_codes,
+      partner_iso <span class="op">%in%</span><span class="st"> </span>country_codes
+    ) <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">as_tibble</span>()
+
+  <span class="kw">save</span>(clean_data, <span class="dt">file =</span> clean_file, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)
+
+  clean_data
+} <span class="cf">else</span> {
+  <span class="kw">load</span>(clean_file)
+
+  clean_data
+}</code></pre></div>
 <pre><code>## # A tibble: 468 x 7
 ##     year aggregate_level trade_flow reporter_iso partner_iso product_code
 ##    &lt;int&gt;           &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;       
@@ -394,44 +2895,47 @@ After symmetrization all observations are rounded to zero decimals.</p>
 ## # … with 458 more rows, and 1 more variable: trade_value_usd &lt;dbl&gt;</code></pre>
 </div>
 <div id="symmetric-clean-data" class="section level3">
-<h3><span class="header-section-number">2.3.6</span> Symmetric (clean) data</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="co"># Exports data ------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb10-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">exports &lt;-<span class="st"> </span>clean_data <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">  </span><span class="kw">filter</span>(trade_flow <span class="op">==</span><span class="st"> &quot;Export&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(reporter_iso, partner_iso, product_code, trade_value_usd) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-6" data-line-number="6"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trade_value_usd =</span> <span class="kw">ceiling</span>(trade_value_usd))</a>
-<a class="sourceLine" id="cb10-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8">exports_mirrored &lt;-<span class="st"> </span>clean_data <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-9" data-line-number="9"><span class="st">  </span><span class="kw">filter</span>(trade_flow <span class="op">==</span><span class="st"> &quot;Import&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-10" data-line-number="10"><span class="st">  </span><span class="kw">select</span>(reporter_iso, partner_iso, product_code, trade_value_usd) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb10-11" data-line-number="11"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trade_value_usd =</span> <span class="kw">ceiling</span>(trade_value_usd <span class="op">/</span><span class="st"> </span>cif_fob_rate))</a>
-<a class="sourceLine" id="cb10-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb10-13" data-line-number="13"><span class="co"># Reporter and Partner must be inverted</span></a>
-<a class="sourceLine" id="cb10-14" data-line-number="14"><span class="kw">colnames</span>(exports_mirrored) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;partner_iso&quot;</span>, <span class="st">&quot;reporter_iso&quot;</span>, <span class="st">&quot;product_code&quot;</span>, <span class="st">&quot;trade_value_usd&quot;</span>)</a>
-<a class="sourceLine" id="cb10-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb10-16" data-line-number="16">exports_conciliated &lt;-<span class="st"> </span>exports <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-17" data-line-number="17"><span class="st">      </span><span class="kw">full_join</span>(exports_mirrored, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;reporter_iso&quot;</span>, <span class="st">&quot;partner_iso&quot;</span>, <span class="st">&quot;product_code&quot;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-18" data-line-number="18"><span class="st">      </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-19" data-line-number="19"><span class="st">      </span><span class="kw">mutate</span>(<span class="dt">trade_value_usd =</span> <span class="kw">max</span>(trade_value_usd.x, trade_value_usd.y, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-20" data-line-number="20"><span class="st">      </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb10-21" data-line-number="21"><span class="st">      </span><span class="kw">select</span>(reporter_iso, partner_iso, product_code, trade_value_usd)</a>
-<a class="sourceLine" id="cb10-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb10-23" data-line-number="23">exports_conciliated</a></code></pre></div>
-<pre><code>## # A tibble: 468 x 4
-##    reporter_iso partner_iso product_code trade_value_usd
-##    &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                  &lt;dbl&gt;
-##  1 chl          per         2218                    1575
-##  2 chl          per         6822                  154203
-##  3 chl          arg         2762                    5575
-##  4 chl          arg         2813                 1955476
-##  5 chl          arg         6821                 2614875
-##  6 chl          bra         6821                14049626
-##  7 chl          per         8960                     675
-##  8 chl          arg         9310                   74875
-##  9 chl          bra         9310                   35175
-## 10 chl          per         9310                   27276
-## # … with 458 more rows</code></pre>
+<h3><span class="header-section-number">2.3.5</span> Symmetric (clean) data</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Exports data ------------------------------------------------------------</span>
+exports &lt;-<span class="st"> </span>clean_data <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(trade_flow <span class="op">==</span><span class="st"> &quot;Export&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(reporter_iso, partner_iso, product_code, trade_value_usd) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trade_value_usd =</span> <span class="kw">ceiling</span>(trade_value_usd))
+
+exports_mirrored &lt;-<span class="st"> </span>clean_data <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">filter</span>(trade_flow <span class="op">==</span><span class="st"> &quot;Import&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(reporter_iso, partner_iso, product_code, trade_value_usd) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trade_value_usd =</span> <span class="kw">ceiling</span>(trade_value_usd <span class="op">/</span><span class="st"> </span>cif_fob_rate))
+
+<span class="co"># Reporter and Partner must be inverted</span>
+<span class="kw">colnames</span>(exports_mirrored) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;partner_iso&quot;</span>, <span class="st">&quot;reporter_iso&quot;</span>, <span class="st">&quot;product_code&quot;</span>, <span class="st">&quot;trade_value_usd&quot;</span>)
+
+exports_conciliated &lt;-<span class="st"> </span>exports <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">full_join</span>(exports_mirrored, <span class="dt">by =</span> <span class="kw">c</span>(<span class="st">&quot;reporter_iso&quot;</span>, <span class="st">&quot;partner_iso&quot;</span>, <span class="st">&quot;product_code&quot;</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">rowwise</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trade_value_usd =</span> <span class="kw">max</span>(trade_value_usd.x, trade_value_usd.y, <span class="dt">na.rm =</span> T)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">product_code_parent =</span> <span class="kw">str_sub</span>(product_code, <span class="dv">1</span>, <span class="dv">4</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(reporter_iso, partner_iso, product_code_parent) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">parent_count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(reporter_iso, partner_iso, product_code, product_code_parent, parent_count, trade_value_usd)
+
+exports_conciliated</code></pre></div>
+<pre><code>## # A tibble: 468 x 6
+##    reporter_iso partner_iso product_code product_code_pa… parent_count
+##    &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;        &lt;chr&gt;                   &lt;int&gt;
+##  1 chl          per         2218         2218                        1
+##  2 chl          per         6822         6822                        1
+##  3 chl          arg         2762         2762                        1
+##  4 chl          arg         2813         2813                        1
+##  5 chl          arg         6821         6821                        1
+##  6 chl          bra         6821         6821                        1
+##  7 chl          per         8960         8960                        1
+##  8 chl          arg         9310         9310                        1
+##  9 chl          bra         9310         9310                        1
+## 10 chl          per         9310         9310                        1
+## # … with 458 more rows, and 1 more variable: trade_value_usd &lt;dbl&gt;</code></pre>
 </div>
 </div>
 <div id="github-repositories" class="section level2">
@@ -556,7 +3060,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))

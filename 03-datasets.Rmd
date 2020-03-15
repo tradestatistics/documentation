@@ -39,13 +39,13 @@ if (!file.exists(rda_countries)) {
   countries <- as_tibble(fromJSON(
     "https://api.tradestatistics.io/countries"
   ))
-  
+
   save(countries, file = rda_countries, compress = "xz")
-  
+
   countries
 } else {
   load(rda_countries)
-  
+
   countries
 }
 
@@ -56,13 +56,13 @@ if (!file.exists(rda_products)) {
   products <- as_tibble(fromJSON(
     "https://api.tradestatistics.io/products"
   ))
-  
+
   save(products, file = rda_products, compress = "xz")
-  
+
   products
 } else {
   load(rda_products)
-  
+
   products
 }
 ```
@@ -74,26 +74,26 @@ Please notice that these tables include some aliases.
 ```{r, echo = FALSE}
 library(knitr)
 
-countries %>% 
-  filter(str_sub(country_iso, 1, 2) == "c-" | country_iso == "all") %>% 
-  select(country_iso, country_name_english) %>% 
+countries %>%
+  filter(str_sub(country_iso, 1, 2) == "c-" | country_iso == "all") %>%
+  select(country_iso, country_name_english) %>%
   rename(
     `Alias` = country_iso,
     `Meaning` = country_name_english
-  ) %>% 
+  ) %>%
   kable()
 ```
 
 `products` also includes some meta-codes, `xx` for the first two digits of a code and those digits are the product group and `all`, this is:
 
 ```{r, echo = FALSE}
-products %>% 
-  filter(str_length(product_code) %in% 2:3) %>% 
-  select(product_code, product_fullname_english) %>% 
+products %>%
+  filter(str_length(product_code) %in% 2:3) %>%
+  select(product_code, product_fullname_english) %>%
   rename(
     `Alias` = product_code,
     `Meaning` = product_fullname_english
-  ) %>% 
+  ) %>%
   kable()
 ```
 
@@ -125,7 +125,7 @@ The only applicable filter is by year.
 ```{r, warning=FALSE, message=FALSE, cache = TRUE}
 # Available reporters (filter by year)
 as_tibble(fromJSON(
-  "https://api.tradestatistics.io/reporters?y=2015"
+  "https://api.tradestatistics.io/reporters?y=2018"
 ))
 ```
 
@@ -144,19 +144,19 @@ if (!file.exists(rda_1962)) {
   yrpc_1 <- as_tibble(fromJSON(
     "https://api.tradestatistics.io/yrpc?y=1962&r=usa&p=all"
   ))
-  
+
   save(yrpc_1, file = rda_1962, compress = "xz")
-  
+
   yrpc_1
 } else {
   load(rda_1962)
-  
+
   yrpc_1
 }
 
 ## filter by product group (parameter `c`)
 yrpc_2 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrpc?y=2015&r=chl&p=arg&c=01"
+  "https://api.tradestatistics.io/yrpc?y=2018&r=chl&p=arg&c=01"
 ))
 
 yrpc_2
@@ -184,14 +184,14 @@ The only applicable filter is by year, reporter, product code and (optionally) p
 
 ## filter by reporter ISO (parameter `r`)
 yrc_1 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrc?y=2015&r=chl"
+  "https://api.tradestatistics.io/yrc?y=2018&r=chl"
 ))
 
 yrc_1
 
 ## filter by reporter alias (also parameter `r`)
 yrc_2 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrc?y=2015&r=c-am"
+  "https://api.tradestatistics.io/yrc?y=2018&r=c-am"
 ))
 
 yrc_2
@@ -206,7 +206,7 @@ The only applicable filter is by year, reporter and partner.
 ```{r, warning=FALSE, message=FALSE, cache = TRUE}
 # Year - Reporter - Partner (filter by year, reporter and partner)
 yrp <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrp?y=2015&r=chl&p=arg"
+  "https://api.tradestatistics.io/yrp?y=2018&r=chl&p=arg"
 ))
 ```
 
@@ -217,7 +217,7 @@ The only applicable filter is by year, product and (optionally) product code len
 ```{r, warning=FALSE, message=FALSE, cache = TRUE}
 # Year - Product Code (filter by year)
 yc <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yc?y=2015&c=0101"
+  "https://api.tradestatistics.io/yc?y=2018&c=0101"
 ))
 ```
 
@@ -241,7 +241,7 @@ The only applicable filter is by year and reporter.
 ```{r, warning=FALSE, message=FALSE, cache = TRUE}
 ## Year - Reporter (filter by year and reporter)
 yr <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yr?y=2015&r=chl"
+  "https://api.tradestatistics.io/yr?y=2018&r=chl"
 ))
 ```
 
@@ -264,7 +264,7 @@ The only applicable filter is by year.
 ```{r, warning=FALSE, message=FALSE, cache = TRUE}
 # Country rankings (filter by year)
 country_rankings <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/country_rankings?y=2015"
+  "https://api.tradestatistics.io/country_rankings?y=2018"
 ))
 ```
 
@@ -275,7 +275,7 @@ The only applicable filter is by year.
 ```{r, warning=FALSE, message=FALSE, cache = TRUE}
 # Product rankings (filter by year)
 product_rankings <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/product_rankings?y=2015"
+  "https://api.tradestatistics.io/product_rankings?y=2018"
 ))
 ```
 

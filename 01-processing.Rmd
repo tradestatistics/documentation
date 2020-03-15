@@ -26,62 +26,29 @@ After symmetrization all observations are rounded to zero decimals.
 
 You can check the GitHub repository, but here we provide a simplified and commented example that reproduces the exact steps we performed to clean the data.
 
-Provided that Comtrade raw data cannot be redistributed, I'll limit the example to five reporters in the year 1962 (the first year with available data).
+Provided that Comtrade raw data cannot be redistributed, I'll limit the example to four countries in the year 1962 (the first year with available data).
     
 Let's define two files for the example:
 
 ```{r}
-raw_file <- "raw_data_1962_five_reporters.rda"
-clean_file <- "clean_data_1962_five_reporters.rda"
+raw_file <- "raw_data_1962_four_countries.rda"
+clean_file <- "clean_data_1962_four_countries.rda"
 ```
 
 ### Required packages
 
 ```{r, message=FALSE, warning=FALSE}
-library(data.table)
 library(dplyr)
 library(stringr)
 library(purrr)
 library(janitor)
 ```
 
-### Custom function to read data
-
-```{r}
-fread2 <- function(file, select = NULL, character = NULL, numeric = NULL) {
-  if(str_sub(file, start = -2) == "gz") {
-    d <- fread(
-      cmd = paste("zcat", file),
-      select = select,
-      colClasses = list(
-        character = character,
-        numeric = numeric
-      )
-    ) %>%
-      as_tibble() %>%
-      clean_names()
-  } else {
-    d <- fread(
-      input = file,
-      select = select,
-      colClasses = list(
-        character = character,
-        numeric = numeric
-      )
-    ) %>%
-      as_tibble() %>%
-      clean_names()
-  }
-  
-  return(d)
-}
-```
-
 ### CIF-FOB rate, commodity codes length and ISO codes
 
 ```{r}
 # CIF-FOB rate ------------------------------------------------------------
-    
+
 # See Anderson & van Wincoop, 2004, Hummels, 2006 and Gaulier & Zignago, 2010 about 8% rate consistency
 cif_fob_rate <- 1.08
 
@@ -90,13 +57,13 @@ cif_fob_rate <- 1.08
 J <- 4
 
 # ISO-3 codes -------------------------------------------------------------
-    
+
 load("../comtrade-codes/01-2-tidy-country-data/country-codes.RData")
-    
-country_codes <- country_codes %>% 
-  select(iso3_digit_alpha) %>% 
-  mutate(iso3_digit_alpha = str_to_lower(iso3_digit_alpha)) %>% 
-  filter(!iso3_digit_alpha %in% c("wld","null")) %>% 
+
+country_codes <- country_codes %>%
+  select(iso3_digit_alpha) %>%
+  mutate(iso3_digit_alpha = str_to_lower(iso3_digit_alpha)) %>%
+  filter(!iso3_digit_alpha %in% c("wld", "null")) %>%
   as_vector()
 ```
 
@@ -104,23 +71,19 @@ country_codes <- country_codes %>%
 
 ```{r}
 if (!file.exists(raw_file)) {
-  raw_data <- fread2(
-    "../yearly-datasets/01-raw-data/sitc-rev1/gz/type-C_r-ALL_ps-1962_freq-A_px-S1_pub-20050214_fmt-csv_ex-20151113.csv.gz",
-    select = c("Year", "Aggregate Level", "Trade Flow", "Reporter ISO", "Partner ISO", "Commodity Code", "Trade Value (US$)"),
-    character = "Commodity Code",
-    numeric = "Trade Value (US$)"
-  ) %>% 
+  raw_data <- readRDS("../yearly-datasets/01-raw-data/sitc-rev1/rds/type-C_r-ALL_ps-1962_freq-A_px-S1_pub-20050214_fmt-csv_ex-20151113.rds") %>%
+    select("Year", "Aggregate Level", "Trade Flow", "Reporter ISO", "Partner ISO", "Commodity Code", "Trade Value (US$)") %>%
     filter(
-      reporter_iso == "CHL",
-      partner_iso %in% c("ARG", "BRA", "PER")
+      `Reporter ISO` == "CHL",
+      `Partner ISO` %in% c("ARG", "BRA", "PER")
     )
-  
+
   save(raw_data, file = raw_file, compress = "xz")
-  
+
   raw_data
 } else {
   load(raw_file)
-  
+
   raw_data
 }
 ```
@@ -130,37 +93,37 @@ if (!file.exists(raw_file)) {
 ```{r}
 if (!file.exists(clean_file)) {
   clean_data <- raw_data %>%
-    
+    clean_names() %>%
     rename(
-      trade_value_usd = trade_value_us,
-      product_code = commodity_code
+      product_code = commodity_code,
+      trade_value_usd = trade_value_us
     ) %>%
-    
     filter(aggregate_level %in% J) %>%
-    filter(trade_flow %in% c("Export","Import")) %>%
-    
+    filter(trade_flow %in% c("Export", "Import")) %>%
     filter(
       !is.na(product_code),
       product_code != "",
       product_code != " "
     ) %>%
-    
     mutate(
       reporter_iso = str_to_lower(reporter_iso),
-      partner_iso = str_to_lower(partner_iso)
+      partner_iso = str_to_lower(partner_iso),
+
+      reporter_iso = ifelse(reporter_iso == "rou", "rom", reporter_iso),
+      partner_iso = ifelse(partner_iso == "rou", "rom", partner_iso)
     ) %>%
-    
     filter(
       reporter_iso %in% country_codes,
       partner_iso %in% country_codes
-    )
-  
+    ) %>%
+    as_tibble()
+
   save(clean_data, file = clean_file, compress = "xz")
-  
+
   clean_data
 } else {
   load(clean_file)
-  
+
   clean_data
 }
 ```
@@ -169,26 +132,29 @@ if (!file.exists(clean_file)) {
 
 ```{r}
 # Exports data ------------------------------------------------------------
-
 exports <- clean_data %>%
   filter(trade_flow == "Export") %>%
-  select(reporter_iso, partner_iso, product_code, trade_value_usd) %>% 
+  select(reporter_iso, partner_iso, product_code, trade_value_usd) %>%
   mutate(trade_value_usd = ceiling(trade_value_usd))
 
 exports_mirrored <- clean_data %>%
   filter(trade_flow == "Import") %>%
-  select(reporter_iso, partner_iso, product_code, trade_value_usd) %>% 
+  select(reporter_iso, partner_iso, product_code, trade_value_usd) %>%
   mutate(trade_value_usd = ceiling(trade_value_usd / cif_fob_rate))
 
 # Reporter and Partner must be inverted
 colnames(exports_mirrored) <- c("partner_iso", "reporter_iso", "product_code", "trade_value_usd")
 
 exports_conciliated <- exports %>%
-      full_join(exports_mirrored, by = c("reporter_iso", "partner_iso", "product_code")) %>%
-      rowwise() %>%
-      mutate(trade_value_usd = max(trade_value_usd.x, trade_value_usd.y, na.rm = T)) %>%
-      ungroup() %>%
-      select(reporter_iso, partner_iso, product_code, trade_value_usd)
+  full_join(exports_mirrored, by = c("reporter_iso", "partner_iso", "product_code")) %>%
+  rowwise() %>%
+  mutate(trade_value_usd = max(trade_value_usd.x, trade_value_usd.y, na.rm = T)) %>%
+  ungroup() %>%
+  mutate(product_code_parent = str_sub(product_code, 1, 4)) %>%
+  group_by(reporter_iso, partner_iso, product_code_parent) %>%
+  mutate(parent_count = n()) %>%
+  ungroup() %>%
+  select(reporter_iso, partner_iso, product_code, product_code_parent, parent_count, trade_value_usd)
 
 exports_conciliated
 ```
