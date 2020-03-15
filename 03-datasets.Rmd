@@ -295,10 +295,10 @@ Please check the [md5sums](https://docs.tradestatistics.io/direct-download/md5su
 library(readr)
 library(tidyr)
 
-files <- list.files("./docs/direct-download", pattern = "rds", full.names = TRUE)
-urls <- str_replace(files, "./docs/direct-download/", "https://docs.tradestatistics.io/direct-download/")
+files <- list.files("docs/direct-download", pattern = "rds", full.names = TRUE)
+urls <- str_replace(files, "docs/direct-download/", "https://docs.tradestatistics.io/direct-download/")
 
-md5sums <- read_fwf("./docs/direct-download/md5sums.txt", fwf_widths(c(32, 15), c("md5sum", "file"))) %>% mutate(file = str_trim(file))
+md5sums <- read_fwf("docs/direct-download/md5sums.txt", fwf_widths(c(32, 15), c("md5sum", "file"))) %>% mutate(file = str_trim(file))
 
 tibble(
   `Year` = paste0("[", 1962:2018, "](", urls, ")"),
