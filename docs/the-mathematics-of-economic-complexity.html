@@ -24,7 +24,7 @@
 <meta name="author" content="Pachá (Mauricio Vargas Sepúlveda)" />
 
 
-<meta name="date" content="2020-03-15" />
+<meta name="date" content="2020-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,7 +140,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.4" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-product-matrix"><i class="fa fa-check"></i><b>3.4</b> Country-product matrix</a></li>
 <li class="chapter" data-level="3.5" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#diversity-and-ubiquity"><i class="fa fa-check"></i><b>3.5</b> Diversity and Ubiquity</a></li>
 <li class="chapter" data-level="3.6" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#reflections-method"><i class="fa fa-check"></i><b>3.6</b> Reflections Method</a></li>
-<li class="chapter" data-level="3.7" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci"><i class="fa fa-check"></i><b>3.7</b> Economic Complexity Index (ECI)</a></li>
+<li class="chapter" data-level="3.7" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-complexity-index-cci"><i class="fa fa-check"></i><b>3.7</b> Country Complexity Index (CCI)</a></li>
 <li class="chapter" data-level="3.8" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci"><i class="fa fa-check"></i><b>3.8</b> Product Complexity Index (PCI)</a></li>
 <li class="chapter" data-level="3.9" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#eigenvalues-method"><i class="fa fa-check"></i><b>3.9</b> Eigenvalues method</a></li>
 <li class="chapter" data-level="3.10" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#fitness-method"><i class="fa fa-check"></i><b>3.10</b> Fitness method</a></li>
@@ -155,11 +155,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2.3" data-path="accesing-the-data.html"><a href="accesing-the-data.html#api-parameters"><i class="fa fa-check"></i><b>4.2.3</b> API parameters</a></li>
 <li class="chapter" data-level="4.2.4" data-path="accesing-the-data.html"><a href="accesing-the-data.html#available-reporters"><i class="fa fa-check"></i><b>4.2.4</b> Available reporters</a></li>
 <li class="chapter" data-level="4.2.5" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrpc-year-reporter-partner-and-product-code"><i class="fa fa-check"></i><b>4.2.5</b> YRPC (Year, Reporter, Partner and Product Code)</a></li>
-<li class="chapter" data-level="4.2.6" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrc-year-reporter-and-product-code"><i class="fa fa-check"></i><b>4.2.6</b> YRC (Year, Reporter and Product Code)</a></li>
-<li class="chapter" data-level="4.2.7" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrp-year-reporter-and-partner"><i class="fa fa-check"></i><b>4.2.7</b> YRP (Year, Reporter and Partner)</a></li>
-<li class="chapter" data-level="4.2.8" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yc-year-and-product-code"><i class="fa fa-check"></i><b>4.2.8</b> YC (Year and Product Code)</a></li>
-<li class="chapter" data-level="4.2.9" data-path="accesing-the-data.html"><a href="accesing-the-data.html#country-rankings"><i class="fa fa-check"></i><b>4.2.9</b> Country rankings</a></li>
-<li class="chapter" data-level="4.2.10" data-path="accesing-the-data.html"><a href="accesing-the-data.html#product-rankings"><i class="fa fa-check"></i><b>4.2.10</b> Product rankings</a></li>
+<li class="chapter" data-level="4.2.6" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrpc-ga-year---reporter---partner---product-code-group-code-aggregated"><i class="fa fa-check"></i><b>4.2.6</b> YRPC-GA (Year - Reporter - Partner - Product Code, Group Code Aggregated)</a></li>
+<li class="chapter" data-level="4.2.7" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrpc-ca-year---reporter---partner---product-code-community-code-aggregated"><i class="fa fa-check"></i><b>4.2.7</b> YRPC-CA (Year - Reporter - Partner - Product Code, Community Code Aggregated)</a></li>
+<li class="chapter" data-level="4.2.8" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrpc-gca-year---reporter---partner---product-code-group-code-and-community-code-aggregated"><i class="fa fa-check"></i><b>4.2.8</b> YRPC-GCA (Year - Reporter - Partner - Product Code, Group Code and Community Code Aggregated)</a></li>
+<li class="chapter" data-level="4.2.9" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrc-year-reporter-and-product-code"><i class="fa fa-check"></i><b>4.2.9</b> YRC (Year, Reporter and Product Code)</a></li>
+<li class="chapter" data-level="4.2.10" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrp-year-reporter-and-partner"><i class="fa fa-check"></i><b>4.2.10</b> YRP (Year, Reporter and Partner)</a></li>
+<li class="chapter" data-level="4.2.11" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yc-year-and-product-code"><i class="fa fa-check"></i><b>4.2.11</b> YC (Year and Product Code)</a></li>
+<li class="chapter" data-level="4.2.12" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yr-year-and-reporter"><i class="fa fa-check"></i><b>4.2.12</b> YR (Year and Reporter)</a></li>
+<li class="chapter" data-level="4.2.13" data-path="accesing-the-data.html"><a href="accesing-the-data.html#other-groupcommunity-aggregated-tables"><i class="fa fa-check"></i><b>4.2.13</b> Other group/community aggregated tables</a></li>
+<li class="chapter" data-level="4.2.14" data-path="accesing-the-data.html"><a href="accesing-the-data.html#country-rankings"><i class="fa fa-check"></i><b>4.2.14</b> Country rankings</a></li>
+<li class="chapter" data-level="4.2.15" data-path="accesing-the-data.html"><a href="accesing-the-data.html#product-rankings"><i class="fa fa-check"></i><b>4.2.15</b> Product rankings</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="accesing-the-data.html"><a href="accesing-the-data.html#r-package"><i class="fa fa-check"></i><b>4.3</b> R Package</a></li>
 <li class="chapter" data-level="4.4" data-path="accesing-the-data.html"><a href="accesing-the-data.html#dashboard-beta"><i class="fa fa-check"></i><b>4.4</b> Dashboard (beta)</a></li>
@@ -196,7 +201,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Our changes here consisted in expressing most of the original equations in terms of matrix and vectors. This is because if you use statistical software such as R, it’s more efficient to use linear algebra instead of other operations.</p>
 <div id="countries-not-included-in-rankings-and-indicators" class="section level2">
 <h2><span class="header-section-number">3.1</span> Countries not included in rankings and indicators</h2>
-<p>The curated data includes all the countries available from UN Comtrade data. However, RCA based calculations such as ECI, PCI and Proximity consider 128 countries studied in <span class="citation">[<a href="#ref-atlas2014">8</a>]</span> according to a selection process that includes both quality and quantity of data.</p>
+<p>The curated data includes all the countries available from UN Comtrade data. However, RCA based calculations such as CCI, PCI and Proximity consider 128 countries studied in <span class="citation">[<a href="#ref-atlas2014">8</a>]</span> according to a selection process that includes both quality and quantity of data.</p>
 <p>The full list of included countries is available <a href="https://github.com/tradestatistics/atlas-data/blob/master/2-scraped-tables/ranking-1-economic-complexity-index.csv">here</a>.</p>
 </div>
 <div id="revealed-comparative-advantage-rca" class="section level2">
@@ -282,12 +287,12 @@ and
 <p>In particular, the interpretation of the scores changes when considering odd or even iteration order <span class="math inline">\(n\)</span>, high-order iterations are difficult to interpret, and the process asymptotically converges to a trivial fixed point according to <span class="citation">[<a href="#ref-measuringcomplexity2015">9</a>]</span>.</p>
 <p>For the analysis we used <span class="math inline">\(n=19\)</span> to compute <span class="math inline">\(k_c\)</span> and <span class="math inline">\(n=20\)</span> to compute <span class="math inline">\(k_p\)</span>.</p>
 </div>
-<div id="economic-complexity-index-eci" class="section level2">
-<h2><span class="header-section-number">3.7</span> Economic Complexity Index (ECI)</h2>
-<p>From the <a href="the-mathematics-of-economic-complexity.html#reflections-method">3.6</a>, we define the Economic Complexity Index (ECI) exactly as in <span class="citation">[<a href="#ref-atlas2014">8</a>]</span>, this is:</p>
-<span class="math display" id="eq:eci">\[\begin{equation}
+<div id="country-complexity-index-cci" class="section level2">
+<h2><span class="header-section-number">3.7</span> Country Complexity Index (CCI)</h2>
+<p>From the <a href="the-mathematics-of-economic-complexity.html#reflections-method">3.6</a>, we define the Economic Complexity Index (CCI) exactly as in <span class="citation">[<a href="#ref-atlas2014">8</a>]</span>, this is:</p>
+<span class="math display" id="eq:cci">\[\begin{equation}
 \tag{3.12}
-ECI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}
+CCI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}
 \end{equation}\]</span>
 <p>Where</p>
 <ul>
@@ -298,7 +303,7 @@ ECI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}
 </div>
 <div id="product-complexity-index-pci" class="section level2">
 <h2><span class="header-section-number">3.8</span> Product Complexity Index (PCI)</h2>
-<p>Similar to the Economic Complexity Index (ECI), we define a Product Complexity Index (PCI) from <a href="the-mathematics-of-economic-complexity.html#reflections-method">3.6</a>. We define PCI as:</p>
+<p>Similar to the Economic Complexity Index (CCI), we define a Product Complexity Index (PCI) from <a href="the-mathematics-of-economic-complexity.html#reflections-method">3.6</a>. We define PCI as:</p>
 <span class="math display" id="eq:pci">\[\begin{equation}
 \tag{3.13}
 PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}
@@ -312,13 +317,13 @@ PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}
 </div>
 <div id="eigenvalues-method" class="section level2">
 <h2><span class="header-section-number">3.9</span> Eigenvalues method</h2>
-<p>An alternative to obtain the Economic Complexity Index from <a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci">3.7</a> is to take <a href="the-mathematics-of-economic-complexity.html#eq:Scp">(3.5)</a> and compute the eigenvector associated to the second largest eigenvalue of the matrix: <span class="math display">\[(S \oslash D) (S^t \oslash U)\]</span> Where <span class="math inline">\(\oslash\)</span> denotes element-wise division, <span class="math inline">\(d_{c,p} = k_c^{(0)}\)</span> and <span class="math inline">\(u_{p,c} = k_p^{(0)}\)</span>.</p>
+<p>An alternative to obtain the Economic Complexity Index from <a href="#economic-complexity-index-cci"><strong>??</strong></a> is to take <a href="the-mathematics-of-economic-complexity.html#eq:Scp">(3.5)</a> and compute the eigenvector associated to the second largest eigenvalue of the matrix: <span class="math display">\[(S \oslash D) (S^t \oslash U)\]</span> Where <span class="math inline">\(\oslash\)</span> denotes element-wise division, <span class="math inline">\(d_{c,p} = k_c^{(0)}\)</span> and <span class="math inline">\(u_{p,c} = k_p^{(0)}\)</span>.</p>
 <p>Analogously, the Product Complexity Index from <a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci">3.8</a> corresponds to the associated eigenvector of the second largest eigenvalue of the matrix: <span class="math display">\[(S^t \oslash U) (S \oslash D)\]</span></p>
-<p>The resulting vectors are standardized by taking <span class="math display">\[ECI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}\:, PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}\]</span> Where <span class="math inline">\(\mu_x\)</span> denotes the mean of <span class="math inline">\(x\)</span> and <span class="math inline">\(\sigma_x\)</span> denotes de standard deviation of <span class="math inline">\(x\)</span>.</p>
+<p>The resulting vectors are standardized by taking <span class="math display">\[CCI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}\:, PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}\]</span> Where <span class="math inline">\(\mu_x\)</span> denotes the mean of <span class="math inline">\(x\)</span> and <span class="math inline">\(\sigma_x\)</span> denotes de standard deviation of <span class="math inline">\(x\)</span>.</p>
 </div>
 <div id="fitness-method" class="section level2">
 <h2><span class="header-section-number">3.10</span> Fitness method</h2>
-<p>Another alternative to obtain the Economic Complexity Index from <a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci">3.7</a> and Product Complexity Index from <a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci">3.8</a> is to start with <span class="math inline">\(\vec{k}_{c}^{(0)} = \vec{1}\)</span> and <span class="math inline">\(\vec{k}_{p}^{(0)} = \vec{1}\)</span>. From that initial condition the next steps are to compute:</p>
+<p>Another alternative to obtain the Economic Complexity Index from <a href="#economic-complexity-index-cci"><strong>??</strong></a> and Product Complexity Index from <a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci">3.8</a> is to start with <span class="math inline">\(\vec{k}_{c}^{(0)} = \vec{1}\)</span> and <span class="math inline">\(\vec{k}_{p}^{(0)} = \vec{1}\)</span>. From that initial condition the next steps are to compute:</p>
 <span class="math display">\[\begin{equation}
 \vec{k}_c^{(n)} = S \hat{\vec{k}}_p^{(n-1)}\\
 \vec{k}_p^{(n)} = S^t \vec{\hat{k}}_c^{(n-1)}
@@ -334,7 +339,7 @@ In addition, each step of the method involves to divide the result of <span clas
 \tilde{\vec{k}}_c^{(n)} = \vec{k}_c^{(n)} / \mu_{\vec{k}_c^{(n)}}\\
 \tilde{\vec{k}}_p^{(n)} = \vec{k}_p^{(n)} / \mu_{\vec{k}_p^{(n)}}
 \end{equation}\]</span>
-<p>The resulting vectors are standardized by taking <span class="math display">\[ECI_c = \frac{v_c - \mu_{v}}{\sigma_{v}},\: PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}\]</span></p>
+<p>The resulting vectors are standardized by taking <span class="math display">\[CCI_c = \frac{v_c - \mu_{v}}{\sigma_{v}},\: PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}\]</span></p>
 </div>
 <div id="product-proximity" class="section level2">
 <h2><span class="header-section-number">3.11</span> Product Proximity</h2>

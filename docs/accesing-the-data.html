@@ -24,7 +24,7 @@
 <meta name="author" content="Pachá (Mauricio Vargas Sepúlveda)" />
 
 
-<meta name="date" content="2020-03-15" />
+<meta name="date" content="2020-03-21" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -140,7 +140,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.4" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-product-matrix"><i class="fa fa-check"></i><b>3.4</b> Country-product matrix</a></li>
 <li class="chapter" data-level="3.5" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#diversity-and-ubiquity"><i class="fa fa-check"></i><b>3.5</b> Diversity and Ubiquity</a></li>
 <li class="chapter" data-level="3.6" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#reflections-method"><i class="fa fa-check"></i><b>3.6</b> Reflections Method</a></li>
-<li class="chapter" data-level="3.7" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#economic-complexity-index-eci"><i class="fa fa-check"></i><b>3.7</b> Economic Complexity Index (ECI)</a></li>
+<li class="chapter" data-level="3.7" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#country-complexity-index-cci"><i class="fa fa-check"></i><b>3.7</b> Country Complexity Index (CCI)</a></li>
 <li class="chapter" data-level="3.8" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci"><i class="fa fa-check"></i><b>3.8</b> Product Complexity Index (PCI)</a></li>
 <li class="chapter" data-level="3.9" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#eigenvalues-method"><i class="fa fa-check"></i><b>3.9</b> Eigenvalues method</a></li>
 <li class="chapter" data-level="3.10" data-path="the-mathematics-of-economic-complexity.html"><a href="the-mathematics-of-economic-complexity.html#fitness-method"><i class="fa fa-check"></i><b>3.10</b> Fitness method</a></li>
@@ -155,11 +155,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2.3" data-path="accesing-the-data.html"><a href="accesing-the-data.html#api-parameters"><i class="fa fa-check"></i><b>4.2.3</b> API parameters</a></li>
 <li class="chapter" data-level="4.2.4" data-path="accesing-the-data.html"><a href="accesing-the-data.html#available-reporters"><i class="fa fa-check"></i><b>4.2.4</b> Available reporters</a></li>
 <li class="chapter" data-level="4.2.5" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrpc-year-reporter-partner-and-product-code"><i class="fa fa-check"></i><b>4.2.5</b> YRPC (Year, Reporter, Partner and Product Code)</a></li>
-<li class="chapter" data-level="4.2.6" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrc-year-reporter-and-product-code"><i class="fa fa-check"></i><b>4.2.6</b> YRC (Year, Reporter and Product Code)</a></li>
-<li class="chapter" data-level="4.2.7" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrp-year-reporter-and-partner"><i class="fa fa-check"></i><b>4.2.7</b> YRP (Year, Reporter and Partner)</a></li>
-<li class="chapter" data-level="4.2.8" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yc-year-and-product-code"><i class="fa fa-check"></i><b>4.2.8</b> YC (Year and Product Code)</a></li>
-<li class="chapter" data-level="4.2.9" data-path="accesing-the-data.html"><a href="accesing-the-data.html#country-rankings"><i class="fa fa-check"></i><b>4.2.9</b> Country rankings</a></li>
-<li class="chapter" data-level="4.2.10" data-path="accesing-the-data.html"><a href="accesing-the-data.html#product-rankings"><i class="fa fa-check"></i><b>4.2.10</b> Product rankings</a></li>
+<li class="chapter" data-level="4.2.6" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrpc-ga-year---reporter---partner---product-code-group-code-aggregated"><i class="fa fa-check"></i><b>4.2.6</b> YRPC-GA (Year - Reporter - Partner - Product Code, Group Code Aggregated)</a></li>
+<li class="chapter" data-level="4.2.7" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrpc-ca-year---reporter---partner---product-code-community-code-aggregated"><i class="fa fa-check"></i><b>4.2.7</b> YRPC-CA (Year - Reporter - Partner - Product Code, Community Code Aggregated)</a></li>
+<li class="chapter" data-level="4.2.8" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrpc-gca-year---reporter---partner---product-code-group-code-and-community-code-aggregated"><i class="fa fa-check"></i><b>4.2.8</b> YRPC-GCA (Year - Reporter - Partner - Product Code, Group Code and Community Code Aggregated)</a></li>
+<li class="chapter" data-level="4.2.9" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrc-year-reporter-and-product-code"><i class="fa fa-check"></i><b>4.2.9</b> YRC (Year, Reporter and Product Code)</a></li>
+<li class="chapter" data-level="4.2.10" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yrp-year-reporter-and-partner"><i class="fa fa-check"></i><b>4.2.10</b> YRP (Year, Reporter and Partner)</a></li>
+<li class="chapter" data-level="4.2.11" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yc-year-and-product-code"><i class="fa fa-check"></i><b>4.2.11</b> YC (Year and Product Code)</a></li>
+<li class="chapter" data-level="4.2.12" data-path="accesing-the-data.html"><a href="accesing-the-data.html#yr-year-and-reporter"><i class="fa fa-check"></i><b>4.2.12</b> YR (Year and Reporter)</a></li>
+<li class="chapter" data-level="4.2.13" data-path="accesing-the-data.html"><a href="accesing-the-data.html#other-groupcommunity-aggregated-tables"><i class="fa fa-check"></i><b>4.2.13</b> Other group/community aggregated tables</a></li>
+<li class="chapter" data-level="4.2.14" data-path="accesing-the-data.html"><a href="accesing-the-data.html#country-rankings"><i class="fa fa-check"></i><b>4.2.14</b> Country rankings</a></li>
+<li class="chapter" data-level="4.2.15" data-path="accesing-the-data.html"><a href="accesing-the-data.html#product-rankings"><i class="fa fa-check"></i><b>4.2.15</b> Product rankings</a></li>
 </ul></li>
 <li class="chapter" data-level="4.3" data-path="accesing-the-data.html"><a href="accesing-the-data.html#r-package"><i class="fa fa-check"></i><b>4.3</b> R Package</a></li>
 <li class="chapter" data-level="4.4" data-path="accesing-the-data.html"><a href="accesing-the-data.html#dashboard-beta"><i class="fa fa-check"></i><b>4.4</b> Dashboard (beta)</a></li>
@@ -766,133 +771,141 @@ rda_products &lt;-<span class="st"> &quot;products.rda&quot;</span>
 </div>
 <div id="yrpc-year-reporter-partner-and-product-code" class="section level3">
 <h3><span class="header-section-number">4.2.5</span> YRPC (Year, Reporter, Partner and Product Code)</h3>
-<p>The applicable filters here are year, reporter, partner, product code and (optionally) product code length.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Partner - Product Code (filter by year, reporter and partner)</span>
+<p>The applicable filters here are year, reporter, partner and product code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Partner - Product Code</span>
 
-## file to store the query results
-rda_<span class="dv">1962</span> &lt;-<span class="st"> &quot;api_data_1962.rda&quot;</span>
-
-## filter by product code length (parameter `l`)
-<span class="cf">if</span> (<span class="op">!</span><span class="kw">file.exists</span>(rda_<span class="dv">1962</span>)) {
-  yrpc_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
-    <span class="st">&quot;https://api.tradestatistics.io/yrpc?y=1962&amp;r=usa&amp;p=all&quot;</span>
-  ))
-
-  <span class="kw">save</span>(yrpc_<span class="dv">1</span>, <span class="dt">file =</span> rda_<span class="dv">1962</span>, <span class="dt">compress =</span> <span class="st">&quot;xz&quot;</span>)
-
-  yrpc_<span class="dv">1</span>
-} <span class="cf">else</span> {
-  <span class="kw">load</span>(rda_<span class="dv">1962</span>)
-
-  yrpc_<span class="dv">1</span>
-}</code></pre></div>
-<pre><code>## # A tibble: 35,346 x 6
-##     year reporter_iso partner_iso product_code import_value_usd
-##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                   &lt;int&gt;
-##  1  1962 usa          zaf         7502                     2758
-##  2  1962 usa          zaf         7213                    76363
-##  3  1962 usa          zaf         7206                   143415
-##  4  1962 usa          zaf         7201                   189295
-##  5  1962 usa          zaf         7118                     6687
-##  6  1962 usa          zaf         7102                 22770831
-##  7  1962 usa          zaf         5105                   268857
-##  8  1962 usa          zaf         5102                    48423
-##  9  1962 usa          zaf         5101                 26275600
-## 10  1962 usa          zaf         4702                  2224566
-## # … with 35,336 more rows, and 1 more variable: export_value_usd &lt;int&gt;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## filter by product group (parameter `c`)
-yrpc_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
-  <span class="st">&quot;https://api.tradestatistics.io/yrpc?y=2018&amp;r=chl&amp;p=arg&amp;c=01&quot;</span>
+yrpc_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+  <span class="st">&quot;https://api.tradestatistics.io/yrpc?y=1962&amp;r=usa&amp;p=mex&amp;c=8703&quot;</span>
 ))
 
-yrpc_<span class="dv">2</span></code></pre></div>
-<pre><code>## # A tibble: 3 x 6
+yrpc_<span class="dv">1</span></code></pre></div>
+<pre><code>## # A tibble: 1 x 6
 ##    year reporter_iso partner_iso product_code export_value_usd
 ##   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                   &lt;int&gt;
-## 1  2018 chl          arg         0106                    15618
-## 2  2018 chl          arg         0102                   285000
-## 3  2018 chl          arg         0101                   156298
+## 1  1962 usa          mex         8703                 72334238
 ## # … with 1 more variable: import_value_usd &lt;int&gt;</code></pre>
-<p>Some columns requiere an explanation:</p>
+<p>Columns definition:</p>
 <ul>
-<li><code>product_code</code>: HS07 product codes (e.g. according to the  table within this package, 0101 stands for “Horses, etc.”)</li>
-<li><code>product_code_length</code>: How many digits does <code>product_code</code> contain, this can be useful to filter by depth when using HS codes (HS 6 digits is a more detailed version of HS 4 digits, and therefore you don’t have to sum both or you’ll be counting exports/imports twice)</li>
-<li><code>group_code</code>: International categorization of group products defined after product ID</li>
-<li><code>group_name</code>: English name corresponding to <code>group_id</code></li>
+<li><code>reporter_iso</code>: Official ISO-3 code for the reporter (e.g. the country that reports X dollars in exports/imports from/to country Y)</li>
+<li><code>partner_iso</code>: Official ISO-3 code for the partner</li>
+<li><code>product_code</code>: Official Harmonized System rev. 2007 (HS07) product code (e.g. according to the  table in the API, 8703 stands for “Motor cars and other motor vehicles; principally designed for the transport of persons (other than those of heading no. 8702), including station wagons and racing cars”)</li>
 <li><code>export_value_usd</code>: Exports measured in nominal United States Dollars (USD)</li>
 <li><code>import_value_usd</code>: Imports measured in nominal United States Dollars (USD)</li>
-<li><code>export_value_usd_percentage_change_1_year</code>: Nominal increase/decrease in exports measured as percentage with respect to last year</li>
-<li><code>export_value_usd_percentage_change_5_years</code>: Nominal increase/decrease in exports measured as percentage with respect to five years ago</li>
-<li><code>export_value_usd_change_1_year</code>: Nominal increase/decrease in exports measured in USD with respect to last year</li>
-<li><code>export_value_usd_change_5_years</code>: Nominal increase/decrease in exports measured in USD with respect to five years ago</li>
 </ul>
 </div>
+<div id="yrpc-ga-year---reporter---partner---product-code-group-code-aggregated" class="section level3">
+<h3><span class="header-section-number">4.2.6</span> YRPC-GA (Year - Reporter - Partner - Product Code, Group Code Aggregated)</h3>
+<p>The applicable filters here are year, reporter, partner and group code. Here the group code is just an aggregation over product code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Partner - Product Code, Group Code Aggregated</span>
+
+yrpc_ga &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+  <span class="st">&quot;https://api.tradestatistics.io/yrpc-ga?y=1962&amp;r=usa&amp;p=mex&amp;g=87&quot;</span>
+))
+
+yrpc_ga</code></pre></div>
+<pre><code>## # A tibble: 1 x 6
+##    year reporter_iso partner_iso group_code export_value_usd
+##   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                 &lt;int&gt;
+## 1  1962 usa          mex         87                136983479
+## # … with 1 more variable: import_value_usd &lt;int&gt;</code></pre>
+<p>Columns definition:</p>
+<ul>
+<li><code>group_code</code>: Official Harmonized System rev. 2007 (HS07) group code (e.g. according to the  table in the API, 87 stands for “Vehicles; other than railway or tramway rolling stock, and parts and accessories thereof”)</li>
+</ul>
+</div>
+<div id="yrpc-ca-year---reporter---partner---product-code-community-code-aggregated" class="section level3">
+<h3><span class="header-section-number">4.2.7</span> YRPC-CA (Year - Reporter - Partner - Product Code, Community Code Aggregated)</h3>
+<p>The applicable filters here are year, reporter, partner and community code. Here the community code is just an aggregation over both product code and group code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Partner - Product Code, Community Code Aggregated</span>
+
+yrpc_ca &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+  <span class="st">&quot;https://api.tradestatistics.io/yrpc-ca?y=1962&amp;r=usa&amp;p=mex&amp;o=17&quot;</span>
+))
+
+yrpc_ca</code></pre></div>
+<pre><code>## # A tibble: 1 x 6
+##    year reporter_iso partner_iso community_code export_value_usd
+##   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;                     &lt;int&gt;
+## 1  1962 usa          mex         17                    196732494
+## # … with 1 more variable: import_value_usd &lt;int&gt;</code></pre>
+<p>Columns definition:</p>
+<ul>
+<li><code>community_code</code>: Unofficial Harvard CID community code (e.g. according to the  table in the API, 17 stands for “Transportation”)</li>
+</ul>
+</div>
+<div id="yrpc-gca-year---reporter---partner---product-code-group-code-and-community-code-aggregated" class="section level3">
+<h3><span class="header-section-number">4.2.8</span> YRPC-GCA (Year - Reporter - Partner - Product Code, Group Code and Community Code Aggregated)</h3>
+<p>The applicable filters here are year, reporter, partner and community code. Here the community code is just an aggregation over both product code and group code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Partner - Product Code, Community Code Aggregated</span>
+
+yrpc_gca &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+  <span class="st">&quot;https://api.tradestatistics.io/yrpc-gca?y=1962&amp;r=usa&amp;p=mex&amp;o=17&quot;</span>
+))
+
+yrpc_gca</code></pre></div>
+<pre><code>## # A tibble: 4 x 7
+##    year reporter_iso partner_iso group_code community_code export_value_usd
+##   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;                     &lt;int&gt;
+## 1  1962 usa          mex         86         17                     26210502
+## 2  1962 usa          mex         87         17                    136983479
+## 3  1962 usa          mex         88         17                     28529998
+## 4  1962 usa          mex         89         17                      5008515
+## # … with 1 more variable: import_value_usd &lt;int&gt;</code></pre>
+</div>
 <div id="yrc-year-reporter-and-product-code" class="section level3">
-<h3><span class="header-section-number">4.2.6</span> YRC (Year, Reporter and Product Code)</h3>
+<h3><span class="header-section-number">4.2.9</span> YRC (Year, Reporter and Product Code)</h3>
 <p>The only applicable filter is by year, reporter, product code and (optionally) product code length.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Product Code (filter by year and reporter)</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Product Code</span>
 
-## filter by reporter ISO (parameter `r`)
-yrc_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
-  <span class="st">&quot;https://api.tradestatistics.io/yrc?y=2018&amp;r=chl&quot;</span>
+yrc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
+  <span class="st">&quot;https://api.tradestatistics.io/yrc?y=1962&amp;r=chl&quot;</span>
 ))
 
-yrc_<span class="dv">1</span></code></pre></div>
-<pre><code>## # A tibble: 1,212 x 7
+yrc</code></pre></div>
+<pre><code>## # A tibble: 912 x 7
 ##     year reporter_iso product_code export_value_usd import_value_usd
-##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;
-##  1  2018 chl          9999                573391778       1724350825
-##  2  2018 chl          9706                   547787          2489933
-##  3  2018 chl          9705                   359137           539346
-##  4  2018 chl          9704                      498            92045
-##  5  2018 chl          9703                  1490937          5487577
-##  6  2018 chl          9702                    55106           327203
-##  7  2018 chl          9701                  3599380          8467616
-##  8  2018 chl          9618                   145782          3549560
-##  9  2018 chl          9617                  7141588         25588384
-## 10  2018 chl          9616                    39793          5230789
-## # … with 1,202 more rows, and 2 more variables: export_rca &lt;dbl&gt;,
+##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                   &lt;int&gt;            &lt;int&gt;
+##  1  1962 chl          0101                   289076            50833
+##  2  1962 chl          0102                    17685         22167651
+##  3  1962 chl          0103                        0            32399
+##  4  1962 chl          0104                    12870           199519
+##  5  1962 chl          0105                        0           132064
+##  6  1962 chl          0106                    20259            10548
+##  7  1962 chl          0201                    13075          3520194
+##  8  1962 chl          0203                        0           275764
+##  9  1962 chl          0204                   387625            78528
+## 10  1962 chl          0206                    38106                0
+## # … with 902 more rows, and 2 more variables: export_rca &lt;dbl&gt;,
 ## #   import_rca &lt;dbl&gt;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## filter by reporter alias (also parameter `r`)
-yrc_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
-  <span class="st">&quot;https://api.tradestatistics.io/yrc?y=2018&amp;r=c-am&quot;</span>
-))
-
-yrc_<span class="dv">2</span></code></pre></div>
-<pre><code>## # A tibble: 45,962 x 7
-##     year reporter_iso product_code export_value_usd import_value_usd
-##    &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;
-##  1  2018 vgb          9999                  4797280        438897813
-##  2  2018 vgb          9706                     4312            17868
-##  3  2018 vgb          9705                  1369696             4096
-##  4  2018 vgb          9703                  4457371           614338
-##  5  2018 vgb          9702                        0             3351
-##  6  2018 vgb          9701                 11239573         22272348
-##  7  2018 vgb          9618                      806                0
-##  8  2018 vgb          9617                       14              378
-##  9  2018 vgb          9616                      212            71636
-## 10  2018 vgb          9615                      453               13
-## # … with 45,952 more rows, and 2 more variables: export_rca &lt;dbl&gt;,
-## #   import_rca &lt;dbl&gt;</code></pre>
-<p>Here the <code>export_rca*</code> and <code>import_rca*</code> fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>.</p>
+<p>Columns definition:</p>
+<ul>
+<li><code>export_rca</code>: Balassa Index or <a href="https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca">Revealed Comparative Advantage</a> of an exported product.</li>
+<li><code>import_rca</code>: Balassa Index or <a href="https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca">Revealed Comparative Advantage</a> of and imported product.</li>
+</ul>
 </div>
 <div id="yrp-year-reporter-and-partner" class="section level3">
-<h3><span class="header-section-number">4.2.7</span> YRP (Year, Reporter and Partner)</h3>
+<h3><span class="header-section-number">4.2.10</span> YRP (Year, Reporter and Partner)</h3>
 <p>The only applicable filter is by year, reporter and partner.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Partner (filter by year, reporter and partner)</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Reporter - Partner</span>
 yrp &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
   <span class="st">&quot;https://api.tradestatistics.io/yrp?y=2018&amp;r=chl&amp;p=arg&quot;</span>
-))</code></pre></div>
+))
+
+yrp</code></pre></div>
+<pre><code>## # A tibble: 1 x 5
+##    year reporter_iso partner_iso export_value_usd import_value_usd
+##   &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                  &lt;int&gt;            &lt;dbl&gt;
+## 1  2018 chl          arg                837640220       3768079208</code></pre>
 </div>
 <div id="yc-year-and-product-code" class="section level3">
-<h3><span class="header-section-number">4.2.8</span> YC (Year and Product Code)</h3>
+<h3><span class="header-section-number">4.2.11</span> YC (Year and Product Code)</h3>
 <p>The only applicable filter is by year, product and (optionally) product code length.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Product Code (filter by year)</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Year - Product Code</span>
 yc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
   <span class="st">&quot;https://api.tradestatistics.io/yc?y=2018&amp;c=0101&quot;</span>
-))</code></pre></div>
-<p>Let’s explore the first rows of <code>yr</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yc</code></pre></div>
+))
+
+yc</code></pre></div>
 <pre><code>## # A tibble: 1 x 14
 ##    year product_code export_value_usd import_value_usd pci_fitness_met…
 ##   &lt;int&gt; &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
@@ -902,51 +915,65 @@ yc &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="
 ## #   pci_eigenvalues_method &lt;dbl&gt;, pci_rank_eigenvalues_method &lt;int&gt;,
 ## #   top_exporter_iso &lt;chr&gt;, top_exporter_trade_value_usd &lt;int&gt;,
 ## #   top_importer_iso &lt;chr&gt;, top_importer_trade_value_usd &lt;int&gt;</code></pre>
-<p>Here some fields deserve an explanation:</p>
+<p>Columns definition:</p>
 <ul>
-<li><code>pci_4_digits_product_code</code>: Product Complexity Index (PCI) which is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>. This index is built by using just four digits product codes.</li>
-<li><code>pci_6_digits_product_code</code>: Similar to the previous field but built by using just six digits product codes.</li>
-<li><code>pci_rank_4_digits_product_code</code>: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)</li>
-<li><code>pci_rank_4_digits_product_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>
+<li><code>pci_fitness_method</code>: Product Complexity Index (PCI) computed by using the <a href="https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#fitness-method">Fitness Method</a>.</li>
+<li><code>pci_reflections_method</code>: Product Complexity Index (PCI) computed by using the <a href="https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#reflections-method">Reflections Method</a>.</li>
+<li><code>pci_eigenvalues_method</code>: Product Complexity Index (PCI) computed by using the <a href="https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#eigenvalues-method">Eigenvalues Method</a>.</li>
+<li><code>pci_rank_*_method</code>: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)</li>
 </ul>
-<div id="yr-year-and-reporter" class="section level4">
-<h4><span class="header-section-number">4.2.8.1</span> YR (Year and Reporter)</h4>
+</div>
+<div id="yr-year-and-reporter" class="section level3">
+<h3><span class="header-section-number">4.2.12</span> YR (Year and Reporter)</h3>
 <p>The only applicable filter is by year and reporter.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Year - Reporter (filter by year and reporter)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Year - Reporter
 yr &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
   <span class="st">&quot;https://api.tradestatistics.io/yr?y=2018&amp;r=chl&quot;</span>
-))</code></pre></div>
-<p>Let’s explore the first rows of <code>yr</code>:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">yr</code></pre></div>
+))
+
+yr</code></pre></div>
 <pre><code>## # A tibble: 1 x 14
-##    year reporter_iso export_value_usd import_value_usd eci_fitness_met…
+##    year reporter_iso export_value_usd import_value_usd cci_fitness_met…
 ##   &lt;int&gt; &lt;chr&gt;                   &lt;dbl&gt;            &lt;dbl&gt;            &lt;dbl&gt;
 ## 1  2018 chl               82917211883      83743442685            0.420
-## # … with 9 more variables: eci_rank_fitness_method &lt;int&gt;,
-## #   eci_reflections_method &lt;dbl&gt;, eci_rank_reflections_method &lt;int&gt;,
-## #   eci_eigenvalues_method &lt;dbl&gt;, eci_rank_eigenvalues_method &lt;int&gt;,
+## # … with 9 more variables: cci_rank_fitness_method &lt;int&gt;,
+## #   cci_reflections_method &lt;dbl&gt;, cci_rank_reflections_method &lt;int&gt;,
+## #   cci_eigenvalues_method &lt;dbl&gt;, cci_rank_eigenvalues_method &lt;int&gt;,
 ## #   top_export_product_code &lt;chr&gt;, top_export_trade_value_usd &lt;dbl&gt;,
 ## #   top_import_product_code &lt;chr&gt;, top_import_trade_value_usd &lt;dbl&gt;</code></pre>
-<p>Some fields here require more detail:</p>
+<p>Columns definition:</p>
 <ul>
-<li><code>eci_4_digits_product_code</code>: Economic Complexity Index (ECI) which is detailed on <a href="https://tradestatistics.github.io/documentation/">Open Trade Statistics Documentation</a>. This index is built by using just four digits product codes.</li>
-<li><code>eci_rank_4_digits_product_code</code>: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)</li>
-<li><code>eci_rank_4_digits_product_code_delta_1_year</code>: How many places a country increased or decreased with respect to last year</li>
+<li><code>cci_fitness_method</code>: Country Complexity Index (CCI) computed by using the <a href="https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#fitness-method">Fitness Method</a>.</li>
+<li><code>cci_reflections_method</code>: Country Complexity Index (CCI) computed by using the <a href="https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#reflections-method">Reflections Method</a>.</li>
+<li><code>cci_eigenvalues_method</code>: Country Complexity Index (CCI) computed by using the <a href="https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#eigenvalues-method">Eigenvalues Method</a>.</li>
+<li><code>cci_rank_*_method</code>: The rank of a product given its CCI (e.g. the highest CCI obtains the #1)</li>
 </ul>
 </div>
+<div id="other-groupcommunity-aggregated-tables" class="section level3">
+<h3><span class="header-section-number">4.2.13</span> Other group/community aggregated tables</h3>
+<p>As you might notice in <a href="https://api.tradestatistics.io/tables">api.tradestatistics.io/tables</a>, there are more tables:</p>
+<ul>
+<li>yrc-ga</li>
+<li>yrc-ca</li>
+<li>yrc-gca</li>
+<li>yr-short</li>
+<li>yr-ga</li>
+<li>yr-ca</li>
+</ul>
+<p>These tables follow the same parameters as the examples above.</p>
 </div>
 <div id="country-rankings" class="section level3">
-<h3><span class="header-section-number">4.2.9</span> Country rankings</h3>
+<h3><span class="header-section-number">4.2.14</span> Country rankings</h3>
 <p>The only applicable filter is by year.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Country rankings (filter by year)</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Country rankings</span>
 country_rankings &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
   <span class="st">&quot;https://api.tradestatistics.io/country_rankings?y=2018&quot;</span>
 ))</code></pre></div>
 </div>
 <div id="product-rankings" class="section level3">
-<h3><span class="header-section-number">4.2.10</span> Product rankings</h3>
+<h3><span class="header-section-number">4.2.15</span> Product rankings</h3>
 <p>The only applicable filter is by year.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Product rankings (filter by year)</span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Product rankings</span>
 product_rankings &lt;-<span class="st"> </span><span class="kw">as_tibble</span>(<span class="kw">fromJSON</span>(
   <span class="st">&quot;https://api.tradestatistics.io/product_rankings?y=2018&quot;</span>
 ))</code></pre></div>
@@ -955,6 +982,13 @@ product_rankings &lt;-<span class="st"> </span><span class="kw">as_tibble</span>
 <div id="r-package" class="section level2">
 <h2><span class="header-section-number">4.3</span> R Package</h2>
 <p>To ease API using, we provide an <a href="https://ropensci.github.io/tradestatistics/">R Package</a>. This package is a part of <a href="https://ropensci.org/">ROpenSci</a> and its documentation is available on a separate <a href="https://ropensci.github.io/tradestatistics/">pkgdown site</a>.</p>
+<p>Here’s what the package does:</p>
+<div class="figure"><span id="fig:unnamed-chunk-10"></span>
+<img src="fig/data-diagram.svg" alt="Data pipeline"  />
+<p class="caption">
+Figure 4.1: Data pipeline
+</p>
+</div>
 </div>
 <div id="dashboard-beta" class="section level2">
 <h2><span class="header-section-number">4.4</span> Dashboard (beta)</h2>

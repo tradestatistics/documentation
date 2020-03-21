@@ -295,79 +295,114 @@ as_tibble(fromJSON(
 
 ### YRPC (Year, Reporter, Partner and Product Code)
 
-The applicable filters here are year, reporter, partner, product code and (optionally) product code length.
+The applicable filters here are year, reporter, partner and product code.
 
 
 ```r
-# Year - Reporter - Partner - Product Code (filter by year, reporter and partner)
+# Year - Reporter - Partner - Product Code
 
-## file to store the query results
-rda_1962 <- "api_data_1962.rda"
-
-## filter by product code length (parameter `l`)
-if (!file.exists(rda_1962)) {
-  yrpc_1 <- as_tibble(fromJSON(
-    "https://api.tradestatistics.io/yrpc?y=1962&r=usa&p=all"
-  ))
-
-  save(yrpc_1, file = rda_1962, compress = "xz")
-
-  yrpc_1
-} else {
-  load(rda_1962)
-
-  yrpc_1
-}
-```
-
-```
-## # A tibble: 35,346 x 6
-##     year reporter_iso partner_iso product_code import_value_usd
-##    <int> <chr>        <chr>       <chr>                   <int>
-##  1  1962 usa          zaf         7502                     2758
-##  2  1962 usa          zaf         7213                    76363
-##  3  1962 usa          zaf         7206                   143415
-##  4  1962 usa          zaf         7201                   189295
-##  5  1962 usa          zaf         7118                     6687
-##  6  1962 usa          zaf         7102                 22770831
-##  7  1962 usa          zaf         5105                   268857
-##  8  1962 usa          zaf         5102                    48423
-##  9  1962 usa          zaf         5101                 26275600
-## 10  1962 usa          zaf         4702                  2224566
-## # … with 35,336 more rows, and 1 more variable: export_value_usd <int>
-```
-
-```r
-## filter by product group (parameter `c`)
-yrpc_2 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrpc?y=2018&r=chl&p=arg&c=01"
+yrpc_1 <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yrpc?y=1962&r=usa&p=mex&c=8703"
 ))
 
-yrpc_2
+yrpc_1
 ```
 
 ```
-## # A tibble: 3 x 6
+## # A tibble: 1 x 6
 ##    year reporter_iso partner_iso product_code export_value_usd
 ##   <int> <chr>        <chr>       <chr>                   <int>
-## 1  2018 chl          arg         0106                    15618
-## 2  2018 chl          arg         0102                   285000
-## 3  2018 chl          arg         0101                   156298
+## 1  1962 usa          mex         8703                 72334238
 ## # … with 1 more variable: import_value_usd <int>
 ```
 
-Some columns requiere an explanation:
+Columns definition:
 
-* `product_code`: HS07 product codes (e.g. according to the \code{products} table within this package, 0101 stands for "Horses, etc.")
-* `product_code_length`: How many digits does `product_code` contain, this can be useful to filter by depth when using HS codes (HS 6 digits is a more detailed version of HS 4 digits, and therefore you don't have to sum both or you'll be counting exports/imports twice)
-* `group_code`: International categorization of group products defined after product ID
-* `group_name`: English name corresponding to `group_id`
+* `reporter_iso`: Official ISO-3 code for the reporter (e.g. the country that reports X dollars in exports/imports from/to country Y)
+* `partner_iso`: Official ISO-3 code for the partner
+* `product_code`: Official Harmonized System rev. 2007 (HS07) product code (e.g. according to the \code{products} table in the API, 8703 stands for "Motor cars and other motor vehicles; principally designed for the transport of persons (other than those of heading no. 8702), including station wagons and racing cars")
 * `export_value_usd`: Exports measured in nominal United States Dollars (USD)
 * `import_value_usd`: Imports measured in nominal United States Dollars (USD)
-* `export_value_usd_percentage_change_1_year`: Nominal increase/decrease in exports measured as percentage with respect to last year
-* `export_value_usd_percentage_change_5_years`: Nominal increase/decrease in exports measured as percentage with respect to five years ago
-* `export_value_usd_change_1_year`: Nominal increase/decrease in exports measured in USD with respect to last year
-* `export_value_usd_change_5_years`: Nominal increase/decrease in exports measured in USD with respect to five years ago
+
+### YRPC-GA (Year - Reporter - Partner - Product Code, Group Code Aggregated)
+
+The applicable filters here are year, reporter, partner and group code. Here the group code is just an aggregation over product code.
+
+
+```r
+# Year - Reporter - Partner - Product Code, Group Code Aggregated
+
+yrpc_ga <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yrpc-ga?y=1962&r=usa&p=mex&g=87"
+))
+
+yrpc_ga
+```
+
+```
+## # A tibble: 1 x 6
+##    year reporter_iso partner_iso group_code export_value_usd
+##   <int> <chr>        <chr>       <chr>                 <int>
+## 1  1962 usa          mex         87                136983479
+## # … with 1 more variable: import_value_usd <int>
+```
+
+Columns definition:
+
+* `group_code`: Official Harmonized System rev. 2007 (HS07) group code (e.g. according to the \code{products} table in the API, 87 stands for "Vehicles; other than railway or tramway rolling stock, and parts and accessories thereof")
+
+### YRPC-CA (Year - Reporter - Partner - Product Code, Community Code Aggregated)
+
+The applicable filters here are year, reporter, partner and community code. Here the community code is just an aggregation over both product code and group code.
+
+
+```r
+# Year - Reporter - Partner - Product Code, Community Code Aggregated
+
+yrpc_ca <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yrpc-ca?y=1962&r=usa&p=mex&o=17"
+))
+
+yrpc_ca
+```
+
+```
+## # A tibble: 1 x 6
+##    year reporter_iso partner_iso community_code export_value_usd
+##   <int> <chr>        <chr>       <chr>                     <int>
+## 1  1962 usa          mex         17                    196732494
+## # … with 1 more variable: import_value_usd <int>
+```
+
+Columns definition:
+
+* `community_code`: Unofficial Harvard CID community code (e.g. according to the \code{communities} table in the API, 17 stands for "Transportation")
+
+### YRPC-GCA (Year - Reporter - Partner - Product Code, Group Code and Community Code Aggregated)
+
+The applicable filters here are year, reporter, partner and community code. Here the community code is just an aggregation over both product code and group code.
+
+
+```r
+# Year - Reporter - Partner - Product Code, Community Code Aggregated
+
+yrpc_gca <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yrpc-gca?y=1962&r=usa&p=mex&o=17"
+))
+
+yrpc_gca
+```
+
+```
+## # A tibble: 4 x 7
+##    year reporter_iso partner_iso group_code community_code export_value_usd
+##   <int> <chr>        <chr>       <chr>      <chr>                     <int>
+## 1  1962 usa          mex         86         17                     26210502
+## 2  1962 usa          mex         87         17                    136983479
+## 3  1962 usa          mex         88         17                     28529998
+## 4  1962 usa          mex         89         17                      5008515
+## # … with 1 more variable: import_value_usd <int>
+```
 
 ### YRC (Year, Reporter and Product Code)
 
@@ -375,62 +410,37 @@ The only applicable filter is by year, reporter, product code and (optionally) p
 
 
 ```r
-# Year - Reporter - Product Code (filter by year and reporter)
+# Year - Reporter - Product Code
 
-## filter by reporter ISO (parameter `r`)
-yrc_1 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrc?y=2018&r=chl"
+yrc <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yrc?y=1962&r=chl"
 ))
 
-yrc_1
+yrc
 ```
 
 ```
-## # A tibble: 1,212 x 7
+## # A tibble: 912 x 7
 ##     year reporter_iso product_code export_value_usd import_value_usd
-##    <int> <chr>        <chr>                   <dbl>            <dbl>
-##  1  2018 chl          9999                573391778       1724350825
-##  2  2018 chl          9706                   547787          2489933
-##  3  2018 chl          9705                   359137           539346
-##  4  2018 chl          9704                      498            92045
-##  5  2018 chl          9703                  1490937          5487577
-##  6  2018 chl          9702                    55106           327203
-##  7  2018 chl          9701                  3599380          8467616
-##  8  2018 chl          9618                   145782          3549560
-##  9  2018 chl          9617                  7141588         25588384
-## 10  2018 chl          9616                    39793          5230789
-## # … with 1,202 more rows, and 2 more variables: export_rca <dbl>,
+##    <int> <chr>        <chr>                   <int>            <int>
+##  1  1962 chl          0101                   289076            50833
+##  2  1962 chl          0102                    17685         22167651
+##  3  1962 chl          0103                        0            32399
+##  4  1962 chl          0104                    12870           199519
+##  5  1962 chl          0105                        0           132064
+##  6  1962 chl          0106                    20259            10548
+##  7  1962 chl          0201                    13075          3520194
+##  8  1962 chl          0203                        0           275764
+##  9  1962 chl          0204                   387625            78528
+## 10  1962 chl          0206                    38106                0
+## # … with 902 more rows, and 2 more variables: export_rca <dbl>,
 ## #   import_rca <dbl>
 ```
 
-```r
-## filter by reporter alias (also parameter `r`)
-yrc_2 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrc?y=2018&r=c-am"
-))
+Columns definition:
 
-yrc_2
-```
-
-```
-## # A tibble: 45,962 x 7
-##     year reporter_iso product_code export_value_usd import_value_usd
-##    <int> <chr>        <chr>                   <dbl>            <dbl>
-##  1  2018 vgb          9999                  4797280        438897813
-##  2  2018 vgb          9706                     4312            17868
-##  3  2018 vgb          9705                  1369696             4096
-##  4  2018 vgb          9703                  4457371           614338
-##  5  2018 vgb          9702                        0             3351
-##  6  2018 vgb          9701                 11239573         22272348
-##  7  2018 vgb          9618                      806                0
-##  8  2018 vgb          9617                       14              378
-##  9  2018 vgb          9616                      212            71636
-## 10  2018 vgb          9615                      453               13
-## # … with 45,952 more rows, and 2 more variables: export_rca <dbl>,
-## #   import_rca <dbl>
-```
-
-Here the `export_rca*` and `import_rca*` fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/).
+* `export_rca`:  Balassa Index or [Revealed Comparative Advantage](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca) of an exported product. 
+* `import_rca`:  Balassa Index or [Revealed Comparative Advantage](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca) of and imported product. 
 
 ### YRP (Year, Reporter and Partner)
 
@@ -438,10 +448,19 @@ The only applicable filter is by year, reporter and partner.
 
 
 ```r
-# Year - Reporter - Partner (filter by year, reporter and partner)
+# Year - Reporter - Partner
 yrp <- as_tibble(fromJSON(
   "https://api.tradestatistics.io/yrp?y=2018&r=chl&p=arg"
 ))
+
+yrp
+```
+
+```
+## # A tibble: 1 x 5
+##    year reporter_iso partner_iso export_value_usd import_value_usd
+##   <int> <chr>        <chr>                  <int>            <dbl>
+## 1  2018 chl          arg                837640220       3768079208
 ```
 
 ### YC (Year and Product Code)
@@ -450,16 +469,11 @@ The only applicable filter is by year, product and (optionally) product code len
 
 
 ```r
-# Year - Product Code (filter by year)
+# Year - Product Code
 yc <- as_tibble(fromJSON(
   "https://api.tradestatistics.io/yc?y=2018&c=0101"
 ))
-```
 
-Let's explore the first rows of `yr`:
-
-
-```r
 yc
 ```
 
@@ -475,49 +489,58 @@ yc
 ## #   top_importer_iso <chr>, top_importer_trade_value_usd <int>
 ```
 
-Here some fields deserve an explanation:
+Columns definition:
 
-* `pci_4_digits_product_code`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits product codes.
-* `pci_6_digits_product_code`: Similar to the previous field but built by using just six digits product codes.
-* `pci_rank_4_digits_product_code`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
-* `pci_rank_4_digits_product_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+* `pci_fitness_method`: Product Complexity Index (PCI) computed by using the [Fitness Method](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#fitness-method).
+* `pci_reflections_method`: Product Complexity Index (PCI) computed by using the [Reflections Method](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#reflections-method).
+* `pci_eigenvalues_method`: Product Complexity Index (PCI) computed by using the [Eigenvalues Method](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#eigenvalues-method).
+* `pci_rank_*_method`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
 
-#### YR (Year and Reporter)
+### YR (Year and Reporter)
 
 The only applicable filter is by year and reporter.
 
 
 ```r
-## Year - Reporter (filter by year and reporter)
+## Year - Reporter
 yr <- as_tibble(fromJSON(
   "https://api.tradestatistics.io/yr?y=2018&r=chl"
 ))
-```
 
-Let's explore the first rows of `yr`:
-
-
-```r
 yr
 ```
 
 ```
 ## # A tibble: 1 x 14
-##    year reporter_iso export_value_usd import_value_usd eci_fitness_met…
+##    year reporter_iso export_value_usd import_value_usd cci_fitness_met…
 ##   <int> <chr>                   <dbl>            <dbl>            <dbl>
 ## 1  2018 chl               82917211883      83743442685            0.420
-## # … with 9 more variables: eci_rank_fitness_method <int>,
-## #   eci_reflections_method <dbl>, eci_rank_reflections_method <int>,
-## #   eci_eigenvalues_method <dbl>, eci_rank_eigenvalues_method <int>,
+## # … with 9 more variables: cci_rank_fitness_method <int>,
+## #   cci_reflections_method <dbl>, cci_rank_reflections_method <int>,
+## #   cci_eigenvalues_method <dbl>, cci_rank_eigenvalues_method <int>,
 ## #   top_export_product_code <chr>, top_export_trade_value_usd <dbl>,
 ## #   top_import_product_code <chr>, top_import_trade_value_usd <dbl>
 ```
 
-Some fields here require more detail:
+Columns definition:
 
-* `eci_4_digits_product_code`: Economic Complexity Index (ECI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits product codes.
-* `eci_rank_4_digits_product_code`: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)
-* `eci_rank_4_digits_product_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+* `cci_fitness_method`: Country Complexity Index (CCI) computed by using the [Fitness Method](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#fitness-method).
+* `cci_reflections_method`: Country Complexity Index (CCI) computed by using the [Reflections Method](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#reflections-method).
+* `cci_eigenvalues_method`: Country Complexity Index (CCI) computed by using the [Eigenvalues Method](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#eigenvalues-method).
+* `cci_rank_*_method`: The rank of a product given its CCI (e.g. the highest CCI obtains the #1)
+
+### Other group/community aggregated tables
+
+As you might notice in [api.tradestatistics.io/tables](https://api.tradestatistics.io/tables), there are more tables:
+
+* yrc-ga
+* yrc-ca
+* yrc-gca
+* yr-short
+* yr-ga
+* yr-ca
+
+These tables follow the same parameters as the examples above.
 
 ### Country rankings
 
@@ -525,7 +548,7 @@ The only applicable filter is by year.
 
 
 ```r
-# Country rankings (filter by year)
+# Country rankings
 country_rankings <- as_tibble(fromJSON(
   "https://api.tradestatistics.io/country_rankings?y=2018"
 ))
@@ -537,7 +560,7 @@ The only applicable filter is by year.
 
 
 ```r
-# Product rankings (filter by year)
+# Product rankings
 product_rankings <- as_tibble(fromJSON(
   "https://api.tradestatistics.io/product_rankings?y=2018"
 ))
@@ -546,6 +569,13 @@ product_rankings <- as_tibble(fromJSON(
 ## R Package
 
 To ease API using, we provide an [R Package](https://ropensci.github.io/tradestatistics/). This package is a part of [ROpenSci](https://ropensci.org/) and its documentation is available on a separate [pkgdown site](https://ropensci.github.io/tradestatistics/).
+
+Here's what the package does:
+
+<div class="figure">
+<img src="fig/data-diagram.svg" alt="Data pipeline"  />
+<p class="caption">(\#fig:unnamed-chunk-10)Data pipeline</p>
+</div>
 
 ## Dashboard (beta)
 

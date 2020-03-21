@@ -6,7 +6,7 @@ Our changes here consisted in expressing most of the original equations in terms
 
 ## Countries not included in rankings and indicators
 
-The curated data includes all the countries available from UN Comtrade data. However, RCA based calculations such as ECI, PCI and Proximity consider 128 countries studied in [@atlas2014] according to a selection process that includes both quality and quantity of data.
+The curated data includes all the countries available from UN Comtrade data. However, RCA based calculations such as CCI, PCI and Proximity consider 128 countries studied in [@atlas2014] according to a selection process that includes both quality and quantity of data.
 
 
 
@@ -119,13 +119,13 @@ In particular, the interpretation of the scores changes when considering odd or 
 
 For the analysis we used $n=19$ to compute $k_c$ and $n=20$ to compute $k_p$.
 
-## Economic Complexity Index (ECI)
+## Country Complexity Index (CCI)
 
-From the \@ref(reflections-method), we define the Economic Complexity Index (ECI) exactly as in [@atlas2014], this is:
+From the \@ref(reflections-method), we define the Economic Complexity Index (CCI) exactly as in [@atlas2014], this is:
 
 \begin{equation}
-(\#eq:eci)
-ECI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}
+(\#eq:cci)
+CCI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}
 \end{equation}
 
 Where
@@ -136,7 +136,7 @@ Where
 
 ## Product Complexity Index (PCI)
 
-Similar to the Economic Complexity Index (ECI), we define a Product Complexity Index (PCI) from \@ref(reflections-method). We define PCI as:
+Similar to the Economic Complexity Index (CCI), we define a Product Complexity Index (PCI) from \@ref(reflections-method). We define PCI as:
 
 \begin{equation}
 (\#eq:pci)
@@ -151,7 +151,7 @@ Where
 
 ## Eigenvalues method
 
-An alternative to obtain the Economic Complexity Index from \@ref(economic-complexity-index-eci) is to take \@ref(eq:Scp) and compute the eigenvector associated to the second largest eigenvalue of the matrix:
+An alternative to obtain the Economic Complexity Index from \@ref(economic-complexity-index-cci) is to take \@ref(eq:Scp) and compute the eigenvector associated to the second largest eigenvalue of the matrix:
 $$(S \oslash D) (S^t \oslash U)$$
 Where $\oslash$ denotes element-wise division, $d_{c,p} = k_c^{(0)}$ and $u_{p,c} = k_p^{(0)}$.
 
@@ -159,12 +159,12 @@ Analogously, the Product Complexity Index from \@ref(product-complexity-index-pc
 $$(S^t \oslash U) (S \oslash D)$$
 
 The resulting vectors are standardized by taking
-$$ECI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}\:, PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}$$
+$$CCI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}\:, PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}$$
 Where $\mu_x$ denotes the mean of $x$ and $\sigma_x$ denotes de standard deviation of $x$.
 
 ## Fitness method
 
-Another alternative to obtain the Economic Complexity Index from \@ref(economic-complexity-index-eci) and Product Complexity Index from \@ref(product-complexity-index-pci) is to start with $\vec{k}_{c}^{(0)} = \vec{1}$ and $\vec{k}_{p}^{(0)} = \vec{1}$. From that initial condition the next steps are to compute:
+Another alternative to obtain the Economic Complexity Index from \@ref(economic-complexity-index-cci) and Product Complexity Index from \@ref(product-complexity-index-pci) is to start with $\vec{k}_{c}^{(0)} = \vec{1}$ and $\vec{k}_{p}^{(0)} = \vec{1}$. From that initial condition the next steps are to compute:
 
 \begin{equation}
 \vec{k}_c^{(n)} = S \hat{\vec{k}}_p^{(n-1)}\\
@@ -185,7 +185,7 @@ In addition, each step of the method involves to divide the result of $\vec{k}_c
 \end{equation}
 
 The resulting vectors are standardized by taking
-$$ECI_c = \frac{v_c - \mu_{v}}{\sigma_{v}},\: PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}$$
+$$CCI_c = \frac{v_c - \mu_{v}}{\sigma_{v}},\: PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}$$
 
 ## Product Proximity
 

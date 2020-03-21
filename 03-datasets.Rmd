@@ -131,138 +131,167 @@ as_tibble(fromJSON(
 
 ### YRPC (Year, Reporter, Partner and Product Code)
 
-The applicable filters here are year, reporter, partner, product code and (optionally) product code length.
+The applicable filters here are year, reporter, partner and product code.
 
-```{r, warning=FALSE, message=FALSE, cache = TRUE}
-# Year - Reporter - Partner - Product Code (filter by year, reporter and partner)
+```{r yrpc, warning=FALSE, message=FALSE, cache = TRUE}
+# Year - Reporter - Partner - Product Code
 
-## file to store the query results
-rda_1962 <- "api_data_1962.rda"
-
-## filter by product code length (parameter `l`)
-if (!file.exists(rda_1962)) {
-  yrpc_1 <- as_tibble(fromJSON(
-    "https://api.tradestatistics.io/yrpc?y=1962&r=usa&p=all"
-  ))
-
-  save(yrpc_1, file = rda_1962, compress = "xz")
-
-  yrpc_1
-} else {
-  load(rda_1962)
-
-  yrpc_1
-}
-
-## filter by product group (parameter `c`)
-yrpc_2 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrpc?y=2018&r=chl&p=arg&c=01"
+yrpc_1 <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yrpc?y=1962&r=usa&p=mex&c=8703"
 ))
 
-yrpc_2
+yrpc_1
 ```
 
-Some columns requiere an explanation:
+Columns definition:
 
-* `product_code`: HS07 product codes (e.g. according to the \code{products} table within this package, 0101 stands for "Horses, etc.")
-* `product_code_length`: How many digits does `product_code` contain, this can be useful to filter by depth when using HS codes (HS 6 digits is a more detailed version of HS 4 digits, and therefore you don't have to sum both or you'll be counting exports/imports twice)
-* `group_code`: International categorization of group products defined after product ID
-* `group_name`: English name corresponding to `group_id`
+* `reporter_iso`: Official ISO-3 code for the reporter (e.g. the country that reports X dollars in exports/imports from/to country Y)
+* `partner_iso`: Official ISO-3 code for the partner
+* `product_code`: Official Harmonized System rev. 2007 (HS07) product code (e.g. according to the \code{products} table in the API, 8703 stands for "Motor cars and other motor vehicles; principally designed for the transport of persons (other than those of heading no. 8702), including station wagons and racing cars")
 * `export_value_usd`: Exports measured in nominal United States Dollars (USD)
 * `import_value_usd`: Imports measured in nominal United States Dollars (USD)
-* `export_value_usd_percentage_change_1_year`: Nominal increase/decrease in exports measured as percentage with respect to last year
-* `export_value_usd_percentage_change_5_years`: Nominal increase/decrease in exports measured as percentage with respect to five years ago
-* `export_value_usd_change_1_year`: Nominal increase/decrease in exports measured in USD with respect to last year
-* `export_value_usd_change_5_years`: Nominal increase/decrease in exports measured in USD with respect to five years ago
+
+### YRPC-GA (Year - Reporter - Partner - Product Code, Group Code Aggregated)
+
+The applicable filters here are year, reporter, partner and group code. Here the group code is just an aggregation over product code.
+
+```{r yrpc-ga, warning=FALSE, message=FALSE, cache = TRUE}
+# Year - Reporter - Partner - Product Code, Group Code Aggregated
+
+yrpc_ga <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yrpc-ga?y=1962&r=usa&p=mex&g=87"
+))
+
+yrpc_ga
+```
+
+Columns definition:
+
+* `group_code`: Official Harmonized System rev. 2007 (HS07) group code (e.g. according to the \code{products} table in the API, 87 stands for "Vehicles; other than railway or tramway rolling stock, and parts and accessories thereof")
+
+### YRPC-CA (Year - Reporter - Partner - Product Code, Community Code Aggregated)
+
+The applicable filters here are year, reporter, partner and community code. Here the community code is just an aggregation over both product code and group code.
+
+```{r yrpc-ca, warning=FALSE, message=FALSE, cache = TRUE}
+# Year - Reporter - Partner - Product Code, Community Code Aggregated
+
+yrpc_ca <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yrpc-ca?y=1962&r=usa&p=mex&o=17"
+))
+
+yrpc_ca
+```
+
+Columns definition:
+
+* `community_code`: Unofficial Harvard CID community code (e.g. according to the \code{communities} table in the API, 17 stands for "Transportation")
+
+### YRPC-GCA (Year - Reporter - Partner - Product Code, Group Code and Community Code Aggregated)
+
+The applicable filters here are year, reporter, partner and community code. Here the community code is just an aggregation over both product code and group code.
+
+```{r yrpc-gca, warning=FALSE, message=FALSE, cache = TRUE}
+# Year - Reporter - Partner - Product Code, Community Code Aggregated
+
+yrpc_gca <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yrpc-gca?y=1962&r=usa&p=mex&o=17"
+))
+
+yrpc_gca
+```
 
 ### YRC (Year, Reporter and Product Code)
 
 The only applicable filter is by year, reporter, product code and (optionally) product code length.
 
-```{r, warning=FALSE, message=FALSE, cache = TRUE}
-# Year - Reporter - Product Code (filter by year and reporter)
+```{r yrc, warning=FALSE, message=FALSE, cache = TRUE}
+# Year - Reporter - Product Code
 
-## filter by reporter ISO (parameter `r`)
-yrc_1 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrc?y=2018&r=chl"
+yrc <- as_tibble(fromJSON(
+  "https://api.tradestatistics.io/yrc?y=1962&r=chl"
 ))
 
-yrc_1
-
-## filter by reporter alias (also parameter `r`)
-yrc_2 <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrc?y=2018&r=c-am"
-))
-
-yrc_2
+yrc
 ```
 
-Here the `export_rca*` and `import_rca*` fields contain the Revealed Comparative Advantage (RCA) of an exported product with respect to all the products with the same number of digits. The definition of RCA is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/).
+Columns definition:
+
+* `export_rca`:  Balassa Index or [Revealed Comparative Advantage](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca) of an exported product. 
+* `import_rca`:  Balassa Index or [Revealed Comparative Advantage](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#revealed-comparative-advantage-rca) of and imported product. 
 
 ### YRP (Year, Reporter and Partner)
 
 The only applicable filter is by year, reporter and partner.
 
-```{r, warning=FALSE, message=FALSE, cache = TRUE}
-# Year - Reporter - Partner (filter by year, reporter and partner)
+```{r yrp, warning=FALSE, message=FALSE, cache = TRUE}
+# Year - Reporter - Partner
 yrp <- as_tibble(fromJSON(
   "https://api.tradestatistics.io/yrp?y=2018&r=chl&p=arg"
 ))
+
+yrp
 ```
 
 ### YC (Year and Product Code)
 
 The only applicable filter is by year, product and (optionally) product code length.
 
-```{r, warning=FALSE, message=FALSE, cache = TRUE}
-# Year - Product Code (filter by year)
+```{r yc, warning=FALSE, message=FALSE, cache = TRUE}
+# Year - Product Code
 yc <- as_tibble(fromJSON(
   "https://api.tradestatistics.io/yc?y=2018&c=0101"
 ))
-```
 
-Let's explore the first rows of `yr`:
-
-```{r}
 yc
 ```
 
-Here some fields deserve an explanation:
+Columns definition:
 
-* `pci_4_digits_product_code`: Product Complexity Index (PCI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits product codes.
-* `pci_6_digits_product_code`: Similar to the previous field but built by using just six digits product codes.
-* `pci_rank_4_digits_product_code`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
-* `pci_rank_4_digits_product_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+* `pci_fitness_method`: Product Complexity Index (PCI) computed by using the [Fitness Method](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#fitness-method).
+* `pci_reflections_method`: Product Complexity Index (PCI) computed by using the [Reflections Method](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#reflections-method).
+* `pci_eigenvalues_method`: Product Complexity Index (PCI) computed by using the [Eigenvalues Method](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#eigenvalues-method).
+* `pci_rank_*_method`: The rank of a product given its PCI (e.g. the highest PCI obtains the #1)
 
-#### YR (Year and Reporter)
+### YR (Year and Reporter)
 
 The only applicable filter is by year and reporter.
 
-```{r, warning=FALSE, message=FALSE, cache = TRUE}
-## Year - Reporter (filter by year and reporter)
+```{r yr, warning=FALSE, message=FALSE, cache = TRUE}
+## Year - Reporter
 yr <- as_tibble(fromJSON(
   "https://api.tradestatistics.io/yr?y=2018&r=chl"
 ))
-```
 
-Let's explore the first rows of `yr`:
-
-```{r}
 yr
 ```
 
-Some fields here require more detail:
+Columns definition:
 
-* `eci_4_digits_product_code`: Economic Complexity Index (ECI) which is detailed on [Open Trade Statistics Documentation](https://tradestatistics.github.io/documentation/). This index is built by using just four digits product codes.
-* `eci_rank_4_digits_product_code`: The rank of a country given its ECI (e.g. the highest ECI obtains the #1)
-* `eci_rank_4_digits_product_code_delta_1_year`: How many places a country increased or decreased with respect to last year
+* `cci_fitness_method`: Country Complexity Index (CCI) computed by using the [Fitness Method](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#fitness-method).
+* `cci_reflections_method`: Country Complexity Index (CCI) computed by using the [Reflections Method](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#reflections-method).
+* `cci_eigenvalues_method`: Country Complexity Index (CCI) computed by using the [Eigenvalues Method](https://docs.tradestatistics.io/the-mathematics-of-economic-complexity.html#eigenvalues-method).
+* `cci_rank_*_method`: The rank of a product given its CCI (e.g. the highest CCI obtains the #1)
+
+### Other group/community aggregated tables
+
+As you might notice in [api.tradestatistics.io/tables](https://api.tradestatistics.io/tables), there are more tables:
+
+* yrc-ga
+* yrc-ca
+* yrc-gca
+* yr-short
+* yr-ga
+* yr-ca
+
+These tables follow the same parameters as the examples above.
 
 ### Country rankings
 
 The only applicable filter is by year.
 
 ```{r, warning=FALSE, message=FALSE, cache = TRUE}
-# Country rankings (filter by year)
+# Country rankings
 country_rankings <- as_tibble(fromJSON(
   "https://api.tradestatistics.io/country_rankings?y=2018"
 ))
@@ -273,7 +302,7 @@ country_rankings <- as_tibble(fromJSON(
 The only applicable filter is by year.
 
 ```{r, warning=FALSE, message=FALSE, cache = TRUE}
-# Product rankings (filter by year)
+# Product rankings
 product_rankings <- as_tibble(fromJSON(
   "https://api.tradestatistics.io/product_rankings?y=2018"
 ))
@@ -282,6 +311,12 @@ product_rankings <- as_tibble(fromJSON(
 ## R Package
 
 To ease API using, we provide an [R Package](https://ropensci.github.io/tradestatistics/). This package is a part of [ROpenSci](https://ropensci.org/) and its documentation is available on a separate [pkgdown site](https://ropensci.github.io/tradestatistics/).
+
+Here's what the package does:
+
+```{r, echo = F, fig.cap="Data pipeline"}
+knitr::include_graphics("fig/data-diagram.svg")
+```
 
 ## Dashboard (beta)
 
