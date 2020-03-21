@@ -573,8 +573,8 @@ To ease API using, we provide an [R Package](https://ropensci.github.io/tradesta
 Here's what the package does:
 
 <div class="figure">
-<img src="fig/data-diagram.svg" alt="Data pipeline"  />
-<p class="caption">(\#fig:unnamed-chunk-10)Data pipeline</p>
+<img src="fig/data-diagram.svg" alt="R package flow"  />
+<p class="caption">(\#fig:unnamed-chunk-10)R package flow</p>
 </div>
 
 ## Dashboard (beta)

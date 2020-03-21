@@ -314,7 +314,7 @@ To ease API using, we provide an [R Package](https://ropensci.github.io/tradesta
 
 Here's what the package does:
 
-```{r, echo = F, fig.cap="Data pipeline"}
+```{r, echo = F, fig.cap="R package flow"}
 knitr::include_graphics("fig/data-diagram.svg")
 ```
 
