@@ -239,7 +239,6 @@ Taking <span class="math inline">\(\hat{X}\)</span> as with entries as in <a hre
 \tag{3.5}
 s_{c,p} = \begin{cases}1 &amp; \text{ if } SRCA_{c,p}^{(t)} &gt; 1\cr 0 &amp; \text{ otherwise}  \end{cases}
 \end{equation}\]</span>
-<!-- $S$ is the matrix summarizing which country makes what, and is used to construct the product space and our measures of economic complexity for countries and products. -->
 <p>In order to compute some of the equations exposed here we had to reduce <span class="math inline">\(S\)</span> by removing cols and rows where each entry is zero. For some years the number of countries <span class="math inline">\(C\)</span> can be less than 128 (the number of countries originally included in <span class="citation">[<a href="#ref-atlas2014">8</a>]</span>) as it was exposed in <a href="data-processing.html#data-processing">2</a>. The number of products <span class="math inline">\(P\)</span>, which can be 1,222 at maximum (under the HS07 trade classification we are using), can also experience a small decrease for a given year.</p>
 </div>
 <div id="diversity-and-ubiquity" class="section level2">
@@ -252,8 +251,8 @@ k_{p}^{(0)} = \sum_c s_{c,p}\]</span></p>
 </div>
 <div id="reflections-method" class="section level2">
 <h2><span class="header-section-number">3.6</span> Reflections Method</h2>
-<p>Economic Complexity is a measure of how much productive knowledge different countries mobilize. This can be computed as a recursion that involves the average ubiquity of the products that a country exports, and the average diversity of the countries that make those products.</p>
-<p>Product Complexity is a measure of how much productive knowledge different products mobilize. Its computation is analogous to Economic Complexity, which leads to the recursion:</p>
+<p>Country Complexity is a measure of how much productive knowledge different countries mobilize. This can be computed as a recursion that involves the average ubiquity of the products that a country exports, and the average diversity of the countries that make those products.</p>
+<p>Product Complexity is a measure of how much productive knowledge different products mobilize. Its computation is analogous to Country Complexity, which leads to the recursion:</p>
 <span class="math display" id="eq:kcn">\[\begin{equation}
 \tag{3.6}
 k_{c}^{(n)} = \frac{1}{k_{c}^{(0)}} \sum_p s_{c,p} k_{p}^{(n-1)}
@@ -289,7 +288,7 @@ and
 </div>
 <div id="country-complexity-index-cci" class="section level2">
 <h2><span class="header-section-number">3.7</span> Country Complexity Index (CCI)</h2>
-<p>From the <a href="the-mathematics-of-economic-complexity.html#reflections-method">3.6</a>, we define the Economic Complexity Index (CCI) exactly as in <span class="citation">[<a href="#ref-atlas2014">8</a>]</span>, this is:</p>
+<p>From the <a href="the-mathematics-of-economic-complexity.html#reflections-method">3.6</a>, we define the Country Complexity Index (CCI) exactly as in <span class="citation">[<a href="#ref-atlas2014">8</a>]</span>, this is:</p>
 <span class="math display" id="eq:cci">\[\begin{equation}
 \tag{3.12}
 CCI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}
@@ -303,7 +302,7 @@ CCI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}
 </div>
 <div id="product-complexity-index-pci" class="section level2">
 <h2><span class="header-section-number">3.8</span> Product Complexity Index (PCI)</h2>
-<p>Similar to the Economic Complexity Index (CCI), we define a Product Complexity Index (PCI) from <a href="the-mathematics-of-economic-complexity.html#reflections-method">3.6</a>. We define PCI as:</p>
+<p>Similar to the Country Complexity Index (CCI), we define a Product Complexity Index (PCI) from <a href="the-mathematics-of-economic-complexity.html#reflections-method">3.6</a>. We define PCI as:</p>
 <span class="math display" id="eq:pci">\[\begin{equation}
 \tag{3.13}
 PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}
@@ -317,13 +316,13 @@ PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}
 </div>
 <div id="eigenvalues-method" class="section level2">
 <h2><span class="header-section-number">3.9</span> Eigenvalues method</h2>
-<p>An alternative to obtain the Economic Complexity Index from <a href="#economic-complexity-index-cci"><strong>??</strong></a> is to take <a href="the-mathematics-of-economic-complexity.html#eq:Scp">(3.5)</a> and compute the eigenvector associated to the second largest eigenvalue of the matrix: <span class="math display">\[(S \oslash D) (S^t \oslash U)\]</span> Where <span class="math inline">\(\oslash\)</span> denotes element-wise division, <span class="math inline">\(d_{c,p} = k_c^{(0)}\)</span> and <span class="math inline">\(u_{p,c} = k_p^{(0)}\)</span>.</p>
+<p>An alternative to obtain the Country Complexity Index from <a href="the-mathematics-of-economic-complexity.html#country-complexity-index-cci">3.7</a> is to take <a href="the-mathematics-of-economic-complexity.html#eq:Scp">(3.5)</a> and compute the eigenvector associated to the second largest eigenvalue of the matrix: <span class="math display">\[(S \oslash D) (S^t \oslash U)\]</span> Where <span class="math inline">\(\oslash\)</span> denotes element-wise division, <span class="math inline">\(d_{c,p} = k_c^{(0)}\)</span> and <span class="math inline">\(u_{p,c} = k_p^{(0)}\)</span>.</p>
 <p>Analogously, the Product Complexity Index from <a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci">3.8</a> corresponds to the associated eigenvector of the second largest eigenvalue of the matrix: <span class="math display">\[(S^t \oslash U) (S \oslash D)\]</span></p>
 <p>The resulting vectors are standardized by taking <span class="math display">\[CCI_c = \frac{v_c - \mu_{v}}{\sigma_{v}}\:, PCI_p = \frac{w_p - \mu_{w}}{\sigma_{w}}\]</span> Where <span class="math inline">\(\mu_x\)</span> denotes the mean of <span class="math inline">\(x\)</span> and <span class="math inline">\(\sigma_x\)</span> denotes de standard deviation of <span class="math inline">\(x\)</span>.</p>
 </div>
 <div id="fitness-method" class="section level2">
 <h2><span class="header-section-number">3.10</span> Fitness method</h2>
-<p>Another alternative to obtain the Economic Complexity Index from <a href="#economic-complexity-index-cci"><strong>??</strong></a> and Product Complexity Index from <a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci">3.8</a> is to start with <span class="math inline">\(\vec{k}_{c}^{(0)} = \vec{1}\)</span> and <span class="math inline">\(\vec{k}_{p}^{(0)} = \vec{1}\)</span>. From that initial condition the next steps are to compute:</p>
+<p>Another alternative to obtain the Country Complexity Index from <a href="the-mathematics-of-economic-complexity.html#country-complexity-index-cci">3.7</a> and Product Complexity Index from <a href="the-mathematics-of-economic-complexity.html#product-complexity-index-pci">3.8</a> is to start with <span class="math inline">\(\vec{k}_{c}^{(0)} = \vec{1}\)</span> and <span class="math inline">\(\vec{k}_{p}^{(0)} = \vec{1}\)</span>. From that initial condition the next steps are to compute:</p>
 <span class="math display">\[\begin{equation}
 \vec{k}_c^{(n)} = S \hat{\vec{k}}_p^{(n-1)}\\
 \vec{k}_p^{(n)} = S^t \vec{\hat{k}}_c^{(n-1)}

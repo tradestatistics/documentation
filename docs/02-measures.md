@@ -54,8 +54,6 @@ Taking $\hat{X}$ as with entries as in \@ref(eq:Xcp2) we create $S \in \mathbb{R
 s_{c,p} = \begin{cases}1 & \text{ if } SRCA_{c,p}^{(t)} > 1\cr 0 & \text{ otherwise}  \end{cases}
 \end{equation}
 
-<!-- $S$ is the matrix summarizing which country makes what, and is used to construct the product space and our measures of economic complexity for countries and products. -->
-
 In order to compute some of the equations exposed here we had to reduce $S$ by removing cols and rows where each entry is zero. For some years the number of countries $C$ can be less than 128 (the number of countries originally included in [@atlas2014]) as it was exposed in \@ref(data-processing). The number of products $P$, which can be 1,222 at maximum (under the HS07 trade classification we are using), can also experience a small decrease for a given year.
 
 ## Diversity and Ubiquity
@@ -74,9 +72,9 @@ k_{p}^{(0)} = \sum_c s_{c,p}$$
 
 ## Reflections Method
 
-Economic Complexity is a measure of how much productive knowledge different countries mobilize. This can be computed as a recursion that involves the average ubiquity of the products that a country exports, and the average diversity of the countries that make those products.
+Country Complexity is a measure of how much productive knowledge different countries mobilize. This can be computed as a recursion that involves the average ubiquity of the products that a country exports, and the average diversity of the countries that make those products.
 
-Product Complexity is a measure of how much productive knowledge different products mobilize. Its computation is analogous to Economic Complexity, which leads to the recursion:
+Product Complexity is a measure of how much productive knowledge different products mobilize. Its computation is analogous to Country Complexity, which leads to the recursion:
 
 \begin{equation}
 (\#eq:kcn)
@@ -121,7 +119,7 @@ For the analysis we used $n=19$ to compute $k_c$ and $n=20$ to compute $k_p$.
 
 ## Country Complexity Index (CCI)
 
-From the \@ref(reflections-method), we define the Economic Complexity Index (CCI) exactly as in [@atlas2014], this is:
+From the \@ref(reflections-method), we define the Country Complexity Index (CCI) exactly as in [@atlas2014], this is:
 
 \begin{equation}
 (\#eq:cci)
@@ -136,7 +134,7 @@ Where
 
 ## Product Complexity Index (PCI)
 
-Similar to the Economic Complexity Index (CCI), we define a Product Complexity Index (PCI) from \@ref(reflections-method). We define PCI as:
+Similar to the Country Complexity Index (CCI), we define a Product Complexity Index (PCI) from \@ref(reflections-method). We define PCI as:
 
 \begin{equation}
 (\#eq:pci)
@@ -151,7 +149,7 @@ Where
 
 ## Eigenvalues method
 
-An alternative to obtain the Economic Complexity Index from \@ref(economic-complexity-index-cci) is to take \@ref(eq:Scp) and compute the eigenvector associated to the second largest eigenvalue of the matrix:
+An alternative to obtain the Country Complexity Index from \@ref(country-complexity-index-cci) is to take \@ref(eq:Scp) and compute the eigenvector associated to the second largest eigenvalue of the matrix:
 $$(S \oslash D) (S^t \oslash U)$$
 Where $\oslash$ denotes element-wise division, $d_{c,p} = k_c^{(0)}$ and $u_{p,c} = k_p^{(0)}$.
 
@@ -164,7 +162,7 @@ Where $\mu_x$ denotes the mean of $x$ and $\sigma_x$ denotes de standard deviati
 
 ## Fitness method
 
-Another alternative to obtain the Economic Complexity Index from \@ref(economic-complexity-index-cci) and Product Complexity Index from \@ref(product-complexity-index-pci) is to start with $\vec{k}_{c}^{(0)} = \vec{1}$ and $\vec{k}_{p}^{(0)} = \vec{1}$. From that initial condition the next steps are to compute:
+Another alternative to obtain the Country Complexity Index from \@ref(country-complexity-index-cci) and Product Complexity Index from \@ref(product-complexity-index-pci) is to start with $\vec{k}_{c}^{(0)} = \vec{1}$ and $\vec{k}_{p}^{(0)} = \vec{1}$. From that initial condition the next steps are to compute:
 
 \begin{equation}
 \vec{k}_c^{(n)} = S \hat{\vec{k}}_p^{(n-1)}\\
