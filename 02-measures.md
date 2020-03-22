@@ -8,9 +8,7 @@ Our changes here consisted in expressing most of the original equations in terms
 
 The curated data includes all the countries available from UN Comtrade data. However, RCA based calculations such as CCI, PCI and Proximity consider 128 countries studied in [@atlas2014] according to a selection process that includes both quality and quantity of data.
 
-```{r, eval = F, echo = F, fig.cap="Schematic of the procedure used to determine the countries that were included in the Atlas"}
-knitr::include_graphics("fig/countries.svg")
-```
+
 
 The full list of included countries is available [here](https://github.com/tradestatistics/atlas-data/blob/master/2-scraped-tables/ranking-1-economic-complexity-index.csv).
 
@@ -201,9 +199,7 @@ $$
 \phi_{p,p'} = \frac{\sum_c s_{c,p} s_{c,p'}}{\max(k_{p}^{(0)}, k_{p'}^{(0)})}
 $$
 
-```{r, eval = F, echo = F, fig.cap="An illustrative example for the product proximity measure"}
-knitr::include_graphics("fig/proximity.svg")
-```
+
 
 ## Country Proximity
 
