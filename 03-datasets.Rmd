@@ -151,56 +151,6 @@ Columns definition:
 * `export_value_usd`: Exports measured in nominal United States Dollars (USD)
 * `import_value_usd`: Imports measured in nominal United States Dollars (USD)
 
-### YRPC-GA (Year - Reporter - Partner - Product Code, Group Code Aggregated)
-
-The applicable filters here are year, reporter, partner and group code. Here the group code is just an aggregation over product code.
-
-```{r yrpc-ga, warning=FALSE, message=FALSE, cache = TRUE}
-# Year - Reporter - Partner - Product Code, Group Code Aggregated
-
-yrpc_ga <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrpc-ga?y=1962&r=usa&p=mex&g=87"
-))
-
-yrpc_ga
-```
-
-Columns definition:
-
-* `group_code`: Official Harmonized System rev. 2007 (HS07) group code (e.g. according to the \code{products} table in the API, 87 stands for "Vehicles; other than railway or tramway rolling stock, and parts and accessories thereof")
-
-### YRPC-CA (Year - Reporter - Partner - Product Code, Community Code Aggregated)
-
-The applicable filters here are year, reporter, partner and community code. Here the community code is just an aggregation over both product code and group code.
-
-```{r yrpc-ca, warning=FALSE, message=FALSE, cache = TRUE}
-# Year - Reporter - Partner - Product Code, Community Code Aggregated
-
-yrpc_ca <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrpc-ca?y=1962&r=usa&p=mex&o=17"
-))
-
-yrpc_ca
-```
-
-Columns definition:
-
-* `community_code`: Unofficial Harvard CID community code (e.g. according to the \code{communities} table in the API, 17 stands for "Transportation")
-
-### YRPC-GCA (Year - Reporter - Partner - Product Code, Group Code and Community Code Aggregated)
-
-The applicable filters here are year, reporter, partner and community code. Here the community code is just an aggregation over both product code and group code.
-
-```{r yrpc-gca, warning=FALSE, message=FALSE, cache = TRUE}
-# Year - Reporter - Partner - Product Code, Community Code Aggregated
-
-yrpc_gca <- as_tibble(fromJSON(
-  "https://api.tradestatistics.io/yrpc-gca?y=1962&r=usa&p=mex&o=17"
-))
-
-yrpc_gca
-```
-
 ### YRC (Year, Reporter and Product Code)
 
 The only applicable filter is by year, reporter, product code and (optionally) product code length.
